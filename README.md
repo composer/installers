@@ -1,5 +1,7 @@
 # Baton: A Multi-Framework [Composer](http://getcomposer.org) Library Installer
 
+[![Build Status](https://secure.travis-ci.org/shama/baton.png)](http://travis-ci.org/shama/baton)
+
 This is for PHP package authors to require in their `composer.json`. It will
 magically install their package to the correct location based on the specified
 package type.
