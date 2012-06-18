@@ -21,6 +21,7 @@ class Installer extends LibraryInstaller
         'laravel'     => 'LaravelInstaller',
         'lithium'     => 'LithiumInstaller',
         'wordpress'   => 'WordPressInstaller',
+        'symfony1'    => 'Symfony1Installer',
     );
 
     /**
