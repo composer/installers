@@ -15,9 +15,12 @@ class Installer extends LibraryInstaller
     private $supportedTypes = array(
         'cakephp'     => 'CakePHPInstaller',
         'codeigniter' => 'CodeIgniterInstaller',
+        'drupal'      => 'DrupalInstaller',
         'fuelphp'     => 'FuelPHPInstaller',
+        'joomla'      => 'JoomlaInstaller',
         'laravel'     => 'LaravelInstaller',
         'lithium'     => 'LithiumInstaller',
+        'wordpress'   => 'WordPressInstaller',
     );
 
     /**

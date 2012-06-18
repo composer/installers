@@ -10,9 +10,12 @@ package type.
 
 * CakePHP 2+   `cakephp-`
 * CodeIgniter  `codeigniter-`
+* Drupal       `drupal-`
 * FuelPHP      `fuelphp-`
+* Joomla       `joomla-`
 * Laravel      `laravel-`
 * Lithium      `lithium-`
+* WordPress    `wordpress-`
 
 Symfony and ZendFramework don't need this as they already work naturally with
 Composer.
@@ -65,9 +68,14 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * codeigniter-third-party
     * codeigniter-model
     * codeigniter-helper
+* Drupal
+    * **drupal-module**
+    * drupal-theme
 * FuelPHP
     * fuelphp-app
     * **fuelphp-module**
+* Joomla
+    * joomla-
 * Laravel
     * laravel-app
     * **laravel-library**
@@ -77,6 +85,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * lithium-controller
     * lithium-extension
     * lithium-model
+* WordPress
+    * **wordpress-plugin**
+    * wordpress-theme
 
 ## Contribute!
 

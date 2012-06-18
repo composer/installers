@@ -58,12 +58,12 @@ class InstallerTest extends TestCase
     public function testSupports()
     {
         $types = array(
-            'cakephp', 'codeigniter', 'fuelphp',
-            'laravel', 'lithium',
+            'cakephp', 'codeigniter', 'drupal', 'fuelphp',
+            'joomla', 'laravel', 'lithium', 'wordpress',
         );
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
         foreach ($types as $type) {
-            $this->assertTrue($Installer->supports($type));
+            $this->assertTrue($Installer->supports($type), sprintf('Failed to show support for %s', $type));
         }
     }
 
@@ -85,7 +85,7 @@ class InstallerTest extends TestCase
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('/Vendor/Ftp/', $result);
     }
-    
+
     /**
      * testGetCodeIgniterInstallPath
      *
@@ -100,7 +100,22 @@ class InstallerTest extends TestCase
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('/libraries/my_package/', $result);
     }
-    
+
+    /**
+     * testGetDrupalInstallPath
+     *
+     * @return void
+     */
+    public function testGetDrupalInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/my_module', '1.0.0', '1.0.0');
+
+        $Package->setType('drupal-module');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('/modules/my_module/', $result);
+    }
+
     /**
      * testGetFuelPHPInstallPath
      *
@@ -115,7 +130,22 @@ class InstallerTest extends TestCase
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('/modules/my_package/', $result);
     }
-    
+
+    /**
+     * testGetJoomlaInstallPath
+     *
+     * @return void
+     */
+    public function testGetJoomlaInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/my_plugin', '1.0.0', '1.0.0');
+
+        $Package->setType('joomla-plugin');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('/plugins/my_plugin/', $result);
+    }
+
     /**
      * testGetLaravelInstallPath
      *
@@ -144,6 +174,21 @@ class InstallerTest extends TestCase
         $Package->setType('lithium-libraries');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('/libraries/li3test/', $result);
+    }
+
+    /**
+     * testGetWordPressInstallPath
+     *
+     * @return void
+     */
+    public function testGetWordPressInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/my_plugin', '1.0.0', '1.0.0');
+
+        $Package->setType('wordpress-plugin');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('/wp-content/plugins/my_plugin/', $result);
     }
 
 }
