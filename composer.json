@@ -1,0 +1,24 @@
+{
+    "name": "shama/baton",
+    "type": "composer-installer",
+    "license": "MIT",
+    "description": "A multi-framework composer library installer",
+    "keywords": ["installer", "cakephp", "laravel", "li3", "lithium", "fuelphp", "codeigniter"],
+    "authors": [
+        {
+            "name": "Kyle Robinson Young",
+            "email": "kyle@dontkry.com",
+            "homepage": "https://github.com/shama"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Baton": "src/" }
+    },
+    "extra": {
+        "class": "src\\Baton\\Installer"
+    },
+    "require": {
+        "php": ">=5.3",
+        "composer/composer": ">=1.0.0"
+    }
+}
