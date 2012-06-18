@@ -59,7 +59,7 @@ class InstallerTest extends TestCase
     {
         $types = array(
             'cakephp', 'codeigniter', 'drupal', 'fuelphp',
-            'joomla', 'laravel', 'lithium', 'wordpress',
+            'joomla', 'laravel', 'lithium', 'phpbb', 'wordpress',
         );
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
         foreach ($types as $type) {
@@ -174,6 +174,21 @@ class InstallerTest extends TestCase
         $Package->setType('lithium-libraries');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('libraries/li3test/', $result);
+    }
+
+    /**
+     * testGetPhpBBInstallPath
+     *
+     * @return void
+     */
+    public function testGetPhpBBInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('test/foo', '1.0.0', '1.0.0');
+
+        $Package->setType('phpbb-extension');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('ext/test/foo/', $result);
     }
 
     /**

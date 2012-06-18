@@ -33,7 +33,7 @@ abstract class BaseInstaller
         $packageLocation = strtolower(substr($type, strpos($type, '-') + 1));
 
         $name = $package->getPrettyName();       
-        list($packageVendor, $name) = explode('/', $name);
+        list($vendor, $name) = explode('/', $name);
         $name = $this->inflectPackageName($name);
 
         $base = false;
