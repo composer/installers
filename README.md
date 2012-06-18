@@ -75,7 +75,11 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * fuelphp-app
     * **fuelphp-module**
 * Joomla
-    * joomla-
+    * joomla-component
+    * joomla-module
+    * joomla-template
+    * **joomla-plugin**
+    * joomla-library
 * Laravel
     * laravel-app
     * **laravel-library**
