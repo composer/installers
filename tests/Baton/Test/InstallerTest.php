@@ -75,7 +75,7 @@ class InstallerTest extends TestCase
     public function testGetCakePHPInstallPath()
     {
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/Ftp', '1.0.0', '1.0.0');
+        $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
 
         $Package->setType('cakephp-plugin');
         $result = $Installer->getInstallPath($Package);
@@ -84,6 +84,21 @@ class InstallerTest extends TestCase
         $Package->setType('cakephp-whoops');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('/Vendor/Ftp/', $result);
+    }
+    
+    /**
+     * testGetCodeIgniterInstallPath
+     *
+     * @return void
+     */
+    public function testGetCodeIgniterInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/my_package', '1.0.0', '1.0.0');
+
+        $Package->setType('codeigniter-library');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('/libraries/my_package/', $result);
     }
 
     /**

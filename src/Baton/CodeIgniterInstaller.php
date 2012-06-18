@@ -8,9 +8,9 @@ class CodeIgniterInstaller extends BaseInstaller
 
     protected $locations = array(
         'app'           => '/',
-        'library'       => '/libraries/',
+        'library'       => '/libraries/{name}/',
         'controller'    => '/controllers/',
-        'third-party'   => '/third-party/',
+        'third-party'   => '/third-party/{name}/',
         'model'         => '/models/',
         'helper'        => '/helpers/',
     );
