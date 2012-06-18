@@ -15,7 +15,7 @@
         "psr-0": { "Baton": "src/" }
     },
     "extra": {
-        "class": "src\\Baton\\Installer"
+        "class": "Baton\\Installer"
     },
     "require": {
         "php": ">=5.3",
