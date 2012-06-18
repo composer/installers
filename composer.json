@@ -3,7 +3,12 @@
     "type": "composer-installer",
     "license": "MIT",
     "description": "A multi-framework composer library installer",
-    "keywords": ["installer", "cakephp", "laravel", "li3", "lithium", "fuelphp", "codeigniter"],
+    "keywords": [
+        "installer", "cakephp", "laravel",
+        "li3", "lithium", "fuelphp",
+        "codeigniter", "symfony", "phpbb",
+        "joomla", "wordpress", "drupal"
+    ],
     "authors": [
         {
             "name": "Kyle Robinson Young",
