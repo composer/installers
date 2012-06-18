@@ -59,7 +59,8 @@ class InstallerTest extends TestCase
     {
         $types = array(
             'cakephp', 'codeigniter', 'drupal', 'fuelphp',
-            'joomla', 'laravel', 'lithium', 'phpbb', 'wordpress',
+            'joomla', 'laravel', 'lithium', 'phpbb',
+            'symfony1', 'wordpress',
         );
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
         foreach ($types as $type) {
