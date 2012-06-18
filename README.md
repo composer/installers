@@ -22,20 +22,15 @@ Composer.
 
 ## Example `composer.json` File
 
-This is an example for a CakePHP plugin. The only important parts are
-`"type": "cakephp-plugin"` which tells Baton what your package is and
-`"require": { "shama/baton": "*" }` which tells composer to use the Baton
-installer.
+This is an example for a CakePHP plugin. The only important parts to set in your
+composer.json file are `"type": "cakephp-plugin"` which tells Baton what your
+package is and `"require": { "shama/baton": "*" }` which tells composer to use
+the Baton installer.
 
 ``` json
 {
 	"name": "shama/ftp",
 	"type": "cakephp-plugin",
-	"description": "Just an example",
-	"keywords": ["cakephp", "ftp"],
-	"homepage": "https://github.com/shama/cakeftp",
-	"license": "MIT",
-
 	"require": {
 		"php": ">=5.3",
 		"shama/baton": "*"
