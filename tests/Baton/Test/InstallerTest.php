@@ -100,6 +100,21 @@ class InstallerTest extends TestCase
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('/libraries/my_package/', $result);
     }
+    
+    /**
+     * testGetFuelPHPInstallPath
+     *
+     * @return void
+     */
+    public function testGetFuelPHPInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/my_package', '1.0.0', '1.0.0');
+
+        $Package->setType('fuelphp-module');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('/modules/my_package/', $result);
+    }
 
     /**
      * testGetLithiumInstallPath

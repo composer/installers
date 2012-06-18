@@ -8,7 +8,7 @@ class FuelPHPInstaller extends BaseInstaller
 
     protected $locations = array(
         'app'           => '/',
-        'module'        => '/modules/',
+        'module'        => '/modules/{name}/',
     );
     protected $default = 'module';
 
