@@ -16,8 +16,8 @@ package type.
 * Laravel      `laravel-`
 * Lithium      `lithium-`
 * phpBB        `phpbb-`
+* Symfony1     `symfony1-`
 * WordPress    `wordpress-`
-* symfony1     `symfony1-`
 
 Symfony and ZendFramework don't need this as they already work naturally with
 Composer.
@@ -88,11 +88,11 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * lithium-model
 * phpBB
     * **phpbb-extension**
+* Symfony1
+    * **symfony1-plugin**
 * WordPress
     * **wordpress-plugin**
     * wordpress-theme
-* symfony1
-    * **symfony1-plugin**
 
 ## Contribute!
 

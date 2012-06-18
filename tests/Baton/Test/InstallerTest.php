@@ -192,6 +192,21 @@ class InstallerTest extends TestCase
     }
 
     /**
+     * testGetSymfony1InstallPath
+     *
+     * @return void
+     */
+    public function testGetSymfony1InstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/sfShamaPlugin', '1.0.0', '1.0.0');
+
+        $Package->setType('symfony1-plugin');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('plugins/sfShamaPlugin/', $result);
+    }
+
+    /**
      * testGetWordPressInstallPath
      *
      * @return void
@@ -206,18 +221,4 @@ class InstallerTest extends TestCase
         $this->assertEquals('wp-content/plugins/my_plugin/', $result);
     }
 
-    /**
-     * testGetSymfony1InstallPath
-     *
-     * @return void
-     */
-    public function testGetSymfony1InstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/sfShamaPlugin', '1.0.0', '1.0.0');
-
-        $Package->setType('symfony1-plugin');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('plugins/sfShamaPlugin/', $result);
-    }
 }
