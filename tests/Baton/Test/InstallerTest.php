@@ -79,11 +79,11 @@ class InstallerTest extends TestCase
 
         $Package->setType('cakephp-plugin');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/Plugin/Ftp/', $result);
+        $this->assertEquals('Plugin/Ftp/', $result);
 
         $Package->setType('cakephp-whoops');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/Vendor/Ftp/', $result);
+        $this->assertEquals('Vendor/Ftp/', $result);
     }
 
     /**
@@ -98,7 +98,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('codeigniter-library');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/libraries/my_package/', $result);
+        $this->assertEquals('libraries/my_package/', $result);
     }
 
     /**
@@ -113,7 +113,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('drupal-module');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/modules/my_module/', $result);
+        $this->assertEquals('modules/my_module/', $result);
     }
 
     /**
@@ -128,7 +128,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('fuelphp-module');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/modules/my_package/', $result);
+        $this->assertEquals('modules/my_package/', $result);
     }
 
     /**
@@ -143,7 +143,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('joomla-plugin');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/plugins/my_plugin/', $result);
+        $this->assertEquals('plugins/my_plugin/', $result);
     }
 
     /**
@@ -158,7 +158,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('laravel-library');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/libraries/my_package/', $result);
+        $this->assertEquals('libraries/my_package/', $result);
     }
 
     /**
@@ -173,7 +173,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('lithium-libraries');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/libraries/li3test/', $result);
+        $this->assertEquals('libraries/li3test/', $result);
     }
 
     /**
@@ -188,7 +188,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('wordpress-plugin');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('/wp-content/plugins/my_plugin/', $result);
+        $this->assertEquals('wp-content/plugins/my_plugin/', $result);
     }
 
 }

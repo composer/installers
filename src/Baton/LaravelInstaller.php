@@ -7,8 +7,8 @@ class LaravelInstaller extends BaseInstaller
 {
 
     protected $locations = array(
-        'app'           => '/',
-        'library'       => '/libraries/{name}/',
+        'app'           => '',
+        'library'       => 'libraries/{name}/',
     );
     protected $default = 'library';
 
