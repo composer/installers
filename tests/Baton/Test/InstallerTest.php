@@ -115,6 +115,21 @@ class InstallerTest extends TestCase
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('/modules/my_package/', $result);
     }
+    
+    /**
+     * testGetLaravelInstallPath
+     *
+     * @return void
+     */
+    public function testGetLaravelInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/my_package', '1.0.0', '1.0.0');
+
+        $Package->setType('laravel-library');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('/libraries/my_package/', $result);
+    }
 
     /**
      * testGetLithiumInstallPath
