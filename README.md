@@ -97,3 +97,6 @@ So submit your packages to [packagist.org](http://packagist.org)!
 ## Contribute!
 
 Please fork and send a pull request against the `master` branch. Thanks!
+
+Baton uses [PHPUnit](http://phpunit.de). Please use `phpunit -c tests` to run
+the test suite.
