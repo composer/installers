@@ -18,9 +18,7 @@ package type.
 * phpBB        `phpbb-`
 * Symfony1     `symfony1-`
 * WordPress    `wordpress-`
-
-Symfony and ZendFramework don't need this as they already work naturally with
-Composer.
+* Zend         `zend-`
 
 ## Example `composer.json` File
 
@@ -93,6 +91,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * WordPress
     * **wordpress-plugin**
     * wordpress-theme
+* Zend
+    * zend-library
+    * zend-extra
 
 ## Contribute!
 

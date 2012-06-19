@@ -23,6 +23,7 @@ class Installer extends LibraryInstaller
         'phpbb'       => 'PhpBBInstaller',
         'symfony1'    => 'Symfony1Installer',
         'wordpress'   => 'WordPressInstaller',
+        'zend'        => 'ZendInstaller',
     );
 
     /**

@@ -222,4 +222,19 @@ class InstallerTest extends TestCase
         $this->assertEquals('wp-content/plugins/my_plugin/', $result);
     }
 
+    /**
+     * testGetZendInstallPath
+     *
+     * @return void
+     */
+    public function testGetZendInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/zend_test', '1.0.0', '1.0.0');
+
+        $Package->setType('zend-extra');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('extras/library/', $result);
+    }
+
 }
