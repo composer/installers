@@ -97,19 +97,22 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 ## Roll Your Own Path
 
-Composer makes it real easy to customize the install path of your package with
-[target-dir](http://getcomposer.org/doc/04-schema.md#target-dir). This works
-with Baton as well:
+You can customize where your package will be installed by setting `baton.path`
+in your `composer.json` extras:
 
 ``` json
 {
 	"name": "shama/ftp",
 	"type": "cakephp-plugin",
-    "target-dir": "Custom/Path/{vendor}/{name}/",
 	"require": {
 		"php": ">=5.3",
 		"shama/baton": "*"
-	}
+	},
+    "extras": {
+        "baton": {
+            "path": "Custom/Path/{vendor}/{name}/",
+        }
+    }
 }
 ```
 

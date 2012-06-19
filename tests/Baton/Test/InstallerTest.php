@@ -60,7 +60,7 @@ class InstallerTest extends TestCase
         $types = array(
             'cakephp', 'codeigniter', 'drupal', 'fuelphp',
             'joomla', 'laravel', 'lithium', 'phpbb',
-            'symfony1', 'wordpress',
+            'symfony1', 'wordpress', 'zend',
         );
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
         foreach ($types as $type) {
@@ -78,12 +78,20 @@ class InstallerTest extends TestCase
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
         $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
         $Package->setType('cakephp-plugin');
-        $Package->setTargetDir('a/custom/Path/{name}/');
+        $Package->setExtra(array(
+            'baton' => array(
+                'path' => 'a/custom/Path/{name}/',
+            ),
+        ));
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('a/custom/Path/Ftp/', $result);
 
         $Package->setType('zend-extra');
-        $Package->setTargetDir('a/customZend/Path/{vendor}/{name}/');
+        $Package->setExtra(array(
+            'baton' => array(
+                'path' => 'a/customZend/Path/{vendor}/{name}/',
+            ),
+        ));
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('a/customZend/Path/shama/ftp/', $result);
     }

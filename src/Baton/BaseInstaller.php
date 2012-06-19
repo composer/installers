@@ -36,9 +36,9 @@ abstract class BaseInstaller
         list($vendor, $name) = explode('/', $name);
         $name = $this->inflectPackageName($name, $package);
 
-        $targetDir = $package->getTargetDir();
-        if (!empty($targetDir)) {
-            return $this->templatePath($targetDir, compact('name', 'vendor', 'type'));
+        $extras = $package->getExtra();
+        if (!empty($extras['baton']['path'])) {
+            return $this->templatePath($extras['baton']['path'], compact('name', 'vendor', 'type'));
         }
 
         $base = false;
