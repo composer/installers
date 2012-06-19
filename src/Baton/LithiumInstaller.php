@@ -18,7 +18,7 @@ class LithiumInstaller extends BaseInstaller
     /**
      * Format package name to lowercase
      */
-    public function inflectPackageName($name)
+    public function inflectPackageName($name, $package)
     {
         return strtolower(str_replace(array('-', '_'), '', $name));
     }

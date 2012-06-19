@@ -95,6 +95,27 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * zend-library
     * zend-extra
 
+## Roll Your Own Path
+
+Composer makes it real easy to customize the install path of your package with
+[target-dir](http://getcomposer.org/doc/04-schema.md#target-dir). This works
+with Baton as well:
+
+``` json
+{
+	"name": "shama/ftp",
+	"type": "cakephp-plugin",
+    "target-dir": "Custom/Path/{vendor}/{name}/",
+	"require": {
+		"php": ">=5.3",
+		"shama/baton": "*"
+	}
+}
+```
+
+This would install this package to `Custom/Path/shama/ftp/`. The available
+var `{options}` in Baton are: `vendor`, `name` and `type`.
+
 ## Contribute!
 
 Please fork and send a pull request against the `master` branch. Thanks!

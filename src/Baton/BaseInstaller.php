@@ -12,7 +12,7 @@ abstract class BaseInstaller
      * @var array
      */
     protected $locations = array(
-        'app' => '/',
+        'app' => '',
     );
 
     /**
@@ -34,7 +34,12 @@ abstract class BaseInstaller
 
         $name = $package->getPrettyName();       
         list($vendor, $name) = explode('/', $name);
-        $name = $this->inflectPackageName($name);
+        $name = $this->inflectPackageName($name, $package);
+
+        $targetDir = $package->getTargetDir();
+        if (!empty($targetDir)) {
+            return $this->templatePath($targetDir, compact('name', 'vendor', 'type'));
+        }
 
         $base = false;
         if (isset($this->locations[$packageLocation])) {
@@ -51,27 +56,40 @@ abstract class BaseInstaller
             );
         }
 
-        if (strpos($base, '{') !== false) {
-            preg_match_all('@\{([A-Za-z0-9_]*)\}@i', $base, $matches);
-            if (!empty($matches[1])) {
-                foreach ($matches[1] as $var) {
-                    $base = str_replace('{' . $var . '}', $$var, $base);
-                }
-            }
-        }
-
-        return $base;
+        return $this->templatePath($base, compact('name', 'vendor', 'type'));
     }
 
     /**
-     * Modify how the package name is translated.
+     * For an installer to override. Modify how the package name is translated.
      *
      * @param string $name
+     * @param BasePackage $package
      * @return string
      */
-    public function inflectPackageName($name)
+    public function inflectPackageName($name, $package)
     {
         return $name;
+    }
+
+    /**
+     * Replace vars in a path
+     *
+     * @param string $path
+     * @param array $vars
+     * @return string
+     */
+    protected function templatePath($path, $vars = array())
+    {
+        if (strpos($path, '{') !== false) {
+            extract($vars);
+            preg_match_all('@\{([A-Za-z0-9_]*)\}@i', $path, $matches);
+            if (!empty($matches[1])) {
+                foreach ($matches[1] as $var) {
+                    $path = str_replace('{' . $var . '}', $$var, $path);
+                }
+            }
+        }
+        return $path;
     }
 
 }

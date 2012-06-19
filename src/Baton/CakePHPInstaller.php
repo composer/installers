@@ -23,7 +23,7 @@ class CakePHPInstaller extends BaseInstaller
     /**
      * Format package name to CamelCase
      */
-    public function inflectPackageName($name)
+    public function inflectPackageName($name, $package)
     {
         $name = strtolower(str_replace(array('-', '_'), ' ', $name));
         return str_replace(' ', '', ucwords($name));
