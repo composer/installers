@@ -12,6 +12,5 @@ class Symfony1Installer extends BaseInstaller
     protected $locations = array(
         'plugin'    => 'plugins/{name}/',
     );
-    protected $default = 'plugin';
 
 }

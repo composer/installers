@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class CodeIgniterInstaller extends BaseInstaller
 {
 
@@ -14,6 +12,5 @@ class CodeIgniterInstaller extends BaseInstaller
         'model'         => 'models/',
         'helper'        => 'helpers/',
     );
-    protected $default = 'library';
 
 }

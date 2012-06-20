@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class LithiumInstaller extends BaseInstaller
 {
 
@@ -13,7 +11,6 @@ class LithiumInstaller extends BaseInstaller
         'extension'     => 'extensions/{name}/',
         'model'         => 'models/',
     );
-    protected $default = 'library';
 
     /**
      * Format package name to lowercase

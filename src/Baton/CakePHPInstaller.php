@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class CakePHPInstaller extends BaseInstaller
 {
 
@@ -18,7 +16,6 @@ class CakePHPInstaller extends BaseInstaller
         'helper'        => 'View/Helper/',
         'theme'         => 'View/Themed/{name}/',
     );
-    protected $default    = 'vendor';
 
     /**
      * Format package name to CamelCase

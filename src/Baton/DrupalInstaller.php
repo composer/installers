@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class DrupalInstaller extends BaseInstaller
 {
 
@@ -10,6 +8,5 @@ class DrupalInstaller extends BaseInstaller
         'module'    => 'sites/all/modules/{name}/',
         'theme'     => 'sites/all/themes/{name}/',
     );
-    protected $default = 'module';
 
 }

@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class FuelPHPInstaller extends BaseInstaller
 {
 
@@ -10,6 +8,5 @@ class FuelPHPInstaller extends BaseInstaller
         'app'           => '',
         'module'        => 'modules/{name}/',
     );
-    protected $default = 'module';
 
 }

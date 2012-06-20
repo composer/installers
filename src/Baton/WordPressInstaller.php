@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class WordPressInstaller extends BaseInstaller
 {
 
@@ -10,6 +8,5 @@ class WordPressInstaller extends BaseInstaller
         'plugin'    => 'wp-content/plugins/{name}/',
         'theme'     => 'wp-content/themes/{name}/',
     );
-    protected $default = 'plugin';
 
 }

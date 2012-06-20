@@ -50,11 +50,10 @@ class Installer extends LibraryInstaller
      */
     public function supports($packageType)
     {
-        foreach ($this->supportedTypes as $type => $sub) {
-            if (substr($packageType, 0, strlen($type)) === $type) {
-                return true;
-            }
+        if (preg_match('#(\w+)-(\w+)#', $packageType, $matches)) {
+            return isset($this->supportedTypes[$matches[1]]);
         }
+
         return false;
     }
 
