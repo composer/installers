@@ -15,6 +15,7 @@ package type.
 * Joomla       `joomla-`
 * Laravel      `laravel-`
 * Lithium      `lithium-`
+* Magento      `magento-`
 * phpBB        `phpbb-`
 * Symfony1     `symfony1-`
 * WordPress    `wordpress-`
@@ -84,6 +85,10 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * lithium-controller
     * lithium-extension
     * lithium-model
+* Magento
+    * magento-library
+    * magento-skin
+    * magento-theme
 * phpBB
     * phpbb-extension
 * Symfony1

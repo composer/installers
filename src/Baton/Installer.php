@@ -20,6 +20,7 @@ class Installer extends LibraryInstaller
         'joomla'      => 'JoomlaInstaller',
         'laravel'     => 'LaravelInstaller',
         'lithium'     => 'LithiumInstaller',
+        'magento'     => 'MagentoInstaller',
         'phpbb'       => 'PhpBBInstaller',
         'symfony1'    => 'Symfony1Installer',
         'wordpress'   => 'WordPressInstaller',

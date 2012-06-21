@@ -75,6 +75,7 @@ class InstallerTest extends TestCase
             array('joomla-library', true),
             array('laravel-library', true),
             array('lithium-library', true),
+            array('magento-library', true),
             array('phpbb-extension', true),
             array('symfony1-plugin', true),
             array('wordpress-plugin', true),
@@ -229,6 +230,21 @@ class InstallerTest extends TestCase
         $Package->setType('lithium-library');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('libraries/li3test/', $result);
+    }
+
+    /**
+     * testGetMagentoInstallPath
+     *
+     * @return void
+     */
+    public function testGetMagentoInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('test/foo', '1.0.0', '1.0.0');
+
+        $Package->setType('magento-library');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('lib/foo/', $result);
     }
 
     /**
