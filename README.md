@@ -31,10 +31,9 @@ the Baton installer.
 
 ``` json
 {
-	"name": "shama/ftp",
+	"name": "you/ftp",
 	"type": "cakephp-plugin",
 	"require": {
-		"php": ">=5.3",
 		"shama/baton": "*"
 	}
 }
