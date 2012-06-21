@@ -17,6 +17,7 @@ package type.
 * Lithium      `lithium-`
 * Magento      `magento-`
 * phpBB        `phpbb-`
+* PPI          `ppi-`
 * Symfony1     `symfony1-`
 * WordPress    `wordpress-`
 * Zend         `zend-`
@@ -91,6 +92,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * magento-theme
 * phpBB
     * phpbb-extension
+* PPI
+    * ppi-module
 * Symfony1
     * symfony1-plugin
 * WordPress

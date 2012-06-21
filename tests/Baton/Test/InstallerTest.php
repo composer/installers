@@ -77,6 +77,7 @@ class InstallerTest extends TestCase
             array('lithium-library', true),
             array('magento-library', true),
             array('phpbb-extension', true),
+            array('ppi-module', true),
             array('symfony1-plugin', true),
             array('wordpress-plugin', true),
             array('zend-library', true),
@@ -260,6 +261,21 @@ class InstallerTest extends TestCase
         $Package->setType('phpbb-extension');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('ext/test/foo/', $result);
+    }
+
+    /**
+     * testGetPPIInstallPath
+     *
+     * @return void
+     */
+    public function testGetPPIInstallPath()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('test/foo', '1.0.0', '1.0.0');
+
+        $Package->setType('ppi-module');
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('modules/foo/', $result);
     }
 
     /**

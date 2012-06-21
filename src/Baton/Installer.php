@@ -22,6 +22,7 @@ class Installer extends LibraryInstaller
         'lithium'     => 'LithiumInstaller',
         'magento'     => 'MagentoInstaller',
         'phpbb'       => 'PhpBBInstaller',
+        'ppi'         => 'PPIInstaller',
         'symfony1'    => 'Symfony1Installer',
         'wordpress'   => 'WordPressInstaller',
         'zend'        => 'ZendInstaller',
