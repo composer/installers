@@ -22,8 +22,7 @@
     "extra": {
         "class": "Baton\\Installer"
     },
-    "require": {
-        "php": ">=5.3",
+    "require-dev": {
         "composer/composer": ">=1.0.0"
     }
 }
