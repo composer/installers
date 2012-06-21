@@ -118,7 +118,7 @@ in your `composer.json` extras:
 	},
     "extras": {
         "baton": {
-            "path": "Custom/Path/{vendor}/{name}/",
+            "path": "Custom/Path/{vendor}/{name}/"
         }
     }
 }
