@@ -43,13 +43,13 @@ when a user runs `php composer.phar install`.
 
 So submit your packages to [packagist.org](http://packagist.org)!
 
-## Current Supported Types (Default Types in Bold)
+## Current Supported Types
 
 * CakePHP
     * cakephp-app
     * cakephp-plugin
     * cakephp-lib
-    * **cakephp-vendor**
+    * cakephp-vendor
     * cakephp-model
     * cakephp-behavior
     * cakephp-controller
@@ -58,38 +58,38 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * cakephp-theme
 * CodeIgniter
     * codeigniter-app
-    * **codeigniter-library**
+    * codeigniter-library
     * codeigniter-controller
     * codeigniter-third-party
     * codeigniter-model
     * codeigniter-helper
 * Drupal
-    * **drupal-module**
+    * drupal-module
     * drupal-theme
 * FuelPHP
     * fuelphp-app
-    * **fuelphp-module**
+    * fuelphp-module
 * Joomla
     * joomla-component
     * joomla-module
     * joomla-template
-    * **joomla-plugin**
+    * joomla-plugin
     * joomla-library
 * Laravel
     * laravel-app
-    * **laravel-library**
+    * laravel-library
 * Lithium
     * lithium-app
-    * **lithium-library**
+    * lithium-library
     * lithium-controller
     * lithium-extension
     * lithium-model
 * phpBB
-    * **phpbb-extension**
+    * phpbb-extension
 * Symfony1
-    * **symfony1-plugin**
+    * symfony1-plugin
 * WordPress
-    * **wordpress-plugin**
+    * wordpress-plugin
     * wordpress-theme
 * Zend
     * zend-library
