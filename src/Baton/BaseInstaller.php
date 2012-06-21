@@ -33,12 +33,10 @@ abstract class BaseInstaller
         }
 
         if (!isset($this->locations[$packageLocation])) {
-            throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $packageLocation));
+            throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
-        $base = $this->locations[$packageLocation];
-
-        return $this->templatePath($base, compact('name', 'vendor', 'type'));
+        return $this->templatePath($this->locations[$packageLocation], compact('name', 'vendor', 'type'));
     }
 
     /**
