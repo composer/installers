@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class JoomlaInstaller extends BaseInstaller
 {
 
@@ -13,7 +11,6 @@ class JoomlaInstaller extends BaseInstaller
         'plugin'       => 'plugins/{name}/',
         'library'      => 'libraries/{name}/',
     );
-    protected $default = 'plugin';
 
     // TODO: Add inflector for mod_ and com_ names
 

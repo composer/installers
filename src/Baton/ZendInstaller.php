@@ -8,6 +8,5 @@ class ZendInstaller extends BaseInstaller
         'library' => 'library/',
         'extra'   => 'extras/library/',
     );
-    protected $default = 'library';
 
 }

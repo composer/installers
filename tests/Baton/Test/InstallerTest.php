@@ -54,18 +54,32 @@ class InstallerTest extends TestCase
      * testSupports
      *
      * @return void
+     *
+     * @dataProvider dataForTestSupport
      */
-    public function testSupports()
+    public function testSupports($type, $result)
     {
-        $types = array(
-            'cakephp', 'codeigniter', 'drupal', 'fuelphp',
-            'joomla', 'laravel', 'lithium', 'phpbb',
-            'symfony1', 'wordpress', 'zend',
-        );
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        foreach ($types as $type) {
-            $this->assertTrue($Installer->supports($type), sprintf('Failed to show support for %s', $type));
-        }
+        $this->assertSame($result, $Installer->supports($type), sprintf('Failed to show support for %s', $type));
+    }
+
+    public function dataForTestSupport()
+    {
+        return array(
+            array('cakephp', false),
+            array('cakephp-', false),
+            array('cakephp-app', true),
+            array('codeigniter-app', true),
+            array('drupal-module', true),
+            array('fuelphp-module', true),
+            array('joomla-library', true),
+            array('laravel-library', true),
+            array('lithium-library', true),
+            array('phpbb-extension', true),
+            array('symfony1-plugin', true),
+            array('wordpress-plugin', true),
+            array('zend-library', true),
+        );
     }
 
     /**
@@ -109,10 +123,22 @@ class InstallerTest extends TestCase
         $Package->setType('cakephp-plugin');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('Plugin/Ftp/', $result);
+    }
+
+    /**
+     * testGetCakePHPInstallPathException
+     *
+     * @return void
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function testGetCakePHPInstallPathException()
+    {
+        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
 
         $Package->setType('cakephp-whoops');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('Vendor/Ftp/', $result);
     }
 
     /**
@@ -200,7 +226,7 @@ class InstallerTest extends TestCase
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
         $Package = new MemoryPackage('user/li3_test', '1.0.0', '1.0.0');
 
-        $Package->setType('lithium-libraries');
+        $Package->setType('lithium-library');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('libraries/li3test/', $result);
     }

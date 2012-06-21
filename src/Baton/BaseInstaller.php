@@ -11,16 +11,7 @@ abstract class BaseInstaller
      *
      * @var array
      */
-    protected $locations = array(
-        'app' => '',
-    );
-
-    /**
-     * Default key if none found
-     *
-     * @var string
-     */
-    protected $default = null;
+    protected $locations = array();
 
     /**
      * Return the install path based on package type.
@@ -32,7 +23,7 @@ abstract class BaseInstaller
         $type = $package->getType();
         $packageLocation = strtolower(substr($type, strpos($type, '-') + 1));
 
-        $name = $package->getPrettyName();       
+        $name = $package->getPrettyName();
         list($vendor, $name) = explode('/', $name);
         $name = $this->inflectPackageName($name, $package);
 
@@ -41,20 +32,11 @@ abstract class BaseInstaller
             return $this->templatePath($extras['baton']['path'], compact('name', 'vendor', 'type'));
         }
 
-        $base = false;
-        if (isset($this->locations[$packageLocation])) {
-            $base = $this->locations[$packageLocation];
-        } else if (isset($this->locations[$this->default])) {
-            $base = $this->locations[$this->default];
-        } else if (!empty($this->locations)) {
-            $base = current($this->locations);
+        if (!isset($this->locations[$packageLocation])) {
+            throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $packageLocation));
         }
 
-        if ($base === false) {
-            throw new \InvalidArgumentException(
-                'Package install location could not be found.'
-            );
-        }
+        $base = $this->locations[$packageLocation];
 
         return $this->templatePath($base, compact('name', 'vendor', 'type'));
     }

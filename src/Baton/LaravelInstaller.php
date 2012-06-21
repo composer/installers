@@ -1,8 +1,6 @@
 <?php
 namespace Baton;
 
-use Composer\Package\BasePackage;
-
 class LaravelInstaller extends BaseInstaller
 {
 
@@ -10,6 +8,5 @@ class LaravelInstaller extends BaseInstaller
         'app'           => '',
         'library'       => 'libraries/{name}/',
     );
-    protected $default = 'library';
 
 }
