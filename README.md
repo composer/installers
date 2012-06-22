@@ -82,9 +82,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * Lithium
     * lithium-app
     * lithium-library
-    * lithium-controller
-    * lithium-extension
-    * lithium-model
+    * lithium-source
 * Magento
     * magento-library
     * magento-skin
