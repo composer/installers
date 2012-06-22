@@ -14,7 +14,7 @@ package type.
 * FuelPHP      `fuelphp-`
 * Joomla       `joomla-`
 * Laravel      `laravel-`
-* Lithium      `lithium-`
+* Lithium      `li3-`
 * Magento      `magento-`
 * phpBB        `phpbb-`
 * PPI          `ppi-`
