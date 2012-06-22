@@ -202,7 +202,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('lithium-library');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('libraries/li3test/', $result);
+        $this->assertEquals('libraries/li3_test/', $result);
     }
 
     /**

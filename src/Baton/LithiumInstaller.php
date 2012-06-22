@@ -12,12 +12,4 @@ class LithiumInstaller extends BaseInstaller
         'model'         => 'models/',
     );
 
-    /**
-     * Format package name to lowercase
-     */
-    public function inflectPackageName($name, $package)
-    {
-        return strtolower(str_replace(array('-', '_'), '', $name));
-    }
-
 }
