@@ -18,7 +18,7 @@ class Installer extends LibraryInstaller
         'fuelphp'     => 'FuelPHPInstaller',
         'joomla'      => 'JoomlaInstaller',
         'laravel'     => 'LaravelInstaller',
-        'lithium'     => 'LithiumInstaller',
+        'li3'         => 'LithiumInstaller',
         'magento'     => 'MagentoInstaller',
         'phpbb'       => 'PhpBBInstaller',
         'ppi'         => 'PPIInstaller',
