@@ -27,11 +27,6 @@ abstract class BaseInstaller
         list($vendor, $name) = explode('/', $name);
         $name = $this->inflectPackageName($name, $package);
 
-        $extras = $package->getExtra();
-        if (!empty($extras['baton']['path'])) {
-            return $this->templatePath($extras['baton']['path'], compact('name', 'vendor', 'type'));
-        }
-
         if (!isset($this->locations[$packageLocation])) {
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }

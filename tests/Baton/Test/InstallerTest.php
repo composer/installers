@@ -85,34 +85,6 @@ class InstallerTest extends TestCase
     }
 
     /**
-     * testWithTargetDir
-     *
-     * @return void
-     */
-    public function testWithTargetDir()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
-        $Package->setType('cakephp-plugin');
-        $Package->setExtra(array(
-            'baton' => array(
-                'path' => 'a/custom/Path/{name}/',
-            ),
-        ));
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('a/custom/Path/Ftp/', $result);
-
-        $Package->setType('zend-extra');
-        $Package->setExtra(array(
-            'baton' => array(
-                'path' => 'a/customZend/Path/{vendor}/{name}/',
-            ),
-        ));
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('a/customZend/Path/shama/ftp/', $result);
-    }
-
-    /**
      * testGetCakePHPInstallPath
      *
      * @return void

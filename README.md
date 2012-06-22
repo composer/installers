@@ -102,30 +102,6 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * zend-library
     * zend-extra
 
-## Roll Your Own Path
-
-You can customize where your package will be installed by setting `baton.path`
-in your `composer.json` extras:
-
-``` json
-{
-	"name": "shama/ftp",
-	"type": "cakephp-plugin",
-	"require": {
-		"php": ">=5.3",
-		"shama/baton": "*"
-	},
-    "extras": {
-        "baton": {
-            "path": "Custom/Path/{vendor}/{name}/"
-        }
-    }
-}
-```
-
-This would install this package to `Custom/Path/shama/ftp/`. The available
-var `{options}` in Baton are: `vendor`, `name` and `type`.
-
 ## Contribute!
 
 Please fork and send a pull request against the `master` branch. Thanks!
