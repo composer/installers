@@ -73,7 +73,7 @@ class InstallerTest extends TestCase
             array('fuelphp-module', true),
             array('joomla-library', true),
             array('laravel-library', true),
-            array('lithium-library', true),
+            array('li3-library', true),
             array('magento-library', true),
             array('phpbb-extension', true),
             array('ppi-module', true),
@@ -199,7 +199,7 @@ class InstallerTest extends TestCase
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
         $Package = new MemoryPackage('user/li3_test', '1.0.0', '1.0.0');
 
-        $Package->setType('lithium-library');
+        $Package->setType('li3-library');
         $result = $Installer->getInstallPath($Package);
         $this->assertEquals('libraries/li3_test/', $result);
     }
