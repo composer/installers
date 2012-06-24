@@ -22,6 +22,9 @@
     "extra": {
         "class": "Composer\\Installers\\Installer"
     },
+    "replace": {
+        "shama/baton": "*"
+    },
     "require-dev": {
         "composer/composer": "1.0.*"
     }
