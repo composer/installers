@@ -39,12 +39,12 @@ class Installer extends LibraryInstaller
             throw new \InvalidArgumentException(
                 'Sorry the package type of this package is not yet supported.'
             );
-        } else {
-            $class = 'Composer\\Installers\\' . $this->supportedTypes[$packageType];
-            $Installer = new $class;
-
-            return $Installer->getInstallPath($package);
         }
+
+        $class = 'Composer\\Installers\\' . $this->supportedTypes[$packageType];
+        $Installer = new $class;
+
+        return $Installer->getInstallPath($package);
     }
 
     /**
