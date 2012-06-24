@@ -42,6 +42,7 @@ class Installer extends LibraryInstaller
         } else {
             $class = 'Composer\\Installers\\' . $this->supportedTypes[$packageType];
             $Installer = new $class;
+
             return $Installer->getInstallPath($package);
         }
     }

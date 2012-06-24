@@ -22,6 +22,7 @@ class CakePHPInstaller extends BaseInstaller
     public function inflectPackageName($name, $package)
     {
         $name = strtolower(str_replace(array('-', '_'), ' ', $name));
+
         return str_replace(' ', '', ucwords($name));
     }
 }

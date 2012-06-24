@@ -36,8 +36,8 @@ abstract class BaseInstaller
     /**
      * For an installer to override. Modify how the package name is translated.
      *
-     * @param string $name
-     * @param BasePackage $package
+     * @param  string      $name
+     * @param  BasePackage $package
      * @return string
      */
     public function inflectPackageName($name, $package)
@@ -48,8 +48,8 @@ abstract class BaseInstaller
     /**
      * Replace vars in a path
      *
-     * @param string $path
-     * @param array $vars
+     * @param  string $path
+     * @param  array  $vars
      * @return string
      */
     protected function templatePath($path, $vars = array())
@@ -63,6 +63,7 @@ abstract class BaseInstaller
                 }
             }
         }
+
         return $path;
     }
 }
