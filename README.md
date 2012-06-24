@@ -1,6 +1,6 @@
-# Baton: A Multi-Framework [Composer](http://getcomposer.org) Library Installer
+# A Multi-Framework [Composer](http://getcomposer.org) Library Installer
 
-[![Build Status](https://secure.travis-ci.org/shama/baton.png)](http://travis-ci.org/shama/baton)
+[![Build Status](https://secure.travis-ci.org/composer/installers.png)](http://travis-ci.org/composer/installers)
 
 This is for PHP package authors to require in their `composer.json`. It will
 magically install their package to the correct location based on the specified
@@ -25,17 +25,17 @@ package type.
 ## Example `composer.json` File
 
 This is an example for a CakePHP plugin. The only important parts to set in your
-composer.json file are `"type": "cakephp-plugin"` which tells Baton what your
-package is and `"require": { "shama/baton": "*" }` which tells composer to use
-the Baton installer.
+composer.json file are `"type": "cakephp-plugin"` which describes what your
+package is and `"require": { "composer/installers": "*" }` which tells composer
+to load the custom installers.
 
 ``` json
 {
-	"name": "you/ftp",
-	"type": "cakephp-plugin",
-	"require": {
-		"shama/baton": "*"
-	}
+    "name": "you/ftp",
+    "type": "cakephp-plugin",
+    "require": {
+        "composer/installers": "*"
+    }
 }
 ```
 
@@ -93,7 +93,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * phpbb-extension
 * PPI
     * ppi-module
-* Symfony1
+* symfony1
     * symfony1-plugin
 * WordPress
     * wordpress-plugin
@@ -106,5 +106,5 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 Please fork and send a pull request against the `master` branch. Thanks!
 
-Baton uses [PHPUnit](http://phpunit.de). Please use `phpunit -c tests` to run
-the test suite.
+This project uses [PHPUnit](http://phpunit.de). Use `phpunit` to run the
+test suite.

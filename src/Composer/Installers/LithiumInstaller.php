@@ -1,9 +1,8 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 class LithiumInstaller extends BaseInstaller
 {
-
     protected $locations = array(
         'app'           => '',
         'library'       => 'libraries/{name}/',
@@ -11,5 +10,4 @@ class LithiumInstaller extends BaseInstaller
         'extension'     => 'extensions/{name}/',
         'model'         => 'models/',
     );
-
 }

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Baton\Test;
+namespace Composer\Installers\Test;
 
 use Composer\Package\Version\VersionParser;
 use Composer\Package\MemoryPackage;

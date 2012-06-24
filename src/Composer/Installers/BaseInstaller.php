@@ -1,11 +1,10 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 use Composer\Package\BasePackage;
 
 abstract class BaseInstaller
 {
-
     /**
      * Package locations
      *
@@ -66,5 +65,4 @@ abstract class BaseInstaller
         }
         return $path;
     }
-
 }

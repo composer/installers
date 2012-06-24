@@ -1,9 +1,8 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 class MagentoInstaller extends BaseInstaller
 {
-
     protected $locations = array(
         /*
          * TODO: Breaking a theme into seperate repos is weird. It would be nice
@@ -13,5 +12,4 @@ class MagentoInstaller extends BaseInstaller
         'skin'    => 'skin/frontend/default/{name}/',
         'library' => 'lib/{name}/',
     );
-
 }

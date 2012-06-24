@@ -1,9 +1,8 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 class CodeIgniterInstaller extends BaseInstaller
 {
-
     protected $locations = array(
         'app'           => '',
         'library'       => 'libraries/{name}/',
@@ -12,5 +11,4 @@ class CodeIgniterInstaller extends BaseInstaller
         'model'         => 'models/',
         'helper'        => 'helpers/',
     );
-
 }

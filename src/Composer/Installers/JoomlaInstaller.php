@@ -1,9 +1,8 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 class JoomlaInstaller extends BaseInstaller
 {
-
     protected $locations = array(
         'component'    => 'components/{name}/',
         'module'       => 'modules/{name}/',
@@ -13,5 +12,4 @@ class JoomlaInstaller extends BaseInstaller
     );
 
     // TODO: Add inflector for mod_ and com_ names
-
 }

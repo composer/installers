@@ -1,13 +1,12 @@
 <?php
-namespace Baton\Test;
+namespace Composer\Installers\Test;
 
-use Baton\Installer;
+use Composer\Installers\Installer;
 use Composer\Util\Filesystem;
 use Composer\Package\MemoryPackage;
 
 class InstallerTest extends TestCase
 {
-
     private $vendorDir;
     private $binDir;
     private $dm;

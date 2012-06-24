@@ -1,9 +1,8 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 class CakePHPInstaller extends BaseInstaller
 {
-
     protected $locations = array(
         'app'           => '',
         'plugin'        => 'Plugin/{name}/',
@@ -25,5 +24,4 @@ class CakePHPInstaller extends BaseInstaller
         $name = strtolower(str_replace(array('-', '_'), ' ', $name));
         return str_replace(' ', '', ucwords($name));
     }
-
 }

@@ -1,3 +1,4 @@
 <?php
+
 $loader = require __DIR__ . '/../src/bootstrap.php';
-$loader->add('Baton\Test', __DIR__);
+$loader->add('Composer\Installers\Test', __DIR__);

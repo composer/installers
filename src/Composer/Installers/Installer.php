@@ -1,12 +1,11 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
 
 class Installer extends LibraryInstaller
 {
-
     /**
      * Package types to installer class map
      *
@@ -41,7 +40,7 @@ class Installer extends LibraryInstaller
                 'Sorry the package type of this package is not yet supported.'
             );
         } else {
-            $class = "\\Baton\\" . $this->supportedTypes[$packageType];
+            $class = 'Composer\\Installers\\' . $this->supportedTypes[$packageType];
             $Installer = new $class;
             return $Installer->getInstallPath($package);
         }
@@ -58,5 +57,4 @@ class Installer extends LibraryInstaller
 
         return false;
     }
-
 }

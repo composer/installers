@@ -1,11 +1,9 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 class PPIInstaller extends BaseInstaller
 {
-
     protected $locations = array(
         'module' => 'modules/{name}/',
     );
-
 }

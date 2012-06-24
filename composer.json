@@ -1,8 +1,8 @@
 {
-    "name": "shama/baton",
+    "name": "composer/installers",
     "type": "composer-installer",
     "license": "MIT",
-    "description": "A multi-framework composer library installer",
+    "description": "A multi-framework Composer library installer",
     "keywords": [
         "installer", "cakephp", "laravel",
         "li3", "lithium", "fuelphp",
@@ -17,12 +17,12 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Baton": "src/" }
+        "psr-0": { "Composer\\Installers\\": "src/" }
     },
     "extra": {
-        "class": "Baton\\Installer"
+        "class": "Composer\\Installers\\Installer"
     },
     "require-dev": {
-        "composer/composer": ">=1.0.0"
+        "composer/composer": "1.0.*"
     }
 }

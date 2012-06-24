@@ -1,5 +1,5 @@
 <?php
-namespace Baton;
+namespace Composer\Installers;
 
 /**
  * Plugin installer for symfony 1.x
@@ -8,9 +8,7 @@ namespace Baton;
  */
 class Symfony1Installer extends BaseInstaller
 {
-
     protected $locations = array(
         'plugin'    => 'plugins/{name}/',
     );
-
 }
