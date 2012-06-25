@@ -80,11 +80,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * laravel-app
     * laravel-library
 * Lithium
-    * lithium-app
-    * lithium-library
-    * lithium-controller
-    * lithium-extension
-    * lithium-model
+    * li3-app
+    * li3-library
+    * li3-source
 * Magento
     * magento-library
     * magento-skin
