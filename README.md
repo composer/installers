@@ -104,7 +104,17 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 ## Contribute!
 
-Please fork and send a pull request against the `master` branch. Thanks!
+* [Fork and clone](https://help.github.com/articles/fork-a-repo).
+* Run the command `php composer.phar install --dev` to install the dev
+  dependencies. See [Composer](https://github.com/composer/composer#installation--usage).
+* Use the command `phpunit` to run the tests. See [PHPUnit](http://phpunit.de).
+* Create a branch, commit, push and send us a
+  [pull request](https://help.github.com/articles/using-pull-requests).
 
-This project uses [PHPUnit](http://phpunit.de). Use `phpunit` to run the
-test suite.
+To ensure a consistent code base, you should make sure the code follows the
+[Coding Standards](http://symfony.com/doc/2.0/contributing/code/standards.html)
+which we borrowed from Symfony.
+
+If you would like to help, please take a look at the list of
+[issues](https://github.com/composer/installers/issues).
+
