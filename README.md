@@ -47,13 +47,13 @@ So submit your packages to [packagist.org](http://packagist.org)!
 ## Current Supported Types
 
 * CakePHP
-    * cakephp-plugin
+    * **cakephp-plugin**
 * CodeIgniter
     * codeigniter-library
     * codeigniter-third-party
 * Drupal
-    * drupal-module
-    * drupal-theme
+    * **drupal-module**
+    * **drupal-theme**
 * FuelPHP
     * fuelphp-module
 * Joomla
@@ -65,8 +65,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * Laravel
     * laravel-library
 * Lithium
-    * lithium-library
-    * lithium-source
+    * **lithium-library**
+    * **lithium-source**
 * Magento
     * magento-library
     * magento-skin
@@ -74,15 +74,19 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * phpBB
     * phpbb-extension
 * PPI
-    * ppi-module
+    * **ppi-module**
 * symfony1
-    * symfony1-plugin
+    * **symfony1-plugin**
 * WordPress
-    * wordpress-plugin
-    * wordpress-theme
+    * **wordpress-plugin**
+    * **wordpress-theme**
 * Zend
     * zend-library
     * zend-extra
+
+Types in **bold** have been marked stable and you can rely on those install
+paths to not change. A new type must be created if any adjustments are
+requested for an install path.
 
 ## Contribute!
 
