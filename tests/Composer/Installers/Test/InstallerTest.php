@@ -141,7 +141,7 @@ class InstallerTest extends TestCase
 
         $Package->setType('drupal-module');
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('sites/all/modules/my_module/', $result);
+        $this->assertEquals('modules/my_module/', $result);
     }
 
     /**
