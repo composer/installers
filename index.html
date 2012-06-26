@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Installers by shama</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Installers</h1>
+        <p>A Multi-Framework Composer Library Installer</p>
+        <p class="view"><a href="https://github.com/shama/installers">View the Project on GitHub <small>shama/installers</small></a></p>
+        <ul>
+          <li><a href="https://github.com/shama/installers/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/shama/installers/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/shama/installers">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><a href="http://travis-ci.org/composer/installers"><img src="https://secure.travis-ci.org/composer/installers.png" alt="Build Status"></a></p>
+
+<p>This is for PHP package authors to require in their <code>composer.json</code>. It will
+magically install their package to the correct location based on the specified
+package type.</p>
+
+<p><strong>Current Supported Package Types</strong>:</p>
+
+<ul>
+<li>CakePHP 2+   <code>cakephp-</code>
+</li>
+<li>CodeIgniter  <code>codeigniter-</code>
+</li>
+<li>Drupal       <code>drupal-</code>
+</li>
+<li>FuelPHP      <code>fuelphp-</code>
+</li>
+<li>Joomla       <code>joomla-</code>
+</li>
+<li>Laravel      <code>laravel-</code>
+</li>
+<li>Lithium      <code>lithium-</code>
+</li>
+<li>Magento      <code>magento-</code>
+</li>
+<li>phpBB        <code>phpbb-</code>
+</li>
+<li>PPI          <code>ppi-</code>
+</li>
+<li>Symfony1     <code>symfony1-</code>
+</li>
+<li>WordPress    <code>wordpress-</code>
+</li>
+<li>Zend         <code>zend-</code>
+</li>
+</ul><h2>Example <code>composer.json</code> File</h2>
+
+<p>This is an example for a CakePHP plugin. The only important parts to set in your
+composer.json file are <code>"type": "cakephp-plugin"</code> which describes what your
+package is and <code>"require": { "composer/installers": "*" }</code> which tells composer
+to load the custom installers.</p>
+
+<div class="highlight">
+<pre><span class="p">{</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"you/ftp"</span><span class="p">,</span>
+    <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"cakephp-plugin"</span><span class="p">,</span>
+    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"composer/installers"</span><span class="p">:</span> <span class="s2">"*"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>This would install your package to the <code>app/Plugin/Ftp/</code> folder of a CakePHP app
+when a user runs <code>php composer.phar install</code>.</p>
+
+<p>So submit your packages to <a href="http://packagist.org">packagist.org</a>!</p>
+
+<h2>Current Supported Types</h2>
+
+<ul>
+<li>CakePHP
+
+<ul>
+<li>cakephp-app</li>
+<li>cakephp-plugin</li>
+<li>cakephp-lib</li>
+<li>cakephp-vendor</li>
+<li>cakephp-model</li>
+<li>cakephp-behavior</li>
+<li>cakephp-controller</li>
+<li>cakephp-component</li>
+<li>cakephp-helper</li>
+<li>cakephp-theme</li>
+</ul>
+</li>
+<li>CodeIgniter
+
+<ul>
+<li>codeigniter-app</li>
+<li>codeigniter-library</li>
+<li>codeigniter-controller</li>
+<li>codeigniter-third-party</li>
+<li>codeigniter-model</li>
+<li>codeigniter-helper</li>
+</ul>
+</li>
+<li>Drupal
+
+<ul>
+<li>drupal-module</li>
+<li>drupal-theme</li>
+</ul>
+</li>
+<li>FuelPHP
+
+<ul>
+<li>fuelphp-app</li>
+<li>fuelphp-module</li>
+</ul>
+</li>
+<li>Joomla
+
+<ul>
+<li>joomla-component</li>
+<li>joomla-module</li>
+<li>joomla-template</li>
+<li>joomla-plugin</li>
+<li>joomla-library</li>
+</ul>
+</li>
+<li>Laravel
+
+<ul>
+<li>laravel-app</li>
+<li>laravel-library</li>
+</ul>
+</li>
+<li>Lithium
+
+<ul>
+<li>lithium-app</li>
+<li>lithium-library</li>
+<li>lithium-source</li>
+</ul>
+</li>
+<li>Magento
+
+<ul>
+<li>magento-library</li>
+<li>magento-skin</li>
+<li>magento-theme</li>
+</ul>
+</li>
+<li>phpBB
+
+<ul>
+<li>phpbb-extension</li>
+</ul>
+</li>
+<li>PPI
+
+<ul>
+<li>ppi-module</li>
+</ul>
+</li>
+<li>symfony1
+
+<ul>
+<li>symfony1-plugin</li>
+</ul>
+</li>
+<li>WordPress
+
+<ul>
+<li>wordpress-plugin</li>
+<li>wordpress-theme</li>
+</ul>
+</li>
+<li>Zend
+
+<ul>
+<li>zend-library</li>
+<li>zend-extra</li>
+</ul>
+</li>
+</ul><h2>Contribute!</h2>
+
+<ul>
+<li>
+<a href="https://help.github.com/articles/fork-a-repo">Fork and clone</a>.</li>
+<li>Run the command <code>php composer.phar install --dev</code> to install the dev
+dependencies. See <a href="https://github.com/composer/composer#installation--usage">Composer</a>.</li>
+<li>Use the command <code>phpunit</code> to run the tests. See <a href="http://phpunit.de">PHPUnit</a>.</li>
+<li>Create a branch, commit, push and send us a
+<a href="https://help.github.com/articles/using-pull-requests">pull request</a>.</li>
+</ul><p>To ensure a consistent code base, you should make sure the code follows the
+<a href="http://symfony.com/doc/2.0/contributing/code/standards.html">Coding Standards</a>
+which we borrowed from Symfony.</p>
+
+<p>If you would like to help, please take a look at the list of
+<a href="https://github.com/composer/installers/issues">issues</a>.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/shama">shama</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32631384-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
