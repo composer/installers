@@ -154,4 +154,26 @@ class InstallerTest extends TestCase
         $result = $Installer->getInstallPath($Package);
     }
 
+    /**
+     * testCustomInstallPath
+     */
+    public function testCustomInstallPath()
+    {
+        $Installer = new Installer($this->io, $this->composer);
+        $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
+        $Package->setType('cakephp-plugin');
+        $ConsumerPackage = new MemoryPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($ConsumerPackage);
+        $ConsumerPackage->setExtra(array(
+            'installers-paths' => array(
+                'my/custom/path/{$name}/' => array(
+                    'shama/ftp',
+                    'foo/bar',
+                ),
+            ),
+        ));
+        $result = $Installer->getInstallPath($Package);
+        $this->assertEquals('my/custom/path/Ftp/', $result);
+    }
+
 }
