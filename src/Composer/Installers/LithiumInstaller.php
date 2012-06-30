@@ -5,7 +5,7 @@ class LithiumInstaller extends BaseInstaller
 {
     protected $locations = array(
         'app'     => '',
-        'library' => 'libraries/{name}/',
-        'source'  => 'libraries/_source/{name}/'
+        'library' => 'libraries/{$name}/',
+        'source'  => 'libraries/_source/{$name}/'
     );
 }

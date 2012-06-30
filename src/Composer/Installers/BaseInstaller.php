@@ -30,6 +30,8 @@ abstract class BaseInstaller
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
+        // TODO: Include all config vars (#12) but wait until
+        // composer/composer#832 is merged.
         return $this->templatePath($this->locations[$packageLocation], compact('name', 'vendor', 'type'));
     }
 
@@ -56,10 +58,10 @@ abstract class BaseInstaller
     {
         if (strpos($path, '{') !== false) {
             extract($vars);
-            preg_match_all('@\{([A-Za-z0-9_]*)\}@i', $path, $matches);
+            preg_match_all('@\{\$([A-Za-z0-9_]*)\}@i', $path, $matches);
             if (!empty($matches[1])) {
                 foreach ($matches[1] as $var) {
-                    $path = str_replace('{' . $var . '}', $$var, $path);
+                    $path = str_replace('{$' . $var . '}', $$var, $path);
                 }
             }
         }

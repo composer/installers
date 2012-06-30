@@ -5,6 +5,6 @@ class LaravelInstaller extends BaseInstaller
 {
     protected $locations = array(
         'app'           => '',
-        'library'       => 'libraries/{name}/',
+        'library'       => 'libraries/{$name}/',
     );
 }

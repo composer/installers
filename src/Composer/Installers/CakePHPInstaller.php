@@ -5,15 +5,15 @@ class CakePHPInstaller extends BaseInstaller
 {
     protected $locations = array(
         'app'           => '',
-        'plugin'        => 'Plugin/{name}/',
+        'plugin'        => 'Plugin/{$name}/',
         'lib'           => 'Lib/',
-        'vendor'        => 'Vendor/{name}/',
+        'vendor'        => 'Vendor/{$name}/',
         'model'         => 'Model/',
         'behavior'      => 'Model/Behavior/',
         'controller'    => 'Controller/',
         'component'     => 'Controller/Component/',
         'helper'        => 'View/Helper/',
-        'theme'         => 'View/Themed/{name}/',
+        'theme'         => 'View/Themed/{$name}/',
     );
 
     /**
