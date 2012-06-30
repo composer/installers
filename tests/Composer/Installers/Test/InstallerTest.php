@@ -56,12 +56,15 @@ class InstallerTest extends TestCase
      *
      * @dataProvider dataForTestSupport
      */
-    public function testSupports($type, $result)
+    public function testSupports($type, $expected)
     {
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $this->assertSame($result, $Installer->supports($type), sprintf('Failed to show support for %s', $type));
+        $this->assertSame($expected, $Installer->supports($type), sprintf('Failed to show support for %s', $type));
     }
 
+    /**
+     * dataForTestSupport
+     */
     public function dataForTestSupport()
     {
         return array(
@@ -84,18 +87,40 @@ class InstallerTest extends TestCase
     }
 
     /**
-     * testGetCakePHPInstallPath
+     * testInstallPath
      *
-     * @return void
+     * @dataProvider dataForTestInstallPath
      */
-    public function testGetCakePHPInstallPath()
+    public function testInstallPath($type, $path, $name)
     {
         $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
+        $Package = new MemoryPackage($name, '1.0.0', '1.0.0');
 
-        $Package->setType('cakephp-plugin');
+        $Package->setType($type);
         $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('Plugin/Ftp/', $result);
+        $this->assertEquals($path, $result);
+    }
+
+    /**
+     * dataFormTestInstallPath
+     */
+    public function dataForTestInstallPath()
+    {
+        return array(
+            array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
+            array('codeigniter-library', 'libraries/my_package/', 'shama/my_package'),
+            array('drupal-module', 'modules/my_module/', 'shama/my_module'),
+            array('fuelphp-module', 'modules/my_package/', 'shama/my_package'),
+            array('joomla-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
+            array('laravel-library', 'libraries/my_package/', 'shama/my_package'),
+            array('lithium-library', 'libraries/li3_test/', 'user/li3_test'),
+            array('magento-library', 'lib/foo/', 'test/foo'),
+            array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
+            array('ppi-module', 'modules/foo/', 'test/foo'),
+            array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
+            array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
+            array('zend-extra', 'extras/library/', 'shama/zend_test'),
+        );
     }
 
     /**
@@ -112,186 +137,6 @@ class InstallerTest extends TestCase
 
         $Package->setType('cakephp-whoops');
         $result = $Installer->getInstallPath($Package);
-    }
-
-    /**
-     * testGetCodeIgniterInstallPath
-     *
-     * @return void
-     */
-    public function testGetCodeIgniterInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/my_package', '1.0.0', '1.0.0');
-
-        $Package->setType('codeigniter-library');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('libraries/my_package/', $result);
-    }
-
-    /**
-     * testGetDrupalInstallPath
-     *
-     * @return void
-     */
-    public function testGetDrupalInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/my_module', '1.0.0', '1.0.0');
-
-        $Package->setType('drupal-module');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('modules/my_module/', $result);
-    }
-
-    /**
-     * testGetFuelPHPInstallPath
-     *
-     * @return void
-     */
-    public function testGetFuelPHPInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/my_package', '1.0.0', '1.0.0');
-
-        $Package->setType('fuelphp-module');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('modules/my_package/', $result);
-    }
-
-    /**
-     * testGetJoomlaInstallPath
-     *
-     * @return void
-     */
-    public function testGetJoomlaInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/my_plugin', '1.0.0', '1.0.0');
-
-        $Package->setType('joomla-plugin');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('plugins/my_plugin/', $result);
-    }
-
-    /**
-     * testGetLaravelInstallPath
-     *
-     * @return void
-     */
-    public function testGetLaravelInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/my_package', '1.0.0', '1.0.0');
-
-        $Package->setType('laravel-library');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('libraries/my_package/', $result);
-    }
-
-    /**
-     * testGetLithiumInstallPath
-     *
-     * @return void
-     */
-    public function testGetLithiumInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('user/li3_test', '1.0.0', '1.0.0');
-
-        $Package->setType('lithium-library');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('libraries/li3_test/', $result);
-    }
-
-    /**
-     * testGetMagentoInstallPath
-     *
-     * @return void
-     */
-    public function testGetMagentoInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('test/foo', '1.0.0', '1.0.0');
-
-        $Package->setType('magento-library');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('lib/foo/', $result);
-    }
-
-    /**
-     * testGetPhpBBInstallPath
-     *
-     * @return void
-     */
-    public function testGetPhpBBInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('test/foo', '1.0.0', '1.0.0');
-
-        $Package->setType('phpbb-extension');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('ext/test/foo/', $result);
-    }
-
-    /**
-     * testGetPPIInstallPath
-     *
-     * @return void
-     */
-    public function testGetPPIInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('test/foo', '1.0.0', '1.0.0');
-
-        $Package->setType('ppi-module');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('modules/foo/', $result);
-    }
-
-    /**
-     * testGetSymfony1InstallPath
-     *
-     * @return void
-     */
-    public function testGetSymfony1InstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/sfShamaPlugin', '1.0.0', '1.0.0');
-
-        $Package->setType('symfony1-plugin');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('plugins/sfShamaPlugin/', $result);
-    }
-
-    /**
-     * testGetWordPressInstallPath
-     *
-     * @return void
-     */
-    public function testGetWordPressInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/my_plugin', '1.0.0', '1.0.0');
-
-        $Package->setType('wordpress-plugin');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('wp-content/plugins/my_plugin/', $result);
-    }
-
-    /**
-     * testGetZendInstallPath
-     *
-     * @return void
-     */
-    public function testGetZendInstallPath()
-    {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
-        $Package = new MemoryPackage('shama/zend_test', '1.0.0', '1.0.0');
-
-        $Package->setType('zend-extra');
-        $result = $Installer->getInstallPath($Package);
-        $this->assertEquals('extras/library/', $result);
     }
 
 }
