@@ -4,9 +4,13 @@ namespace Composer\Installers\Test;
 use Composer\Installers\Installer;
 use Composer\Util\Filesystem;
 use Composer\Package\MemoryPackage;
+use Composer\Composer;
+use Composer\Config;
 
 class InstallerTest extends TestCase
 {
+    private $composer;
+    private $config;
     private $vendorDir;
     private $binDir;
     private $dm;
@@ -23,18 +27,29 @@ class InstallerTest extends TestCase
     {
         $this->fs = new Filesystem;
 
+        $this->composer = new Composer();
+        $this->config = new Config();
+        $this->composer->setConfig($this->config);
+
         $this->vendorDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-vendor';
         $this->ensureDirectoryExistsAndClear($this->vendorDir);
 
         $this->binDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-bin';
         $this->ensureDirectoryExistsAndClear($this->binDir);
 
+        $this->config->merge(array(
+            'config' => array(
+                'vendor-dir' => $this->vendorDir,
+                'bin-dir' => $this->binDir,
+            ),
+        ));
+
         $this->dm = $this->getMockBuilder('Composer\Downloader\DownloadManager')
             ->disableOriginalConstructor()
             ->getMock();
+        $this->composer->setDownloadManager($this->dm);
 
         $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
-
         $this->io = $this->getMock('Composer\IO\IOInterface');
     }
 
@@ -58,7 +73,7 @@ class InstallerTest extends TestCase
      */
     public function testSupports($type, $expected)
     {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Installer = new Installer($this->io, $this->composer);
         $this->assertSame($expected, $Installer->supports($type), sprintf('Failed to show support for %s', $type));
     }
 
@@ -93,7 +108,7 @@ class InstallerTest extends TestCase
      */
     public function testInstallPath($type, $path, $name)
     {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Installer = new Installer($this->io, $this->composer);
         $Package = new MemoryPackage($name, '1.0.0', '1.0.0');
 
         $Package->setType($type);
@@ -132,7 +147,7 @@ class InstallerTest extends TestCase
      */
     public function testGetCakePHPInstallPathException()
     {
-        $Installer = new Installer($this->vendorDir, $this->binDir, $this->dm, $this->io);
+        $Installer = new Installer($this->io, $this->composer);
         $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
 
         $Package->setType('cakephp-whoops');

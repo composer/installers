@@ -26,6 +26,6 @@
         "shama/baton": "*"
     },
     "require-dev": {
-        "composer/composer": "1.0.*"
+        "composer/composer": "*"
     }
 }
