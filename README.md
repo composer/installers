@@ -47,28 +47,14 @@ So submit your packages to [packagist.org](http://packagist.org)!
 ## Current Supported Types
 
 * CakePHP
-    * cakephp-app
     * cakephp-plugin
-    * cakephp-lib
-    * cakephp-vendor
-    * cakephp-model
-    * cakephp-behavior
-    * cakephp-controller
-    * cakephp-component
-    * cakephp-helper
-    * cakephp-theme
 * CodeIgniter
-    * codeigniter-app
     * codeigniter-library
-    * codeigniter-controller
     * codeigniter-third-party
-    * codeigniter-model
-    * codeigniter-helper
 * Drupal
     * drupal-module
     * drupal-theme
 * FuelPHP
-    * fuelphp-app
     * fuelphp-module
 * Joomla
     * joomla-component
@@ -77,10 +63,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * joomla-plugin
     * joomla-library
 * Laravel
-    * laravel-app
     * laravel-library
 * Lithium
-    * lithium-app
     * lithium-library
     * lithium-source
 * Magento
