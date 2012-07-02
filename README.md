@@ -53,6 +53,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * cakephp-vendor
     * cakephp-model
     * cakephp-behavior
+    * cakephp-datasource
     * cakephp-controller
     * cakephp-component
     * cakephp-helper

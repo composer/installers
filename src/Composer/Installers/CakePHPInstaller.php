@@ -10,6 +10,7 @@ class CakePHPInstaller extends BaseInstaller
         'vendor'        => 'Vendor/{$name}/',
         'model'         => 'Model/',
         'behavior'      => 'Model/Behavior/',
+        'datasource'    => 'Model/Datasource/',
         'controller'    => 'Controller/',
         'component'     => 'Controller/Component/',
         'helper'        => 'View/Helper/',
