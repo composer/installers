@@ -73,8 +73,8 @@ class InstallerTest extends TestCase
      */
     public function testSupports($type, $expected)
     {
-        $Installer = new Installer($this->io, $this->composer);
-        $this->assertSame($expected, $Installer->supports($type), sprintf('Failed to show support for %s', $type));
+        $installer = new Installer($this->io, $this->composer);
+        $this->assertSame($expected, $installer->supports($type), sprintf('Failed to show support for %s', $type));
     }
 
     /**
@@ -108,11 +108,11 @@ class InstallerTest extends TestCase
      */
     public function testInstallPath($type, $path, $name)
     {
-        $Installer = new Installer($this->io, $this->composer);
-        $Package = new MemoryPackage($name, '1.0.0', '1.0.0');
+        $installer = new Installer($this->io, $this->composer);
+        $package = new MemoryPackage($name, '1.0.0', '1.0.0');
 
-        $Package->setType($type);
-        $result = $Installer->getInstallPath($Package);
+        $package->setType($type);
+        $result = $installer->getInstallPath($package);
         $this->assertEquals($path, $result);
     }
 
@@ -147,11 +147,11 @@ class InstallerTest extends TestCase
      */
     public function testGetCakePHPInstallPathException()
     {
-        $Installer = new Installer($this->io, $this->composer);
-        $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
+        $installer = new Installer($this->io, $this->composer);
+        $package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
 
-        $Package->setType('cakephp-whoops');
-        $result = $Installer->getInstallPath($Package);
+        $package->setType('cakephp-whoops');
+        $result = $installer->getInstallPath($package);
     }
 
     /**
@@ -159,12 +159,12 @@ class InstallerTest extends TestCase
      */
     public function testCustomInstallPath()
     {
-        $Installer = new Installer($this->io, $this->composer);
-        $Package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
-        $Package->setType('cakephp-plugin');
-        $ConsumerPackage = new MemoryPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($ConsumerPackage);
-        $ConsumerPackage->setExtra(array(
+        $installer = new Installer($this->io, $this->composer);
+        $package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
+        $package->setType('cakephp-plugin');
+        $consumerPackage = new MemoryPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra(array(
             'installers-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'shama/ftp',
@@ -172,7 +172,7 @@ class InstallerTest extends TestCase
                 ),
             ),
         ));
-        $result = $Installer->getInstallPath($Package);
+        $result = $installer->getInstallPath($package);
         $this->assertEquals('my/custom/path/Ftp/', $result);
     }
 

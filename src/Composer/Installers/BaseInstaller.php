@@ -35,7 +35,7 @@ abstract class BaseInstaller
         $prettyName = $this->package->getPrettyName();
         list($vendor, $name) = explode('/', $prettyName);
         $name = $this->inflectPackageName($name);
-        
+
         $availableVars = array(
             'name', 'vendor', 'type',
         );

@@ -42,9 +42,9 @@ class Installer extends LibraryInstaller
         }
 
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$packageType];
-        $Installer = new $class($package, $this->composer);
+        $installer = new $class($package, $this->composer);
 
-        return $Installer->getInstallPath();
+        return $installer->getInstallPath();
     }
 
     /**
