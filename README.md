@@ -88,6 +88,24 @@ Types in **bold** have been marked stable and you can rely on those install
 paths to not change. A new type must be created if any adjustments are
 requested for an install path.
 
+## Custom Install Paths
+
+If you are consuming a package that uses the `composer/installers` you can
+override the install path with the following extra in your `composer.json`:
+
+``` json
+{
+    "extra": {
+        "installer-paths": {
+            "your/custom/path/{$name}/": ["shama/ftp", "vendor/package"]
+        }
+    }
+}
+```
+
+This would use your custom path for each of the listed packages. The available
+variables to use in your paths are: `${name}`, `{$vendor}`, `{$type}`.
+
 ## Contribute!
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
