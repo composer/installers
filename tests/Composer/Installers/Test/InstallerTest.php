@@ -165,7 +165,7 @@ class InstallerTest extends TestCase
         $consumerPackage = new MemoryPackage('foo/bar', '1.0.0', '1.0.0');
         $this->composer->setPackage($consumerPackage);
         $consumerPackage->setExtra(array(
-            'installers-paths' => array(
+            'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'shama/ftp',
                     'foo/bar',
