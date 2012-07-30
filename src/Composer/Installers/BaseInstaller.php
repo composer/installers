@@ -48,6 +48,10 @@ abstract class BaseInstaller
                     return $this->templatePath($customPath, compact($availableVars));
                 }
             }
+            
+            if (!empty($extra['installers-name'])) {
+                $name = $extra['installers-name'];
+            }
         }
 
         if (!isset($this->locations[$packageLocation])) {
