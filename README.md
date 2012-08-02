@@ -8,6 +8,7 @@ package type.
 
 **Current Supported Package Types**:
 
+* Aura         `aura-`
 * CakePHP 2+   `cakephp-`
 * CodeIgniter  `codeigniter-`
 * Drupal       `drupal-`
@@ -46,6 +47,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 ## Current Supported Types
 
+* Aura
+    * aura-package
+    * aura-include
 * CakePHP
     * **cakephp-plugin**
 * CodeIgniter

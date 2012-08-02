@@ -12,6 +12,7 @@ class Installer extends LibraryInstaller
      * @var array
      */
     private $supportedTypes = array(
+        'aura'        => 'AuraInstaller',
         'cakephp'     => 'CakePHPInstaller',
         'codeigniter' => 'CodeIgniterInstaller',
         'drupal'      => 'DrupalInstaller',

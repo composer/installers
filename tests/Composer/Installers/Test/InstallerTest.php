@@ -83,6 +83,7 @@ class InstallerTest extends TestCase
     public function dataForTestSupport()
     {
         return array(
+            array('aura-package', true),
             array('cakephp', false),
             array('cakephp-', false),
             array('cakephp-app', true),
@@ -122,6 +123,8 @@ class InstallerTest extends TestCase
     public function dataForTestInstallPath()
     {
         return array(
+            array('aura-package', 'package/Aura.Autoload/', 'aura/autoload'),
+            array('aura-include', 'include/autoload/', 'aura/autoload'),
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
             array('codeigniter-library', 'libraries/my_package/', 'shama/my_package'),
             array('drupal-module', 'modules/my_module/', 'shama/my_module'),
