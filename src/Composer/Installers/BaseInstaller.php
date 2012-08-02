@@ -34,18 +34,15 @@ abstract class BaseInstaller
 
         $prettyName = $this->package->getPrettyName();
         list($vendor, $name) = explode('/', $prettyName);
-        $name = $this->inflectPackageName($name);
 
-        $availableVars = array(
-            'name', 'vendor', 'type',
-        );
+        $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type'));
 
         if ($this->composer->getPackage()) {
             $extra = $this->composer->getPackage()->getExtra();
             if (!empty($extra['installer-paths'])) {
                 $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName);
                 if ($customPath !== false) {
-                    return $this->templatePath($customPath, compact($availableVars));
+                    return $this->templatePath($customPath, $availableVars);
                 }
             }
         }
@@ -54,20 +51,18 @@ abstract class BaseInstaller
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
-        // TODO: Include all config vars (#12) but wait until
-        // composer/composer#832 is merged.
-        return $this->templatePath($this->locations[$packageLocation], compact($availableVars));
+        return $this->templatePath($this->locations[$packageLocation], $availableVars);
     }
 
     /**
-     * For an installer to override. Modify how the package name is translated.
+     * For an installer to override to modify the vars per installer.
      *
-     * @param  string $name
-     * @return string
+     * @param  array $vars
+     * @return array
      */
-    public function inflectPackageName($name)
+    public function inflectPackageVars($vars)
     {
-        return $name;
+        return $vars;
     }
 
     /**
