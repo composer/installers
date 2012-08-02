@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Installers by shama</title>
+    <title>composer/installers by shama</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -17,13 +17,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Installers</h1>
+        <h1>composer/installers</h1>
         <p>A Multi-Framework Composer Library Installer</p>
-        <p class="view"><a href="https://github.com/composer/installers">View the Project on GitHub <small>composer/installers</small></a></p>
+        <p class="view"><a href="https://github.com/shama/installers">View the Project on GitHub <small>shama/installers</small></a></p>
         <ul>
-          <li><a href="https://github.com/composer/installers/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/composer/installers/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/composer/installers">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/shama/installers/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/shama/installers/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/shama/installers">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
@@ -36,6 +36,8 @@ package type.</p>
 <p><strong>Current Supported Package Types</strong>:</p>
 
 <ul>
+<li>Aura         <code>aura-</code>
+</li>
 <li>CakePHP 2+   <code>cakephp-</code>
 </li>
 <li>CodeIgniter  <code>codeigniter-</code>
@@ -69,17 +71,14 @@ composer.json file are <code>"type": "cakephp-plugin"</code> which describes wha
 package is and <code>"require": { "composer/installers": "*" }</code> which tells composer
 to load the custom installers.</p>
 
-<div class="highlight">
-<pre><span class="p">{</span>
+<div class="highlight"><pre><span class="p">{</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"you/ftp"</span><span class="p">,</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"cakephp-plugin"</span><span class="p">,</span>
     <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">"composer/installers"</span><span class="p">:</span> <span class="s2">"*"</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>This would install your package to the <code>app/Plugin/Ftp/</code> folder of a CakePHP app
 when a user runs <code>php composer.phar install</code>.</p>
@@ -89,15 +88,22 @@ when a user runs <code>php composer.phar install</code>.</p>
 <h2>Current Supported Types</h2>
 
 <ul>
+<li>Aura
+
+<ul>
+<li>aura-package</li>
+<li>aura-include</li>
+</ul>
+</li>
 <li>CakePHP
 
 <ul>
-<li>cakephp-plugin</li>
+<li><strong>cakephp-plugin</strong></li>
 </ul>
 </li>
 <li>CodeIgniter
 
-<ul>>
+<ul>
 <li>codeigniter-library</li>
 <li>codeigniter-third-party</li>
 </ul>
@@ -105,8 +111,10 @@ when a user runs <code>php composer.phar install</code>.</p>
 <li>Drupal
 
 <ul>
-<li>drupal-module</li>
-<li>drupal-theme</li>
+<li><strong>drupal-module</strong></li>
+<li><strong>drupal-theme</strong></li>
+<li>drupal-profile</li>
+<li>drupal-drush</li>
 </ul>
 </li>
 <li>FuelPHP
@@ -134,8 +142,8 @@ when a user runs <code>php composer.phar install</code>.</p>
 <li>Lithium
 
 <ul>
-<li>lithium-library</li>
-<li>lithium-source</li>
+<li><strong>lithium-library</strong></li>
+<li><strong>lithium-source</strong></li>
 </ul>
 </li>
 <li>Magento
@@ -155,20 +163,20 @@ when a user runs <code>php composer.phar install</code>.</p>
 <li>PPI
 
 <ul>
-<li>ppi-module</li>
+<li><strong>ppi-module</strong></li>
 </ul>
 </li>
 <li>symfony1
 
 <ul>
-<li>symfony1-plugin</li>
+<li><strong>symfony1-plugin</strong></li>
 </ul>
 </li>
 <li>WordPress
 
 <ul>
-<li>wordpress-plugin</li>
-<li>wordpress-theme</li>
+<li><strong>wordpress-plugin</strong></li>
+<li><strong>wordpress-theme</strong></li>
 </ul>
 </li>
 <li>Zend
@@ -178,7 +186,28 @@ when a user runs <code>php composer.phar install</code>.</p>
 <li>zend-extra</li>
 </ul>
 </li>
-</ul><h2>Contribute!</h2>
+</ul><p>Types in <strong>bold</strong> have been marked stable and you can rely on those install
+paths to not change. A new type must be created if any adjustments are
+requested for an install path.</p>
+
+<h2>Custom Install Paths</h2>
+
+<p>If you are consuming a package that uses the <code>composer/installers</code> you can
+override the install path with the following extra in your <code>composer.json</code>:</p>
+
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">"extra"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"installer-paths"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"your/custom/path/{$name}/"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"shama/ftp"</span><span class="p">,</span> <span class="s2">"vendor/package"</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This would use your custom path for each of the listed packages. The available
+variables to use in your paths are: <code>${name}</code>, <code>{$vendor}</code>, <code>{$type}</code>.</p>
+
+<h2>Contribute!</h2>
 
 <ul>
 <li>
