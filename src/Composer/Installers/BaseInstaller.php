@@ -33,7 +33,12 @@ abstract class BaseInstaller
         $packageLocation = strtolower(substr($type, strpos($type, '-') + 1));
 
         $prettyName = $this->package->getPrettyName();
-        list($vendor, $name) = explode('/', $prettyName);
+        if (strpos($prettyName, '/') !== false) {
+            list($vendor, $name) = explode('/', $prettyName);
+        } else {
+            $vendor = '';
+            $name = $prettyName;
+        }
 
         $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type'));
 

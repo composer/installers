@@ -182,4 +182,17 @@ class InstallerTest extends TestCase
         $this->assertEquals('my/custom/path/Ftp/', $result);
     }
 
+    /**
+     * testNoVendorName
+     */
+    public function testNoVendorName()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new MemoryPackage('sfPhpunitPlugin', '1.0.0', '1.0.0');
+
+        $package->setType('symfony1-plugin');
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('plugins/sfPhpunitPlugin/', $result);
+    }
+
 }
