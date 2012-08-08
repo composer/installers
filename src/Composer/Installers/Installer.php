@@ -23,10 +23,10 @@ class Installer extends LibraryInstaller
         'magento'      => 'MagentoInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'ppi'          => 'PPIInstaller',
+        'silverstripe' => 'SilverStripeInstaller',
         'symfony1'     => 'Symfony1Installer',
         'wordpress'    => 'WordPressInstaller',
-        'zend'         => 'ZendInstaller',
-        'silverstripe' => 'SilverStripeInstaller'
+        'zend'         => 'ZendInstaller'
     );
 
     /**

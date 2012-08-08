@@ -7,7 +7,7 @@
         "installer", "cakephp", "laravel",
         "li3", "lithium", "fuelphp",
         "codeigniter", "symfony", "phpbb", "ppi",
-        "joomla", "wordpress", "drupal", "zend"
+        "joomla", "wordpress", "drupal", "zend", "silverstripe"
     ],
     "authors": [
         {
