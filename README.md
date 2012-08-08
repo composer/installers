@@ -8,20 +8,21 @@ package type.
 
 **Current Supported Package Types**:
 
-* Aura         `aura-`
-* CakePHP 2+   `cakephp-`
-* CodeIgniter  `codeigniter-`
-* Drupal       `drupal-`
-* FuelPHP      `fuelphp-`
-* Joomla       `joomla-`
-* Laravel      `laravel-`
-* Lithium      `lithium-`
-* Magento      `magento-`
-* phpBB        `phpbb-`
-* PPI          `ppi-`
-* Symfony1     `symfony1-`
-* WordPress    `wordpress-`
-* Zend         `zend-`
+* Aura          `aura-`
+* CakePHP 2+    `cakephp-`
+* CodeIgniter   `codeigniter-`
+* Drupal        `drupal-`
+* FuelPHP       `fuelphp-`
+* Joomla        `joomla-`
+* Laravel       `laravel-`
+* Lithium       `lithium-`
+* Magento       `magento-`
+* phpBB         `phpbb-`
+* PPI           `ppi-`
+* SilverStripe  `silverstripe-`
+* Symfony1      `symfony1-`
+* WordPress     `wordpress-`
+* Zend          `zend-`
 
 ## Example `composer.json` File
 
@@ -81,6 +82,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * phpbb-extension
 * PPI
     * **ppi-module**
+* SilverStripe
+    * silverstripe-module
 * symfony1
     * **symfony1-plugin**
 * WordPress
