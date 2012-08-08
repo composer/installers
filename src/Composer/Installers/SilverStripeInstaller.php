@@ -4,6 +4,6 @@ namespace Composer\Installers;
 class SilverStripeInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module'    => '../{$name}/'
+        'module'    => '{$name}/'
     );
 }
