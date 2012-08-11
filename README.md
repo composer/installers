@@ -8,7 +8,6 @@ package type.
 
 **Current Supported Package Types**:
 
-* Aura          `aura-`
 * CakePHP 2+    `cakephp-`
 * CodeIgniter   `codeigniter-`
 * Drupal        `drupal-`
@@ -23,6 +22,14 @@ package type.
 * Symfony1      `symfony1-`
 * WordPress     `wordpress-`
 * Zend          `zend-`
+
+**Natively Supported Frameworks**:
+
+The following frameworks natively work with Composer and will be
+installed to the default `vendor` directory. `composer/installers`
+is not needed to install packages with these frameworks:
+
+* Aura
 
 ## Example `composer.json` File
 
@@ -48,9 +55,6 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 ## Current Supported Types
 
-* Aura
-    * aura-package
-    * aura-include
 * CakePHP
     * **cakephp-plugin**
 * CodeIgniter
