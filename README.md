@@ -84,6 +84,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * **ppi-module**
 * SilverStripe
     * silverstripe-module
+    * silverstripe-theme
 * symfony1
     * **symfony1-plugin**
 * WordPress
