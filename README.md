@@ -24,6 +24,11 @@ package type.
 * WordPress     `wordpress-`
 * Zend          `zend-`
 
+> N.b. Aura packages are natively supported by Composer and will be
+> installed to the default `vendor` directory. See also the Aura-specific
+> system installer at <https://github.com/auraphp/composer>.
+
+
 ## Example `composer.json` File
 
 This is an example for a CakePHP plugin. The only important parts to set in your
@@ -50,7 +55,6 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 * Aura
     * aura-package
-    * aura-include
 * CakePHP
     * **cakephp-plugin**
 * CodeIgniter
