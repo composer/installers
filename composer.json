@@ -4,7 +4,7 @@
     "license": "MIT",
     "description": "A multi-framework Composer library installer",
     "keywords": [
-        "installer", "cakephp", "laravel",
+        "installer", "cakephp", "laravel", "kohana",
         "li3", "lithium", "fuelphp",
         "codeigniter", "symfony", "phpbb", "ppi",
         "joomla", "wordpress", "drupal", "zend", "silverstripe"

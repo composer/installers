@@ -13,6 +13,7 @@ package type.
 * Drupal        `drupal-`
 * FuelPHP       `fuelphp-`
 * Joomla        `joomla-`
+* Kohana        `kohana-`
 * Laravel       `laravel-`
 * Lithium       `lithium-`
 * Magento       `magento-`
@@ -73,6 +74,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * joomla-template
     * joomla-plugin
     * joomla-library
+* Kohana
+    * **kohana-module**
 * Laravel
     * laravel-library
 * Lithium
