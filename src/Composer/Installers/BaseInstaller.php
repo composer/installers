@@ -102,7 +102,8 @@ abstract class BaseInstaller
     protected function mapCustomInstallPaths(array $paths, $name)
     {
         foreach ($paths as $path => $names) {
-            if (in_array($name, $names)) {
+            $pattern = str_replace('*', '.*', '{^(' . implode('|', $names) . ')$}');
+            if (preg_match($pattern, $name)) {
                 return $path;
             }
         }
