@@ -31,6 +31,7 @@ installed to the default `vendor` directory. `composer/installers`
 is not needed to install packages with these frameworks:
 
 * Aura
+* Symfony2
 
 ## Example `composer.json` File
 
