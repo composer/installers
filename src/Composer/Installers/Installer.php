@@ -25,6 +25,7 @@ class Installer extends LibraryInstaller
         'ppi'          => 'PPIInstaller',
         'silverstripe' => 'SilverStripeInstaller',
         'symfony1'     => 'Symfony1Installer',
+        'symfony2'     => 'Symfony2Installer',
         'wordpress'    => 'WordPressInstaller',
         'zend'         => 'ZendInstaller'
     );

@@ -92,6 +92,7 @@ class InstallerTest extends TestCase
             array('joomla-library', true),
             array('kohana-module', true),
             array('laravel-library', true),
+            array('library', false),
             array('lithium-library', true),
             array('magento-library', true),
             array('phpbb-extension', true),
@@ -99,6 +100,7 @@ class InstallerTest extends TestCase
             array('silverstripe-module', true),
             array('silverstripe-theme', true),
             array('symfony1-plugin', true),
+            array('symfony2-bundle', true),
             array('wordpress-plugin', true),
             array('zend-library', true),
         );
@@ -142,6 +144,7 @@ class InstallerTest extends TestCase
             array('silverstripe-module', 'my_module/', 'shama/my_module'),
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
+            array('symfony2-bundle', 'src/shama/shama-bundle/', 'shama/shama-bundle'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('zend-extra', 'extras/library/', 'shama/zend_test'),
         );
@@ -183,6 +186,27 @@ class InstallerTest extends TestCase
         ));
         $result = $installer->getInstallPath($package);
         $this->assertEquals('my/custom/path/Ftp/', $result);
+    }
+
+    /**
+     * testCustomInstallPathWithWildcard
+     */
+    public function testCustomInstallPathWithWildcard()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new MemoryPackage('shama/ftp-bundle', '1.0.0', '1.0.0');
+        $package->setType('symfony2-bundle');
+        $consumerPackage = new MemoryPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra(array(
+            'installer-paths' => array(
+                'my/custom/path/{$name}/' => array(
+                    'shama/*-bundle',
+                ),
+            ),
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('my/custom/path/ftp-bundle/', $result);
     }
 
     /**
