@@ -142,6 +142,7 @@ class InstallerTest extends TestCase
             array('silverstripe-module', 'my_module/', 'shama/my_module'),
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
+            array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('zend-extra', 'extras/library/', 'shama/zend_test'),
         );
