@@ -9,6 +9,7 @@
         "codeigniter", "symfony", "phpbb", "ppi",
         "joomla", "wordpress", "drupal", "zend", "silverstripe"
     ],
+    "homepage": "http://composer.github.com/installers/",
     "authors": [
         {
             "name": "Kyle Robinson Young",
