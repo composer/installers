@@ -3,7 +3,8 @@ namespace Composer\Installers\Test;
 
 use Composer\Installers\Installer;
 use Composer\Util\Filesystem;
-use Composer\Package\MemoryPackage;
+use Composer\Package\Package;
+use Composer\Package\RootPackage;
 use Composer\Composer;
 use Composer\Config;
 
@@ -112,7 +113,7 @@ class InstallerTest extends TestCase
     public function testInstallPath($type, $path, $name)
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new MemoryPackage($name, '1.0.0', '1.0.0');
+        $package = new Package($name, '1.0.0', '1.0.0');
 
         $package->setType($type);
         $result = $installer->getInstallPath($package);
@@ -158,7 +159,7 @@ class InstallerTest extends TestCase
     public function testGetCakePHPInstallPathException()
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
+        $package = new Package('shama/ftp', '1.0.0', '1.0.0');
 
         $package->setType('cakephp-whoops');
         $result = $installer->getInstallPath($package);
@@ -170,9 +171,9 @@ class InstallerTest extends TestCase
     public function testCustomInstallPath()
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new MemoryPackage('shama/ftp', '1.0.0', '1.0.0');
+        $package = new Package('shama/ftp', '1.0.0', '1.0.0');
         $package->setType('cakephp-plugin');
-        $consumerPackage = new MemoryPackage('foo/bar', '1.0.0', '1.0.0');
+        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
         $this->composer->setPackage($consumerPackage);
         $consumerPackage->setExtra(array(
             'installer-paths' => array(
@@ -192,7 +193,7 @@ class InstallerTest extends TestCase
     public function testNoVendorName()
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new MemoryPackage('sfPhpunitPlugin', '1.0.0', '1.0.0');
+        $package = new Package('sfPhpunitPlugin', '1.0.0', '1.0.0');
 
         $package->setType('symfony1-plugin');
         $result = $installer->getInstallPath($package);

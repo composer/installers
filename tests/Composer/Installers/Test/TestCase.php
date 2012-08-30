@@ -13,7 +13,7 @@
 namespace Composer\Installers\Test;
 
 use Composer\Package\Version\VersionParser;
-use Composer\Package\MemoryPackage;
+use Composer\Package\Package;
 use Composer\Package\AliasPackage;
 use Composer\Package\LinkConstraint\VersionConstraint;
 use Composer\Util\Filesystem;
@@ -43,7 +43,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     {
         $normVersion = self::getVersionParser()->normalize($version);
 
-        return new MemoryPackage($name, $normVersion, $version);
+        return new Package($name, $normVersion, $version);
     }
 
     protected function getAliasPackage($package, $version)
