@@ -85,8 +85,6 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', true),
-            array('cakephp', false),
-            array('cakephp-', false),
             array('cakephp-app', true),
             array('codeigniter-app', true),
             array('drupal-module', true),
@@ -103,6 +101,7 @@ class InstallerTest extends TestCase
             array('silverstripe-module', true),
             array('silverstripe-theme', true),
             array('symfony1-plugin', true),
+            array('typo3-flow-plugin', true),
             array('wordpress-plugin', true),
             array('zend-library', true),
         );
@@ -155,6 +154,8 @@ class InstallerTest extends TestCase
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
+            array('typo3-flow-package', 'Packages/Application/my_package/', 'shama/my_package'),
+            array('typo3-flow-build', 'Build/my_package/', 'shama/my_package'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('zend-extra', 'extras/library/', 'shama/zend_test'),
         );
