@@ -17,6 +17,7 @@ package type.
 * Laravel       `laravel-`
 * Lithium       `lithium-`
 * Magento       `magento-`
+* Mako          `mako-`
 * phpBB         `phpbb-`
 * PPI           `ppi-`
 * SilverStripe  `silverstripe-`
@@ -86,6 +87,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * magento-library
     * magento-skin
     * magento-theme
+* Mako
+    * mako-package 
 * phpBB
     * phpbb-extension
 * PPI

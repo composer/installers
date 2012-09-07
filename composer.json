@@ -5,7 +5,7 @@
     "description": "A multi-framework Composer library installer",
     "keywords": [
         "installer", "cakephp", "laravel", "kohana",
-        "li3", "lithium", "fuelphp",
+        "li3", "lithium", "mako","fuelphp",
         "codeigniter", "symfony", "phpbb", "ppi",
         "joomla", "wordpress", "drupal", "zend", "silverstripe"
     ],
