@@ -21,6 +21,7 @@ class Installer extends LibraryInstaller
         'laravel'      => 'LaravelInstaller',
         'lithium'      => 'LithiumInstaller',
         'magento'      => 'MagentoInstaller',
+        'mako'         => 'MakoInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'ppi'          => 'PPIInstaller',
         'silverstripe' => 'SilverStripeInstaller',
