@@ -18,6 +18,7 @@ package type.
 * Lithium       `lithium-`
 * Magento       `magento-`
 * Mako          `mako-`
+* MediaWiki     `mediawiki-`
 * phpBB         `phpbb-`
 * PPI           `ppi-`
 * SilverStripe  `silverstripe-`
@@ -88,7 +89,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * magento-skin
     * magento-theme
 * Mako
-    * mako-package 
+    * mako-package
+* MediaWiki
+    * mediawiki-extension
 * phpBB
     * phpbb-extension
 * PPI
