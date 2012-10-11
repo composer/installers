@@ -64,6 +64,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * CodeIgniter
     * codeigniter-library
     * codeigniter-third-party
+    * codeigniter-module
 * Drupal
     * **drupal-module**
     * **drupal-theme**

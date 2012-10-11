@@ -130,6 +130,7 @@ class InstallerTest extends TestCase
         return array(
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
             array('codeigniter-library', 'libraries/my_package/', 'shama/my_package'),
+            array('codeigniter-module', 'modules/my_package/', 'shama/my_package'),
             array('drupal-module', 'modules/my_module/', 'shama/my_module'),
             array('drupal-theme', 'themes/my_module/', 'shama/my_module'),
             array('drupal-profile', 'profiles/my_module/', 'shama/my_module'),
