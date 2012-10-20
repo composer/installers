@@ -146,6 +146,8 @@ class InstallerTest extends TestCase
             array('mediawiki-extension', 'extensions/UploadWizard/', 'author/upload-wizard' ),
             array('mediawiki-extension', 'extensions/SyntaxHighlight_GeSHi/', 'author/syntax-highlight_GeSHi' ),
             array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
+            array('phpbb-style', 'styles/foo/', 'test/foo'),
+            array('phpbb-language', 'language/foo/', 'test/foo'),
             array('ppi-module', 'modules/foo/', 'test/foo'),
             array('silverstripe-module', 'my_module/', 'shama/my_module'),
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),

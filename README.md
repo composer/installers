@@ -95,6 +95,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * mediawiki-extension
 * phpBB
     * phpbb-extension
+    * phpbb-style
+    * phpbb-language
 * PPI
     * **ppi-module**
 * SilverStripe
