@@ -67,6 +67,10 @@ abstract class BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
+        if (isset($vars['pathName'])) {
+            $vars['name'] = $vars['pathName'];
+        }
+
         return $vars;
     }
 
