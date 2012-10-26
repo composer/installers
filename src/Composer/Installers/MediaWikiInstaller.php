@@ -12,8 +12,12 @@ class MediaWikiInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-        $vars['name'] = str_replace('-', ' ', $vars['name']);
-        $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
+        if (isset($vars['pathName'])) {
+            $vars['name'] = $vars['pathName'];
+        } else {
+            $vars['name'] = str_replace('-', ' ', $vars['name']);
+            $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
+        }
 
         return $vars;
     }

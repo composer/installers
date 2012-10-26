@@ -12,8 +12,12 @@ class CakePHPInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-        $vars['name'] = strtolower(str_replace(array('-', '_'), ' ', $vars['name']));
-        $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
+        if (isset($vars['pathName'])) {
+            $vars['name'] = $vars['pathName'];
+        } else {
+            $vars['name'] = strtolower(str_replace(array('-', '_'), ' ', $vars['name']));
+            $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
+		}
 
         return $vars;
     }
