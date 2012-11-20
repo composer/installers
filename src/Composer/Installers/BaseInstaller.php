@@ -25,9 +25,10 @@ abstract class BaseInstaller
     /**
      * Return the install path based on package type.
      *
+     * @param  PackageInterface $package
      * @return string
      */
-    public function getInstallPath()
+    public function getInstallPath(PackageInterface $package)
     {
         $type = $this->package->getType();
         $packageLocation = strtolower(substr($type, strpos($type, '-') + 1));
@@ -41,6 +42,11 @@ abstract class BaseInstaller
         }
 
         $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type'));
+
+        $extra = $package->getExtra();
+        if (!empty($extra['installer-name'])) {
+            $availableVars['name'] = $extra['installer-name'];
+        }
 
         if ($this->composer->getPackage()) {
             $extra = $this->composer->getPackage()->getExtra();

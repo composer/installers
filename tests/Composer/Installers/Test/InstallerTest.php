@@ -197,6 +197,20 @@ class InstallerTest extends TestCase
     }
 
     /**
+     * testCustomInstallerName
+     */
+    public function testCustomInstallerName() {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('shama/cakephp-ftp-plugin', '1.0.0', '1.0.0');
+        $package->setType('cakephp-plugin');
+        $package->setExtra(array(
+            'installer-name' => 'FTP',
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('Plugin/FTP/', $result);
+    }
+
+    /**
      * testNoVendorName
      */
     public function testNoVendorName()

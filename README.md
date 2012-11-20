@@ -133,6 +133,31 @@ override the install path with the following extra in your `composer.json`:
 This would use your custom path for each of the listed packages. The available
 variables to use in your paths are: `${name}`, `{$vendor}`, `{$type}`.
 
+## Custom Install Names
+
+If you're a package author and need your package to be named differently when
+installed consider using the `installer-name` extra.
+
+For example you have a package named `shama/cakephp-ftp` with the type
+`cakephp-plugin`. Installing with `composer/installers` would install to the
+path `Plugin/CakephpFtp`. Due to the strict naming conventions, you as a
+package author actually need the package to be named and installed to
+`Plugin/Ftp`. Using the following config within your **package** `composer.json`
+will allow this:
+
+``` json
+{
+    "name": "shama/cakephp-ftp",
+    "type": "cakephp-plugin",
+    "extra": {
+        "installer-name": "Ftp"
+    }
+}
+```
+
+Please note the name entered into `installer-name` will be the final and will
+not be inflected.
+
 ## Contribute!
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
