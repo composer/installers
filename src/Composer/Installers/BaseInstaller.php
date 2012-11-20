@@ -25,9 +25,10 @@ abstract class BaseInstaller
     /**
      * Return the install path based on package type.
      *
+     * @param  PackageInterface $package
      * @return string
      */
-    public function getInstallPath()
+    public function getInstallPath(PackageInterface $package)
     {
         $type = $this->package->getType();
         $packageLocation = strtolower(substr($type, strpos($type, '-') + 1));
@@ -42,14 +43,19 @@ abstract class BaseInstaller
 
         $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type'));
 
+        $customPath = $this->getCustomInstallPath($package, $prettyName);
+        if ($customPath !== false) {
+            $installPath = $customPath;
+        }
         if ($this->composer->getPackage()) {
-            $extra = $this->composer->getPackage()->getExtra();
-            if (!empty($extra['installer-paths'])) {
-                $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName);
-                if ($customPath !== false) {
-                    return $this->templatePath($customPath, $availableVars);
-                }
+            $customPath = $this->getCustomInstallPath($this->composer->getPackage(), $prettyName);
+            if ($customPath !== false) {
+                $installPath = $customPath;
             }
+        }
+
+        if (!empty($installPath)) {
+            return $this->templatePath($installPath, $availableVars);
         }
 
         if (!isset($this->locations[$packageLocation])) {
@@ -68,6 +74,28 @@ abstract class BaseInstaller
     public function inflectPackageVars($vars)
     {
         return $vars;
+    }
+
+    /**
+     * Search through extra.installers-paths for a custom install path.
+     *
+     * @param  PackageInterface $package
+     * @param  string $prettyName
+     * @return string
+     */
+    protected function getCustomInstallPath(PackageInterface $package, $prettyName) {
+        $extra = $package->getExtra();
+        if (empty($extra['installer-paths'])) {
+            return false;
+        }
+
+        foreach ($extra['installer-paths'] as $path => $names) {
+            if (in_array($prettyName, $names)) {
+                return $path;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -90,23 +118,5 @@ abstract class BaseInstaller
         }
 
         return $path;
-    }
-
-    /**
-     * Search through extra.installers-paths for a custom install path.
-     *
-     * @param  array  $paths
-     * @param  string $name
-     * @return string
-     */
-    protected function mapCustomInstallPaths(array $paths, $name)
-    {
-        foreach ($paths as $path => $names) {
-            if (in_array($name, $names)) {
-                return $path;
-            }
-        }
-
-        return false;
     }
 }
