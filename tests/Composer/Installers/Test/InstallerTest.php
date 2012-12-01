@@ -84,6 +84,7 @@ class InstallerTest extends TestCase
     public function dataForTestSupport()
     {
         return array(
+            array('agl-module', true),
             array('cakephp', false),
             array('cakephp-', false),
             array('cakephp-app', true),
@@ -128,6 +129,7 @@ class InstallerTest extends TestCase
     public function dataForTestInstallPath()
     {
         return array(
+            array('agl-module', 'More/MyTestPackage/', 'agl/my_test-package'),
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
             array('codeigniter-library', 'libraries/my_package/', 'shama/my_package'),
             array('codeigniter-module', 'modules/my_package/', 'shama/my_package'),
