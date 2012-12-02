@@ -8,6 +8,7 @@ package type.
 
 **Current Supported Package Types**:
 
+* AGL           `agl-`
 * CakePHP 2+    `cakephp-`
 * CodeIgniter   `codeigniter-`
 * Drupal        `drupal-`
@@ -59,6 +60,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 ## Current Supported Types
 
+* AGL
+    * agl-module
 * CakePHP
     * **cakephp-plugin**
 * CodeIgniter
