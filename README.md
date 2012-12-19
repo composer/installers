@@ -24,6 +24,7 @@ package type.
 * PPI           `ppi-`
 * SilverStripe  `silverstripe-`
 * Symfony1      `symfony1-`
+* TYPO3 Flow	`typo3-flow-`
 * WordPress     `wordpress-`
 * Zend          `zend-`
 
@@ -107,6 +108,13 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * silverstripe-theme
 * symfony1
     * **symfony1-plugin**
+* TYPO3 Flow
+    * typo3-flow-package
+    * typo3-flow-framework
+    * typo3-flow-plugin
+    * typo3-flow-site
+    * typo3-flow-build
+    * typo3-flow-**yourlib** (will install to Packages/Yourlib/)
 * WordPress
     * **wordpress-plugin**
     * **wordpress-theme**
