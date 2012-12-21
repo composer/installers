@@ -26,12 +26,12 @@ abstract class BaseInstaller
      * Return the install path based on package type.
      *
      * @param  PackageInterface $package
+     * @param  string           $frameworkType
      * @return string
      */
-    public function getInstallPath(PackageInterface $package)
+    public function getInstallPath(PackageInterface $package, $frameworkType = '')
     {
         $type = $this->package->getType();
-        $packageLocation = strtolower(substr($type, strpos($type, '-') + 1));
 
         $prettyName = $this->package->getPrettyName();
         if (strpos($prettyName, '/') !== false) {
@@ -58,11 +58,12 @@ abstract class BaseInstaller
             }
         }
 
-        if (!isset($this->locations[$packageLocation])) {
+        $packageType = substr($type, strlen($frameworkType) + 1);
+        if (!isset($this->locations[$packageType])) {
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
-        return $this->templatePath($this->locations[$packageLocation], $availableVars);
+        return $this->templatePath($this->locations[$packageType], $availableVars);
     }
 
     /**
