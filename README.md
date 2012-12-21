@@ -114,7 +114,6 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * typo3-flow-plugin
     * typo3-flow-site
     * typo3-flow-build
-    * typo3-flow-yourlib
 * WordPress
     * **wordpress-plugin**
     * **wordpress-theme**

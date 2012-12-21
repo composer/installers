@@ -12,6 +12,5 @@ class TYPO3FlowInstaller extends BaseInstaller
         'plugin'    => 'Packages/Plugins/{$name}/',
         'site'      => 'Packages/Sites/{$name}/',
         'build'     => 'Build/{$name}/',
-        'yourlib'   => 'Packages/Yourlib/{$name}/',
     );
 }
