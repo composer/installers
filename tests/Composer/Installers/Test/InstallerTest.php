@@ -85,6 +85,8 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', true),
+            array('cakephp', false),
+            array('cakephp-', false),
             array('cakephp-app', true),
             array('codeigniter-app', true),
             array('drupal-module', true),

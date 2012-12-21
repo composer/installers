@@ -58,7 +58,13 @@ class Installer extends LibraryInstaller
      */
     public function supports($packageType)
     {
-        return ($this->findFrameworkType($packageType) !== false);
+        $frameworkType = $this->findFrameworkType($packageType);
+
+        if ($frameworkType === false) {
+            return false;
+        }
+
+        return preg_match('#' . $frameworkType . '-(\w+)#', $packageType, $matches) === 1;
     }
 
     /**
