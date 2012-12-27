@@ -216,6 +216,26 @@ class InstallerTest extends TestCase
     }
 
     /**
+     * testCustomTypePath
+     */
+    public function testCustomTypePath() {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
+        $package->setType('wordpress-plugin');
+        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra(array(
+            'package-paths' => array(
+                'my/custom/path/{$name}/' => array(
+                    'wordpress-plugin'
+                ),
+            ),
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('my/custom/path/my_plugin/', $result);
+    }
+
+    /**
      * testNoVendorName
      */
     public function testNoVendorName()

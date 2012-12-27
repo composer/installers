@@ -56,6 +56,12 @@ abstract class BaseInstaller
                     return $this->templatePath($customPath, $availableVars);
                 }
             }
+            if (!empty($extra['package-paths'])) {
+                $customPath = $this->mapCustomInstallPaths($extra['package-paths'], $type);
+                if ($customPath !== false) {
+                    return $this->templatePath($customPath, $availableVars);
+                }
+	    }
         }
 
         $packageType = substr($type, strlen($frameworkType) + 1);
@@ -100,7 +106,7 @@ abstract class BaseInstaller
     }
 
     /**
-     * Search through extra.installers-paths for a custom install path.
+     * Search through a passed paths array for a custom install path.
      *
      * @param  array  $paths
      * @param  string $name
