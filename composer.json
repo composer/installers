@@ -28,6 +28,7 @@
         "shama/baton": "*"
     },
     "require-dev": {
-        "composer/composer": "1.0.*@dev"
+        "composer/composer": "1.0.*@dev",
+	"phpunit/phpunit": "3.7.*"
     }
 }

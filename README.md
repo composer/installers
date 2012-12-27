@@ -168,6 +168,43 @@ will allow this:
 Please note the name entered into `installer-name` will be the final and will
 not be inflected.
 
+## WordPress Customization
+
+The WordPress installers support custom content paths and customization of plugin and theme locations.
+
+The `wpcontent-path` extra will replace what is normally placed in wp-content.
+``` json
+{
+    "name": "shama/my_plugin",
+    "type": "wordpress-plugin",
+    "extra": {
+        "wpcontent-path": "content"
+    }
+}
+```
+
+The `wpplugins-path` extra allows for a custom plugin path configuration.
+``` json
+{
+    "name": "shama/my_plugin",
+    "type": "wordpress-plugin",
+    "extra": {
+        "wpplugins-path": "wp-content/modules"
+    }
+}
+```
+
+The `wpthemes-path` extra allows for custom theme path configuration.
+``` json
+{
+    "name": "shama/my_theme",
+    "type": "wordpress-theme",
+    "extra": {
+        "wpthemes-path": "wp-content/views"
+    }
+}
+```
+
 ## Contribute!
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
