@@ -216,6 +216,48 @@ class InstallerTest extends TestCase
     }
 
     /**
+     * testWordPressCustomContentPath
+     */
+    public function testWordPressCustomContentPath() {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('shama/my_plugin', '1.0.0', '1.0.0');
+        $package->setType('wordpress-plugin');
+        $package->setExtra(array(
+            'wpcontent-path' => 'content',
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('content/plugins/my_plugin/', $result);
+    }
+
+    /**
+     * testWordPressCustomPluginPath
+     */
+    public function testWordPressCustomPluginPath() {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('shama/my_plugin', '1.0.0', '1.0.0');
+        $package->setType('wordpress-plugin');
+        $package->setExtra(array(
+            'wpplugins-path' => 'wp-content/modules',
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('wp-content/modules/my_plugin/', $result);
+    }
+
+    /**
+     * testWordPressCustomThemePath
+     */
+    public function testWordPressCustomThemePath() {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('shama/my_theme', '1.0.0', '1.0.0');
+        $package->setType('wordpress-theme');
+        $package->setExtra(array(
+            'wpthemes-path' => 'wp-content/views',
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('wp-content/views/my_theme/', $result);
+    }
+
+    /**
      * testNoVendorName
      */
     public function testNoVendorName()
