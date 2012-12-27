@@ -3,8 +3,16 @@
 [![Build Status](https://secure.travis-ci.org/composer/installers.png)](http://travis-ci.org/composer/installers)
 
 This is for PHP package authors to require in their `composer.json`. It will
-magically install their package to the correct location based on the specified
-package type.
+install their package to the correct location based on the specified package
+type.
+
+The goal of `installers` is to be a simple package type to install path map.
+Users can also customize the install path per package and package authors can
+modify the package name upon installing.
+
+`installers` isn't intended on replacing all custom installers. If your
+package requires special installation handling then by all means, create a
+custom installer to handle it.
 
 **Current Supported Package Types**:
 
@@ -183,4 +191,15 @@ which we borrowed from Symfony.
 
 If you would like to help, please take a look at the list of
 [issues](https://github.com/composer/installers/issues).
+
+### Should we allow dynamic package types or paths? No.
+What are they? The ability for a package author to determine where a package
+will be installed either through setting the path directly in their
+`composer.json` or through a dynamic package type: `"type":
+"framework-install-here"`.
+
+It has been proposed many times. Even implemented once early on and then
+removed. `installers` won't do this because it would allow a single package
+author to wipe out entire folders without the user's consent. That user would
+then come here to yell at us.
 
