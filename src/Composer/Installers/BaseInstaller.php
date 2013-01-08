@@ -42,6 +42,7 @@ abstract class BaseInstaller
         }
 
         $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type'));
+        $availableVars['webroot'] = '';
 
         $extra = $package->getExtra();
         if (!empty($extra['installer-name'])) {
@@ -50,12 +51,17 @@ abstract class BaseInstaller
 
         if ($this->composer->getPackage()) {
             $extra = $this->composer->getPackage()->getExtra();
+            if (!empty($extra['installer-webroot'])) {
+                $availableVars['webroot'] = $extra['installer-webroot'];
+            }
             if (!empty($extra['installer-paths'])) {
                 $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName);
                 if ($customPath !== false) {
                     return $this->templatePath($customPath, $availableVars);
                 }
             }
+        } elseif ('common-webroot' === $type) {
+            throw new \InvalidArgumentException(sprintf('Package "%s" requires "installer-webroot" to be configured', $prettyName));
         }
 
         $packageType = substr($type, strlen($frameworkType) + 1);
