@@ -140,13 +140,13 @@ override the install path with the following extra in your `composer.json`:
 }
 ```
 
-A package type can have a custom installation path with this extra:
+A package type can have a custom installation path with a `type:` prefix.
 
 ``` json
 {
     "extra": {
-        "package-paths": {
-            "your/custom/path/{$name}/": ["wordpress-plugin"]
+        "installer-paths": {
+            "your/custom/path/{$name}/": ["type:wordpress-plugin"]
         }
     }
 }
