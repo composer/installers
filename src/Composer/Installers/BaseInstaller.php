@@ -51,17 +51,11 @@ abstract class BaseInstaller
         if ($this->composer->getPackage()) {
             $extra = $this->composer->getPackage()->getExtra();
             if (!empty($extra['installer-paths'])) {
-                $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName);
+                $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName, $type);
                 if ($customPath !== false) {
                     return $this->templatePath($customPath, $availableVars);
                 }
             }
-            if (!empty($extra['package-paths'])) {
-                $customPath = $this->mapCustomInstallPaths($extra['package-paths'], $type);
-                if ($customPath !== false) {
-                    return $this->templatePath($customPath, $availableVars);
-                }
-	    }
         }
 
         $packageType = substr($type, strlen($frameworkType) + 1);
@@ -112,10 +106,10 @@ abstract class BaseInstaller
      * @param  string $name
      * @return string
      */
-    protected function mapCustomInstallPaths(array $paths, $name)
+    protected function mapCustomInstallPaths(array $paths, $name, $type)
     {
         foreach ($paths as $path => $names) {
-            if (in_array($name, $names)) {
+            if (in_array($name, $names) || in_array('type:' . $type, $names)) {
                 return $path;
             }
         }
