@@ -117,10 +117,10 @@ class InstallerTest extends TestCase
      *
      * @dataProvider dataForTestInstallPath
      */
-    public function testInstallPath($type, $path, $name)
+    public function testInstallPath($type, $path, $name, $version = '1.0.0')
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new Package($name, '1.0.0', '1.0.0');
+        $package = new Package($name, $version, $version);
 
         $package->setType($type);
         $result = $installer->getInstallPath($package);
@@ -157,6 +157,8 @@ class InstallerTest extends TestCase
             array('phpbb-language', 'language/foo/', 'test/foo'),
             array('ppi-module', 'modules/foo/', 'test/foo'),
             array('silverstripe-module', 'my_module/', 'shama/my_module'),
+            array('silverstripe-module', 'sapphire/', 'silverstripe/framework', '2.4.0'),
+            array('silverstripe-module', 'framework/', 'silverstripe/framework', '3.0.0'),
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
