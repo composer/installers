@@ -62,7 +62,7 @@ to load the custom installers.
 }
 ```
 
-This would install your package to the `app/Plugin/Ftp/` folder of a CakePHP app
+This would install your package to the `Plugin/Ftp/` folder of a CakePHP app
 when a user runs `php composer.phar install`.
 
 So submit your packages to [packagist.org](http://packagist.org)!
