@@ -8,7 +8,7 @@
         "li3", "lithium", "mako","fuelphp",
         "codeigniter", "symfony", "phpbb", "ppi",
         "joomla", "wordpress", "drupal", "zend",
-        "silverstripe", "agl", "TYPO3 Flow", "TYPO3 Neos", "modulework"
+        "silverstripe", "agl", "TYPO3 Flow", "TYPO3 Neos", "modulework", "TYPO3 CMS"
     ],
     "homepage": "http://composer.github.com/installers/",
     "authors": [
@@ -19,7 +19,10 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Composer\\Installers\\": "src/" }
+		"psr-0": {
+			"Composer\\Installers\\": "src/",
+			"Composer\\Downloader\\": "src/"
+		}
     },
     "extra": {
         "class": "Composer\\Installers\\Installer",
