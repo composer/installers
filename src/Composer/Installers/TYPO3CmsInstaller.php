@@ -31,25 +31,5 @@ class TYPO3CmsInstaller extends BaseInstaller {
 		return 'extension' === $packageType;
 	}
 
-	/**
-	 * Return the install path based on package type.
-	 *
-	 * @param  PackageInterface $package
-	 * @param  string           $frameworkType
-	 * @return string
-	 */
-	/*	public function getInstallPath(PackageInterface $package, $frameworkType = '')
-		{
-			$packageName = $package->getPrettyName();
-			$packageNameParts = explode('/', $packageName);
-
-			if (empty($packageNameParts[1])) {
-				throw new \InvalidArgumentException('Extensionname not found. Package name must be typo3-cms-extension/<extension name>!');
-			}
-
-			$extensionName = $packageNameParts[1];
-			return 'htdocs/typo3conf/ext/' . $extensionName;
-		}*/
-
 }
 ?>
