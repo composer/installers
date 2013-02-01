@@ -228,4 +228,23 @@ class InstallerTest extends TestCase
         $this->assertEquals('plugins/sfPhpunitPlugin/', $result);
     }
 
+    /**
+     * testTypo3Inflection
+     */
+    public function testTypo3Inflection()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('typo3/fluid', '1.0.0', '1.0.0');
+
+        $package->setAutoload(array(
+            'psr-0' => array(
+                'TYPO3\\Fluid' => 'Classes',
+            ),
+        ));
+
+        $package->setType('typo3-flow-package');
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('Packages/Application/TYPO3.Fluid/', $result);
+    }
+
 }
