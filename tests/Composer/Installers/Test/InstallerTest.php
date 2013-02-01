@@ -178,6 +178,40 @@ class InstallerTest extends TestCase
         $package->setType('cakephp-whoops');
         $result = $installer->getInstallPath($package);
     }
+    
+    /**
+     * testCommonWebrootPackage
+     */
+    public function testCommonWebrootPackage()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('slbmeh/my_application', '1.0.0', '1.0.0');
+        
+        $package->setType('common-webroot');
+        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra(array(
+            'installer-webroot' => 'webroot'
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('webroot/', $result);
+    }
+
+    /**
+     * testCommonWebrootPackage
+     * 
+     * @return void
+     * 
+     * @expectedException \InvalidArgumentException
+     */
+    public function testCommonWebrootPathException()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('slbmeh/my_application', '1.0.0', '1.0.0');
+        
+        $package->setType('common-webroot');
+        $result = $installer->getInstallPath($package);
+    }
 
     /**
      * testCustomInstallPath
