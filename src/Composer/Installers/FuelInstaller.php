@@ -1,7 +1,7 @@
 <?php
 namespace Composer\Installers;
 
-class FuelPHPInstaller extends BaseInstaller
+class FuelInstaller extends BaseInstaller
 {
     protected $locations = array(
         'core'    => 'fuel/core/',

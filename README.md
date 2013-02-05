@@ -20,7 +20,7 @@ custom installer to handle it.
 * CakePHP 2+    `cakephp-`
 * CodeIgniter   `codeigniter-`
 * Drupal        `drupal-`
-* FuelPHP       `fuelphp-`
+* FuelPHP v1.x  `fuel-`
 * Joomla        `joomla-`
 * Kohana        `kohana-`
 * Laravel       `laravel-`
@@ -82,7 +82,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * **drupal-theme**
     * drupal-profile
     * drupal-drush
-* FuelPHP
+* FuelPHP v1.x
     * fuelphp-core
     * fuelphp-module
     * fuelphp-package
