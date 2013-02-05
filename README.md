@@ -83,9 +83,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * drupal-profile
     * drupal-drush
 * FuelPHP v1.x
-    * fuelphp-core
-    * fuelphp-module
-    * fuelphp-package
+    * fuel-core
+    * fuel-module
+    * fuel-package
 * Joomla
     * joomla-component
     * joomla-module
