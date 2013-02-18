@@ -49,7 +49,7 @@ is not needed to install packages with these frameworks:
 
 This is an example for a CakePHP plugin. The only important parts to set in your
 composer.json file are `"type": "cakephp-plugin"` which describes what your
-package is and `"require": { "composer/installers": "*" }` which tells composer
+package is and `"require": { "composer/installers": "~1.0" }` which tells composer
 to load the custom installers.
 
 ``` json
@@ -57,7 +57,7 @@ to load the custom installers.
     "name": "you/ftp",
     "type": "cakephp-plugin",
     "require": {
-        "composer/installers": "*"
+        "composer/installers": "~1.0"
     }
 }
 ```
