@@ -116,6 +116,8 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * silverstripe-module
     * silverstripe-theme
 * symfony1
+    * symfony1-lib
+    * symfony1-lib-vendor
     * **symfony1-plugin**
 * TYPO3 Flow
     * typo3-flow-package
