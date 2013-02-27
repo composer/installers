@@ -19,6 +19,7 @@ custom installer to handle it.
 * AGL           `agl-`
 * CakePHP 2+    `cakephp-`
 * CodeIgniter   `codeigniter-`
+* Croogo        `croogo-`
 * Drupal        `drupal-`
 * FuelPHP v1.x  `fuel-`
 * Joomla        `joomla-`
@@ -77,6 +78,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * codeigniter-library
     * codeigniter-third-party
     * codeigniter-module
+* Croogo
+    * croogo-plugin
+    * croogo-theme
 * Drupal
     * **drupal-module**
     * **drupal-theme**
