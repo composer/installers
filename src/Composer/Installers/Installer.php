@@ -15,6 +15,7 @@ class Installer extends LibraryInstaller
         'agl'          => 'AglInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
+        'croogo'       => 'CroogoInstaller',
         'drupal'       => 'DrupalInstaller',
         'fuel'         => 'FuelInstaller',
         'joomla'       => 'JoomlaInstaller',
