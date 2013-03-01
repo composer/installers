@@ -34,6 +34,7 @@ custom installer to handle it.
 * Symfony1      `symfony1-`
 * TYPO3 Flow    `typo3-flow-`
 * WordPress     `wordpress-`
+* Yii           `yii-`
 * Zend          `zend-`
 
 **Natively Supported Frameworks**:
@@ -126,6 +127,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * WordPress
     * **wordpress-plugin**
     * **wordpress-theme**
+* Yii
+    * yii-extension
+    * yii-module
 * Zend
     * zend-library
     * zend-extra
