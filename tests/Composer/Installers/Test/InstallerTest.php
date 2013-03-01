@@ -106,8 +106,8 @@ class InstallerTest extends TestCase
             array('symfony1-plugin', true),
             array('typo3-flow-plugin', true),
             array('wordpress-plugin', true),
-			array('yii-extension', true),
-			array('yii-module', true),
+            array('yii-extension', true),
+            array('yii-module', true),
             array('zend-library', true),
         );
     }
@@ -164,7 +164,7 @@ class InstallerTest extends TestCase
             array('typo3-flow-build', 'Build/my_package/', 'shama/my_package'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('yii-extension', 'protected/extensions/my_yii_extension/', 'shama/my_yii_extension'),
-			array('yii-module', 'protected/modules/my_yii_module/', 'shama/my_yii_module'),
+            array('yii-module', 'protected/modules/my_yii_module/', 'shama/my_yii_module'),
             array('zend-extra', 'extras/library/', 'shama/zend_test'),
         );
     }
