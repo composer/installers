@@ -34,6 +34,7 @@ custom installer to handle it.
 * Symfony1      `symfony1-`
 * TYPO3 Flow    `typo3-flow-`
 * WordPress     `wordpress-`
+* Yii           `yii-`
 * Zend          `zend-`
 
 **Natively Supported Frameworks**:
