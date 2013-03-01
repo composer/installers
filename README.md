@@ -126,6 +126,9 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * WordPress
     * **wordpress-plugin**
     * **wordpress-theme**
+* Yii
+	* yii-extension
+	* yii-module
 * Zend
     * zend-library
     * zend-extra
