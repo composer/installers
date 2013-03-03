@@ -53,12 +53,20 @@ abstract class BaseInstaller
         if ($this->composer->getPackage()) {
             $extra = $this->composer->getPackage()->getExtra();
             
-			if(!empty($extra['installer-prefix']))
+			if(!empty($extra['installer-prefix-'.$type]))
+			{
+				$prefix = $extra['installer-prefix-'.$type];
+				//strip trailing slash
+				$prefix = rtrim($prefix, '/');
+			}
+			else if(!empty($extra['installer-prefix']))
 			{
 				$prefix = $extra['installer-prefix'];
 				//strip trailing slash
 				$prefix = rtrim($prefix, '/');
 			}
+			
+			
 			
 			if (!empty($extra['installer-paths'])) {
                 $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName);
