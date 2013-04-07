@@ -14,6 +14,15 @@ modify the package name upon installing.
 package requires special installation handling then by all means, create a
 custom installer to handle it.
 
+**Natively Supported Frameworks**:
+
+The following frameworks natively work with Composer and will be
+installed to the default `vendor` directory. `composer/installers`
+is not needed to install packages with these frameworks:
+
+* Aura
+* Symfony2
+
 **Current Supported Package Types**:
 
 * AGL           `agl-`
@@ -36,15 +45,6 @@ custom installer to handle it.
 * WordPress     `wordpress-`
 * Yii           `yii-`
 * Zend          `zend-`
-
-**Natively Supported Frameworks**:
-
-The following frameworks natively work with Composer and will be
-installed to the default `vendor` directory. `composer/installers`
-is not needed to install packages with these frameworks:
-
-* Aura
-* Symfony2
 
 ## Example `composer.json` File
 
