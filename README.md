@@ -94,6 +94,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
     * joomla-library
 * Kohana
     * **kohana-module**
+    * **kohana-vendor**
 * Laravel
     * laravel-library
 * Lithium
