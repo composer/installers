@@ -43,7 +43,6 @@ is not needed to install packages with these frameworks:
 * Symfony1      `symfony1-`
 * TYPO3 Flow    `typo3-flow-`
 * WordPress     `wordpress-`
-* Yii           `yii-`
 * Zend          `zend-`
 
 ## Example `composer.json` File
@@ -127,9 +126,6 @@ So submit your packages to [packagist.org](http://packagist.org)!
 * WordPress
     * **wordpress-plugin**
     * **wordpress-theme**
-* Yii
-    * yii-extension
-    * yii-module
 * Zend
     * zend-library
     * zend-extra
