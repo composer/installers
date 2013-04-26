@@ -22,6 +22,7 @@ is not needed to install packages with these frameworks:
 
 * Aura
 * Symfony2
+* Yii
 
 **Current Supported Package Types**:
 
