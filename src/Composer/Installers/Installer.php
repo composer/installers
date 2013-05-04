@@ -13,6 +13,7 @@ class Installer extends LibraryInstaller
      */
     private $supportedTypes = array(
         'agl'          => 'AglInstaller',
+        'annotatecms'  => 'AnnotateCmsInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
         'drupal'       => 'DrupalInstaller',
