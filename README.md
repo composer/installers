@@ -33,6 +33,7 @@ is not needed to install packages with these frameworks:
 | Framework    | Types
 | ---------    | -----
 | AGL          | `agl-module`
+| AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
 | CakePHP 2+   | **`cakephp-plugin`**
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
 | Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-profile`<br>`drupal-drush`
