@@ -26,6 +26,7 @@ is not needed to install packages with these frameworks:
 **Current Supported Package Types**:
 
 * AGL           `agl-`
+* AnnotateCms           `annotatecms-`
 * CakePHP 2+    `cakephp-`
 * CodeIgniter   `codeigniter-`
 * Drupal        `drupal-`
@@ -72,6 +73,10 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 * AGL
     * agl-module
+* AnnotateCms
+    * annotatecms-module
+    * annotatecms-component
+    * annotatecms-service
 * CakePHP
     * **cakephp-plugin**
 * CodeIgniter
