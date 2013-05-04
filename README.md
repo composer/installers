@@ -25,28 +25,32 @@ is not needed to install packages with these frameworks:
 
 **Current Supported Package Types**:
 
-| Framework | Shortcut
-| --------- | --------
-| AGL | `agl-`
-| CakePHP 2+ | `cakephp-`
-| CodeIgniter | `codeigniter-`
-| Drupal | `drupal-`
-| FuelPHP v1.x| `fuel-`
-| Joomla | `joomla-`
-| Kohana | `kohana-`
-| Laravel | `laravel-`
-| Lithium | `lithium-`
-| Magento | `magento-`
-| Mako | `mako-`
-| MediaWiki| `mediawiki-`
-| phpBB | `phpbb-`
-| PPI | `ppi-`
-| SilverStripe | `silverstripe-`
-| symfony1 | `symfony1-`
-| TYPO3 Flow | `typo3-flow-`
-| WordPress | `wordpress-`
-| Yii | `yii-`
-| Zend | `zend-`
+> Stable types are marked as **bold**, this means that installation paths 
+> for those type will not be change. Any adjustment for those types would
+> require creation of brand new type that will cover requred changes.
+
+| Framework | Shortcut | Types
+| --------- | -------- | -----
+| AGL | `agl-` | `agl-module`
+| CakePHP 2+ | `cakephp-` | **`cakephp-plugin`**
+| CodeIgniter | `codeigniter-` | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
+| Drupal | `drupal-` | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-profile`<br>`drupal-drush`
+| FuelPHP v1.x| `fuel-` | `fuel-module`<br>`fuel-package`
+| Joomla | `joomla-` | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
+| Kohana | `kohana-` | **`kohana-module`**
+| Laravel | `laravel-` | `laravel-library`
+| Lithium | `lithium-` | **`lithium-library`<br>`lithium-source`**
+| Magento | `magento-` | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| Mako | `mako-` | `mako-package`
+| MediaWiki| `mediawiki-` | `mediawiki-extension`
+| phpBB | `phpbb-` | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
+| PPI | `ppi-` | **`ppi-module`**
+| SilverStripe | `silverstripe-` | `silverstripe-module`<br>`silverstripe-theme`
+| symfony1 | `symfony1-` | **`symfony1-plugin`**
+| TYPO3 Flow | `typo3-flow-` | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-build`
+| WordPress | `wordpress-` | **`wordpress-plugin`<br>`wordpress-theme`**
+| Yii | `yii-` | `yii-extension`<br>`yii-module`
+| Zend | `zend-` | `zend-library`<br>`zend-extra`
 
 ## Example `composer.json` File
 
@@ -69,76 +73,6 @@ This would install your package to the `Plugin/Ftp/` folder of a CakePHP app
 when a user runs `php composer.phar install`.
 
 So submit your packages to [packagist.org](http://packagist.org)!
-
-## Current Supported Types
-
-> Stable types are marked as **bold**, this means that installation paths 
-> for those type will not be change. Any adjustment for those types would
-> require creation of brand new type that will cover requred changes.
-
-* AGL
-    * agl-module
-* CakePHP
-    * **cakephp-plugin**
-* CodeIgniter
-    * codeigniter-library
-    * codeigniter-third-party
-    * codeigniter-module
-* Drupal
-    * **drupal-module**
-    * **drupal-theme**
-    * drupal-profile
-    * drupal-drush
-* FuelPHP v1.x
-    * fuel-module
-    * fuel-package
-* Joomla
-    * joomla-component
-    * joomla-module
-    * joomla-template
-    * joomla-plugin
-    * joomla-library
-* Kohana
-    * **kohana-module**
-* Laravel
-    * laravel-library
-* Lithium
-    * **lithium-library**
-    * **lithium-source**
-* Magento
-    * magento-library
-    * magento-skin
-    * magento-theme
-* Mako
-    * mako-package
-* MediaWiki
-    * mediawiki-extension
-* phpBB
-    * phpbb-extension
-    * phpbb-style
-    * phpbb-language
-* PPI
-    * **ppi-module**
-* SilverStripe
-    * silverstripe-module
-    * silverstripe-theme
-* symfony1
-    * **symfony1-plugin**
-* TYPO3 Flow
-    * typo3-flow-package
-    * typo3-flow-framework
-    * typo3-flow-plugin
-    * typo3-flow-site
-    * typo3-flow-build
-* WordPress
-    * **wordpress-plugin**
-    * **wordpress-theme**
-* Yii
-    * yii-extension
-    * yii-module
-* Zend
-    * zend-library
-    * zend-extra
 
 ## Custom Install Paths
 
