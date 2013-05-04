@@ -85,6 +85,9 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', true),
+            array('annotatecms-module', true),
+            array('annotatecms-component', true),
+            array('annotatecms-service', true),
             array('cakephp', false),
             array('cakephp-', false),
             array('cakephp-app', true),
@@ -134,6 +137,9 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', 'More/MyTestPackage/', 'agl/my_test-package'),
+            array('annotatecms-module', 'addons/modules/my_module/', 'vysinsky/my_module'),
+            array('annotatecms-component', 'addons/components/my_component/', 'vysinsky/my_component'),
+            array('annotatecms-service', 'addons/services/my_service/', 'vysinsky/my_service'),
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
             array('codeigniter-library', 'libraries/my_package/', 'shama/my_package'),
             array('codeigniter-module', 'modules/my_package/', 'shama/my_package'),
