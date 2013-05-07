@@ -154,7 +154,7 @@ override the install path with the following extra in your `composer.json`:
 ```
 
 This would use your custom path for each of the listed packages. The available
-variables to use in your paths are: `${name}`, `{$vendor}`, `{$type}`.
+variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
 
 ## Custom Install Names
 
