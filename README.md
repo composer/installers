@@ -35,7 +35,7 @@ is not needed to install packages with these frameworks:
 | AGL          | `agl-module`
 | CakePHP 2+   | **`cakephp-plugin`**
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
-| Drupal       | **`drupal-module`**<br>**`drupal-theme`**<br>`drupal-profile`<br>`drupal-drush`
+| Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-profile`<br>`drupal-drush`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
 | Kohana       | **`kohana-module`**
