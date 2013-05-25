@@ -174,7 +174,7 @@ class InstallerTest extends TestCase
             array('typo3-flow-build', 'Build/my_package/', 'shama/my_package'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('wordpress-muplugin', 'wp-content/mu-plugins/my_plugin/', 'shama/my_plugin'),
-            array('zend-extra', 'extras/library/', 'shama/zend_test'),
+            array('zend-extra', 'extras/library/zend_test/', 'shama/zend_test'),
         );
     }
 
