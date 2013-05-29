@@ -4,8 +4,8 @@ namespace Composer\Installers;
 class CodeIgniterInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'library'     => 'libraries/{$name}/',
-        'third-party' => 'third_party/{$name}/',
-        'module'      => 'modules/{$name}/',
+        'library'     => 'application/libraries/{$name}/',
+        'third-party' => 'application/third_party/{$name}/',
+        'module'      => 'application/modules/{$name}/',
     );
 }
