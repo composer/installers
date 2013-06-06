@@ -1,45 +1,44 @@
 <?php
 namespace Composer\Installers;
 
-use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
+use Composer\Package\PackageInterface;
+use Composer\Repository\InstalledRepositoryInterface;
 
-class Installer extends LibraryInstaller
-{
+class Installer extends LibraryInstaller {
     /**
      * Package types to installer class map
      *
      * @var array
      */
     private $supportedTypes = array(
-        'agl'          => 'AglInstaller',
-        'annotatecms'  => 'AnnotateCmsInstaller',
-        'cakephp'      => 'CakePHPInstaller',
-        'codeigniter'  => 'CodeIgniterInstaller',
-        'croogo'       => 'CroogoInstaller',
-        'drupal'       => 'DrupalInstaller',
-        'fuel'         => 'FuelInstaller',
-        'joomla'       => 'JoomlaInstaller',
-        'kohana'       => 'KohanaInstaller',
-        'laravel'      => 'LaravelInstaller',
-        'lithium'      => 'LithiumInstaller',
-        'magento'      => 'MagentoInstaller',
-        'mako'         => 'MakoInstaller',
-        'mediawiki'    => 'MediaWikiInstaller',
-        'phpbb'        => 'PhpBBInstaller',
-        'ppi'          => 'PPIInstaller',
+        'agl' => 'AglInstaller',
+        'annotatecms' => 'AnnotateCmsInstaller',
+        'cakephp' => 'CakePHPInstaller',
+        'codeigniter' => 'CodeIgniterInstaller',
+        'croogo' => 'CroogoInstaller',
+        'drupal' => 'DrupalInstaller',
+        'fuel' => 'FuelInstaller',
+        'joomla' => 'JoomlaInstaller',
+        'kohana' => 'KohanaInstaller',
+        'laravel' => 'LaravelInstaller',
+        'lithium' => 'LithiumInstaller',
+        'magento' => 'MagentoInstaller',
+        'mako' => 'MakoInstaller',
+        'mediawiki' => 'MediaWikiInstaller',
+        'phpbb' => 'PhpBBInstaller',
+        'ppi' => 'PPIInstaller',
         'silverstripe' => 'SilverStripeInstaller',
-        'symfony1'     => 'Symfony1Installer',
-        'wordpress'    => 'WordPressInstaller',
-        'zend'         => 'ZendInstaller',
-        'typo3-flow'   => 'TYPO3FlowInstaller'
+        'symfony1' => 'Symfony1Installer',
+        'wordpress' => 'WordPressInstaller',
+        'zend' => 'ZendInstaller',
+        'typo3-flow' => 'TYPO3FlowInstaller'
     );
 
     /**
      * {@inheritDoc}
      */
-    public function getInstallPath(PackageInterface $package)
-    {
+    public function getInstallPath(PackageInterface $package) {
         $type = $package->getType();
         $frameworkType = $this->findFrameworkType($type);
 
@@ -55,11 +54,19 @@ class Installer extends LibraryInstaller
         return $installer->getInstallPath($package, $frameworkType);
     }
 
+    public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package) {
+        echo "Deleting " . $this->getInstallPath($package) . " - ";
+        if ($this->deleteDirectory($this->getInstallPath($package))) {
+            echo "Deleted..." . PHP_EOL;
+        } else {
+            echo "Not deleted..." . PHP_EOL;
+        }
+    }
+
     /**
      * {@inheritDoc}
      */
-    public function supports($packageType)
-    {
+    public function supports($packageType) {
         $frameworkType = $this->findFrameworkType($packageType);
 
         if ($frameworkType === false) {
@@ -75,8 +82,7 @@ class Installer extends LibraryInstaller
      * @param  string $type
      * @return string
      */
-    protected function findFrameworkType($type)
-    {
+    protected function findFrameworkType($type) {
         $frameworkType = false;
 
         foreach ($this->supportedTypes as $key => $val) {
@@ -88,4 +94,27 @@ class Installer extends LibraryInstaller
 
         return $frameworkType;
     }
+
+    protected function deleteDirectory($dir) {
+        if (!file_exists($dir)) {
+            return true;
+        }
+        if (!is_dir($dir) || is_link($dir)) {
+            return unlink($dir);
+        }
+
+        foreach (scandir($dir) as $item) {
+            if ($item == '.' || $item == '..') {
+                continue;
+            }
+            if (!$this->deleteDirectory($dir . "/" . $item)) {
+                chmod($dir . "/" . $item, 0777);
+                if (!$this->deleteDirectory($dir . "/" . $item)) {
+                    return false;
+                }
+            };
+        }
+        return rmdir($dir);
+    }
+
 }
