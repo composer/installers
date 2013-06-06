@@ -56,13 +56,10 @@ class Installer extends LibraryInstaller
         return $installer->getInstallPath($package, $frameworkType);
     }
 
-    public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package) {
-        echo "Deleting " . $this->getInstallPath($package) . " - ";
-        if ($this->deleteDirectory($this->getInstallPath($package))) {
-            echo "Deleted..." . PHP_EOL;
-        } else {
-            echo "Not deleted..." . PHP_EOL;
-        }
+    public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
+    {
+        $installPath = $this->getInstallPath($package);
+        $this->io->write(sprintf('Deleting %s - %s', $installPath, $this->filesystem->removeDirectory($installPath) ? '<comment>deleted</comment>' : '<error>not deleted</error>'));
     }
 
     /**
@@ -97,27 +94,5 @@ class Installer extends LibraryInstaller
         }
 
         return $frameworkType;
-    }
-
-    protected function deleteDirectory($dir) {
-        if (!file_exists($dir)) {
-            return true;
-        }
-        if (!is_dir($dir) || is_link($dir)) {
-            return unlink($dir);
-        }
-
-        foreach (scandir($dir) as $item) {
-            if ($item == '.' || $item == '..') {
-                continue;
-            }
-            if (!$this->deleteDirectory($dir . "/" . $item)) {
-                chmod($dir . "/" . $item, 0777);
-                if (!$this->deleteDirectory($dir . "/" . $item)) {
-                    return false;
-                }
-            };
-        }
-        return rmdir($dir);
     }
 }
