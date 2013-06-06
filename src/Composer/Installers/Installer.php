@@ -1,8 +1,9 @@
 <?php
 namespace Composer\Installers;
 
-use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
+use Composer\Package\PackageInterface;
+use Composer\Repository\InstalledRepositoryInterface;
 
 class Installer extends LibraryInstaller
 {
@@ -55,6 +56,12 @@ class Installer extends LibraryInstaller
         $installer = new $class($package, $this->composer);
 
         return $installer->getInstallPath($package, $frameworkType);
+    }
+
+    public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
+    {
+        $installPath = $this->getInstallPath($package);
+        $this->io->write(sprintf('Deleting %s - %s', $installPath, $this->filesystem->removeDirectory($installPath) ? '<comment>deleted</comment>' : '<error>not deleted</error>'));
     }
 
     /**
