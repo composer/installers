@@ -167,6 +167,8 @@ class InstallerTest extends TestCase
             array('silverstripe-module', 'my_module/', 'shama/my_module'),
             array('silverstripe-module', 'sapphire/', 'silverstripe/framework', '2.4.0'),
             array('silverstripe-module', 'framework/', 'silverstripe/framework', '3.0.0'),
+            array('silverstripe-module', 'framework/', 'silverstripe/framework', '3.0.0-rc1'),
+            array('silverstripe-module', 'framework/', 'silverstripe/framework', 'my/branch'),
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
