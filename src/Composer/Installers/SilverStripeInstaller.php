@@ -22,7 +22,11 @@ class SilverStripeInstaller extends BaseInstaller
      */
     public function getInstallPath(PackageInterface $package, $frameworkType = '')
     {
-        if($package->getName() == 'silverstripe/framework' && version_compare($package->getVersion(), '3.0.0') < 0) {
+        if (
+            $package->getName() == 'silverstripe/framework' 
+            && preg_match('/^\d+\.\d+\.\d+/', $package->getVersion()) 
+            && version_compare($package->getVersion(), '3.0.0') < 0
+        ) {
             return $this->templatePath($this->locations['module'], array('name' => 'sapphire'));
         } else {
             return parent::getInstallPath($package, $frameworkType);
