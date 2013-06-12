@@ -25,7 +25,7 @@ class SilverStripeInstaller extends BaseInstaller
         if (
             $package->getName() == 'silverstripe/framework' 
             && preg_match('/^\d+\.\d+\.\d+/', $package->getVersion()) 
-            && version_compare($package->getVersion(), '3.0.0') < 0
+            && version_compare($package->getVersion(), '2.999.999') < 0
         ) {
             return $this->templatePath($this->locations['module'], array('name' => 'sapphire'));
         } else {
