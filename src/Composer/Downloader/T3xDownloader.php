@@ -24,8 +24,10 @@ class T3xDownloader extends ArchiveDownloader
 	{
 		// get file contents
 		$fileContentStream = file_get_contents($file);
-
 		$extensionData = $this->decodeTerExchangeData($fileContentStream);
+		if (substr($path, -1) !== DIRECTORY_SEPARATOR) {
+			$path .= DIRECTORY_SEPARATOR;
+		}
 
 		$files = $this->extractFilesArrayFromExtensionData($extensionData);
 		$directories = $this->extractDirectoriesFromExtensionData($files);
