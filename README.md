@@ -47,6 +47,7 @@ is not needed to install packages with these frameworks:
 | Mako         | `mako-package`
 | MediaWiki    | `mediawiki-extension`
 | OXID         | `oxid-module`
+| MODULEWork   | `modulework-module`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | PPI          | **`ppi-module`**
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
