@@ -8,7 +8,7 @@
         "li3", "lithium", "mako","fuelphp",
         "codeigniter", "symfony", "phpbb", "ppi",
         "joomla", "wordpress", "drupal", "zend",
-        "silverstripe", "agl", "TYPO3 Flow", "TYPO3 Neos"
+        "silverstripe", "agl", "TYPO3 Flow", "TYPO3 Neos", "modulework"
     ],
     "homepage": "http://composer.github.com/installers/",
     "authors": [
