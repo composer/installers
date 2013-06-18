@@ -30,6 +30,7 @@ class Installer extends LibraryInstaller
         'phpbb'        => 'PhpBBInstaller',
         'ppi'          => 'PPIInstaller',
         'silverstripe' => 'SilverStripeInstaller',
+        'simplesamlphp' => 'SimpleSamlPhpInstaller',
         'symfony1'     => 'Symfony1Installer',
         'wordpress'    => 'WordPressInstaller',
         'zend'         => 'ZendInstaller',
