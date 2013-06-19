@@ -4,6 +4,6 @@ namespace Composer\Installers;
 class SimpleSamlPhpInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module'    => 'modules/{$name}/'
+        'module'    => 'vendor/simplesamlphp/simplesamlphp/modules/{$name}/'
     );
 }
