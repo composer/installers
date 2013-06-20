@@ -26,6 +26,7 @@ class Installer extends LibraryInstaller
         'magento'      => 'MagentoInstaller',
         'mako'         => 'MakoInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
+        'modulework'   => 'MODULEWorkInstaller',
         'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'ppi'          => 'PPIInstaller',
