@@ -28,7 +28,7 @@ is not needed to install packages with these frameworks:
 
 > Stable types are marked as **bold**, this means that installation paths
 > for those type will not be change. Any adjustment for those types would
-> require creation of brand new type that will cover requred changes.
+> require creation of brand new type that will cover required changes.
 
 | Framework    | Types
 | ---------    | -----
