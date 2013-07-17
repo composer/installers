@@ -16,7 +16,8 @@ use Symfony\Component\Console\Input\ArgvInput;
 class TYPO3CmsInstaller extends BaseInstaller {
 
 	protected $locations = array(
-		'extension'   => 'typo3conf/ext/{$name}/'
+		'extension'   => 'typo3conf/ext/{$name}/',
+		'core'   => 'typo3_src/'
 	);
 
 	/**
