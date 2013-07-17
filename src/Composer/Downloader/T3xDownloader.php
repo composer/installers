@@ -132,10 +132,10 @@ class T3xDownloader extends ArchiveDownloader
 	 */
 	protected function writeExtensionFiles(array $files, $rootPath) {
 		foreach ($files as $file) {
-			$file = $rootPath . $file['name'];
+			$filename = $rootPath . $file['name'];
 			$content = $file['content'];
 
-			if ($fd = fopen($file, 'wb')) {
+			if ($fd = fopen($filename, 'wb')) {
 				$res = fwrite($fd, $content);
 				fclose($fd);
 			}
