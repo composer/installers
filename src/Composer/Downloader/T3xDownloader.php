@@ -7,9 +7,6 @@
 
 namespace Composer\Downloader;
 
-use Composer\Util\ProcessExecutor;
-use Composer\IO\IOInterface;
-
 /**
  * @author Sascha Egerer <sascha.egerer@dkd.de
  */
@@ -17,8 +14,8 @@ class T3xDownloader extends ArchiveDownloader
 {
 
 	/**
-	 * @param $file path to the archive file
-	 * @param $path path where the extension should be extracted to
+	 * @param string $file path to the archive file
+	 * @param string $path path where the extension should be extracted to
 	 */
 	protected function extract($file, $path)
 	{
@@ -136,7 +133,7 @@ class T3xDownloader extends ArchiveDownloader
 			$content = $file['content'];
 
 			if ($fd = fopen($filename, 'wb')) {
-				$res = fwrite($fd, $content);
+				fwrite($fd, $content);
 				fclose($fd);
 			}
 		}
