@@ -14,28 +14,6 @@ modify the package name upon installing.
 package requires special installation handling then by all means, create a
 custom installer to handle it.
 
-**Current Supported Package Types**:
-
-* AGL           `agl-`
-* CakePHP 2+    `cakephp-`
-* CodeIgniter   `codeigniter-`
-* Drupal        `drupal-`
-* FuelPHP       `fuelphp-`
-* Joomla        `joomla-`
-* Kohana        `kohana-`
-* Laravel       `laravel-`
-* Lithium       `lithium-`
-* Magento       `magento-`
-* Mako          `mako-`
-* MediaWiki     `mediawiki-`
-* phpBB         `phpbb-`
-* PPI           `ppi-`
-* SilverStripe  `silverstripe-`
-* Symfony1      `symfony1-`
-* TYPO3 Flow    `typo3-flow-`
-* WordPress     `wordpress-`
-* Zend          `zend-`
-
 **Natively Supported Frameworks**:
 
 The following frameworks natively work with Composer and will be
@@ -44,20 +22,54 @@ is not needed to install packages with these frameworks:
 
 * Aura
 * Symfony2
+* Yii
+
+**Current Supported Package Types**:
+
+> Stable types are marked as **bold**, this means that installation paths
+> for those type will not be change. Any adjustment for those types would
+> require creation of brand new type that will cover required changes.
+
+| Framework    | Types
+| ---------    | -----
+| AGL          | `agl-module`
+| AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
+| CakePHP 2+   | **`cakephp-plugin`**
+| CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
+| Croogo       | `croogo-plugin`<br>`croogo-theme`
+| Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-profile`<br>`drupal-drush`
+| FuelPHP v1.x | `fuel-module`<br>`fuel-package`
+| Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
+| Kohana       | **`kohana-module`**
+| Laravel      | `laravel-library`
+| Lithium      | **`lithium-library`<br>`lithium-source`**
+| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| Mako         | `mako-package`
+| MediaWiki    | `mediawiki-extension`
+| OXID         | `oxid-module`
+| MODULEWork   | `modulework-module`
+| phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
+| PPI          | **`ppi-module`**
+| SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
+| symfony1     | **`symfony1-plugin`**
+| TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
+| TYPO3 CMS   | `typo3-cms-extension`<br>`typo3-cms-core`
+| WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
+| Zend         | `zend-library`<br>`zend-extra`
 
 ## Example `composer.json` File
 
 This is an example for a CakePHP plugin. The only important parts to set in your
 composer.json file are `"type": "cakephp-plugin"` which describes what your
-package is and `"require": { "composer/installers": "*" }` which tells composer
+package is and `"require": { "composer/installers": "~1.0" }` which tells composer
 to load the custom installers.
 
-``` json
+```json
 {
     "name": "you/ftp",
     "type": "cakephp-plugin",
     "require": {
-        "composer/installers": "*"
+        "composer/installers": "~1.0"
     }
 }
 ```
@@ -67,78 +79,12 @@ when a user runs `php composer.phar install`.
 
 So submit your packages to [packagist.org](http://packagist.org)!
 
-## Current Supported Types
-
-* AGL
-    * agl-module
-* CakePHP
-    * **cakephp-plugin**
-* CodeIgniter
-    * codeigniter-library
-    * codeigniter-third-party
-    * codeigniter-module
-* Drupal
-    * **drupal-module**
-    * **drupal-theme**
-    * drupal-profile
-    * drupal-drush
-* FuelPHP
-    * fuelphp-module
-* Joomla
-    * joomla-component
-    * joomla-module
-    * joomla-template
-    * joomla-plugin
-    * joomla-library
-* Kohana
-    * **kohana-module**
-* Laravel
-    * laravel-library
-* Lithium
-    * **lithium-library**
-    * **lithium-source**
-* Magento
-    * magento-library
-    * magento-skin
-    * magento-theme
-* Mako
-    * mako-package
-* MediaWiki
-    * mediawiki-extension
-* phpBB
-    * phpbb-extension
-    * phpbb-style
-    * phpbb-language
-* PPI
-    * **ppi-module**
-* SilverStripe
-    * silverstripe-module
-    * silverstripe-theme
-* symfony1
-    * **symfony1-plugin**
-* TYPO3 Flow
-    * typo3-flow-package
-    * typo3-flow-framework
-    * typo3-flow-plugin
-    * typo3-flow-site
-    * typo3-flow-build
-* WordPress
-    * **wordpress-plugin**
-    * **wordpress-theme**
-* Zend
-    * zend-library
-    * zend-extra
-
-Types in **bold** have been marked stable and you can rely on those install
-paths to not change. A new type must be created if any adjustments are
-requested for an install path.
-
 ## Custom Install Paths
 
 If you are consuming a package that uses the `composer/installers` you can
 override the install path with the following extra in your `composer.json`:
 
-``` json
+```json
 {
     "extra": {
         "installer-paths": {
@@ -148,8 +94,20 @@ override the install path with the following extra in your `composer.json`:
 }
 ```
 
+A package type can have a custom installation path with a `type:` prefix.
+
+``` json
+{
+    "extra": {
+        "installer-paths": {
+            "your/custom/path/{$name}/": ["type:wordpress-plugin"]
+        }
+    }
+}
+```
+
 This would use your custom path for each of the listed packages. The available
-variables to use in your paths are: `${name}`, `{$vendor}`, `{$type}`.
+variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
 
 ## Custom Install Names
 
@@ -163,7 +121,7 @@ package author actually need the package to be named and installed to
 `Plugin/Ftp`. Using the following config within your **package** `composer.json`
 will allow this:
 
-``` json
+```json
 {
     "name": "shama/cakephp-ftp",
     "type": "cakephp-plugin",
@@ -202,4 +160,3 @@ It has been proposed many times. Even implemented once early on and then
 removed. `installers` won't do this because it would allow a single package
 author to wipe out entire folders without the user's consent. That user would
 then come here to yell at us.
-

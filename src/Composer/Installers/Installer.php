@@ -1,8 +1,9 @@
 <?php
 namespace Composer\Installers;
 
-use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
+use Composer\Package\PackageInterface;
+use Composer\Repository\InstalledRepositoryInterface;
 
 class Installer extends LibraryInstaller
 {
@@ -13,10 +14,12 @@ class Installer extends LibraryInstaller
      */
     private $supportedTypes = array(
         'agl'          => 'AglInstaller',
+        'annotatecms'  => 'AnnotateCmsInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
+        'croogo'       => 'CroogoInstaller',
         'drupal'       => 'DrupalInstaller',
-        'fuelphp'      => 'FuelPHPInstaller',
+        'fuel'         => 'FuelInstaller',
         'joomla'       => 'JoomlaInstaller',
         'kohana'       => 'KohanaInstaller',
         'laravel'      => 'LaravelInstaller',
@@ -24,6 +27,8 @@ class Installer extends LibraryInstaller
         'magento'      => 'MagentoInstaller',
         'mako'         => 'MakoInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
+        'modulework'   => 'MODULEWorkInstaller',
+        'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'ppi'          => 'PPIInstaller',
         'silverstripe' => 'SilverStripeInstaller',
@@ -52,6 +57,12 @@ class Installer extends LibraryInstaller
         $installer = new $class($package, $this->composer);
 
         return $installer->getInstallPath($package, $frameworkType);
+    }
+
+    public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
+    {
+        $installPath = $this->getInstallPath($package);
+        $this->io->write(sprintf('Deleting %s - %s', $installPath, $this->filesystem->removeDirectory($installPath) ? '<comment>deleted</comment>' : '<error>not deleted</error>'));
     }
 
     /**

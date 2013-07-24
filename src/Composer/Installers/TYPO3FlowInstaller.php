@@ -7,10 +7,27 @@ namespace Composer\Installers;
 class TYPO3FlowInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'package'   => 'Packages/Application/{$name}/',
-        'framework' => 'Packages/Framework/{$name}/',
-        'plugin'    => 'Packages/Plugins/{$name}/',
-        'site'      => 'Packages/Sites/{$name}/',
-        'build'     => 'Build/{$name}/',
+        'package'       => 'Packages/Application/{$name}/',
+        'framework'     => 'Packages/Framework/{$name}/',
+        'plugin'        => 'Packages/Plugins/{$name}/',
+        'site'          => 'Packages/Sites/{$name}/',
+        'boilerplate'   => 'Packages/Boilerplates/{$name}/',
+        'build'         => 'Build/{$name}/',
     );
+
+    /**
+     * Modify the package name to be a TYPO3 Flow style key.
+     *
+     * @param array $vars
+     * @return array
+     */
+    public function inflectPackageVars($vars)
+    {
+        $autoload = $this->package->getAutoload();
+        if (isset($autoload['psr-0']) && is_array($autoload['psr-0'])) {
+            $namespace = key($autoload['psr-0']);
+            $vars['name'] = str_replace('\\', '.', $namespace);
+        }
+        return $vars;
+    }
 }

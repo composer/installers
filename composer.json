@@ -8,8 +8,7 @@
         "li3", "lithium", "mako","fuelphp",
         "codeigniter", "symfony", "phpbb", "ppi",
         "joomla", "wordpress", "drupal", "zend",
-        "silverstripe", "agl", "TYPO3 Flow", "TYPO3 Neos",
-        "TYPO3 CMS"
+        "silverstripe", "agl", "TYPO3 Flow", "TYPO3 Neos", "modulework", "TYPO3 CMS"
     ],
     "homepage": "http://composer.github.com/installers/",
     "authors": [
@@ -26,7 +25,10 @@
 		}
     },
     "extra": {
-        "class": "Composer\\Installers\\Installer"
+        "class": "Composer\\Installers\\Installer",
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     },
     "replace": {
         "shama/baton": "*"

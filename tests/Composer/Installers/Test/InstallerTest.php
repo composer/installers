@@ -85,12 +85,18 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', true),
+            array('annotatecms-module', true),
+            array('annotatecms-component', true),
+            array('annotatecms-service', true),
             array('cakephp', false),
             array('cakephp-', false),
             array('cakephp-app', true),
             array('codeigniter-app', true),
+            array('croogo-plugin', true),
+            array('croogo-theme', true),
             array('drupal-module', true),
-            array('fuelphp-module', true),
+            array('fuel-module', true),
+            array('fuel-package', true),
             array('joomla-library', true),
             array('kohana-module', true),
             array('laravel-library', true),
@@ -98,6 +104,7 @@ class InstallerTest extends TestCase
             array('magento-library', true),
             array('mako-package', true),
             array('mediawiki-extension', true),
+            array('modulework-module', true),
             array('phpbb-extension', true),
             array('ppi-module', true),
             array('silverstripe-module', true),
@@ -114,10 +121,10 @@ class InstallerTest extends TestCase
      *
      * @dataProvider dataForTestInstallPath
      */
-    public function testInstallPath($type, $path, $name)
+    public function testInstallPath($type, $path, $name, $version = '1.0.0')
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new Package($name, '1.0.0', '1.0.0');
+        $package = new Package($name, $version, $version);
 
         $package->setType($type);
         $result = $installer->getInstallPath($package);
@@ -131,14 +138,20 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', 'More/MyTestPackage/', 'agl/my_test-package'),
+            array('annotatecms-module', 'addons/modules/my_module/', 'vysinsky/my_module'),
+            array('annotatecms-component', 'addons/components/my_component/', 'vysinsky/my_component'),
+            array('annotatecms-service', 'addons/services/my_service/', 'vysinsky/my_service'),
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
-            array('codeigniter-library', 'libraries/my_package/', 'shama/my_package'),
-            array('codeigniter-module', 'modules/my_package/', 'shama/my_package'),
+            array('codeigniter-library', 'application/libraries/my_package/', 'shama/my_package'),
+            array('codeigniter-module', 'application/modules/my_package/', 'shama/my_package'),
+            array('croogo-plugin', 'Plugin/Sitemaps/', 'fahad19/sitemaps'),
+            array('croogo-theme', 'View/Themed/Readable/', 'rchavik/readable'),
             array('drupal-module', 'modules/my_module/', 'shama/my_module'),
             array('drupal-theme', 'themes/my_module/', 'shama/my_module'),
             array('drupal-profile', 'profiles/my_module/', 'shama/my_module'),
             array('drupal-drush', 'drush/my_module/', 'shama/my_module'),
-            array('fuelphp-module', 'modules/my_package/', 'shama/my_package'),
+            array('fuel-module', 'fuel/app/modules/module/', 'fuel/module'),
+            array('fuel-package', 'fuel/packages/orm/', 'fuel/orm'),
             array('joomla-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
             array('kohana-module', 'modules/my_package/', 'shama/my_package'),
             array('laravel-library', 'libraries/my_package/', 'shama/my_package'),
@@ -148,18 +161,24 @@ class InstallerTest extends TestCase
             array('mediawiki-extension', 'extensions/APC/', 'author/APC' ),
             array('mediawiki-extension', 'extensions/UploadWizard/', 'author/upload-wizard' ),
             array('mediawiki-extension', 'extensions/SyntaxHighlight_GeSHi/', 'author/syntax-highlight_GeSHi' ),
+            array('modulework-module', 'modules/my_package/', 'shama/my_package'),
             array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
             array('phpbb-style', 'styles/foo/', 'test/foo'),
             array('phpbb-language', 'language/foo/', 'test/foo'),
             array('ppi-module', 'modules/foo/', 'test/foo'),
             array('silverstripe-module', 'my_module/', 'shama/my_module'),
+            array('silverstripe-module', 'sapphire/', 'silverstripe/framework', '2.4.0'),
+            array('silverstripe-module', 'framework/', 'silverstripe/framework', '3.0.0'),
+            array('silverstripe-module', 'framework/', 'silverstripe/framework', '3.0.0-rc1'),
+            array('silverstripe-module', 'framework/', 'silverstripe/framework', 'my/branch'),
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
             array('typo3-flow-package', 'Packages/Application/my_package/', 'shama/my_package'),
             array('typo3-flow-build', 'Build/my_package/', 'shama/my_package'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
-            array('zend-extra', 'extras/library/', 'shama/zend_test'),
+            array('wordpress-muplugin', 'wp-content/mu-plugins/my_plugin/', 'shama/my_plugin'),
+            array('zend-extra', 'extras/library/zend_test/', 'shama/zend_test'),
         );
     }
 
@@ -216,6 +235,26 @@ class InstallerTest extends TestCase
     }
 
     /**
+     * testCustomTypePath
+     */
+    public function testCustomTypePath() {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
+        $package->setType('wordpress-plugin');
+        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra(array(
+            'installer-paths' => array(
+                'my/custom/path/{$name}/' => array(
+                    'type:wordpress-plugin'
+                ),
+            ),
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('my/custom/path/my_plugin/', $result);
+    }
+
+    /**
      * testNoVendorName
      */
     public function testNoVendorName()
@@ -226,6 +265,25 @@ class InstallerTest extends TestCase
         $package->setType('symfony1-plugin');
         $result = $installer->getInstallPath($package);
         $this->assertEquals('plugins/sfPhpunitPlugin/', $result);
+    }
+
+    /**
+     * testTypo3Inflection
+     */
+    public function testTypo3Inflection()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('typo3/fluid', '1.0.0', '1.0.0');
+
+        $package->setAutoload(array(
+            'psr-0' => array(
+                'TYPO3\\Fluid' => 'Classes',
+            ),
+        ));
+
+        $package->setType('typo3-flow-package');
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('Packages/Application/TYPO3.Fluid/', $result);
     }
 
 }

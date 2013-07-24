@@ -1,10 +1,11 @@
 <?php
 namespace Composer\Installers;
 
-class CakePHPInstaller extends BaseInstaller
+class CroogoInstaller extends BaseInstaller
 {
     protected $locations = array(
         'plugin' => 'Plugin/{$name}/',
+        'theme' => 'View/Themed/{$name}/',
     );
 
     /**
@@ -12,8 +13,7 @@ class CakePHPInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-        $vars['name'] = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $vars['name']));
-        $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
+        $vars['name'] = strtolower(str_replace(array('-', '_'), ' ', $vars['name']));
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
 
         return $vars;
