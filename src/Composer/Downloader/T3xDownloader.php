@@ -146,7 +146,7 @@ class T3xDownloader extends ArchiveDownloader
 	 */
 	protected function writeEmConf(array $extensionData, $path) {
 		$emConfContent = $this->constructEmConf($extensionData);
-		if ($fd = fopen($path . 'em_conf.php', 'wb')) {
+		if ($fd = fopen($path . 'ext_emconf.php', 'wb')) {
 			fwrite($fd, $emConfContent);
 			fclose($fd);
 		}
