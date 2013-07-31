@@ -7,10 +7,12 @@
 
 namespace Composer\Downloader;
 
+use Composer\Package\PackageInterface;
+
 /**
  * @author Sascha Egerer <sascha.egerer@dkd.de
  */
-class T3xDownloader extends ArchiveDownloader
+class T3xDownloader extends ArchiveDownloader implements ChangeReportInterface
 {
 
 	/**
@@ -31,6 +33,45 @@ class T3xDownloader extends ArchiveDownloader
 		$this->createDirectoriesForExtensionFiles($directories, $path);
 		$this->writeExtensionFiles($files, $path);
 		$this->writeEmConf($extensionData, $path);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function getLocalChanges($path, PackageInterface $package)
+	{
+		$messages = array();
+
+		// check if there is a ext_emconf.php
+		if(is_file($path . 'ext_emconf.php')) {
+			$_EXTKEY = substr($package->getPrettyName(), strlen($package->getType()) + 1);
+			include($path . 'ext_emconf.php');
+
+			$extensionFiles = unserialize($EM_CONF[$_EXTKEY]['_md5_values_when_last_written']);
+
+			foreach($extensionFiles as $extensionFileName => $extensionFileHash) {
+				if(is_file($path . $extensionFileName))  {
+					$localFileContentHash = md5(file_get_contents($path . $extensionFileName));
+
+					if(substr($localFileContentHash,0,4) != $extensionFileHash) {
+						$messages[] = $extensionFileName . ' - File is modified';
+					}
+				} else {
+					$messages[] = $extensionFileName . ' - File is missing';
+				}
+			}
+
+
+			if($package->getPrettyVersion() != $EM_CONF[$_EXTKEY]['version']) {
+				$messages[] = 'Local Version is ' . $EM_CONF[$_EXTKEY]['version'] . ' but should be ' . $package->getPrettyVersion();
+			}
+
+			unset($EM_CONF);
+		} else {
+			$messages[] = 'Package is unstable. "ext_emconf.php" is missing';
+		}
+
+		return implode("\n",$messages);
 	}
 
 	/**
@@ -161,6 +202,7 @@ class T3xDownloader extends ArchiveDownloader
 	 */
 	public function constructEmConf(array $extensionData) {
 		$emConf = $this->fixEmConf($extensionData['EM_CONF']);
+		$emConf['_md5_values_when_last_written'] = serialize($this->extensionMD5array($extensionData['FILES']));
 		$emConf = var_export($emConf, TRUE);
 		$code = '<?php
 
@@ -180,6 +222,25 @@ $EM_CONF[$_EXTKEY] = ' . $emConf . ';
 		return str_replace('  ', chr(9), $code);
 	}
 
+	/**
+	 * Creates a MD5-hash array over the current files in the extension
+	 *
+	 * @param	array $filesArray
+	 * @return	array MD5-keys
+	 */
+	function extensionMD5array(array $filesArray) {
+
+		$md5Array = array();
+
+		// Traverse files.
+		foreach ($filesArray as $fileName => $fileInfo) {
+			if ($fileName != 'ext_emconf.php') {
+				$md5Array[$fileName] = substr($fileInfo['content_md5'], 0, 4);
+			}
+		}
+
+		return $md5Array;
+	}
 	/**
 	 * Fix the em conf - Converts old / ter em_conf format to new format
 	 *
