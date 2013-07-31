@@ -6,19 +6,17 @@ namespace Composer\Installers;
  *
  * @author Sascha Egerer <sascha.egerer@dkd.de>
  */
-class TYPO3CmsInstaller extends BaseInstaller {
+class TYPO3CmsInstaller extends BaseInstaller 
+{
+    protected $locations = array(
+        'extension'   => 'typo3conf/ext/{$name}/',
+        'core'   => 'typo3_src/'
+    );
 
-	protected $locations = array(
-		'extension'   => 'typo3conf/ext/{$name}/',
-		'core'   => 'typo3_src/'
-	);
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function supports($packageType) {
-		return 'extension' === $packageType;
-	}
-
+    /**
+     * {@inheritDoc}
+     */
+    public function supports($packageType) {
+        return 'extension' === $packageType;
+    }
 }
-?>
