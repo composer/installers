@@ -20,8 +20,7 @@
     ],
     "autoload": {
 		"psr-0": {
-			"Composer\\Installers\\": "src/",
-			"Composer\\Downloader\\": "src/"
+			"Composer\\Installers\\": "src/"
 		}
     },
     "extra": {
