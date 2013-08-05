@@ -111,6 +111,7 @@ class InstallerTest extends TestCase
             array('silverstripe-theme', true),
             array('symfony1-plugin', true),
             array('typo3-flow-plugin', true),
+            array('typo3-cms-extension', true),
             array('wordpress-plugin', true),
             array('zend-library', true),
         );
@@ -176,6 +177,7 @@ class InstallerTest extends TestCase
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
             array('typo3-flow-package', 'Packages/Application/my_package/', 'shama/my_package'),
             array('typo3-flow-build', 'Build/my_package/', 'shama/my_package'),
+            array('typo3-cms-extension', 'typo3conf/ext/my_extension/', 'shama/my_extension'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('wordpress-muplugin', 'wp-content/mu-plugins/my_plugin/', 'shama/my_plugin'),
             array('zend-extra', 'extras/library/zend_test/', 'shama/zend_test'),

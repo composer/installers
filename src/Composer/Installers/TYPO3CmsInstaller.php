@@ -12,11 +12,4 @@ class TYPO3CmsInstaller extends BaseInstaller
         'extension'   => 'typo3conf/ext/{$name}/',
         'core'   => 'typo3_src/'
     );
-
-    /**
-     * {@inheritDoc}
-     */
-    public function supports($packageType) {
-        return 'extension' === $packageType;
-    }
 }
