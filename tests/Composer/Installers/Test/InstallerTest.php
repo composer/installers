@@ -286,4 +286,17 @@ class InstallerTest extends TestCase
         $this->assertEquals('Packages/Application/TYPO3.Fluid/', $result);
     }
 
+    public function testUninstallAndDeletePackageFromLocalRepo()
+    {
+        $package = new Package('foo', '1.0.0', '1.0.0');
+
+        $installer = $this->getMock('Composer\Installers\Installer', array('getInstallPath'), array($this->io, $this->composer));
+        $installer->expects($this->once())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
+
+        $repo = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
+        $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));
+        $repo->expects($this->once())->method('removePackage')->with($package);
+
+        $installer->uninstall($repo, $package);
+    }
 }
