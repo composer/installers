@@ -8,8 +8,6 @@ namespace Composer\Installers;
  */
 class Symfony1Installer extends BaseInstaller
 {
-    const PATTERN = 'plugin';
-
     protected $locations = array(
         'plugin'    => 'plugins/{$name}/',
     );

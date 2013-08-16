@@ -6,8 +6,6 @@ namespace Composer\Installers;
  */
 class TYPO3FlowInstaller extends BaseInstaller
 {
-    const PATTERN = '(package|framework|plugin|site|boilerplate|build)';
-
     protected $locations = array(
         'package'       => 'Packages/Application/{$name}/',
         'framework'     => 'Packages/Framework/{$name}/',
