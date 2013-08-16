@@ -81,7 +81,8 @@ class Installer extends LibraryInstaller
             return false;
         }
 
-        return preg_match('#' . $frameworkType . '-(\w+)#', $packageType, $matches) === 1;
+        $locationPattern = $this->getLocationPattern($frameworkType);
+        return preg_match('#' . $frameworkType . '-' . $locationPattern . '#', $packageType, $matches) === 1;
     }
 
     /**
@@ -102,5 +103,25 @@ class Installer extends LibraryInstaller
         }
 
         return $frameworkType;
+    }
+
+    /**
+     * Get the second part of the regular expression to check for support of a
+     * package type
+     *
+     * @param  string $frameworkType
+     * @return string
+     */
+    protected function getLocationPattern($frameworkType)
+    {
+        $pattern = false;
+        if (!empty($this->supportedTypes[$frameworkType])) {
+            $frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
+            /** @var BaseInstaller $framework */
+            $framework = new $frameworkClass;
+            $locations = array_keys($framework->getLocations());
+            $pattern = $locations ? '(' . implode('|', $locations) . ')' : false;
+        }
+        return $pattern ? : '(\w+)';
     }
 }
