@@ -16,7 +16,7 @@ abstract class BaseInstaller
      * @param PackageInterface $package
      * @param Composer         $composer
      */
-    public function __construct(PackageInterface $package, Composer $composer)
+    public function __construct(PackageInterface $package = null, Composer $composer = null)
     {
         $this->composer = $composer;
         $this->package = $package;
@@ -75,6 +75,16 @@ abstract class BaseInstaller
     public function inflectPackageVars($vars)
     {
         return $vars;
+    }
+
+    /**
+     * Gets the installer's locations
+     *
+     * @return array
+     */
+    public function getLocations()
+    {
+        return $this->locations;
     }
 
     /**
