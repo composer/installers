@@ -3,6 +3,8 @@ namespace Composer\Installers;
 
 class MagentoInstaller extends BaseInstaller
 {
+    const PATTERN = '(theme|skin|library)';
+
     protected $locations = array(
         /*
          * TODO: Breaking a theme into seperate repos is weird. It would be nice

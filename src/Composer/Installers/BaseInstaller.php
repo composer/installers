@@ -6,6 +6,8 @@ use Composer\Package\PackageInterface;
 
 abstract class BaseInstaller
 {
+    const PATTERN = false;
+
     protected $locations = array();
     protected $composer;
     protected $package;

@@ -5,6 +5,8 @@ use Composer\Package\PackageInterface;
 
 class SilverStripeInstaller extends BaseInstaller
 {
+    const PATTERN = '(module|theme)';
+
     protected $locations = array(
         'module' => '{$name}/',
         'theme'  => 'themes/{$name}/',

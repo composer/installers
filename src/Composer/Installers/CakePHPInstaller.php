@@ -3,6 +3,8 @@ namespace Composer\Installers;
 
 class CakePHPInstaller extends BaseInstaller
 {
+    const PATTERN = 'plugin';
+
     protected $locations = array(
         'plugin' => 'Plugin/{$name}/',
     );

@@ -3,6 +3,8 @@ namespace Composer\Installers;
 
 class CroogoInstaller extends BaseInstaller
 {
+    const PATTERN = '(plugin|theme)';
+
     protected $locations = array(
         'plugin' => 'Plugin/{$name}/',
         'theme' => 'View/Themed/{$name}/',

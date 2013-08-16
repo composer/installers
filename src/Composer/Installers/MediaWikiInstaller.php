@@ -3,6 +3,8 @@ namespace Composer\Installers;
 
 class MediaWikiInstaller extends BaseInstaller
 {
+    const PATTERN = 'extension';
+
     protected $locations = array(
         'extension' => 'extensions/{$name}/',
     );

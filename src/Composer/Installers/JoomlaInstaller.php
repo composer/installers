@@ -3,6 +3,8 @@ namespace Composer\Installers;
 
 class JoomlaInstaller extends BaseInstaller
 {
+    const PATTERN = '(component|module|template|plugin|library)';
+
     protected $locations = array(
         'component'    => 'components/{$name}/',
         'module'       => 'modules/{$name}/',

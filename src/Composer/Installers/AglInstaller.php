@@ -3,6 +3,8 @@ namespace Composer\Installers;
 
 class AglInstaller extends BaseInstaller
 {
+    const PATTERN = 'module';
+
     protected $locations = array(
         'module' => 'More/{$name}/',
     );
