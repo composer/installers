@@ -112,6 +112,7 @@ class InstallerTest extends TestCase
             array('symfony1-plugin', true),
             array('typo3-flow-plugin', true),
             array('wordpress-plugin', true),
+            array('wordpress-core', false),
             array('zend-library', true),
         );
     }
