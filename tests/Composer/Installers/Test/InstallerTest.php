@@ -90,8 +90,12 @@ class InstallerTest extends TestCase
             array('annotatecms-service', true),
             array('cakephp', false),
             array('cakephp-', false),
-            array('cakephp-app', true),
-            array('codeigniter-app', true),
+            array('cakephp-app', false),
+            array('cakephp-plugin', true),
+            array('codeigniter-app', false),
+            array('codeigniter-library', true),
+            array('codeigniter-third-party', true),
+            array('codeigniter-module', true),
             array('croogo-plugin', true),
             array('croogo-theme', true),
             array('drupal-module', true),
@@ -112,6 +116,7 @@ class InstallerTest extends TestCase
             array('symfony1-plugin', true),
             array('typo3-flow-plugin', true),
             array('wordpress-plugin', true),
+            array('wordpress-core', false),
             array('zend-library', true),
         );
     }
