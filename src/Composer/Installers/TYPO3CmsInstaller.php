@@ -9,7 +9,6 @@ namespace Composer\Installers;
 class TYPO3CmsInstaller extends BaseInstaller 
 {
     protected $locations = array(
-        'extension'   => 'typo3conf/ext/{$name}/',
-        'core'   => 'typo3_src/'
+        'extension'   => 'typo3conf/ext/{$name}/'
     );
 }
