@@ -36,7 +36,7 @@ class Installer extends LibraryInstaller
         'wordpress'    => 'WordPressInstaller',
         'zend'         => 'ZendInstaller',
         'typo3-flow'   => 'TYPO3FlowInstaller',
-        'typo3-cms'    => 'TYPO3CmsInstaller'
+        'typo3-cms'    => 'TYPO3CmsInstaller',
     );
 
     /**
