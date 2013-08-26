@@ -1,12 +1,16 @@
 <?php
 namespace Composer\Installers;
 
+use Composer\Composer;
 use Composer\Installer\LibraryInstaller;
+use Composer\IO\IOInterface;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 
 class Installer extends LibraryInstaller
 {
+    protected $workingDir;
+
     /**
      * Package types to installer class map
      *
@@ -42,6 +46,16 @@ class Installer extends LibraryInstaller
     /**
      * {@inheritDoc}
      */
+    public function __construct(IOInterface $io, Composer $composer, $type = 'library')
+    {
+        parent::__construct($io, $composer, $type);
+        $this->workingDir = getcwd();
+    }
+
+
+    /**
+     * {@inheritDoc}
+     */
     public function getInstallPath(PackageInterface $package)
     {
         $type = $package->getType();
@@ -56,7 +70,7 @@ class Installer extends LibraryInstaller
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
         $installer = new $class($package, $this->composer);
 
-        return $installer->getInstallPath($package, $frameworkType);
+        return $this->workingDir.DIRECTORY_SEPARATOR.$installer->getInstallPath($package, $frameworkType);
     }
 
     public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)

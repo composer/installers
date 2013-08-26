@@ -139,14 +139,14 @@ class InstallerTest extends TestCase
      *
      * @dataProvider dataForTestInstallPath
      */
-    public function testInstallPath($type, $path, $name, $version = '1.0.0')
+    public function testInstallPath($type, $relpath, $name, $version = '1.0.0')
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package($name, $version, $version);
 
         $package->setType($type);
         $result = $installer->getInstallPath($package);
-        $this->assertEquals($path, $result);
+        $this->assertEquals($this->workingDir.DIRECTORY_SEPARATOR.$relpath, $result);
     }
 
     /**
@@ -236,7 +236,7 @@ class InstallerTest extends TestCase
             ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('my/custom/path/Ftp/', $result);
+        $this->assertEquals($this->workingDir.DIRECTORY_SEPARATOR.'my/custom/path/Ftp/', $result);
     }
 
     /**
@@ -250,7 +250,7 @@ class InstallerTest extends TestCase
             'installer-name' => 'FTP',
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('Plugin/FTP/', $result);
+        $this->assertEquals($this->workingDir.DIRECTORY_SEPARATOR.'Plugin/FTP/', $result);
     }
 
     /**
@@ -270,7 +270,7 @@ class InstallerTest extends TestCase
             ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('my/custom/path/my_plugin/', $result);
+        $this->assertEquals($this->workingDir.DIRECTORY_SEPARATOR.'my/custom/path/my_plugin/', $result);
     }
 
     /**
@@ -283,7 +283,7 @@ class InstallerTest extends TestCase
 
         $package->setType('symfony1-plugin');
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('plugins/sfPhpunitPlugin/', $result);
+        $this->assertEquals($this->workingDir.DIRECTORY_SEPARATOR.'plugins/sfPhpunitPlugin/', $result);
     }
 
     /**
@@ -302,7 +302,7 @@ class InstallerTest extends TestCase
 
         $package->setType('typo3-flow-package');
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('Packages/Application/TYPO3.Fluid/', $result);
+        $this->assertEquals($this->workingDir.DIRECTORY_SEPARATOR.'Packages/Application/TYPO3.Fluid/', $result);
     }
 
     public function testUninstallAndDeletePackageFromLocalRepo()
