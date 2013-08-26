@@ -38,6 +38,12 @@ class InstallerTest extends TestCase
         $this->binDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-bin';
         $this->ensureDirectoryExistsAndClear($this->binDir);
 
+        // Set up and switch to a temporary working directory to ensure clean context for any file operations
+        $this->workingDir = realpath(sys_get_temp_dir()).DIRECTORY_SEPARATOR.'cmptest-'.md5(uniqid('', true));
+        $this->fs->ensureDirectoryExists($this->workingDir);
+        $this->origDir = getcwd();
+        chdir($this->workingDir);
+
         $this->config->merge(array(
             'config' => array(
                 'vendor-dir' => $this->vendorDir,
@@ -61,6 +67,12 @@ class InstallerTest extends TestCase
      */
     public function tearDown()
     {
+        // Switch back to the original working directory
+        chdir($this->origDir);
+        if (is_dir($this->workingDir)) {
+            $this->fs->removeDirectory($this->workingDir);
+        }
+
         $this->fs->removeDirectory($this->vendorDir);
         $this->fs->removeDirectory($this->binDir);
     }
@@ -305,5 +317,28 @@ class InstallerTest extends TestCase
         $repo->expects($this->once())->method('removePackage')->with($package);
 
         $installer->uninstall($repo, $package);
+    }
+
+    public function testInstallPackageBinaries()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('foo/bin-test', '1.0.0', '1.0.0');
+        $package->setType('kohana-module');
+        $package->setBinaries(array('bin/foobin'));
+
+        // Mock the download manager to create the specified package binary in the install path
+        $this->dm->expects($this->any())->method('download')
+            ->will($this->returnCallback(function($package, $targetDir) {
+                mkdir($targetDir.'bin', 0777, TRUE);
+                touch($targetDir.'bin/foobin');
+        }));
+
+        $repo = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
+        $repo->expects($this->any())->method('hasPackage')->with($package)->will($this->returnValue(true));
+
+        $installer->install($repo, $package);
+
+        $expected_bin = $this->binDir.DIRECTORY_SEPARATOR.'foobin';
+        $this->assertTrue(file_exists($expected_bin), "Expected binary stub $expected_bin to be created");
     }
 }
