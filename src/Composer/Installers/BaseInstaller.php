@@ -106,7 +106,7 @@ abstract class BaseInstaller
             }
         }
 
-        return $path;
+        return realpath('./') . DIRECTORY_SEPARATOR . trim($path, '\\/');
     }
 
     /**
