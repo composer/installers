@@ -153,7 +153,7 @@ class InstallerTest extends TestCase
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
             array('codeigniter-library', 'application/libraries/my_package/', 'shama/my_package'),
             array('codeigniter-module', 'application/modules/my_package/', 'shama/my_package'),
-            array('concrete5-blocks', 'blocks/concrete5_block/', 'remo/concrete5_block'),
+            array('concrete5-block', 'blocks/concrete5_block/', 'remo/concrete5_block'),
             array('concrete5-package', 'packages/concrete5_package/', 'remo/concrete5_package'),
             array('concrete5-theme', 'themes/concrete5_theme/', 'remo/concrete5_theme'),
             array('croogo-plugin', 'Plugin/Sitemaps/', 'fahad19/sitemaps'),
