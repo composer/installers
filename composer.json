@@ -9,7 +9,7 @@
         "codeigniter", "symfony", "phpbb", "ppi",
         "joomla", "wordpress", "drupal", "zend",
         "silverstripe", "agl", "TYPO3 Flow", "TYPO3 Neos", "modulework",
-        "TYPO3 CMS"
+        "TYPO3 CMS", "concrete5"
     ],
     "homepage": "http://composer.github.com/installers/",
     "authors": [
