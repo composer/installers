@@ -17,6 +17,7 @@ class Installer extends LibraryInstaller
         'annotatecms'  => 'AnnotateCmsInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
+        'concrete5'    => 'Concrete5Installer',
         'croogo'       => 'CroogoInstaller',
         'drupal'       => 'DrupalInstaller',
         'fuel'         => 'FuelInstaller',
