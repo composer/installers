@@ -13,13 +13,4 @@ class MODXEvoInstaller extends BaseInstaller
         'template'      => 'assets/templates/{$name}/',
         'lib'           => 'assets/lib/{$name}/'
     );
-
-    /**
-     * Format package name
-     */
-    public function inflectPackageVars($vars)
-    {
-        $vars['name'] = str_replace(' ', '_', $vars['name']);
-        return $vars;
-    }
 }
