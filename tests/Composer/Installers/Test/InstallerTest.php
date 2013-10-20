@@ -30,7 +30,6 @@ class InstallerTest extends TestCase
 
         $this->composer = new Composer();
         $this->config = new Config();
-        $this->composer->setConfig($this->config);
 
         $this->vendorDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-vendor';
         $this->ensureDirectoryExistsAndClear($this->vendorDir);
@@ -44,6 +43,7 @@ class InstallerTest extends TestCase
                 'bin-dir' => $this->binDir,
             ),
         ));
+        $this->composer->setConfig($this->config);
 
         $this->dm = $this->getMockBuilder('Composer\Downloader\DownloadManager')
             ->disableOriginalConstructor()
@@ -109,6 +109,7 @@ class InstallerTest extends TestCase
             array('mako-package', true),
             array('mediawiki-extension', true),
             array('modulework-module', true),
+            array('namespace-vendor-package', true),
             array('phpbb-extension', true),
             array('ppi-module', true),
             array('silverstripe-module', true),
@@ -168,6 +169,7 @@ class InstallerTest extends TestCase
             array('mediawiki-extension', 'extensions/UploadWizard/', 'author/upload-wizard' ),
             array('mediawiki-extension', 'extensions/SyntaxHighlight_GeSHi/', 'author/syntax-highlight_GeSHi' ),
             array('modulework-module', 'modules/my_package/', 'shama/my_package'),
+            array('namespace-vendor-package', realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-vendor' . '/VendorName/PackageName/', 'vendor-name/package-name' ),
             array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
             array('phpbb-style', 'styles/foo/', 'test/foo'),
             array('phpbb-language', 'language/foo/', 'test/foo'),

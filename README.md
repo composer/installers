@@ -46,6 +46,7 @@ is not needed to install packages with these frameworks:
 | Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
 | Mako         | `mako-package`
 | MediaWiki    | `mediawiki-extension`
+| Namespace    | `namespace-vendor-package`
 | OXID         | `oxid-module`
 | MODULEWork   | `modulework-module`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
@@ -107,7 +108,7 @@ A package type can have a custom installation path with a `type:` prefix.
 ```
 
 This would use your custom path for each of the listed packages. The available
-variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
+variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}` and `{$vendorDir}`.
 
 ## Custom Install Names
 
