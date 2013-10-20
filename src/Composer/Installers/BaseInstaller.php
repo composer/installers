@@ -32,7 +32,7 @@ abstract class BaseInstaller
     public function getInstallPath(PackageInterface $package, $frameworkType = '')
     {
         $type = $this->package->getType();
-
+        $vendorDir = $this->composer->getConfig()->get('vendor-dir');
         $prettyName = $this->package->getPrettyName();
         if (strpos($prettyName, '/') !== false) {
             list($vendor, $name) = explode('/', $prettyName);
@@ -41,7 +41,7 @@ abstract class BaseInstaller
             $name = $prettyName;
         }
 
-        $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type'));
+        $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type', 'vendorDir'));
 
         $extra = $package->getExtra();
         if (!empty($extra['installer-name'])) {
