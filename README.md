@@ -36,6 +36,7 @@ is not needed to install packages with these frameworks:
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
 | CakePHP 2+   | **`cakephp-plugin`**
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
+| concrete5    | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
 | Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-profile`<br>`drupal-drush`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`
