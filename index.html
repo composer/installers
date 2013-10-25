@@ -91,14 +91,14 @@ is not needed to install packages with these frameworks:</p>
 
 <p>This is an example for a CakePHP plugin. The only important parts to set in your
 composer.json file are <code>"type": "cakephp-plugin"</code> which describes what your
-package is and <code>"require": { "composer/installers": "*" }</code> which tells composer
+package is and <code>"require": { "composer/installers": "~1.0" }</code> which tells composer
 to load the custom installers.</p>
 
 <div class="highlight"><pre><span class="p">{</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"you/ftp"</span><span class="p">,</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"cakephp-plugin"</span><span class="p">,</span>
     <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"composer/installers"</span><span class="p">:</span> <span class="s2">"*"</span>
+        <span class="nt">"composer/installers"</span><span class="p">:</span> <span class="s2">"~1.0"</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
