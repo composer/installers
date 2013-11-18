@@ -26,6 +26,7 @@ class Installer extends LibraryInstaller
         'lithium'      => 'LithiumInstaller',
         'magento'      => 'MagentoInstaller',
         'mako'         => 'MakoInstaller',
+        'modxevo'      => 'MODXEvoInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
         'modulework'   => 'MODULEWorkInstaller',
         'oxid'         => 'OxidInstaller',
