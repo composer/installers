@@ -191,6 +191,7 @@ class InstallerTest extends TestCase
             array('typo3-cms-extension', 'typo3conf/ext/my_extension/', 'shama/my_extension'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('wordpress-muplugin', 'wp-content/mu-plugins/my_plugin/', 'shama/my_plugin'),
+            array('wordpress-language', 'wp-content/languages/', 'shama'),
             array('zend-extra', 'extras/library/zend_test/', 'shama/zend_test'),
         );
     }
