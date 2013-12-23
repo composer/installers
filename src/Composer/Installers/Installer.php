@@ -20,6 +20,7 @@ class Installer extends LibraryInstaller
         'concrete5'    => 'Concrete5Installer',
         'croogo'       => 'CroogoInstaller',
         'drupal'       => 'DrupalInstaller',
+        'elgg'         => 'ElggInstaller',
         'fuel'         => 'FuelInstaller',
         'hurad'        => 'HuradInstaller',
         'joomla'       => 'JoomlaInstaller',
