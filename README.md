@@ -48,6 +48,7 @@ is not needed to install packages with these frameworks:
 | Lithium      | **`lithium-library`<br>`lithium-source`**
 | Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
 | Mako         | `mako-package`
+| MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
 | MediaWiki    | `mediawiki-extension`
 | OXID         | `oxid-module`
 | MODULEWork   | `modulework-module`
