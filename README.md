@@ -40,6 +40,7 @@ is not needed to install packages with these frameworks:
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
 | Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-profile`<br>`drupal-drush`
 | Elgg         | `elgg-plugin`
+| Piwik        | `piwik-plugin`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
