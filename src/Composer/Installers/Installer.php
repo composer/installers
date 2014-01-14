@@ -21,6 +21,7 @@ class Installer extends LibraryInstaller
         'croogo'       => 'CroogoInstaller',
         'drupal'       => 'DrupalInstaller',
         'elgg'         => 'ElggInstaller',
+        'piwik'        => 'PiwikInstaller',
         'fuel'         => 'FuelInstaller',
         'hurad'        => 'HuradInstaller',
         'joomla'       => 'JoomlaInstaller',

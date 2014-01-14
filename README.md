@@ -52,6 +52,7 @@ is not needed to install packages with these frameworks:
 | MediaWiki    | `mediawiki-extension`
 | OXID         | `oxid-module`
 | MODULEWork   | `modulework-module`
+| Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | PPI          | **`ppi-module`**
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
