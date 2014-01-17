@@ -36,6 +36,7 @@ class Installer extends LibraryInstaller
         'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'ppi'          => 'PPIInstaller',
+        'shopware'     => 'ShopwareInstaller',
         'silverstripe' => 'SilverStripeInstaller',
         'symfony1'     => 'Symfony1Installer',
         'wordpress'    => 'WordPressInstaller',
