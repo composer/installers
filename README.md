@@ -55,6 +55,7 @@ is not needed to install packages with these frameworks:
 | Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | PPI          | **`ppi-module`**
+| shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
 | symfony1     | **`symfony1-plugin`**
 | TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
