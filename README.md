@@ -61,6 +61,7 @@ is not needed to install packages with these frameworks:
 | TYPO3 CMS    | `typo3-cms-extension`
 | WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
+| Zikula       | `zikula-module`<br>`zikula-theme`
 
 ## Example `composer.json` File
 
