@@ -131,6 +131,8 @@ class InstallerTest extends TestCase
             array('wordpress-plugin', true),
             array('wordpress-core', false),
             array('zend-library', true),
+            array('zikula-module', true),
+            array('zikula-theme', true),
         );
     }
 
@@ -210,6 +212,8 @@ class InstallerTest extends TestCase
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('wordpress-muplugin', 'wp-content/mu-plugins/my_plugin/', 'shama/my_plugin'),
             array('zend-extra', 'extras/library/zend_test/', 'shama/zend_test'),
+            array('zikula-module', 'modules/my-test_module/', 'my/test_module'),
+            array('zikula-theme', 'themes/my-test_module/', 'my/test_theme'),
         );
     }
 
