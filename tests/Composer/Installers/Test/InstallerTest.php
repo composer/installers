@@ -213,7 +213,7 @@ class InstallerTest extends TestCase
             array('wordpress-muplugin', 'wp-content/mu-plugins/my_plugin/', 'shama/my_plugin'),
             array('zend-extra', 'extras/library/zend_test/', 'shama/zend_test'),
             array('zikula-module', 'modules/my-test_module/', 'my/test_module'),
-            array('zikula-theme', 'themes/my-test_module/', 'my/test_theme'),
+            array('zikula-theme', 'themes/my-test_theme/', 'my/test_theme'),
         );
     }
 
