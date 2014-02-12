@@ -36,6 +36,7 @@ class Installer extends LibraryInstaller
         'modulework'   => 'MODULEWorkInstaller',
         'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
+        'piwik'        => 'PiwikInstaller',
         'ppi'          => 'PPIInstaller',
         'shopware'     => 'ShopwareInstaller',
         'silverstripe' => 'SilverStripeInstaller',
