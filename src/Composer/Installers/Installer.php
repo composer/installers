@@ -41,6 +41,7 @@ class Installer extends LibraryInstaller
         'shopware'     => 'ShopwareInstaller',
         'silverstripe' => 'SilverStripeInstaller',
         'symfony1'     => 'Symfony1Installer',
+        'wolfcms'      => 'WolfCMSInstaller',
         'wordpress'    => 'WordPressInstaller',
         'zend'         => 'ZendInstaller',
         'zikula'       => 'ZikulaInstaller',
