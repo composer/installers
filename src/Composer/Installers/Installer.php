@@ -26,6 +26,7 @@ class Installer extends LibraryInstaller
         'fuel'         => 'FuelInstaller',
         'hurad'        => 'HuradInstaller',
         'joomla'       => 'JoomlaInstaller',
+        'kirby'        => 'KirbyInstaller',
         'kohana'       => 'KohanaInstaller',
         'laravel'      => 'LaravelInstaller',
         'lithium'      => 'LithiumInstaller',
