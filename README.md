@@ -53,6 +53,7 @@ is not needed to install packages with these frameworks:
 | Mako         | `mako-package`
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
 | MediaWiki    | `mediawiki-extension`
+| October      | **`october-module`<br>`october-plugin`**
 | OXID         | `oxid-module`
 | MODULEWork   | `modulework-module`
 | Piwik        | `piwik-plugin`
