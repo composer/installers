@@ -7,6 +7,6 @@ class MagentoInstaller extends BaseInstaller
         'theme'   => 'app/design/frontend/{$name}/',
         'skin'    => 'skin/frontend/default/{$name}/',
         'library' => 'lib/{$name}/',
-        'base'    => '{$name}/'
+        'base'    => '{$name}/',
     );
 }
