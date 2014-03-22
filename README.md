@@ -49,7 +49,7 @@ is not needed to install packages with these frameworks:
 | Kohana       | **`kohana-module`**
 | Laravel      | `laravel-library`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
-| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme` <br> `magento-base`
 | Mako         | `mako-package`
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
 | MediaWiki    | `mediawiki-extension`
