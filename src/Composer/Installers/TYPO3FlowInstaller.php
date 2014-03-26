@@ -28,6 +28,10 @@ class TYPO3FlowInstaller extends BaseInstaller
             $namespace = key($autoload['psr-0']);
             $vars['name'] = str_replace('\\', '.', $namespace);
         }
+        if (isset($autoload['psr-4']) && is_array($autoload['psr-4'])) {
+            $namespace = key($autoload['psr-4']);
+            $vars['name'] = rtrim(str_replace('\\', '.', $namespace), '.');
+        }
         return $vars;
     }
 }
