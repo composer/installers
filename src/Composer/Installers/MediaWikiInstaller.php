@@ -20,19 +20,40 @@ class MediaWikiInstaller extends BaseInstaller
     public function inflectPackageVars($vars)
     {
 
-        switch ( $vars['type'] ) {
-
-            case 'mediawiki-extension':
-                $vars['name'] = preg_replace( '/-extension$/', '', $vars['name']);
-                $vars['name'] = str_replace('-', ' ', $vars['name']);
-                $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
-                break;
-
-            case 'mediawiki-skin':
-                $vars['name'] = preg_replace( '/-skin$/', '', $vars['name']);
-                break;
+        if ($vars['type'] === 'mediawiki-extension') {
+            return $this->inflectExtensionVars($vars);
         }
 
+        if ($vars['type'] === 'mediawiki-skin') {
+            return $this->inflectSkinVars($vars);
+        }
+
+        return $vars;
+    }
+
+    /**
+     * Format package name for mediawiki-extension packages
+     *
+     * Cut off a trailing '-extension' if present and transform to CamelCase keeping existing uppercase chars.
+     *
+     */
+    protected function inflectExtensionVars($vars)
+    {
+        $vars['name'] = preg_replace('/-extension$/', '', $vars['name']);
+        $vars['name'] = str_replace('-', ' ', $vars['name']);
+        $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
+        return $vars;
+    }
+
+    /**
+     * Format package name for mediawiki-skin packages.
+     *
+     * Cut off a trailing '-skin' if present.
+     *
+     */
+    protected function inflectSkinVars($vars)
+    {
+        $vars['name'] = preg_replace('/-skin$/', '', $vars['name']);
         return $vars;
     }
 
