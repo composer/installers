@@ -31,12 +31,6 @@ class MediaWikiInstaller extends BaseInstaller
         return $vars;
     }
 
-    /**
-     * Format package name for mediawiki-extension packages
-     *
-     * Cut off a trailing '-extension' if present and transform to CamelCase keeping existing uppercase chars.
-     *
-     */
     protected function inflectExtensionVars($vars)
     {
         $vars['name'] = preg_replace('/-extension$/', '', $vars['name']);
@@ -45,12 +39,6 @@ class MediaWikiInstaller extends BaseInstaller
         return $vars;
     }
 
-    /**
-     * Format package name for mediawiki-skin packages.
-     *
-     * Cut off a trailing '-skin' if present.
-     *
-     */
     protected function inflectSkinVars($vars)
     {
         $vars['name'] = preg_replace('/-skin$/', '', $vars['name']);
