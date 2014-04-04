@@ -24,11 +24,11 @@ class MediaWikiInstallerTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @dataProvider packageNameInflectionProvider
 	 */
-	public function testInflectPackageVars($input, $expected)
+	public function testInflectPackageVars($type, $name, $expected)
 	{
 		$this->assertEquals(
-			$this->installer->inflectPackageVars(array('name' => $input)),
-			array('name' => $expected)
+			$this->installer->inflectPackageVars(array('name' => $name, 'type'=>$type)),
+			array('name' => $expected, 'type'=>$type)
 		);
 	}
 
@@ -36,13 +36,32 @@ class MediaWikiInstallerTest extends \PHPUnit_Framework_TestCase
 	{
 		return array(
 			array(
+				'mediawiki-extension',
 				'sub-page-list',
 				'SubPageList',
 			),
 			array(
+				'mediawiki-extension',
+				'sub-page-list-extension',
+				'SubPageList',
+			),
+			array(
+				'mediawiki-extension',
 				'semantic-mediawiki',
 				'SemanticMediawiki',
-			)
+			),
+			// tests that exactly one '-skin' is cut off, and that skins do not get ucwords treatment like extensions
+			array(
+				'mediawiki-skin',
+				'some-skin-skin',
+				'some-skin',
+			),
+			// tests that names without '-skin' suffix stay valid
+			array(
+				'mediawiki-skin',
+				'someotherskin',
+				'someotherskin',
+			),
 		);
 	}
 }
