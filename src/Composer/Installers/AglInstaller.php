@@ -12,7 +12,7 @@ class AglInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-        $vars['name'] = preg_replace_callback('/(?:^|_|-)(.?)/', function($matches) {
+        $vars['name'] = preg_replace_callback('/(?:^|_|-)(.?)/', function ($matches) {
             return strtoupper($matches[1]);
         }, $vars['name']);
 
