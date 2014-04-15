@@ -18,7 +18,7 @@ class TYPO3FlowInstaller extends BaseInstaller
     /**
      * Modify the package name to be a TYPO3 Flow style key.
      *
-     * @param array $vars
+     * @param  array $vars
      * @return array
      */
     public function inflectPackageVars($vars)
@@ -32,6 +32,7 @@ class TYPO3FlowInstaller extends BaseInstaller
             $namespace = key($autoload['psr-4']);
             $vars['name'] = rtrim(str_replace('\\', '.', $namespace), '.');
         }
+
         return $vars;
     }
 }

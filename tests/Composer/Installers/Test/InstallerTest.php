@@ -128,6 +128,7 @@ class InstallerTest extends TestCase
             array('october-plugin', true),
             array('piwik-plugin', true),
             array('phpbb-extension', true),
+            array('pimcore-plugin', true),
             array('ppi-module', true),
             array('shopware-backend-plugin', true),
             array('shopware-core-plugin', true),
@@ -216,6 +217,7 @@ class InstallerTest extends TestCase
             array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
             array('phpbb-style', 'styles/foo/', 'test/foo'),
             array('phpbb-language', 'language/foo/', 'test/foo'),
+            array('pimcore-plugin', 'plugins/my_plugin/', 'ubikz/my_plugin'),
             array('ppi-module', 'modules/foo/', 'test/foo'),
             array('shopware-backend-plugin', 'engine/Shopware/Plugins/Local/Backend/ShamaMyBackendPlugin/', 'shama/my-backend-plugin'),
             array('shopware-core-plugin', 'engine/Shopware/Plugins/Local/Core/ShamaMyCorePlugin/', 'shama/my-core-plugin'),
@@ -282,7 +284,8 @@ class InstallerTest extends TestCase
     /**
      * testCustomInstallerName
      */
-    public function testCustomInstallerName() {
+    public function testCustomInstallerName()
+    {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/cakephp-ftp-plugin', '1.0.0', '1.0.0');
         $package->setType('cakephp-plugin');
@@ -296,7 +299,8 @@ class InstallerTest extends TestCase
     /**
      * testCustomTypePath
      */
-    public function testCustomTypePath() {
+    public function testCustomTypePath()
+    {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
         $package->setType('wordpress-plugin');

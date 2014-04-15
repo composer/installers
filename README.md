@@ -58,6 +58,7 @@ is not needed to install packages with these frameworks:
 | MODULEWork   | `modulework-module`
 | Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
+| Pimcore      | `pimcore-plugin`
 | PPI          | **`ppi-module`**
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`

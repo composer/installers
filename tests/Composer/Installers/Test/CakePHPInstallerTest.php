@@ -4,7 +4,6 @@ namespace Composer\Installers\Test;
 use Composer\Installers\CakePHPInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use Composer\Config;
 
 class CakePHPInstallerTest extends TestCase
 {
@@ -18,9 +17,9 @@ class CakePHPInstallerTest extends TestCase
      */
     public function setUp()
     {
-	    $this->package = new Package('CamelCased', '1.0', '1.0');
-	    $this->io = $this->getMock('Composer\IO\PackageInterface');
-	    $this->composer = new Composer();
+        $this->package = new Package('CamelCased', '1.0', '1.0');
+        $this->io = $this->getMock('Composer\IO\PackageInterface');
+        $this->composer = new Composer();
     }
 
     /**

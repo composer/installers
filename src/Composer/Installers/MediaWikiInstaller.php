@@ -36,12 +36,14 @@ class MediaWikiInstaller extends BaseInstaller
         $vars['name'] = preg_replace('/-extension$/', '', $vars['name']);
         $vars['name'] = str_replace('-', ' ', $vars['name']);
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
+
         return $vars;
     }
 
     protected function inflectSkinVars($vars)
     {
         $vars['name'] = preg_replace('/-skin$/', '', $vars['name']);
+
         return $vars;
     }
 

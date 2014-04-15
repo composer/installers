@@ -2,7 +2,6 @@
 namespace Composer\Installers\Test;
 
 use Composer\Composer;
-use Composer\Config;
 use Composer\Installers\PiwikInstaller;
 use Composer\Package\Package;
 use Composer\Package\PackageInterface;

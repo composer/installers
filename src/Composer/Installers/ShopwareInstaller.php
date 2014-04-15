@@ -16,12 +16,12 @@ class ShopwareInstaller extends BaseInstaller
 
     /**
      * Transforms the names
-     * @param array $vars
+     * @param  array $vars
      * @return array
      */
     public function inflectPackageVars($vars)
     {
-        if($vars['type'] === 'shopware-theme') {
+        if ($vars['type'] === 'shopware-theme') {
             return $this->correctThemeName($vars);
         } else {
             return $this->correctPluginName($vars);
@@ -30,7 +30,7 @@ class ShopwareInstaller extends BaseInstaller
 
     /**
      * Changes the name to a camelcased combination of vendor and name
-     * @param array $vars
+     * @param  array $vars
      * @return array
      */
     private function correctPluginName($vars)
@@ -46,7 +46,7 @@ class ShopwareInstaller extends BaseInstaller
 
     /**
      * Changes the name to a underscore separated name
-     * @param array $vars
+     * @param  array $vars
      * @return array
      */
     private function correctThemeName($vars)

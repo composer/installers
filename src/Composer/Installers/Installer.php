@@ -39,6 +39,7 @@ class Installer extends LibraryInstaller
         'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'piwik'        => 'PiwikInstaller',
+        'pimcore'      => 'PimcoreInstaller',
         'ppi'          => 'PPIInstaller',
         'shopware'     => 'ShopwareInstaller',
         'silverstripe' => 'SilverStripeInstaller',
@@ -95,6 +96,7 @@ class Installer extends LibraryInstaller
         }
 
         $locationPattern = $this->getLocationPattern($frameworkType);
+
         return preg_match('#' . $frameworkType . '-' . $locationPattern . '#', $packageType, $matches) === 1;
     }
 
@@ -135,6 +137,7 @@ class Installer extends LibraryInstaller
             $locations = array_keys($framework->getLocations());
             $pattern = $locations ? '(' . implode('|', $locations) . ')' : false;
         }
+
         return $pattern ? : '(\w+)';
     }
 }
