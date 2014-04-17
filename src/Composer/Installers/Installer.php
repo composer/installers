@@ -35,6 +35,7 @@ class Installer extends LibraryInstaller
         'modxevo'      => 'MODXEvoInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
         'modulework'   => 'MODULEWorkInstaller',
+        'moodle'       => 'MoodleInstaller',
         'october'      => 'OctoberInstaller',
         'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
