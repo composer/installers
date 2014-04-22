@@ -50,6 +50,7 @@ class Installer extends LibraryInstaller
         'zikula'       => 'ZikulaInstaller',
         'typo3-flow'   => 'TYPO3FlowInstaller',
         'typo3-cms'    => 'TYPO3CmsInstaller',
+        'tusk'         => 'TuskInstaller',
     );
 
     /**
