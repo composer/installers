@@ -4,6 +4,7 @@ namespace Composer\Installers;
 class MoodleInstaller extends BaseInstaller
 {
     protected $locations = array(
+        'core'                => '',
         'mod'                => 'mod/{$name}/',
         'report'             => 'admin/report/{$name}/',
         'tool'               => 'admin/tool/{$name}/',
