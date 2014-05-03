@@ -34,6 +34,8 @@ class Installer extends LibraryInstaller
         'mako'         => 'MakoInstaller',
         'modxevo'      => 'MODXEvoInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
+        'microweber'    => 'MicroweberInstaller',
+
         'modulework'   => 'MODULEWorkInstaller',
         'october'      => 'OctoberInstaller',
         'oxid'         => 'OxidInstaller',
