@@ -57,7 +57,7 @@
         }
     },
     "replace": {
-        "shama/baton": "*"
+        "shama/baton": "*",
         "roundcube/plugin-installer": "*"
     },
     "require-dev": {
