@@ -21,6 +21,7 @@ class Installer extends LibraryInstaller
         'craft'        => 'CraftInstaller',
         'croogo'       => 'CroogoInstaller',
         'drupal'       => 'DrupalInstaller',
+        'dolibarr'     => 'DolibarrInstaller',
         'elgg'         => 'ElggInstaller',
         'piwik'        => 'PiwikInstaller',
         'fuel'         => 'FuelInstaller',
