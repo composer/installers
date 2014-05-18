@@ -15,6 +15,7 @@ class Installer extends LibraryInstaller
     private $supportedTypes = array(
         'agl'          => 'AglInstaller',
         'annotatecms'  => 'AnnotateCmsInstaller',
+        'bitrix'       => 'BitrixInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
         'concrete5'    => 'Concrete5Installer',
@@ -51,7 +52,6 @@ class Installer extends LibraryInstaller
         'zikula'       => 'ZikulaInstaller',
         'typo3-flow'   => 'TYPO3FlowInstaller',
         'typo3-cms'    => 'TYPO3CmsInstaller',
-        'bitrix'       => 'BitrixInstaller',
     );
 
     /**

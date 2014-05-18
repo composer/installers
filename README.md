@@ -35,6 +35,7 @@ is not needed to install packages with these frameworks:
 | ---------    | -----
 | AGL          | `agl-module`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
+| Bitrix       | `bitrix-module`<br>`bitrix-component`
 | CakePHP 2+   | **`cakephp-plugin`**
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
 | concrete5    | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-update`
@@ -70,7 +71,6 @@ is not needed to install packages with these frameworks:
 | WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
-| Bitrix       | `bitrix-module`<br>`bitrix-component`
 
 ## Example `composer.json` File
 
