@@ -1,5 +1,5 @@
 {
-    "name": "microweber/installers",
+    "name": "composer/installers",
     "type": "composer-installer",
     "license": "MIT",
     "description": "A multi-framework Composer library installer",
