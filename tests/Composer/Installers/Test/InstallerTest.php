@@ -222,7 +222,7 @@ class InstallerTest extends TestCase
             array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
             array('phpbb-style', 'styles/foo/', 'test/foo'),
             array('phpbb-language', 'language/foo/', 'test/foo'),
-            array('pimcore-plugin', 'plugins/my_plugin/', 'ubikz/my_plugin'),
+            array('pimcore-plugin', 'plugins/MyPlugin/', 'ubikz/my_plugin'),
             array('ppi-module', 'modules/foo/', 'test/foo'),
             array('roundcube-plugin', 'plugins/base/', 'test/base'),
             array('roundcube-plugin', 'plugins/replace_dash/', 'test/replace-dash'),
