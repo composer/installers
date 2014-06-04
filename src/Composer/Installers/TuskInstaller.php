@@ -8,7 +8,7 @@
     {
         protected $locations = array(
             'task'    => '.tusk/tasks/{$name}/',
-            'command'    => '.tusk/commands/{$name}/',
-            'asset'    => 'assets/tusk/{$name}/',
+            'command' => '.tusk/commands/{$name}/',
+            'asset'   => 'assets/tusk/{$name}/',
         );
     }
