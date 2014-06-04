@@ -4,18 +4,13 @@ namespace Composer\Installers;
 class MicroweberInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'core' => 'src/Microweber/',
-        'adapter' => 'src/Microweber/Adapters/',
+        
         'module' => 'userfiles/modules/{$name}/',
-        'modules' => 'userfiles/modules/',
         'module-skin' => 'userfiles/modules/{$name}/templates/',
         'template' => 'userfiles/templates/{$name}/',
-        'templates' => 'userfiles/templates/',
         'element' => 'userfiles/elements/{$name}/',
-        'elements' => 'userfiles/elements/',
         'vendor' => 'vendor/{$name}/',
         'components' => 'components/{$name}/' 
-
     );
 
     /**
