@@ -40,6 +40,14 @@ class CakePHPInstallerTest extends TestCase
         $installer = new CakePHPInstaller($this->package, $this->composer);
         $result = $installer->inflectPackageVars(array('name' => 'with_underscore'));
         $this->assertEquals($result, array('name' => 'WithUnderscore'));
+
+        $installer = new CakePHPInstaller($this->package, $this->composer);
+        $result = $installer->inflectPackageVars(array('name' => 'cake/acl'));
+        $this->assertEquals($result, array('name' => 'Cake/Acl'));
+
+        $installer = new CakePHPInstaller($this->package, $this->composer);
+        $result = $installer->inflectPackageVars(array('name' => 'cake/debug-kit'));
+        $this->assertEquals($result, array('name' => 'Cake/DebugKit'));
     }
 
 }
