@@ -4,13 +4,12 @@ namespace Composer\Installers;
 class MicroweberInstaller extends BaseInstaller
 {
     protected $locations = array(
-
-        'module' => 'userfiles/modules/{$name}/',
+        'module'      => 'userfiles/modules/{$name}/',
         'module-skin' => 'userfiles/modules/{$name}/templates/',
-        'template' => 'userfiles/templates/{$name}/',
-        'element' => 'userfiles/elements/{$name}/',
-        'vendor' => 'vendor/{$name}/',
-        'components' => 'components/{$name}/'
+        'template'    => 'userfiles/templates/{$name}/',
+        'element'     => 'userfiles/elements/{$name}/',
+        'vendor'      => 'vendor/{$name}/',
+        'components'  => 'components/{$name}/'
     );
 
     /**
@@ -23,7 +22,6 @@ class MicroweberInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-
         if ($vars['type'] === 'microweber-template') {
             return $this->inflectTemplateVars($vars);
         }
@@ -48,6 +46,7 @@ class MicroweberInstaller extends BaseInstaller
         if ($vars['type'] === 'microweber-element' or $vars['type'] === 'microweber-elements') {
             return $this->inflectElementVars($vars);
         }
+
         return $vars;
     }
 
@@ -72,6 +71,7 @@ class MicroweberInstaller extends BaseInstaller
         $vars['name'] = preg_replace('/-providers$/', '', $vars['name']);
         $vars['name'] = preg_replace('/-provider$/', '', $vars['name']);
         $vars['name'] = preg_replace('/-adapter$/', '', $vars['name']);
+
         return $vars;
     }
 
