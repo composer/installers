@@ -58,7 +58,7 @@ is not needed to install packages with these frameworks:
 | October      | **`october-module`<br>`october-plugin`**
 | OXID         | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
 | MODULEWork   | `modulework-module`
-| Moodle       | `moodle-*` (Please [check source](https://github.com/composer/installers/blob/master/src/Composer/Installers/MoodletInstaller.php) for all supported types)
+| Moodle       | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)
 | Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | Pimcore      | `pimcore-plugin`
