@@ -59,11 +59,12 @@ abstract class BaseInstaller
         }
 
         $packageType = substr($type, strlen($frameworkType) + 1);
-        if (!isset($this->locations[$packageType])) {
+        $locations = $this->getLocations();
+        if (!isset($locations[$packageType])) {
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
-        return $this->templatePath($this->locations[$packageType], $availableVars);
+        return $this->templatePath($locations[$packageType], $availableVars);
     }
 
     /**
