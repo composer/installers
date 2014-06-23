@@ -82,6 +82,15 @@ class CakePHPInstallerTest extends TestCase
         $result = $installer->getLocations();
         $this->assertContains('Plugin/', $result['plugin']);
 
+        // special handling for 2.x versions when 3.x is still in development
+        $this->setCakephpVersion($rm, 'dev-master');
+        $result = $installer->getLocations();
+        $this->assertContains('Plugin/', $result['plugin']);
+
+        $this->setCakephpVersion($rm, '>=2.5');
+        $result = $installer->getLocations();
+        $this->assertContains('Plugin/', $result['plugin']);
+
         // cakephp >= 3.0
         $this->setCakephpVersion($rm, '3.0.*-dev');
         $result = $installer->getLocations();
