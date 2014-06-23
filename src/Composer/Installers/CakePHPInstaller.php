@@ -3,6 +3,7 @@ namespace Composer\Installers;
 
 use Composer\DependencyResolver\Pool;
 use Composer\Package\PackageInterface;
+use Composer\Package\LinkConstraint\MultiConstraint;
 use Composer\Package\LinkConstraint\VersionConstraint;
 
 class CakePHPInstaller extends BaseInstaller
@@ -37,7 +38,10 @@ class CakePHPInstaller extends BaseInstaller
             if (!$repos) {
                 return $this->locations;
             }
-            $cake3 = new VersionConstraint('>=', '3.0.0');
+            $cake3 = new MultiConstraint(array(
+                new VersionConstraint('>=', '3.0.0'),
+                new VersionConstraint('!=', '9999999-dev'),
+            ));
             $pool = new Pool('dev');
             $pool->addRepository($repos);
             $packages = $pool->whatProvides('cakephp/cakephp');
