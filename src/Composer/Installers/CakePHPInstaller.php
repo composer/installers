@@ -1,6 +1,7 @@
 <?php
 namespace Composer\Installers;
 
+use Composer\DependencyResolver\Pool;
 use Composer\Package\PackageInterface;
 use Composer\Package\LinkConstraint\VersionConstraint;
 
@@ -30,18 +31,22 @@ class CakePHPInstaller extends BaseInstaller
      * Change the default plugin location when cakephp >= 3.0
      */
     public function getLocations() {
-        $package = $this->composer->getPackage();
-        if (!$package) {
-            return $this->locations;
-        }
-        $requires = $package->getRequires();
-        foreach ($requires as $require) {
-            if ($require->getTarget() === 'cakephp/cakephp') {
-                $cake3 = new VersionConstraint('>=', '3.0.0');
-                if ($cake3->matches($require->getConstraint())) {
+        $repositoryManager = $this->composer->getRepositoryManager();
+        if ($repositoryManager) {
+            $repos = $repositoryManager->getLocalRepository();
+            if (!$repos) {
+                return $this->locations;
+            }
+            $cake3 = new VersionConstraint('>=', '3.0.0');
+            $pool = new Pool('dev');
+            $pool->addRepository($repos);
+            $packages = $pool->whatProvides('cakephp/cakephp');
+            foreach ($packages as $package) {
+                $installed = new VersionConstraint('=', $package->getVersion());
+                if ($cake3->matches($installed)) {
                     $this->locations['plugin'] = 'plugins/{$name}/';
+                    break;
                 }
-                break;
             }
         }
         return $this->locations;

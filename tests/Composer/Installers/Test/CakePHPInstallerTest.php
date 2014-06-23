@@ -2,6 +2,8 @@
 namespace Composer\Installers\Test;
 
 use Composer\Installers\CakePHPInstaller;
+use Composer\Repository\RepositoryManager;
+use Composer\Repository\InstalledArrayRepository;
 use Composer\Package\Package;
 use Composer\Package\RootPackage;
 use Composer\Package\Link;
@@ -58,44 +60,45 @@ class CakePHPInstallerTest extends TestCase
      *
      */
     public function testGetLocations() {
-        $parser = new VersionParser();
         $package = new RootPackage('CamelCased', '1.0', '1.0');
         $composer = new Composer();
+        $rm = new RepositoryManager(
+            $this->getMock('Composer\IO\IOInterface'),
+            $this->getMock('Composer\Config')
+        );
+        $composer->setRepositoryManager($rm);
         $installer = new CakePHPInstaller($package, $composer);
 
         // 2.0 < cakephp < 3.0
-        $version = $parser->parseConstraints('2.0.0');
-        $package->setRequires(array(
-            new Link('CamelCased', 'cakephp/cakephp', $version)
-        ));
-        $composer->setPackage($package);
+        $this->setCakephpVersion($rm, '2.0.0');
         $result = $installer->getLocations();
         $this->assertContains('Plugin/', $result['plugin']);
 
-        $version = $parser->parseConstraints('2.5.9');
-        $package->setRequires(array(
-            new Link('CamelCased', 'cakephp/cakephp', $version)
-        ));
-        $composer->setPackage($package);
+        $this->setCakephpVersion($rm, '2.5.9');
+        $result = $installer->getLocations();
+        $this->assertContains('Plugin/', $result['plugin']);
+
+        $this->setCakephpVersion($rm, '~2.5');
         $result = $installer->getLocations();
         $this->assertContains('Plugin/', $result['plugin']);
 
         // cakephp >= 3.0
-        $version = $parser->parseConstraints('3.0.*-dev');
-        $package->setRequires(array(
-            new Link('CamelCased', 'cakephp/cakephp', $version)
-        ));
-        $composer->setPackage($package);
+        $this->setCakephpVersion($rm, '3.0.*-dev');
         $result = $installer->getLocations();
         $this->assertContains('plugins/', $result['plugin']);
 
-        $version = $parser->parseConstraints('~8.8');
-        $package->setRequires(array(
-            new Link('CamelCased', 'cakephp/cakephp', $version)
-        ));
-        $composer->setPackage($package);
+        $this->setCakephpVersion($rm, '~8.8');
         $result = $installer->getLocations();
         $this->assertContains('plugins/', $result['plugin']);
+    }
+
+    protected function setCakephpVersion($rm, $version) {
+        $parser = new VersionParser();
+        list(, $version) = explode(' ', $parser->parseConstraints($version));
+        $installed = new InstalledArrayRepository();
+        $package = new Package('cakephp/cakephp', $version, $version);
+        $installed->addPackage($package);
+        $rm->setLocalRepository($installed);
     }
 
 }
