@@ -45,6 +45,7 @@ class Installer extends LibraryInstaller
         'piwik'        => 'PiwikInstaller',
         'pimcore'      => 'PimcoreInstaller',
         'ppi'          => 'PPIInstaller',
+        'puppet'       => 'PuppetInstaller',
         'roundcube'    => 'RoundcubeInstaller',
         'shopware'     => 'ShopwareInstaller',
         'silverstripe' => 'SilverStripeInstaller',

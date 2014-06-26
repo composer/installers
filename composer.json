@@ -32,6 +32,7 @@
         "Piwik",
         "phpBB",
         "PPI",
+        "Puppet",
         "Roundcube",
         "shopware",
         "SilverStripe",
@@ -61,7 +62,8 @@
     },
     "replace": {
         "shama/baton": "*",
-        "roundcube/plugin-installer": "*"
+        "roundcube/plugin-installer": "*",
+        "joshuaestes/composer-installer-puppet": "*"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
