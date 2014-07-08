@@ -5,7 +5,7 @@ class MoodleInstaller extends BaseInstaller
 {
     protected $locations = array(
         'mod'                => 'mod/{$name}/',
-        'report'             => 'admin/report/{$name}/',
+        'admin_report'       => 'admin/report/{$name}/',
         'tool'               => 'admin/tool/{$name}/',
         'assignment'         => 'mod/assignment/type/{$name}/',
         'assignsubmission'   => 'mod/assign/submission/{$name}/',
