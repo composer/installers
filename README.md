@@ -63,6 +63,7 @@ is not needed to install packages with these frameworks:
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | Pimcore      | `pimcore-plugin`
 | PPI          | **`ppi-module`**
+| Puppet       | `puppet-module`
 | REDAXO       | `redaxo-addon`
 | Roundcube    | `roundcube-plugin`
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
