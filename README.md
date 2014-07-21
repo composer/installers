@@ -42,7 +42,7 @@ is not needed to install packages with these frameworks:
 | Craft        | `craft-plugin`
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
 | Dolibarr     | `dolibarr-module`
-| Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
+| Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`<br>`drupal-site`
 | Elgg         | `elgg-plugin`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
 | Hurad        | `hurad-plugin`<br>`hurad-theme`

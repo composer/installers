@@ -200,6 +200,7 @@ class InstallerTest extends TestCase
             array('drupal-theme', 'themes/my_module/', 'shama/my_module'),
             array('drupal-profile', 'profiles/my_module/', 'shama/my_module'),
             array('drupal-drush', 'drush/my_module/', 'shama/my_module'),
+            array('drupal-site', 'sites/my_site/', 'shama/my_site'),
             array('elgg-plugin', 'mod/sample_plugin/', 'test/sample_plugin'),
             array('fuel-module', 'fuel/app/modules/module/', 'fuel/module'),
             array('fuel-package', 'fuel/packages/orm/', 'fuel/orm'),
