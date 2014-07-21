@@ -1,6 +1,6 @@
 # A Multi-Framework [Composer](http://getcomposer.org) Library Installer
 
-[![Build Status](https://secure.travis-ci.org/composer/installers.png)](http://travis-ci.org/composer/installers)
+[![Build Status](http://img.shields.io/travis/composer/installers.svg)](http://travis-ci.org/composer/installers)
 
 This is for PHP package authors to require in their `composer.json`. It will
 install their package to the correct location based on the specified package
