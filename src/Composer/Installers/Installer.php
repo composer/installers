@@ -17,6 +17,7 @@ class Installer extends LibraryInstaller
         'annotatecms'  => 'AnnotateCmsInstaller',
         'bitrix'       => 'BitrixInstaller',
         'cakephp'      => 'CakePHPInstaller',
+        'chef'         => 'ChefInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
         'concrete5'    => 'Concrete5Installer',
         'craft'        => 'CraftInstaller',
