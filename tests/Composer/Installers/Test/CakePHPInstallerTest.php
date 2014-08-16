@@ -101,6 +101,33 @@ class CakePHPInstallerTest extends TestCase
         $this->assertContains('plugins/', $result['plugin']);
     }
 
+    /**
+     * Test if installer-name was set
+     *
+     */
+    public function testGetInstallPath() {
+        $package = new RootPackage('Authenticate', '1.0', '1.0');
+        $autoload = array(
+            'psr-4' => array(
+                'FOC\\Authenticate' => 'src'
+            )
+        );
+        $package->setAutoload($autoload);
+        $package->setType('cakephp-plugin');
+        $composer = new Composer();
+        $rm = new RepositoryManager(
+            $this->getMock('Composer\IO\IOInterface'),
+            $this->getMock('Composer\Config')
+        );
+        $composer->setRepositoryManager($rm);
+        $installer = new CakePHPInstaller($package, $composer);
+
+        $this->setCakephpVersion($rm, '3.0.0');
+        $installer->getInstallPath($package, 'cakephp');
+        $extra = $package->getExtra();
+        $this->assertEquals('FOC/Authenticate', $extra['installer-name']);
+    }
+
     protected function setCakephpVersion($rm, $version) {
         $parser = new VersionParser();
         list(, $version) = explode(' ', $parser->parseConstraints($version));
