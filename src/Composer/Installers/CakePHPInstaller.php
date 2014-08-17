@@ -89,36 +89,56 @@ class CakePHPInstaller extends BaseInstaller
     }
 
     /**
-     * Set installer-name based on namespace for the source path
+     * Set installer-name based on namespace for the source path checking in
+     * following order:
      *
-     * With one autoload path this will be used as installer-name.
-     * With two autoload paths the first non `tests` foldername will be set.
-     * If more then 2 autoload paths are provided, installer-name will only be
-     * set for if `src` folder is used.
+     * - With only one autoload path the namespace for that path will be used.
+     * - With multiple paths if path 'src' exists it's namespace will be used.
+     * - With two autoload paths provided, the namespace of path other than
+     *   'tests' will be used.
+     *
+     * No installer-name is set if PSR-4 autoload block is not found or if none
+     * of the above conditions are met.
      *
      * @param PackageInterface $package
      */
     protected function setInstallerName(PackageInterface $package)
     {
+        $primaryNS = null;
         $autoLoad = $package->getAutoload();
         foreach ($autoLoad as $type => $typeConfig) {
             if ($type !== 'psr-4') {
                 continue;
             }
             $count = count($typeConfig);
-            foreach ($typeConfig as $namespace => $path) {
-                if ($path === 'tests') {
-                    continue;
-                }
-                if ($count > 2 && $path !== 'src') {
-                    continue;
-                }
-                $installerName = trim(str_replace('\\', '/', $namespace), '/');
-                $package->setExtra(array(
-                    'installer-name' => $installerName,
-                ));
+
+            if ($count === 1) {
+                $primaryNS = key($typeConfig);
+                break;
             }
+
+            $matches = preg_grep('#^(\./)?src/?$#', $typeConfig);
+            if ($matches) {
+                $primaryNS = key($matches);
+                break;
+            }
+
+            if ($count === 2) {
+                reset($typeConfig);
+                if (preg_match('#^(\./)?tests/?$#', current($typeConfig))) {
+                    next($typeConfig);
+                }
+                $primaryNS = key($typeConfig);
+                break;
+            }
+
             break;
+        }
+
+        if ($primaryNS) {
+            $package->setExtra(array(
+                'installer-name' => trim(str_replace('\\', '/', $primaryNS), '/')
+            ));
         }
     }
 
