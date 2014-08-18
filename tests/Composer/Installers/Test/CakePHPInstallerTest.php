@@ -106,26 +106,49 @@ class CakePHPInstallerTest extends TestCase
      *
      */
     public function testGetInstallPath() {
-        $package = new RootPackage('Authenticate', '1.0', '1.0');
         $autoload = array(
             'psr-4' => array(
-                'FOC\\Authenticate' => 'src'
+                'FOC\\Authenticate' => ''
             )
         );
-        $package->setAutoload($autoload);
-        $package->setType('cakephp-plugin');
-        $composer = new Composer();
+        $this->package->setAutoload($autoload);
+        $this->package->setType('cakephp-plugin');
         $rm = new RepositoryManager(
             $this->getMock('Composer\IO\IOInterface'),
             $this->getMock('Composer\Config')
         );
-        $composer->setRepositoryManager($rm);
-        $installer = new CakePHPInstaller($package, $composer);
+        $this->composer->setRepositoryManager($rm);
+        $installer = new CakePHPInstaller($this->package, $this->composer);
 
         $this->setCakephpVersion($rm, '3.0.0');
-        $installer->getInstallPath($package, 'cakephp');
-        $extra = $package->getExtra();
+        $installer->getInstallPath($this->package, 'cakephp');
+        $extra = $this->package->getExtra();
         $this->assertEquals('FOC/Authenticate', $extra['installer-name']);
+
+        $autoload = array(
+            'psr-4' => array(
+                'FOC\Acl\Test' => './tests',
+                'FOC\Acl' => ''
+            )
+        );
+        $this->package->setAutoload($autoload);
+        $this->package->setExtra(array());
+        $installer->getInstallPath($this->package, 'cakephp');
+        $extra = $this->package->getExtra();
+        $this->assertEquals('FOC/Acl', $extra['installer-name']);
+
+        $autoload = array(
+            'psr-4' => array(
+                'Foo\Bar' => 'foo',
+                'Acme\Plugin\Test' => 'tests',
+                'Acme\Plugin' => './src'
+            )
+        );
+        $this->package->setAutoload($autoload);
+        $this->package->setExtra(array());
+        $installer->getInstallPath($this->package, 'cakephp');
+        $extra = $this->package->getExtra();
+        $this->assertEquals('Acme/Plugin', $extra['installer-name']);
     }
 
     protected function setCakephpVersion($rm, $version) {
