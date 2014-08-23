@@ -123,13 +123,9 @@ class CakePHPInstaller extends BaseInstaller
                 break;
             }
 
-            if ($count === 2) {
-                reset($typeConfig);
-                if (preg_match('#^(\./)?tests/?$#', current($typeConfig))) {
-                    next($typeConfig);
-                }
-                $primaryNS = key($typeConfig);
-                break;
+            $key = array_search('', $typeConfig, true);
+            if ($key !== false) {
+                $primaryNS = $key;
             }
 
             break;

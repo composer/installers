@@ -149,6 +149,42 @@ class CakePHPInstallerTest extends TestCase
         $installer->getInstallPath($this->package, 'cakephp');
         $extra = $this->package->getExtra();
         $this->assertEquals('Acme/Plugin', $extra['installer-name']);
+
+        $autoload = array(
+            'psr-4' => array(
+                'Foo\Bar' => 'bar',
+                'Foo' => ''
+            )
+        );
+        $this->package->setAutoload($autoload);
+        $this->package->setExtra(array());
+        $installer->getInstallPath($this->package, 'cakephp');
+        $extra = $this->package->getExtra();
+        $this->assertEquals('Foo', $extra['installer-name']);
+
+        $autoload = array(
+            'psr-4' => array(
+                'Acme\Foo\Bar' => 'bar',
+                'Acme\Foo' => ''
+            )
+        );
+        $this->package->setAutoload($autoload);
+        $this->package->setExtra(array());
+        $installer->getInstallPath($this->package, 'cakephp');
+        $extra = $this->package->getExtra();
+        $this->assertEquals('Acme/Foo', $extra['installer-name']);
+
+        $autoload = array(
+            'psr-4' => array(
+                'Acme\Foo\Bar' => '',
+                'Acme\Foo' => 'src'
+            )
+        );
+        $this->package->setAutoload($autoload);
+        $this->package->setExtra(array());
+        $installer->getInstallPath($this->package, 'cakephp');
+        $extra = $this->package->getExtra();
+        $this->assertEquals('Acme/Foo', $extra['installer-name']);
     }
 
     protected function setCakephpVersion($rm, $version) {
