@@ -67,15 +67,10 @@ class Installer extends LibraryInstaller
     public function getInstallPath(PackageInterface $package)
     {
         $type = $package->getType();
-
-        if ($this->isCustomType($type)) {
-          $installer = new CustomInstaller($package, $this->composer);
-          return $installer->getInstallPath($package);
-        }
-
         $frameworkType = $this->findFrameworkType($type);
+        $custom = $this->isCustomType($type);        }
 
-        if ($frameworkType === false) {
+        if ($frameworkType === false && $custom === false) {
             throw new \InvalidArgumentException(
                 'Sorry the package type of this package is not yet supported.'
             );
@@ -83,6 +78,11 @@ class Installer extends LibraryInstaller
 
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
         $installer = new $class($package, $this->composer);
+
+        if ($custom && !in_array($type, $installer->getLocations())) {
+            $frameworkType = 'custom';
+            $installer = new CustomInstaller($package, $this->composer);
+        }
 
         return $installer->getInstallPath($package, $frameworkType);
     }
