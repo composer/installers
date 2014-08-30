@@ -70,10 +70,18 @@ class Installer extends LibraryInstaller
         $frameworkType = $this->findFrameworkType($type);
         $custom = $this->isCustomType($type);
 
-        if ($frameworkType === false && !$custom) {
-            throw new \InvalidArgumentException(
-                'Sorry the package type of this package is not yet supported.'
-            );
+        if ($frameworkType === false) {
+
+            if ($custom) {
+              $frameworkType = 'custom';
+              $installer = new CustomInstaller($package, $this->composer);
+              return $installer->getInstallPath($package, $frameworkType);
+            }
+            else {
+              throw new \InvalidArgumentException(
+                  'Sorry the package type of this package is not yet supported.'
+              );
+            }
         }
 
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
