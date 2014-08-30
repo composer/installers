@@ -79,7 +79,10 @@ class Installer extends LibraryInstaller
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
         $installer = new $class($package, $this->composer);
 
-        if ($custom && !in_array($type, $installer->getLocations())) {
+        $packageType = substr($type, strlen($frameworkType) + 1);
+        $locations = $installer->getLocations();
+
+        if ($custom && !isset($locations[$packageType])) {
             $frameworkType = 'custom';
             $installer = new CustomInstaller($package, $this->composer);
         }
