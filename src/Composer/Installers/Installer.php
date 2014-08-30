@@ -172,7 +172,7 @@ class Installer extends LibraryInstaller
         if ($this->composer->getPackage()) {
           $extra = $this->composer->getPackage()->getExtra();
           if (!empty($extra['installer-paths'])) {
-            foreach $extra['installer-paths'] as $path => $names) {
+            foreach ($extra['installer-paths'] as $path => $names) {
               if (in_array('type:' . $type, $names)) {
                   return true;
               }
