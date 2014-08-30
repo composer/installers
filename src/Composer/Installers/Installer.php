@@ -67,6 +67,12 @@ class Installer extends LibraryInstaller
     public function getInstallPath(PackageInterface $package)
     {
         $type = $package->getType();
+
+        if ($this->isCustomType($type)) {
+          $installer = new Composer\Installers\BaseInstaller($package, $this->composer);
+          return $installer->getInstallPath($package);
+        }
+
         $frameworkType = $this->findFrameworkType($type);
 
         if ($frameworkType === false) {
@@ -98,6 +104,10 @@ class Installer extends LibraryInstaller
      */
     public function supports($packageType)
     {
+        if ($this->isCustomType($packageType)) {
+          return true;
+        }
+
         $frameworkType = $this->findFrameworkType($packageType);
 
         if ($frameworkType === false) {
@@ -149,4 +159,28 @@ class Installer extends LibraryInstaller
 
         return $pattern ? : '(\w+)';
     }
+
+    /**
+     * Determines if current type is a custom Type.
+     *
+     * @param  string $type
+     * @return bool
+     */
+    protected function isCustomType($type)
+    {
+
+        if ($this->composer->getPackage()) {
+          $extra = $this->composer->getPackage()->getExtra();
+          if (!empty($extra['installer-paths'])) {
+            foreach $extra['installer-paths'] as $path => $names) {
+              if (in_array('type:' . $type, $names)) {
+                  return true;
+              }
+            }
+          }
+        }
+
+        return false;
+    }
+
 }
