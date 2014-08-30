@@ -9,6 +9,6 @@ class DrupalInstaller extends BaseInstaller
         'library'     => 'libraries/{$name}/',
         'profile'   => 'profiles/{$name}/',
         'drush'     => 'drush/{$name}/',
-        'site'      => 'sites/{$name}',
+        'site'      => 'sites/{$name}/',
     );
 }
