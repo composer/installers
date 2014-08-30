@@ -69,7 +69,7 @@ class Installer extends LibraryInstaller
         $type = $package->getType();
 
         if ($this->isCustomType($type)) {
-          $installer = new Composer\Installers\BaseInstaller($package, $this->composer);
+          $installer = new BaseInstaller($package, $this->composer);
           return $installer->getInstallPath($package);
         }
 
