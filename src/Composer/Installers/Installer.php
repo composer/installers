@@ -68,9 +68,9 @@ class Installer extends LibraryInstaller
     {
         $type = $package->getType();
         $frameworkType = $this->findFrameworkType($type);
-        $custom = $this->isCustomType($type);        }
+        $custom = $this->isCustomType($type);
 
-        if ($frameworkType === false && $custom === false) {
+        if ($frameworkType === false && !$custom) {
             throw new \InvalidArgumentException(
                 'Sorry the package type of this package is not yet supported.'
             );
