@@ -27,6 +27,7 @@ class Installer extends LibraryInstaller
         'elgg'         => 'ElggInstaller',
         'piwik'        => 'PiwikInstaller',
         'fuel'         => 'FuelInstaller',
+        'grav'         => 'GravInstaller',
         'hurad'        => 'HuradInstaller',
         'joomla'       => 'JoomlaInstaller',
         'kirby'        => 'KirbyInstaller',
