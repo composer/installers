@@ -20,7 +20,7 @@ class GravInstaller extends BaseInstaller
         $restrictedWords = implode('|', array_keys($this->locations));
 
         $vars['name'] = strtolower($vars['name']);
-        $vars['name'] = preg_replace('/^(?:grav-)?(?:'.$restrictedWords.')?-?(.*?)-?(?:'.$restrictedWords.')$/ui',
+        $vars['name'] = preg_replace('/^(?:grav-)?(?:(?:'.$restrictedWords.')-)?(.*?)(?:-(?:'.$restrictedWords.'))?$/ui',
             '$1',
             $vars['name']
         );
