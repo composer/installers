@@ -60,6 +60,7 @@ class Installer extends LibraryInstaller
         'typo3-flow'   => 'TYPO3FlowInstaller',
         'typo3-cms'    => 'TYPO3CmsInstaller',
         'tusk'         => 'TuskInstaller',
+        'contao'       => 'ContaoInstaller',
     );
 
     /**
