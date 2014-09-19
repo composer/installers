@@ -57,7 +57,7 @@ is not needed to install packages with these frameworks:
 | Mako         | `mako-package`
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
 | MediaWiki    | `mediawiki-extension`
-| October      | **`october-module`<br>`october-plugin`**
+| October      | **`october-module`<br>`october-plugin`<br>`october-theme`**
 | OXID         | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
 | MODULEWork   | `modulework-module`
 | Moodle       | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)

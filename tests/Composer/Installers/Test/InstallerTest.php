@@ -239,6 +239,7 @@ class InstallerTest extends TestCase
             array('moodle-mod', 'mod/my_package/', 'shama/my_package'),
             array('october-module', 'modules/my_plugin/', 'shama/my_plugin'),
             array('october-plugin', 'plugins/shama/my_plugin/', 'shama/my_plugin'),
+            array('october-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('piwik-plugin', 'plugins/VisitSummary/', 'shama/visit-summary'),
             array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
             array('phpbb-style', 'styles/foo/', 'test/foo'),
