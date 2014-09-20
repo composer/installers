@@ -26,8 +26,8 @@ class OctoberInstallerTest extends \PHPUnit_Framework_TestCase
     public function testInflectPackageVars($type, $name, $expected)
     {
         $this->assertEquals(
-            $this->installer->inflectPackageVars(array('name' => $name, 'type'=>$type)),
-            array('name' => $expected, 'type'=>$type)
+            $this->installer->inflectPackageVars(array('name' => $name, 'type' => $type)),
+            array('name' => $expected, 'type' => $type)
         );
     }
 

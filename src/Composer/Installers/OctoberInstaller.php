@@ -6,6 +6,7 @@ class OctoberInstaller extends BaseInstaller
     protected $locations = array(
         'module'    => 'modules/{$name}/',
         'plugin'    => 'plugins/{$vendor}/{$name}/',
+        'theme'     => 'themes/{$name}/'
     );
 
     /**
