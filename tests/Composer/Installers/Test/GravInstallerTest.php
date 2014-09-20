@@ -20,28 +20,26 @@ class GravInstallerTest extends TestCase
         $installer   = new GravInstaller($package, $this->composer);
         $packageVars = $this->getPackageVars($package);
 
-        $this->assertEquals('test',
-            $installer->inflectPackageVars(array_merge($packageVars, array('name' => 'test')))['name']);
+        $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => 'test')));
+        $this->assertEquals('test', $result['name']);
 
         foreach ($installer->getLocations() as $name => $location) {
-            $this->assertEquals('test',
-                $installer->inflectPackageVars(array_merge($packageVars, array('name' => "$name-test")))['name']);
-            $this->assertEquals('test',
-                $installer->inflectPackageVars(array_merge($packageVars, array('name' => "test-$name")))['name']);
-            $this->assertEquals('test-test',
-                $installer->inflectPackageVars(array_merge($packageVars, array('name' => "$name-test-test")))['name']);
-            $this->assertEquals('test-test',
-                $installer->inflectPackageVars(array_merge($packageVars, array('name' => "test-test-$name")))['name']);
-            $this->assertEquals('test',
-                $installer->inflectPackageVars(array_merge($packageVars, array('name' => "grav-$name-test")))['name']);
-            $this->assertEquals('test',
-                $installer->inflectPackageVars(array_merge($packageVars, array('name' => "grav-test-$name")))['name']);
-            $this->assertEquals('test-test',
-                $installer->inflectPackageVars(
-                    array_merge($packageVars, array('name' => "grav-$name-test-test")))['name']);
-            $this->assertEquals('test-test',
-                $installer->inflectPackageVars(
-                    array_merge($packageVars, array('name' => "grav-test-test-$name")))['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "$name-test")));
+            $this->assertEquals('test', $result['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "test-$name")));
+            $this->assertEquals('test', $result['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "$name-test-test")));
+            $this->assertEquals('test-test', $result['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "test-test-$name")));
+            $this->assertEquals('test-test', $result['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "grav-$name-test")));
+            $this->assertEquals('test', $result['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "grav-test-$name")));
+            $this->assertEquals('test', $result['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "grav-$name-test-test")));
+            $this->assertEquals('test-test', $result['name']);
+            $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "grav-test-test-$name")));
+            $this->assertEquals('test-test', $result['name']);
         }
     }
 
