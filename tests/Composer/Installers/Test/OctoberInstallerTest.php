@@ -37,7 +37,7 @@ class OctoberInstallerTest extends \PHPUnit_Framework_TestCase
             array(
                 'october-plugin',
                 'subpagelist',
-                'SubPageList',
+                'subpagelist',
             ),
             array(
                 'october-plugin',
