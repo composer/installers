@@ -46,6 +46,7 @@ is not needed to install packages with these frameworks:
 | Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
 | Elgg         | `elgg-plugin`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
+| FuelPHP v2.x | `fuelphp-component`
 | Grav         | `grav-plugin`<br>`grav-theme`
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
