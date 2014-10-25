@@ -26,6 +26,7 @@ class Installer extends LibraryInstaller
         'drupal'       => 'DrupalInstaller',
         'elgg'         => 'ElggInstaller',
         'fuel'         => 'FuelInstaller',
+        'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
         'hurad'        => 'HuradInstaller',
         'joomla'       => 'JoomlaInstaller',
