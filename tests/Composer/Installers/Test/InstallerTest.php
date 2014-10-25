@@ -109,7 +109,7 @@ class InstallerTest extends TestCase
             array('croogo-plugin', true),
             array('croogo-theme', true),
             array('dokuwiki-plugin', true),
-            array('dokuwiki-extension', true),
+            array('dokuwiki-template', true),
             array('drupal-module', true),
             array('dolibarr-module', true),
             array('elgg-plugin', true),
