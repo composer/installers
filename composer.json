@@ -55,7 +55,10 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Composer\\Installers\\": "src/" }
+        "psr-4": { "Composer\\Installers\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Composer\\Installers\\Test\\": "tests/" }
     },
     "extra": {
         "class": "Composer\\Installers\\Installer",
