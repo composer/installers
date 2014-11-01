@@ -122,6 +122,8 @@ class Installer extends LibraryInstaller
     {
         $frameworkType = false;
 
+        krsort($this->supportedTypes);
+
         foreach ($this->supportedTypes as $key => $val) {
             if ($key === substr($type, 0, strlen($key))) {
                 $frameworkType = substr($type, 0, strlen($key));
