@@ -31,54 +31,55 @@ is not needed to install packages with these frameworks:
 > for those type will not be changed. Any adjustment for those types would
 > require creation of brand new type that will cover required changes.
 
-| Framework    | Types
-| ---------    | -----
-| AGL          | `agl-module`
-| AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
-| Bitrix       | `bitrix-module`<br>`bitrix-component`<br>`bitrix-theme`
-| CakePHP 2+   | **`cakephp-plugin`**
-| Chef         | `chef-recipe`<br>`chef-role`
-| CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
-| concrete5    | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-update`
-| Craft        | `craft-plugin`
-| Croogo       | `croogo-plugin`<br>`croogo-theme`
-| Dolibarr     | `dolibarr-module`
-| Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
-| Elgg         | `elgg-plugin`
-| FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
-| FuelPHP v2.x | `fuelphp-component`
-| Grav         | `grav-plugin`<br>`grav-theme`
-| Hurad        | `hurad-plugin`<br>`hurad-theme`
-| Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
-| Kirby        | **`kirby-plugin`**
-| Kohana       | **`kohana-module`**
-| Laravel      | `laravel-library`
-| Lithium      | **`lithium-library`<br>`lithium-source`**
-| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
-| Mako         | `mako-package`
-| MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
-| MediaWiki    | `mediawiki-extension`
-| October      | **`october-module`<br>`october-plugin`<br>`october-theme`**
-| OXID         | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
-| MODULEWork   | `modulework-module`
-| Moodle       | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)
-| Piwik        | `piwik-plugin`
-| phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
-| Pimcore      | `pimcore-plugin`
-| PPI          | **`ppi-module`**
-| Puppet       | `puppet-module`
-| REDAXO       | `redaxo-addon`
-| Roundcube    | `roundcube-plugin`
-| shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
+| Framework      | Types
+| ---------      | -----
+| AGL            | `agl-module`
+| AnnotateCms    | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
+| Bitrix         | `bitrix-module`<br>`bitrix-component`<br>`bitrix-theme`
+| CakePHP 2+     | **`cakephp-plugin`**
+| Chef           | `chef-recipe`<br>`chef-role`
+| CodeIgniter    | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
+| concrete5      | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-update`
+| Craft          | `craft-plugin`
+| Croogo         | `croogo-plugin`<br>`croogo-theme`
+| Dolibarr       | `dolibarr-module`
+| Drupal         | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
+| Elgg           | `elgg-plugin`
+| FuelPHP v1.x   | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
+| FuelPHP v2.x   | `fuelphp-component`
+| Grav           | `grav-plugin`<br>`grav-theme`
+| Hurad          | `hurad-plugin`<br>`hurad-theme`
+| Joomla         | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
+| Kirby          | **`kirby-plugin`**
+| Kohana         | **`kohana-module`**
+| Laravel        | `laravel-library`
+| Lithium        | **`lithium-library`<br>`lithium-source`**
+| Magento        | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| Mako           | `mako-package`
+| MODX Evo       | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
+| MediaWiki      | `mediawiki-extension`
+| October        | **`october-module`<br>`october-plugin`<br>`october-theme`**
+| OXID           | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
+| MODULEWork     | `modulework-module`
+| Moodle         | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)
+| Piwik          | `piwik-plugin`
+| phpBB          | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
+| Pimcore        | `pimcore-plugin`
+| PPI            | **`ppi-module`**
+| Puppet         | `puppet-module`
+| REDAXO         | `redaxo-addon`
+| Roundcube      | `roundcube-plugin`
+| shopware       | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
-| symfony1     | **`symfony1-plugin`**
-| Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
-| TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
-| TYPO3 CMS    | `typo3-cms-extension`
-| Wolf CMS     | `wolfcms-plugin`
-| WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
-| Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
-| Zikula       | `zikula-module`<br>`zikula-theme`
+| SleepyMustache | `sleepymustache-base`<br>`sleepymustache-module`
+| symfony1       | **`symfony1-plugin`**
+| Tusk           | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
+| TYPO3 Flow     | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
+| TYPO3 CMS      | `typo3-cms-extension`
+| Wolf CMS       | `wolfcms-plugin`
+| WordPress      | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
+| Zend           | `zend-library`<br>`zend-extra`<br>`zend-module`
+| Zikula         | `zikula-module`<br>`zikula-theme`
 
 ## Example `composer.json` File
 
