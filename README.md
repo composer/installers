@@ -71,7 +71,7 @@ is not needed to install packages with these frameworks:
 | Roundcube      | `roundcube-plugin`
 | shopware       | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
-| SleepyMustache | `sleepymustache-module`<br>`sleepymustache-base`
+| SleepyMustache | `sleepymustache-base`<br>`sleepymustache-module`
 | symfony1       | **`symfony1-plugin`**
 | Tusk           | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
 | TYPO3 Flow     | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
