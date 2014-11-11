@@ -5,6 +5,6 @@ class SleepyMustacheInstaller extends BaseInstaller
 {
     protected $locations = array(
         'base'   => 'app/',
-        'module' => 'app/modules/{$name}/',
+        'module' => 'app/modules/{$name}/'
     );
 }
