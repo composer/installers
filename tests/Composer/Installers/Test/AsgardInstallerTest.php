@@ -34,17 +34,27 @@ class AsgardInstallerTest extends \PHPUnit_Framework_TestCase
     public function packageNameInflectionProvider()
     {
         return array(
+            array(
+                'asgard-module',
+                'asgard-module',
+                'Asgard'
+            ),
+            array(
+                'asgard-module',
+                'blog',
+                'Blog'
+            ),
             // tests that exactly one '-theme' is cut off
             array(
                 'asgard-theme',
                 'some-theme-theme',
-                'some-theme',
+                'Some-theme',
             ),
             // tests that names without '-theme' suffix stay valid
             array(
                 'asgard-theme',
                 'someothertheme',
-                'someothertheme',
+                'Someothertheme',
             ),
         );
     }
