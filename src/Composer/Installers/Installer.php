@@ -217,6 +217,21 @@ class Installer extends LibraryInstaller
         }
 
         foreach ($backups as $original => $backup_location) {
+
+            // Remove any code that was placed by the package at the place of
+            // the original path.
+            if (file_exists($original)) {
+                if (is_dir($original)) {
+                    $this->filesystem->emptyDirectory($original, false);
+                    $this->filesystem->removeDirectory($original);
+                }
+                else {
+                    $this->filesystem->remove($original);
+                }
+
+                $this->io->write(sprintf('<comment>Content of package %s was overwritten with preserved path %s!</comment>', $package->getUniqueName(), $original), true);
+            }
+
             $this->filesystem->ensureDirectoryExists(dirname($original));
             $this->filesystem->rename($backup_location, $original);
 
