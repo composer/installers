@@ -160,6 +160,29 @@ will allow this:
 Please note the name entered into `installer-name` will be the final and will
 not be inflected.
 
+## Preserving subpaths
+
+If some package may be located inside of another package, you need to set its
+path to be preserved with the extra option `installer-preserve-subpaths`.
+
+For example a _Drupal_ project may install `drupal/drupal` to the root directory,
+whereas _Drupal modules_ (Type: `drupal-module`) will be located at
+`modules/{$name}/`. In the case of a `drupal/drupal` package update, all modules
+would get overwritten. To preserve that, you then should add to your `composer.json`.
+
+``` json
+{
+    "extra": {
+        "installer-preserve-subpaths": [
+            "modules/"
+        ]
+    }
+}
+```
+
+Please note that files of the wrapping package might get overwritten by
+preserved paths.
+
 ## Contribute!
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
