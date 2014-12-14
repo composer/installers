@@ -212,6 +212,17 @@ class Installer extends LibraryInstaller
         return $pattern ? : '(\w+)';
     }
 
+    /**
+     * Backs up the configured subpaths.
+     *
+     * @param InstalledRepositoryInterface $repo
+     * @param PackageInterface $package
+     *
+     * @return array
+     *   Array of backed up path information:
+     *   - key: original path
+     *   - value: backup location
+     */
     protected function backupSubpaths(InstalledRepositoryInterface $repo, PackageInterface $package) {
         $extra = $this->composer->getPackage()->getExtra();
 
@@ -221,14 +232,11 @@ class Installer extends LibraryInstaller
         }
 
         $subpaths = $extra['installer-preserve-subpaths'];
-
         $installPath = $this->getInstallPath($package);
-
         $installPathNormalized = $this->filesystem->normalizePath($installPath);
 
-        $backup_paths = array();
-
         // Check if any subpath maybe affected by installation of this package.
+        $backup_paths = array();
         foreach ($subpaths as $path) {
             $normalizedPath = $this->filesystem->normalizePath($path);
             if (file_exists($path) && strpos($normalizedPath, $installPathNormalized) === 0) {
@@ -236,7 +244,7 @@ class Installer extends LibraryInstaller
             }
         }
 
-        // If no paths need to backed up, we simply procceed.
+        // If no paths need to be backed up, we simply proceed.
         if (empty($backup_paths)) {
             return array();
         }
@@ -248,14 +256,26 @@ class Installer extends LibraryInstaller
         $this->filesystem->ensureDirectoryExists($cache_root);
 
         $return = array();
-        foreach ($backup_paths as $path) {
-            $subfolder = sha1($path);
-            $this->filesystem->rename($path, $cache_root . '/' . $subfolder);
-            $return[$path] = $cache_root . '/' . $subfolder;
+        foreach ($backup_paths as $original) {
+            $backup_location = $cache_root . '/' . sha1($original);
+            $this->filesystem->rename($original, $backup_location);
+            $return[$original] = $backup_location;
         }
         return $return;
     }
 
+    /**
+     * Restore previously backed up subpaths.
+     *
+     * @param InstalledRepositoryInterface $repo
+     * @param PackageInterface $package
+     * @param array $backups
+     *   Array of backed up path information:
+     *   - key: original path
+     *   - value: backup location
+     *
+     * @see Installer::backupSubpaths()
+     */
     protected function restoreSubpaths(InstalledRepositoryInterface $repo, PackageInterface $package, $backups) {
         if (empty($backups)) {
             return;
