@@ -198,8 +198,8 @@ class Installer extends LibraryInstaller
 
         // Otherwise we back those up to a cache subdirectory.
         $cache_dir = $this->composer->getConfig()->get('cache-dir');
-        $unique = $package->getUniqueName();
-        $cache_root = $this->filesystem->normalizePath($cache_dir . '/installer-preserve-subpaths/' . $unique . '_' . time());
+        $unique = $package->getUniqueName() . ' ' . time();
+        $cache_root = $this->filesystem->normalizePath($cache_dir . '/installer-preserve-subpaths/' . sha1($unique));
         $this->filesystem->ensureDirectoryExists($cache_root);
 
         $return = array();
