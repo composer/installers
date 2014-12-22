@@ -61,7 +61,18 @@ abstract class BaseInstaller
         $packageType = substr($type, strlen($frameworkType) + 1);
         $locations = $this->getLocations();
         if (!isset($locations[$packageType])) {
-            throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
+            // throw error for better error handling but allow coexisting of other projects
+            // Allow plugins which are using dropin-paths for custom installation and using same
+            // Syntax as composer/installers is using
+            $customPath = $this->mapCustomInstallPaths($extra['dropin-paths'], $prettyName, $type);
+            
+            if(!$customPath) {
+                throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
+            } else {
+                //Return default path if other plugins are also in play
+                $vendorDir = $this->composer->getConfig()->get('vendor-dir');
+                return $this->templatePath("{$vendorDir}/{$vendor}/{$name}/", $availableVars);
+            }
         }
 
         return $this->templatePath($locations[$packageType], $availableVars);
