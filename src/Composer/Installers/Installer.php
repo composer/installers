@@ -19,6 +19,7 @@ class Installer extends LibraryInstaller
         'bitrix'       => 'BitrixInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'chef'         => 'ChefInstaller',
+        'ccframework'  => 'ClanCatsFrameworkInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
         'concrete5'    => 'Concrete5Installer',
         'craft'        => 'CraftInstaller',
