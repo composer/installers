@@ -142,6 +142,8 @@ class InstallerTest extends TestCase
             array('phpbb-extension', true),
             array('pimcore-plugin', true),
             array('ppi-module', true),
+            array('prestashop-module', true),
+            array('prestashop-theme', true),
             array('puppet-module', true),
             array('redaxo-addon', true),
             array('redaxo-bestyle-plugin', true),
