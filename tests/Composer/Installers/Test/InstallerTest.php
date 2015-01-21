@@ -254,6 +254,8 @@ class InstallerTest extends TestCase
             array('october-plugin', 'plugins/shama/my_plugin/', 'shama/my_plugin'),
             array('october-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('piwik-plugin', 'plugins/VisitSummary/', 'shama/visit-summary'),
+            array('prestashop-module', 'modules/a-module/', 'vendor/a-module'),
+            array('prestashop-theme', 'themes/a-theme/', 'vendor/a-theme'),
             array('phpbb-extension', 'ext/test/foo/', 'test/foo'),
             array('phpbb-style', 'styles/foo/', 'test/foo'),
             array('phpbb-language', 'language/foo/', 'test/foo'),
