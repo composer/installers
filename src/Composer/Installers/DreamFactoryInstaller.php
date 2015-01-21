@@ -28,15 +28,17 @@ class DreamFactoryInstaller extends BaseInstaller
             'web',
         );
 
-        $_cwd = $_cwd ?: getcwd();
-
-        foreach ( $_paths as $_path )
+        if ( $_cwd === null )
         {
-            if ( is_dir( $_cwd . '/' . $_path ) )
+            $_cwd = getcwd();
+
+            foreach ( $_paths as $_path )
             {
-                $this->locations['app'] = $_path . '/{$name}/';
-                echo 'Location set to ' . $this->locations['app'] . PHP_EOL;
-                break;
+                if ( is_dir( $_cwd . '/' . $_path ) )
+                {
+                    $this->locations['app'] = $_path . '/{$name}/';
+                    break;
+                }
             }
         }
 
