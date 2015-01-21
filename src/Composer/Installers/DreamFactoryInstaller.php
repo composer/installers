@@ -23,8 +23,7 @@ class DreamFactoryInstaller extends BaseInstaller
     public function getLocations()
     {
         static $_cwd = null;
-
-        $_paths = array(
+        static $_paths = array(
             'public',
             'web',
         );
@@ -36,6 +35,7 @@ class DreamFactoryInstaller extends BaseInstaller
             if ( is_dir( $_cwd . '/' . $_path ) )
             {
                 $this->locations['app'] = $_path . '/{$name}/';
+                echo 'Location set to ' . $this->locations['app'] . PHP_EOL;
                 break;
             }
         }
