@@ -83,6 +83,7 @@ is not needed to install packages with these frameworks:
 | WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
+| Prestashop   | `prestashop-module`<br>`prestashop-theme`
 
 ## Example `composer.json` File
 
