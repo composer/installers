@@ -5,6 +5,7 @@
     "description": "A multi-framework Composer library installer",
     "keywords": [
         "installer",
+        "Aimeos",
         "AGL",
         "AnnotateCms",
         "Bitrix",
