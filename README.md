@@ -33,7 +33,8 @@ is not needed to install packages with these frameworks:
 
 | Framework    | Types
 | ---------    | -----
-| Asgard      | `asgard-module`<br>`asgard-theme`
+| Aimeos       | `aimeos-extension`
+| Asgard       | `asgard-module`<br>`asgard-theme`
 | AGL          | `agl-module`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
 | Bitrix       | `bitrix-module`<br>`bitrix-component`<br>`bitrix-theme`
