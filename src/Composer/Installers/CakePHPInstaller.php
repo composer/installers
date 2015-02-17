@@ -34,7 +34,7 @@ class CakePHPInstaller extends BaseInstaller
     public function getLocations()
     {
         if ($this->matchesCakeVersion('>=', '3.0.0')) {
-            $this->locations['plugin'] = 'plugins/{$name}/';
+            $this->locations['plugin'] = 'vendor/{$name}/';
         }
         return $this->locations;
     }
