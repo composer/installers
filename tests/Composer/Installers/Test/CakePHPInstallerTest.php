@@ -94,11 +94,11 @@ class CakePHPInstallerTest extends TestCase
         // cakephp >= 3.0
         $this->setCakephpVersion($rm, '3.0.*-dev');
         $result = $installer->getLocations();
-        $this->assertContains('plugins/', $result['plugin']);
+        $this->assertContains('vendor/', $result['plugin']);
 
         $this->setCakephpVersion($rm, '~8.8');
         $result = $installer->getLocations();
-        $this->assertContains('plugins/', $result['plugin']);
+        $this->assertContains('vendor/', $result['plugin']);
     }
 
     /**
