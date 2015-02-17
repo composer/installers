@@ -9,6 +9,7 @@ use Composer\Package\RootPackage;
 use Composer\Package\Link;
 use Composer\Package\Version\VersionParser;
 use Composer\Composer;
+use Composer\Config;
 
 class CakePHPInstallerTest extends TestCase
 {
@@ -25,6 +26,7 @@ class CakePHPInstallerTest extends TestCase
         $this->package = new Package('CamelCased', '1.0', '1.0');
         $this->io = $this->getMock('Composer\IO\PackageInterface');
         $this->composer = new Composer();
+        $this->composer->setConfig(new Config(false));
     }
 
     /**
@@ -61,7 +63,7 @@ class CakePHPInstallerTest extends TestCase
      */
     public function testGetLocations() {
         $package = new RootPackage('CamelCased', '1.0', '1.0');
-        $composer = new Composer();
+        $composer = $this->composer;
         $rm = new RepositoryManager(
             $this->getMock('Composer\IO\IOInterface'),
             $this->getMock('Composer\Config')
