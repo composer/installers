@@ -419,4 +419,34 @@ class InstallerTest extends TestCase
 
         $installer->uninstall($repo, $package);
     }
+
+    public function testDisableSingleType()
+    {
+        $installer = new Installer($this->io, $this->composer);
+
+        $installer->disableInstallerType('wordpress-plugin');
+        $this->assertTrue($installer->isInstallerTypeDisabled('wordpress-plugin'));
+        $this->assertFalse($installer->supports('wordpress-plugin'));
+    }
+
+    public function testDisableFramework()
+    {
+        $installer = new Installer($this->io, $this->composer);
+
+        $installer->disableFramework('wordpress');
+        $this->assertTrue($installer->isInstallerTypeDisabled('wordpress-plugin'));
+        $this->assertFalse($installer->supports('wordpress-plugin'));
+    }
+
+    public function testEnableInstaller()
+    {
+        $installer = new Installer($this->io, $this->composer);
+
+        $installer->disableFramework('wordpress');
+        $this->assertTrue($installer->isInstallerTypeDisabled('wordpress-plugin'));
+        $installer->enableInstallerType('wordpress-plugin');
+        $this->assertFalse($installer->isInstallerTypeDisabled('wordpress-plugin'));
+        $this->assertTrue($installer->supports('wordpress-plugin'));
+        $this->assertFalse($installer->supports('wordpress-theme'));
+    }
 }

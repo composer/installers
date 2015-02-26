@@ -70,6 +70,8 @@ class Installer extends LibraryInstaller
         'prestashop'   => 'PrestashopInstaller',
     );
 
+    private $disabledInstallers = array();
+
     /**
      * {@inheritDoc}
      */
@@ -90,6 +92,9 @@ class Installer extends LibraryInstaller
         return $installer->getInstallPath($package, $frameworkType);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
         if (!$repo->hasPackage($package)) {
@@ -107,6 +112,10 @@ class Installer extends LibraryInstaller
      */
     public function supports($packageType)
     {
+        if (in_array($packageType, $this->disabledInstallers)) {
+            return false;
+        }
+        
         $frameworkType = $this->findFrameworkType($packageType);
 
         if ($frameworkType === false) {
@@ -116,6 +125,78 @@ class Installer extends LibraryInstaller
         $locationPattern = $this->getLocationPattern($frameworkType);
 
         return preg_match('#' . $frameworkType . '-' . $locationPattern . '#', $packageType, $matches) === 1;
+    }
+
+    /**
+     * Enables a previously disabled package type
+     *
+     * @param string $type
+     * @return bool false if it was not disabled, true if it was enabled
+     */
+    public function enableInstallerType($type)
+    {
+        if (!$this->isInstallerTypeDisabled($type)) {
+            return false;
+        }
+
+        $this->disabledInstallers = array_diff($this->disabledInstallers, array($type));
+        
+        return true;
+    }
+
+    /**
+     * Disables a package type from supported types
+     *
+     * @param string $type
+     */
+    public function disableInstallerType($type)
+    {
+        if ($this->isInstallerTypeDisabled($type)) {
+            return;
+        }
+        
+        $frameworkType = $this->findFrameworkType($type);
+        
+        if ($frameworkType === false) {
+            throw new \InvalidArgumentException(
+                'Sorry the package type of this package is not yet supported.'
+            );
+        }
+
+        $this->disabledInstallers[] = $type;
+    }
+
+    /**
+     * Disabled an entire framework type
+     *
+     * @param string $frameworkType
+     * @return bool true if the framework was disabled, false if it is not supported
+     */
+    public function disableFramework($frameworkType)
+    {
+        if (!empty($this->supportedTypes[$frameworkType])) {
+            $frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
+            /** @var BaseInstaller $framework */
+            $framework = new $frameworkClass(null, $this->composer);
+            $locations = array_keys($framework->getLocations());
+            $types = array_map(function($str) use ($frameworkType) {
+                    return $frameworkType.'-'.$str;
+                }, $locations);
+            $this->disabledInstallers = array_unique(array_merge($this->disabledInstallers, $types));
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Checks to see if an installer is disabled
+     *
+     * @param string $type
+     * @return bool
+     */
+    public function isInstallerTypeDisabled($type)
+    {
+        return in_array($type, $this->disabledInstallers);
     }
 
     /**
