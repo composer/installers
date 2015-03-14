@@ -18,6 +18,7 @@ class Installer extends LibraryInstaller
         'agl'          => 'AglInstaller',
         'annotatecms'  => 'AnnotateCmsInstaller',
         'bitrix'       => 'BitrixInstaller',
+        'bonefish'     => 'BonefishInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'chef'         => 'ChefInstaller',
         'ccframework'  => 'ClanCatsFrameworkInstaller',
