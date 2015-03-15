@@ -36,6 +36,7 @@ is not needed to install packages with these frameworks:
 | Aimeos       | `aimeos-extension`
 | Asgard       | `asgard-module`<br>`asgard-theme`
 | AGL          | `agl-module`
+| Bonefish     | `bonefish-package`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
 | Bitrix       | `bitrix-module`<br>`bitrix-component`<br>`bitrix-theme`
 | CakePHP 2+   | **`cakephp-plugin`**
