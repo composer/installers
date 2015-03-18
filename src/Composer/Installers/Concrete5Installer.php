@@ -8,5 +8,6 @@ class Concrete5Installer extends BaseInstaller
         'package'    => 'packages/{$name}/',
         'theme'      => 'themes/{$name}/',
         'update'     => 'updates/{$name}/',
+        'core'       => 'concrete/',
     );
 }
