@@ -56,6 +56,7 @@ is not needed to install packages with these frameworks:
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
 | Kirby        | **`kirby-plugin`**
+| KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
 | Kohana       | **`kohana-module`**
 | Laravel      | `laravel-library`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
@@ -86,7 +87,6 @@ is not needed to install packages with these frameworks:
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
 | Prestashop   | `prestashop-module`<br>`prestashop-theme`
-| KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
 
 ## Example `composer.json` File
 

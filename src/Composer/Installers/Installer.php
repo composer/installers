@@ -36,6 +36,7 @@ class Installer extends LibraryInstaller
         'hurad'        => 'HuradInstaller',
         'joomla'       => 'JoomlaInstaller',
         'kirby'        => 'KirbyInstaller',
+        'kodicms'      => 'KodiCMSInstaller',
         'kohana'       => 'KohanaInstaller',
         'laravel'      => 'LaravelInstaller',
         'lithium'      => 'LithiumInstaller',
@@ -68,8 +69,7 @@ class Installer extends LibraryInstaller
         'wordpress'    => 'WordPressInstaller',
         'zend'         => 'ZendInstaller',
         'zikula'       => 'ZikulaInstaller',
-        'prestashop'   => 'PrestashopInstaller',
-        'kodicms'      => 'KodiCMSInstaller'
+        'prestashop'   => 'PrestashopInstaller'
     );
 
     /**
