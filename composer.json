@@ -1,6 +1,6 @@
 {
     "name": "composer/installers",
-    "type": "composer-plugin",
+    "type": "composer-installer",
     "license": "MIT",
     "description": "A multi-framework Composer library installer",
     "keywords": [
