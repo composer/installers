@@ -5,6 +5,7 @@
     "description": "A multi-framework Composer library installer",
     "keywords": [
         "installer",
+        "Aimeos",
         "AGL",
         "AnnotateCms",
         "Bitrix",
@@ -14,6 +15,7 @@
         "concrete5",
         "Craft",
         "Croogo",
+        "DokuWiki",
         "Dolibarr",
         "Drupal",
         "Elgg",
@@ -38,6 +40,7 @@
         "Roundcube",
         "shopware",
         "SilverStripe",
+        "SMF",
         "symfony",
         "Thelia",
         "TYPO3",
