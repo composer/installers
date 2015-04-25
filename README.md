@@ -73,6 +73,7 @@ is not needed to install packages with these frameworks:
 | Pimcore      | `pimcore-plugin`
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
+| RadPHP       | `radphp-bundle`
 | REDAXO       | `redaxo-addon`
 | Roundcube    | `roundcube-plugin`
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
