@@ -1,6 +1,7 @@
 <?php
 namespace Composer\Installers;
 
+use Composer\IO\IOInterface;
 use Composer\Composer;
 use Composer\Package\PackageInterface;
 
@@ -9,6 +10,10 @@ abstract class BaseInstaller
     protected $locations = array();
     protected $composer;
     protected $package;
+    /**
+     * @var IOInterface
+     */
+    protected $io;
 
     /**
      * Initializes base installer.
@@ -20,6 +25,11 @@ abstract class BaseInstaller
     {
         $this->composer = $composer;
         $this->package = $package;
+
+        if (!is_null($this->package))
+        {
+            $this->io = $this->composer->getInstallationManager()->getInstaller($this->package->getType())->getIO();
+        }
     }
 
     /**

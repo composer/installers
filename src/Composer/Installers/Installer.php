@@ -1,6 +1,7 @@
 <?php
 namespace Composer\Installers;
 
+use Composer\IO\IOInterface;
 use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
@@ -161,5 +162,15 @@ class Installer extends LibraryInstaller
         }
 
         return $pattern ? : '(\w+)';
+    }
+
+    /**
+     * Get I/O object
+     *
+     * @return IOInterface
+     */
+    public function getIO()
+    {
+        return $this->io;
     }
 }
