@@ -7,6 +7,7 @@ use Composer\Util\Filesystem;
  * Installer for Bitrix Framework
  *
  * @author Nik Samokhvalov <nik@samokhvalov.info>
+ * @author Denis Kulichkin <onexhovia@gmail.com>
  */
 class BitrixInstaller extends BaseInstaller
 {
@@ -18,6 +19,9 @@ class BitrixInstaller extends BaseInstaller
 
     protected static $isInstall = 1;
 
+    /**
+     * {@inheritdoc}
+     */
     protected function templatePath($path, array $vars = array())
     {
         $templatePath = parent::templatePath($path, $vars);
