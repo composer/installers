@@ -24,8 +24,7 @@ abstract class BaseInstaller
         $this->composer = $composer;
         $this->package = $package;
 
-        if (!is_null($this->package))
-        {
+        if (!is_null($this->package)) {
             $this->io = $io;
         }
     }
