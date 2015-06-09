@@ -10,9 +10,6 @@ abstract class BaseInstaller
     protected $locations = array();
     protected $composer;
     protected $package;
-    /**
-     * @var IOInterface
-     */
     protected $io;
 
     /**
@@ -20,15 +17,16 @@ abstract class BaseInstaller
      *
      * @param PackageInterface $package
      * @param Composer         $composer
+     * @param IOInterface      $io
      */
-    public function __construct(PackageInterface $package = null, Composer $composer = null)
+    public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io)
     {
         $this->composer = $composer;
         $this->package = $package;
 
         if (!is_null($this->package))
         {
-            $this->io = $this->composer->getInstallationManager()->getInstaller($this->package->getType())->getIO();
+            $this->io = $io;
         }
     }
 

@@ -88,7 +88,7 @@ class Installer extends LibraryInstaller
         }
 
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
-        $installer = new $class($package, $this->composer);
+        $installer = new $class($package, $this->composer, $this->getIO());
 
         return $installer->getInstallPath($package, $frameworkType);
     }
@@ -156,7 +156,7 @@ class Installer extends LibraryInstaller
         if (!empty($this->supportedTypes[$frameworkType])) {
             $frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
             /** @var BaseInstaller $framework */
-            $framework = new $frameworkClass(null, $this->composer);
+            $framework = new $frameworkClass(null, $this->composer, $this->getIO());
             $locations = array_keys($framework->getLocations());
             $pattern = $locations ? '(' . implode('|', $locations) . ')' : false;
         }
