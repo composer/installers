@@ -19,14 +19,11 @@ abstract class BaseInstaller
      * @param Composer         $composer
      * @param IOInterface      $io
      */
-    public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io)
+    public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io = null)
     {
         $this->composer = $composer;
         $this->package = $package;
-
-        if (!is_null($this->package)) {
-            $this->io = $io;
-        }
+        $this->io = $io;
     }
 
     /**

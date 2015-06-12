@@ -56,7 +56,7 @@ class BitrixInstaller extends BaseInstaller
         $packageType = substr($vars['type'], strlen('bitrix') + 1);
         $oldLocation = str_replace('{$name}', $vars['name'], $oldLocations[$packageType]);
 
-        if ($oldLocation !== $templatePath && file_exists($oldLocation)) {
+        if ($oldLocation !== $templatePath && file_exists($oldLocation) && $this->io && $this->io->isInteractive()) {
 
             $this->io->writeError('    <error>Duplication of packages:</error>');
             $this->io->writeError('    <info>Package ' . $oldLocation . ' will be called instead package ' . $templatePath . '</info>');
