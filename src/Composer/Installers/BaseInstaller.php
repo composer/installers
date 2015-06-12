@@ -1,6 +1,7 @@
 <?php
 namespace Composer\Installers;
 
+use Composer\IO\IOInterface;
 use Composer\Composer;
 use Composer\Package\PackageInterface;
 
@@ -9,17 +10,23 @@ abstract class BaseInstaller
     protected $locations = array();
     protected $composer;
     protected $package;
+    protected $io;
 
     /**
      * Initializes base installer.
      *
      * @param PackageInterface $package
      * @param Composer         $composer
+     * @param IOInterface      $io
      */
-    public function __construct(PackageInterface $package = null, Composer $composer = null)
+    public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io)
     {
         $this->composer = $composer;
         $this->package = $package;
+
+        if (!is_null($this->package)) {
+            $this->io = $io;
+        }
     }
 
     /**
