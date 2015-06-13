@@ -17,7 +17,10 @@ class BitrixInstaller extends BaseInstaller
         'theme'     => 'bitrix/templates/{$name}/',
     );
 
-    protected static $isInstall = 1;
+    /**
+     * @var array Storage for informations about duplicates at all the time of installation packages
+     */
+    private static $checkedDuplicates = [];
 
     /**
      * {@inheritdoc}
@@ -38,12 +41,6 @@ class BitrixInstaller extends BaseInstaller
      */
     protected function checkDuplicates($templatePath, array $vars = array())
     {
-        if (static::$isInstall === 0) {
-            return;
-        }
-
-        static::$isInstall--;
-
         /**
          * Incorrect paths for backward compatibility
          */
@@ -55,6 +52,10 @@ class BitrixInstaller extends BaseInstaller
 
         $packageType = substr($vars['type'], strlen('bitrix') + 1);
         $oldLocation = str_replace('{$name}', $vars['name'], $oldLocations[$packageType]);
+
+        if (in_array($oldLocation, static::$checkedDuplicates)) {
+            return;
+        }
 
         if ($oldLocation !== $templatePath && file_exists($oldLocation) && $this->io && $this->io->isInteractive()) {
 
@@ -82,5 +83,7 @@ class BitrixInstaller extends BaseInstaller
                 }
             }
         }
+
+        static::$checkedDuplicates[] = $oldLocation;
     }
 }
