@@ -57,7 +57,7 @@ class BitrixInstaller extends BaseInstaller
             return;
         }
 
-        if ($oldLocation !== $templatePath && file_exists($oldLocation)) {
+        if ($oldLocation !== $templatePath && file_exists($oldLocation) && $this->io && $this->io->isInteractive()) {
 
             $this->io->writeError('    <error>Duplication of packages:</error>');
             $this->io->writeError('    <info>Package ' . $oldLocation . ' will be called instead package ' . $templatePath . '</info>');

@@ -169,7 +169,7 @@ class Installer extends LibraryInstaller
      *
      * @return IOInterface
      */
-    public function getIO()
+    private function getIO()
     {
         return $this->io;
     }
