@@ -66,10 +66,6 @@
             "dev-master": "1.0-dev"
         }
     },
-    "replace": {
-        "shama/baton": "*",
-        "roundcube/plugin-installer": "*"
-    },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
         "phpunit/phpunit": "4.1.*"
