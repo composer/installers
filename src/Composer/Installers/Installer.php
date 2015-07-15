@@ -34,6 +34,7 @@ class Installer extends LibraryInstaller
         'fuel'         => 'FuelInstaller',
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
+        'humhub'       => 'HumHubInstaller',
         'hurad'        => 'HuradInstaller',
         'joomla'       => 'JoomlaInstaller',
         'kirby'        => 'KirbyInstaller',
@@ -70,8 +71,7 @@ class Installer extends LibraryInstaller
         'wordpress'    => 'WordPressInstaller',
         'zend'         => 'ZendInstaller',
         'zikula'       => 'ZikulaInstaller',
-        'prestashop'   => 'PrestashopInstaller',
-		'humhub'       => 'HumHubInstaller'
+        'prestashop'   => 'PrestashopInstaller'
     );
 
     /**
