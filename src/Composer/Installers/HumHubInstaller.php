@@ -31,14 +31,14 @@ class HumHubInstaller extends BaseInstaller
 
     protected function inflectModuleVars($vars)
     {
-        $vars['name'] = preg_replace('/humhub-module-$/', '', $vars['name']);
+        $vars['name'] = preg_replace('/^humhub-module-/', '', $vars['name']);
 
         return $vars;
     }
 
     protected function inflectThemeVars($vars)
     {
-        $vars['name'] = preg_replace('/humhub-theme-$/', '', $vars['name']);
+        $vars['name'] = preg_replace('/^humhub-theme-/', '', $vars['name']);
 
         return $vars;
     }
