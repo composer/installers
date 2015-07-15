@@ -4,7 +4,7 @@ namespace Composer\Installers;
 class HumHubInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module'    => 'modules/{$name}/',
+        'module'    => 'protected/modules/{$name}/',
         'theme'     => 'themes/{$name}/'
     );
 
