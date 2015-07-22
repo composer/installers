@@ -7,5 +7,6 @@ class CodeIgniterInstaller extends BaseInstaller
         'library'     => 'application/libraries/{$name}/',
         'third-party' => 'application/third_party/{$name}/',
         'module'      => 'application/modules/{$name}/',
+        'theme' 	  => 'application/theme/{$name}'
     );
 }
