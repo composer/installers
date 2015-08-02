@@ -180,6 +180,9 @@ class InstallerTest extends TestCase
             array('zikula-theme', true),
             array('kodicms-plugin', true),
             array('kodicms-media', true),
+            array('phifty-bundle', true),
+            array('phifty-library', true),
+            array('phifty-framework', true),
         );
     }
 
@@ -311,6 +314,9 @@ class InstallerTest extends TestCase
             array('zikula-theme', 'themes/my-test_theme/', 'my/test_theme'),
             array('kodicms-media', 'cms/media/vendor/my_media/', 'shama/my_media'),
             array('kodicms-plugin', 'cms/plugins/my_plugin/', 'shama/my_plugin'),
+            array('phifty-bundle', 'bundles/core/', 'shama/core'),
+            array('phifty-library', 'libraries/my-lib/', 'shama/my-lib'),
+            array('phifty-framework', 'frameworks/my-framework/', 'shama/my-framework'),
         );
     }
 

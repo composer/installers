@@ -90,6 +90,7 @@ is not needed to install packages with these frameworks:
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
 | Prestashop   | `prestashop-module`<br>`prestashop-theme`
+| Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 
 ## Example `composer.json` File
 
