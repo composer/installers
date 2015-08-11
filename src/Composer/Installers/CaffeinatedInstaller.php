@@ -4,16 +4,16 @@ namespace Composer\Installers;
 class CaffeinatedInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module' => 'Modules/{$name}/',
-        'theme' => 'Themes/{$name}/'
+        'module' => 'App/Modules/{$name}/',
+        'theme' => 'App/Themes/{$name}/'
     );
 
     /**
      * Format package name.
      *
-     * For package type asgard-module, cut off a trailing '-plugin' if present.
+     * For package type caffeinated-module, cut off a trailing '-plugin' if present.
      *
-     * For package type asgard-theme, cut off a trailing '-theme' if present.
+     * For package type caffeinated-theme, cut off a trailing '-theme' if present.
      *
      */
     public function inflectPackageVars($vars)
