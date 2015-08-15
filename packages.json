@@ -1,5 +1,5 @@
 {
-    "name": "composer/installers",
+    "name": "dsv/installers",
     "type": "composer-installer",
     "license": "MIT",
     "description": "A multi-framework Composer library installer",
@@ -50,13 +50,6 @@
         "Zikula"
     ],
     "homepage": "http://composer.github.com/installers/",
-    "authors": [
-        {
-            "name": "Kyle Robinson Young",
-            "email": "kyle@dontkry.com",
-            "homepage": "https://github.com/shama"
-        }
-    ],
     "autoload": {
         "psr-0": { "Composer\\Installers\\": "src/" }
     },
