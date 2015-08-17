@@ -47,6 +47,7 @@ class Installer extends LibraryInstaller
         'microweber'    => 'MicroweberInstaller',
         'modulework'   => 'MODULEWorkInstaller',
         'modxevo'      => 'MODXEvoInstaller',
+        'molajo'       => 'MolajoInstaller',
         'moodle'       => 'MoodleInstaller',
         'october'      => 'OctoberInstaller',
         'oxid'         => 'OxidInstaller',
