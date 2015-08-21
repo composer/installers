@@ -70,7 +70,8 @@ class Installer extends LibraryInstaller
         'wordpress'    => 'WordPressInstaller',
         'zend'         => 'ZendInstaller',
         'zikula'       => 'ZikulaInstaller',
-        'prestashop'   => 'PrestashopInstaller'
+        'prestashop'   => 'PrestashopInstaller',
+        'borobudur'    => 'BorobudurInstaller'
     );
 
     /**

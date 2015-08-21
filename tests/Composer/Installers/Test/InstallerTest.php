@@ -176,6 +176,8 @@ class InstallerTest extends TestCase
             array('zikula-theme', true),
             array('kodicms-plugin', true),
             array('kodicms-media', true),
+            array('borobudur-component', true),
+            array('borobudur-bundle', true),
         );
     }
 
@@ -303,6 +305,8 @@ class InstallerTest extends TestCase
             array('zikula-theme', 'themes/my-test_theme/', 'my/test_theme'),
             array('kodicms-media', 'cms/media/vendor/my_media/', 'shama/my_media'),
             array('kodicms-plugin', 'cms/plugins/my_plugin/', 'shama/my_plugin'),
+            array('borobudur-component', true),
+            array('borobudur-bundle', true),
         );
     }
 
