@@ -31,6 +31,7 @@ class Installer extends LibraryInstaller
         'dolibarr'     => 'DolibarrInstaller',
         'drupal'       => 'DrupalInstaller',
         'elgg'         => 'ElggInstaller',
+        'featherbb'    => 'FeatherBBInstaller',
         'fuel'         => 'FuelInstaller',
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
