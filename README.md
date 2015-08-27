@@ -54,6 +54,7 @@ is not needed to install packages with these frameworks:
 | FuelPHP v2.x | `fuelphp-component`
 | Grav         | `grav-plugin`<br>`grav-theme`
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
+| ImageCMS     | `imagecms-template`<br>`imagecms-module`<br>`imagecms-library`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
 | Kirby        | **`kirby-plugin`**
 | KodiCMS      | `kodicms-plugin`<br>`kodicms-media`

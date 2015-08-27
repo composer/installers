@@ -35,6 +35,7 @@ class Installer extends LibraryInstaller
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
         'hurad'        => 'HuradInstaller',
+        'imagecms'     => 'ImageCMSInstaller',
         'joomla'       => 'JoomlaInstaller',
         'kirby'        => 'KirbyInstaller',
         'kodicms'      => 'KodiCMSInstaller',
