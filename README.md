@@ -74,6 +74,7 @@ is not needed to install packages with these frameworks:
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
 | REDAXO       | `redaxo-addon`
+| ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
 | Roundcube    | `roundcube-plugin`
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
