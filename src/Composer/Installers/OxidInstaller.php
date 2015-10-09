@@ -1,6 +1,7 @@
 <?php
 namespace Composer\Installers;
 
+use Composer\Package\PackageInterface;
 class OxidInstaller extends BaseInstaller
 {
     protected $locations = array(
