@@ -37,6 +37,8 @@ class OxidInstaller extends BaseInstaller
 	 */
 	protected function prepareVendorDirectory($installPath)
 	{
+		var_dump('installPath');
+		var_dump($installPath);
 		$matches = '';
 		$hasVendorDirectory = preg_match(self::VENDOR_PATTERN, $installPath, $matches);
 		var_dump('hasVendorDirectory');
