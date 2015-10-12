@@ -22,7 +22,10 @@ class OxidInstaller extends BaseInstaller
 	public function getInstallPath(PackageInterface $package, $frameworkType = '')
 	{
 		$installPath = parent::getInstallPath($package, $frameworkType);
-		$this->prepareVendorDirectory($installPath);
+		$type = $this->package->getType();
+		if ($type === 'oxid-module') {
+			$this->prepareVendorDirectory($installPath);
+		}
 		return $installPath;
 	}
 
