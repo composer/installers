@@ -4,6 +4,8 @@ namespace Composer\Installers;
 use Composer\Package\PackageInterface;
 class OxidInstaller extends BaseInstaller
 {
+	const VENDOR_PATTERN = '^modules\/[vendor=(.+)]\/.+';
+
     protected $locations = array(
         'module'    => 'modules/{$name}/',
         'theme'  => 'application/views/{$name}/',
@@ -35,6 +37,14 @@ class OxidInstaller extends BaseInstaller
 	 */
 	protected function prepareVendorDirectory($installPath)
 	{
-		echo $installPath;
+		$matches = '';
+		$hasVendorDirectory = preg_match(self::VENDOR_PATTERN, $installPath, $matches);
+		var_dump($hasVendorDirectory);
+		if (!$hasVendorDirectory) {
+			return;
+		}
+
+		$vendorDirectory = $matches['vendor'];
+		var_dump($vendorDirectory);
 	}
 }
