@@ -44,7 +44,8 @@ class OxidInstaller extends BaseInstaller
 		}
 
 		$vendorDirectory = $matches['vendor'];
-		mkdir($vendorDirectory, 0755, true);
-		touch(getcwd() . $vendorDirectory);
+		$vendorPath = getcwd() . DS . 'modules' . DS . $vendorDirectory;
+		mkdir($vendorPath, 0755, true);
+		touch($vendorPath);
 	}
 }
