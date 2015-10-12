@@ -44,8 +44,12 @@ class OxidInstaller extends BaseInstaller
 		}
 
 		$vendorDirectory = $matches['vendor'];
-		$vendorPath = getcwd() . DS . 'modules' . DS . $vendorDirectory;
-		mkdir($vendorPath, 0755, true);
-		touch($vendorPath);
+		$vendorPath = getcwd() . '/modules/' . $vendorDirectory;
+		if (!file_exists($vendorPath)) {
+			mkdir($vendorPath, 0755, true);
+		}
+
+		$vendorMetaDataPath = $vendorPath . '/vendormetadata.php';
+		touch($vendorMetaDataPath);
 	}
 }
