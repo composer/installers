@@ -39,12 +39,14 @@ class OxidInstaller extends BaseInstaller
 	{
 		$matches = '';
 		$hasVendorDirectory = preg_match(self::VENDOR_PATTERN, $installPath, $matches);
+		var_dump('hasVendorDirectory');
 		var_dump($hasVendorDirectory);
 		if (!$hasVendorDirectory) {
 			return;
 		}
 
 		$vendorDirectory = $matches['vendor'];
+		var_dump('vendorDirectory');
 		var_dump($vendorDirectory);
 	}
 }
