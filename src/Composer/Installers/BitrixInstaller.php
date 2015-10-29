@@ -20,7 +20,7 @@ class BitrixInstaller extends BaseInstaller
     /**
      * @var array Storage for informations about duplicates at all the time of installation packages
      */
-    private static $checkedDuplicates = [];
+    private static $checkedDuplicates = array();
 
     /**
      * {@inheritdoc}
@@ -74,10 +74,10 @@ class BitrixInstaller extends BaseInstaller
 
                     case '?':
                     default:
-                        $this->io->writeError([
+                        $this->io->writeError(array(
                             '    y - delete package ' . $oldLocation . ' and to continue with the installation',
                             '    n - don\'t delete and to continue with the installation',
-                        ]);
+                        ));
                         $this->io->writeError('    ? - print help');
                         break;
                 }
