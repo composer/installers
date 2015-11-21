@@ -63,6 +63,7 @@ is not needed to install packages with these frameworks:
 | Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
 | Mako         | `mako-package`
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
+| Morfy        | `morfy-theme`<br>`morfy-plugin
 | MediaWiki    | `mediawiki-extension`
 | October      | **`october-module`<br>`october-plugin`<br>`october-theme`**
 | OXID         | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
@@ -168,7 +169,7 @@ not be inflected.
 ## Contribute!
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
-* Run the command `php composer.phar install` to install the dependencies. 
+* Run the command `php composer.phar install` to install the dependencies.
   This will also install the dev dependencies. See [Composer](https://getcomposer.org/doc/03-cli.md#install).
 * Use the command `phpunit` to run the tests. See [PHPUnit](http://phpunit.de).
 * Create a branch, commit, push and send us a
