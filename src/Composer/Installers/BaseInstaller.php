@@ -57,7 +57,7 @@ abstract class BaseInstaller
             if (!empty($extra['installer-paths'])) {
                 $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName, $type);
                 if ($customPath !== false) {
-                    return $this->templatePath($customPath, $availableVars);
+                    return getcwd() . '/' . $this->templatePath($customPath, $availableVars);
                 }
             }
         }
@@ -68,7 +68,7 @@ abstract class BaseInstaller
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
-        return $this->templatePath($locations[$packageType], $availableVars);
+        return getcwd() . '/' . $this->templatePath($locations[$packageType], $availableVars);
     }
 
     /**
