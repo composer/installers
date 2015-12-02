@@ -65,6 +65,7 @@ class Installer extends LibraryInstaller
         'tusk'         => 'TuskInstaller',
         'typo3-cms'    => 'TYPO3CmsInstaller',
         'typo3-flow'   => 'TYPO3FlowInstaller',
+        'typicms'      => 'TypiCMSInstaller',
         'whmcs'        => 'WHMCSInstaller',
         'wolfcms'      => 'WolfCMSInstaller',
         'wordpress'    => 'WordPressInstaller',
