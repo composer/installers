@@ -2,6 +2,7 @@
 namespace Composer\Installers;
 
 use Composer\Package\PackageInterface;
+
 class OxidInstaller extends BaseInstaller
 {
 	const VENDOR_PATTERN = '/^modules\/(?P<vendor>.+)\/.+/';
