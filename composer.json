@@ -71,7 +71,7 @@
         "roundcube/plugin-installer": "*"
     },
     "require": {
-        "composer-plugin-api": "1.0.0"
+        "composer-plugin-api": "^1.0"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
