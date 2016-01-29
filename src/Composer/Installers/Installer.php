@@ -63,7 +63,6 @@ class Installer extends LibraryInstaller
         'symfony1'     => 'Symfony1Installer',
         'thelia'       => 'TheliaInstaller',
         'tusk'         => 'TuskInstaller',
-        'typo3-cms'    => 'TYPO3CmsInstaller',
         'typo3-flow'   => 'TYPO3FlowInstaller',
         'whmcs'        => 'WHMCSInstaller',
         'wolfcms'      => 'WolfCMSInstaller',
