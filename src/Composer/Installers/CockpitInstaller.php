@@ -4,7 +4,7 @@ namespace Composer\Installers;
 class CockpitInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module' => 'modules/addons/{$name}/',
+        'module' => 'cockpit/modules/addons/{$name}/',
     );
 
     /**
