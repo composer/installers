@@ -48,7 +48,7 @@ is not needed to install packages with these frameworks:
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
 | DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
 | Dolibarr     | `dolibarr-module`
-| Drupal       | `drupal-cusotm-module`<br>`drupal-custom-theme`<br>`drupal-module`<br>`drupal-theme`<br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
+| Drupal       | `drupal-module`<br>`drupal-custom-module`<br>`drupal-theme`<br>`drupal-custom-theme`<br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
 | Elgg         | `elgg-plugin`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
 | FuelPHP v2.x | `fuelphp-component`
