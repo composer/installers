@@ -55,7 +55,7 @@ is not needed to install packages with these frameworks:
 | Grav         | `grav-plugin`<br>`grav-theme`
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
-| Kirby        | **`kirby-plugin`**
+| Kirby        | **`kirby-plugin`**<br>`kirby-field`<br>`kirby-tag`
 | KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
 | Kohana       | **`kohana-module`**
 | Laravel      | `laravel-library`
