@@ -6,9 +6,19 @@ use Composer\Util\Filesystem;
 
 /**
  * Installer for Bitrix Framework. Supported types of extensions:
- * - `module` — copy the module to directory `bitrix/modules/` directory.
- * - `component` — copy the component to directory `bitrix/components/`.
- * - `template` — copy the template to directory `bitrix/templates/`.
+ * - `bitrix-module` — copy the module to directory `bitrix/modules/` directory.
+ * - `bitrix-component` — copy the component to directory `bitrix/components/`.
+ * - `bitrix-template` — copy the template to directory `bitrix/templates/`.
+ * 
+ * You can set custom path to directory with Bitrix kernel in `composer.json`:
+ * 
+ * ```json
+ * {
+ *      "extra": {
+ *          "bitrix-dir": "s1/bitrix"
+ *      }
+ * }
+ * ```
  *
  * @author Nik Samokhvalov <nik@samokhvalov.info>
  * @author Denis Kulichkin <onexhovia@gmail.com>
