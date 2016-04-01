@@ -137,7 +137,20 @@ A package type can have a custom installation path with a `type:` prefix.
 }
 ```
 
-This would use your custom path for each of the listed packages. The available
+You can also have the same vendor packages with a custom installation path by
+using the `vendor:` prefix.
+
+``` json
+{
+    "extra": {
+        "installer-paths": {
+            "your/custom/path/{$name}/": ["vendor:my_organization"]
+        }
+    }
+}
+```
+
+These would use your custom path for each of the listed packages. The available
 variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
 
 ## Custom Install Names
