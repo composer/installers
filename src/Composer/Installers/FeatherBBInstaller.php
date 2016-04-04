@@ -4,8 +4,8 @@ namespace Composer\Installers;
 class FeatherBBInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'plugin'    => 'plugin/{$name}/',
-        'language'  => 'lang/{$name}/',
-        'style'     => 'styles/{$name}/',
+        'plugin'    => 'plugins/{$name}/',
+        'language'  => 'featherbb/lang/{$name}/',
+        'theme'     => 'style/themes/{$name}/',
     );
 }
