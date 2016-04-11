@@ -1,6 +1,7 @@
 <?php
 namespace Composer\Installers;
 
+use Composer\IO\IOInterface;
 use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
@@ -34,6 +35,7 @@ class Installer extends LibraryInstaller
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
         'hurad'        => 'HuradInstaller',
+        'imagecms'     => 'ImageCMSInstaller',
         'joomla'       => 'JoomlaInstaller',
         'kirby'        => 'KirbyInstaller',
         'kodicms'      => 'KodiCMSInstaller',
@@ -42,6 +44,7 @@ class Installer extends LibraryInstaller
         'lithium'      => 'LithiumInstaller',
         'magento'      => 'MagentoInstaller',
         'mako'         => 'MakoInstaller',
+        'mautic'       => 'MauticInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
         'microweber'    => 'MicroweberInstaller',
         'modulework'   => 'MODULEWorkInstaller',
@@ -63,7 +66,6 @@ class Installer extends LibraryInstaller
         'symfony1'     => 'Symfony1Installer',
         'thelia'       => 'TheliaInstaller',
         'tusk'         => 'TuskInstaller',
-        'typo3-cms'    => 'TYPO3CmsInstaller',
         'typo3-flow'   => 'TYPO3FlowInstaller',
         'whmcs'        => 'WHMCSInstaller',
         'wolfcms'      => 'WolfCMSInstaller',
@@ -88,7 +90,7 @@ class Installer extends LibraryInstaller
         }
 
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
-        $installer = new $class($package, $this->composer);
+        $installer = new $class($package, $this->composer, $this->getIO());
 
         return $installer->getInstallPath($package, $frameworkType);
     }
@@ -156,11 +158,21 @@ class Installer extends LibraryInstaller
         if (!empty($this->supportedTypes[$frameworkType])) {
             $frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
             /** @var BaseInstaller $framework */
-            $framework = new $frameworkClass(null, $this->composer);
+            $framework = new $frameworkClass(null, $this->composer, $this->getIO());
             $locations = array_keys($framework->getLocations());
             $pattern = $locations ? '(' . implode('|', $locations) . ')' : false;
         }
 
         return $pattern ? : '(\w+)';
+    }
+
+    /**
+     * Get I/O object
+     *
+     * @return IOInterface
+     */
+    private function getIO()
+    {
+        return $this->io;
     }
 }
