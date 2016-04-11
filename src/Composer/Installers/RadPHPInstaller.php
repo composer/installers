@@ -3,9 +3,9 @@ namespace Composer\Installers;
 
 class RadPHPInstaller extends BaseInstaller
 {
-    protected $locations = [
+    protected $locations = array(
         'bundle' => 'bundles/{$name}/'
-    ];
+    );
 
     /**
      * Format package name to CamelCase
