@@ -83,6 +83,7 @@ is not needed to install packages with these frameworks:
 | symfony1     | **`symfony1-plugin`**
 | Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
 | TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
+| TYPO3 CMS    | `typo3-cms-extension` (Deprecated in this package, use the [TYPO3 CMS Installers](https://packagist.org/packages/typo3/cms-composer-installers) instead)
 | Wolf CMS     | `wolfcms-plugin`
 | WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
