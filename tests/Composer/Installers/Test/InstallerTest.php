@@ -275,7 +275,7 @@ class InstallerTest extends TestCase
             array('pimcore-plugin', 'plugins/MyPlugin/', 'ubikz/my_plugin'),
             array('ppi-module', 'modules/foo/', 'test/foo'),
             array('puppet-module', 'modules/puppet-name/', 'puppet/puppet-name'),
-            array('radphp-bundle', 'bundles/Migration/', 'atkrad/migration'),
+            array('radphp-bundle', 'src/Migration/', 'atkrad/migration'),
             array('redaxo-addon', 'redaxo/include/addons/my_plugin/', 'shama/my_plugin'),
             array('redaxo-bestyle-plugin', 'redaxo/include/addons/be_style/plugins/my_plugin/', 'shama/my_plugin'),
             array('roundcube-plugin', 'plugins/base/', 'test/base'),
