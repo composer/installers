@@ -180,6 +180,8 @@ class InstallerTest extends TestCase
             array('zikula-theme', true),
             array('kodicms-plugin', true),
             array('kodicms-media', true),
+            array('borobudur-component', true),
+            array('borobudur-bundle', true),
         );
     }
 
