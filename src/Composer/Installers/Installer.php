@@ -58,6 +58,7 @@ class Installer extends LibraryInstaller
         'ppi'          => 'PPIInstaller',
         'puppet'       => 'PuppetInstaller',
         'radphp'       => 'RadPHPInstaller',
+        'phifty'       => 'PhiftyInstaller',
         'redaxo'       => 'RedaxoInstaller',
         'roundcube'    => 'RoundcubeInstaller',
         'shopware'     => 'ShopwareInstaller',
