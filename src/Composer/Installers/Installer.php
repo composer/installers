@@ -29,6 +29,7 @@ class Installer extends LibraryInstaller
         'croogo'       => 'CroogoInstaller',
         'dokuwiki'     => 'DokuWikiInstaller',
         'dolibarr'     => 'DolibarrInstaller',
+        'decibel'      => 'DecibelInstaller',
         'drupal'       => 'DrupalInstaller',
         'elgg'         => 'ElggInstaller',
         'fuel'         => 'FuelInstaller',

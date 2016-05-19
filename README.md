@@ -46,6 +46,7 @@ is not needed to install packages with these frameworks:
 | concrete5    | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-update`
 | Craft        | `craft-plugin`
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
+| Decibel      | `decibel-app`
 | DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
 | Dolibarr     | `dolibarr-module`
 | Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
