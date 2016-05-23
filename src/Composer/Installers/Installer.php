@@ -33,6 +33,7 @@ class Installer extends LibraryInstaller
         'drupal'       => 'DrupalInstaller',
         'elgg'         => 'ElggInstaller',
         'ee3'          => 'ExpressionEngineInstaller',
+        'ee2'          => 'ExpressionEngineInstaller',
         'fuel'         => 'FuelInstaller',
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
