@@ -20,7 +20,6 @@ class ExpressionEngineInstaller extends BaseInstaller
 
     public function getInstallPath(PackageInterface $package, $frameworkType = '')
     {
-        //$type = $this->package->getType();
 
         $version = "{$frameworkType}Locations";
         $this->locations = $this->$version;
