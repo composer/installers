@@ -6,7 +6,7 @@ use Composer\Package\PackageInterface;
 class ExpressionEngineInstaller extends BaseInstaller
 {
 
-    protected $locations = [];
+    protected $locations = array();
 
     private $ee2Locations = array(
         'addon'   => 'system/expressionengine/third-party/{$name}/',
