@@ -27,7 +27,7 @@ class BitrixInstaller extends BaseInstaller
 {
     protected $locations = array(
         'module'    => '{$bitrix_dir}/modules/{$name}/',
-        'component' => '{$bitrix_dir}/components/{$name}/',
+        'component' => '{$bitrix_dir}/components/{$vendor}/{$name}/',
         'theme'     => '{$bitrix_dir}/templates/{$name}/',
     );
 
