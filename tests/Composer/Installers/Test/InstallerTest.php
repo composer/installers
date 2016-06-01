@@ -214,7 +214,7 @@ class InstallerTest extends TestCase
             array('annotatecms-component', 'addons/components/my_component/', 'vysinsky/my_component'),
             array('annotatecms-service', 'addons/services/my_service/', 'vysinsky/my_service'),
             array('bitrix-module', 'bitrix/modules/my_module/', 'author/my_module'),
-            array('bitrix-component', 'bitrix/components/my_component/', 'author/my_component'),
+            array('bitrix-component', 'bitrix/components/author/my_component/', 'author/my_component'),
             array('bitrix-theme', 'bitrix/templates/my_theme/', 'author/my_theme'),
             array('bonefish-package', 'Packages/bonefish/package/', 'bonefish/package'),
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
