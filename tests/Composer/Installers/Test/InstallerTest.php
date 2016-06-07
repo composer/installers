@@ -286,7 +286,7 @@ class InstallerTest extends TestCase
             array('redaxo-addon', 'redaxo/include/addons/my_plugin/', 'shama/my_plugin'),
             array('redaxo-bestyle-plugin', 'redaxo/include/addons/be_style/plugins/my_plugin/', 'shama/my_plugin'),
             array('reindex-theme', 'themes/my_module/', 'author/my_module'),
-            array('reindex-plugin', 'plugin/my_module/', 'author/my_module'),
+            array('reindex-plugin', 'plugins/my_module/', 'author/my_module'),
             array('roundcube-plugin', 'plugins/base/', 'test/base'),
             array('roundcube-plugin', 'plugins/replace_dash/', 'test/replace-dash'),
             array('shopware-backend-plugin', 'engine/Shopware/Plugins/Local/Backend/ShamaMyBackendPlugin/', 'shama/my-backend-plugin'),
