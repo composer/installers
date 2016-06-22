@@ -218,7 +218,7 @@ class InstallerTest extends TestCase
             array('bitrix-theme', 'bitrix/templates/my_theme/', 'author/my_theme'),
             array('bitrix-d7-module', 'bitrix/modules/author.my_module/', 'author/my_module'),
             array('bitrix-d7-component', 'bitrix/components/author/my_component/', 'author/my_component'),
-            array('bitrix-d7-theme', 'bitrix/templates/author_my_theme/', 'author/my_theme'),
+            array('bitrix-d7-template', 'bitrix/templates/author_my_template/', 'author/my_template'),
             array('bonefish-package', 'Packages/bonefish/package/', 'bonefish/package'),
             array('cakephp-plugin', 'Plugin/Ftp/', 'shama/ftp'),
             array('chef-cookbook', 'Chef/mre/my_cookbook/', 'mre/my_cookbook'),

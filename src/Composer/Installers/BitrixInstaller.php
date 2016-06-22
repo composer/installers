@@ -31,7 +31,7 @@ class BitrixInstaller extends BaseInstaller
         'theme'     => '{$bitrix_dir}/templates/{$name}/',  //deprecated, remove if the year >= 2018 on the major release (Backward compatibility will be broken)
         'd7-module'    => '{$bitrix_dir}/modules/{$vendor}.{$name}/',
         'd7-component' => '{$bitrix_dir}/components/{$vendor}/{$name}/',
-        'd7-theme'     => '{$bitrix_dir}/templates/{$vendor}_{$name}/',
+        'd7-template'     => '{$bitrix_dir}/templates/{$vendor}_{$name}/',
     );
 
     /**
