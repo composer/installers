@@ -38,7 +38,7 @@ is not needed to install packages with these frameworks:
 | AGL          | `agl-module`
 | Bonefish     | `bonefish-package`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
-| Bitrix       | `bitrix-module`<br>`bitrix-component`<br>`bitrix-theme`
+| Bitrix       | `bitrix-module` (deprecated) <br>`bitrix-component` (deprecated) <br>`bitrix-theme` (deprecated) <br><br> `bitrix-d7-module` <br> `bitrix-d7-component` <br> `bitrix-d7-template`
 | CakePHP 2+   | **`cakephp-plugin`**
 | Chef         | `chef-cookbook`<br>`chef-role`
 | CCFramework  | `ccframework-ship`<br>`ccframework-theme`
