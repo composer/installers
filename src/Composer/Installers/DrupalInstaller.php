@@ -12,7 +12,7 @@ class DrupalInstaller extends BaseInstaller
         'drush'     => 'drush/{$name}/',
 	    'custom-theme' => 'themes/custom/{$name}/',
 	    'custom-module' => 'modules/custom/{$name}',
-        'console'    => 'console/{$name}/',
-        'console-language'    => 'console/language/{$name}/',  	    
+        'console' => 'console/{$name}/',
+        'console-language' => 'console/language/{$name}/',  	    
     );
 }
