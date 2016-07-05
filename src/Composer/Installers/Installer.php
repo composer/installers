@@ -17,6 +17,7 @@ class Installer extends LibraryInstaller
         'aimeos'       => 'AimeosInstaller',
         'asgard'       => 'AsgardInstaller',
         'agl'          => 'AglInstaller',
+        'alfred'       => 'AlfredInstaller',
         'annotatecms'  => 'AnnotateCmsInstaller',
         'bitrix'       => 'BitrixInstaller',
         'bonefish'     => 'BonefishInstaller',
