@@ -97,7 +97,11 @@ class Installer extends LibraryInstaller
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
         $installer = new $class($package, $this->composer, $this->getIO());
 
-        return $installer->getInstallPath($package, $frameworkType);
+        $basePath = realpath(getcwd());
+
+        $installPath = $installer->getInstallPath($package, $frameworkType);
+
+        return $basePath.'/'.$installPath;
     }
 
     public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
