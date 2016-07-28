@@ -35,6 +35,7 @@ is not needed to install packages with these frameworks:
 | ---------    | -----
 | Aimeos       | `aimeos-extension`
 | Asgard       | `asgard-module`<br>`asgard-theme`
+| Attogram     | `attogram-module`
 | AGL          | `agl-module`
 | Bonefish     | `bonefish-package`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
