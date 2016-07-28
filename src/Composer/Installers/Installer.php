@@ -24,6 +24,7 @@ class Installer extends LibraryInstaller
         'cakephp'      => 'CakePHPInstaller',
         'chef'         => 'ChefInstaller',
         'ccframework'  => 'ClanCatsFrameworkInstaller',
+        'cockpit'      => 'CockpitInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
         'concrete5'    => 'Concrete5Installer',
         'craft'        => 'CraftInstaller',

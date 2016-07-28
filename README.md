@@ -43,6 +43,7 @@ is not needed to install packages with these frameworks:
 | CakePHP 2+   | **`cakephp-plugin`**
 | Chef         | `chef-cookbook`<br>`chef-role`
 | CCFramework  | `ccframework-ship`<br>`ccframework-theme`
+| Cockpit      | `cockpit-module`
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
 | concrete5    | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-update`
 | Craft        | `craft-plugin`
