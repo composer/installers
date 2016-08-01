@@ -77,6 +77,7 @@ is not needed to install packages with these frameworks:
 | Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | Pimcore      | `pimcore-plugin`
+| Plentymarkets      | `plentymarkets-plugin`
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
 | RadPHP       | `radphp-bundle`
