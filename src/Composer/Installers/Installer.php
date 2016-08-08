@@ -78,6 +78,7 @@ class Installer extends LibraryInstaller
         'whmcs'        => 'WHMCSInstaller',
         'wolfcms'      => 'WolfCMSInstaller',
         'wordpress'    => 'WordPressInstaller',
+        'yawik'        => 'YawikInstaller',
         'zend'         => 'ZendInstaller',
         'zikula'       => 'ZikulaInstaller',
         'prestashop'   => 'PrestashopInstaller'

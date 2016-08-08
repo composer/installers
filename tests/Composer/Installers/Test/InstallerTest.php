@@ -184,6 +184,7 @@ class InstallerTest extends TestCase
             array('wolfcms-plugin', true),
             array('wordpress-plugin', true),
             array('wordpress-core', false),
+            array('yawik-module', true),
             array('zend-library', true),
             array('zikula-module', true),
             array('zikula-theme', true),
@@ -338,6 +339,7 @@ class InstallerTest extends TestCase
             array('phifty-bundle', 'bundles/core/', 'shama/core'),
             array('phifty-library', 'libraries/my-lib/', 'shama/my-lib'),
             array('phifty-framework', 'frameworks/my-framework/', 'shama/my-framework'),
+            array('yawik-module', 'module/MyModule/', 'shama/my_module'),
         );
     }
 
