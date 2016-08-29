@@ -52,12 +52,19 @@ abstract class BaseInstaller
             $availableVars['name'] = $extra['installer-name'];
         }
 
+        $prefix = '';
         if ($this->composer->getPackage()) {
             $extra = $this->composer->getPackage()->getExtra();
             if (!empty($extra['installer-paths'])) {
                 $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName, $type, $vendor);
                 if ($customPath !== false) {
                     return $this->templatePath($customPath, $availableVars);
+                }
+                foreach ($extra['installer-paths'] as $path => $framework) {
+                    if ($framework = 'framework:' . $frameworkType) {
+                        $prefix = $path;
+                        break;
+                    }
                 }
             }
         }
@@ -68,7 +75,7 @@ abstract class BaseInstaller
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
-        return $this->templatePath($locations[$packageType], $availableVars);
+        return $prefix . $this->templatePath($locations[$packageType], $availableVars);
     }
 
     /**

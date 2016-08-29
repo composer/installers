@@ -448,6 +448,29 @@ class InstallerTest extends TestCase
         $this->assertEquals('modules/custom/my_module/', $result);
     }
 
+
+
+    /**
+     * testFrameworkPath
+     */
+    public function testFrameworkPath()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('blckct/my_module', '1.0.0', '1.0.0');
+        $package->setType('drupal-module');
+        $consumerPackage = new RootPackage('drupal/drupal', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra(array(
+            'installer-paths' => array(
+                'drupal/' => array(
+                    'framework:drupal'
+                ),
+            ),
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('drupal/modules/my_module/', $result);
+    }
+
     /**
      * testNoVendorName
      */
