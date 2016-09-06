@@ -162,6 +162,17 @@ using the `vendor:` prefix.
 }
 ```
 
+Additionaly you can install packages for a specific framework to a custom directory with `framework:` prefix.
+
+``` json
+{
+    "extra": {
+        "installer-paths": {
+            "your/custom/path/{$resolved_path}/": ["framework:moodle"]
+        }
+    }
+}
+```
 These would use your custom path for each of the listed packages. The available
 variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
 
