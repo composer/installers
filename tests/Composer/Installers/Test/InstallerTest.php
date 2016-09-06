@@ -456,19 +456,37 @@ class InstallerTest extends TestCase
     public function testFrameworkPath()
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new Package('blckct/my_module', '1.0.0', '1.0.0');
-        $package->setType('drupal-module');
-        $consumerPackage = new RootPackage('drupal/drupal', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $extra = array(
             'installer-paths' => array(
+                'moodle/' => array(
+                    'framework:moodle'
+                ),
                 'drupal/' => array(
                     'framework:drupal'
                 ),
             ),
-        ));
+        );
+        $package = new Package('blckct/my_module', '1.0.0', '1.0.0');
+        $package->setType('drupal-module');
+        $consumerPackage = new RootPackage('drupal/drupal', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra($extra);
         $result = $installer->getInstallPath($package);
         $this->assertEquals('drupal/modules/my_module/', $result);
+
+        $package = new Package('blckct/my_block', '1.0.0', '1.0.0');
+        $package->setType('moodle-block');
+        $consumerPackage = new RootPackage('drupal/drupal', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+        $consumerPackage->setExtra($extra);
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('moodle/blocks/my_block/', $result);
+
+        $package = new Package('sfPhpunitPlugin', '1.0.0', '1.0.0');
+        $package->setType('symfony1-plugin');
+        $consumerPackage->setExtra($extra);
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('plugins/sfPhpunitPlugin/', $result);
     }
 
     /**

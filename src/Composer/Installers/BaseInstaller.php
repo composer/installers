@@ -60,8 +60,8 @@ abstract class BaseInstaller
                 if ($customPath !== false) {
                     return $this->templatePath($customPath, $availableVars);
                 }
-                foreach ($extra['installer-paths'] as $path => $framework) {
-                    if ($framework = 'framework:' . $frameworkType) {
+                foreach ($extra['installer-paths'] as $path => $frameworks) {
+                    if (in_array('framework:' . $frameworkType, $frameworks)) {
                         $prefix = $path;
                         break;
                     }
