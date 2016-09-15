@@ -42,6 +42,7 @@ class Installer extends LibraryInstaller
         'hurad'        => 'HuradInstaller',
         'imagecms'     => 'ImageCMSInstaller',
         'joomla'       => 'JoomlaInstaller',
+        'kanboard'     => 'KanboardInstaller',
         'kirby'        => 'KirbyInstaller',
         'kodicms'      => 'KodiCMSInstaller',
         'kohana'       => 'KohanaInstaller',

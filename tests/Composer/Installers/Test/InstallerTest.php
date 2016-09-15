@@ -132,6 +132,7 @@ class InstallerTest extends TestCase
             array('imagecms-module', true),
             array('imagecms-library', true),
             array('joomla-library', true),
+            array('kanboard-plugin', true),
             array('kirby-plugin', true),
             array('kohana-module', true),
             array('laravel-library', true),
