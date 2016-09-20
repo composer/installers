@@ -272,6 +272,7 @@ class InstallerTest extends TestCase
             array('imagecms-module', 'application/modules/my_module/', 'shama/my_module'),
             array('imagecms-library', 'application/libraries/my_library/', 'shama/my_library'),
             array('joomla-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
+            array('kanboard-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
             array('kirby-plugin', 'site/plugins/my_plugin/', 'shama/my_plugin'),
             array('kohana-module', 'modules/my_package/', 'shama/my_package'),
             array('laravel-library', 'libraries/my_package/', 'shama/my_package'),
