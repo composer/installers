@@ -65,6 +65,7 @@ class Installer extends LibraryInstaller
         'puppet'       => 'PuppetInstaller',
         'radphp'       => 'RadPHPInstaller',
         'phifty'       => 'PhiftyInstaller',
+        'porto'        => 'PortoInstaller',
         'redaxo'       => 'RedaxoInstaller',
         'reindex'      => 'ReIndexInstaller',
         'roundcube'    => 'RoundcubeInstaller',
