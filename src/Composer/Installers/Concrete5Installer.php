@@ -4,9 +4,9 @@ namespace Composer\Installers;
 class Concrete5Installer extends BaseInstaller
 {
     protected $locations = array(
-        'block'      => 'blocks/{$name}/',
+        'block'      => 'application/blocks/{$name}/',
         'package'    => 'packages/{$name}/',
-        'theme'      => 'themes/{$name}/',
+        'theme'      => 'application/themes/{$name}/',
         'update'     => 'updates/{$name}/',
     );
 }
