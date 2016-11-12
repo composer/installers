@@ -60,6 +60,7 @@ is not needed to install packages with these frameworks:
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
 | ImageCMS     | `imagecms-template`<br>`imagecms-module`<br>`imagecms-library`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
+| Kanboard     | `kanboard-plugin`
 | Kirby        | **`kirby-plugin`**<br>`kirby-field`<br>`kirby-tag`
 | KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
 | Kohana       | **`kohana-module`**
