@@ -81,6 +81,7 @@ is not needed to install packages with these frameworks:
 | Plentymarkets      | `plentymarkets-plugin`
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
+| Porto        | `porto-container`
 | RadPHP       | `radphp-bundle`
 | REDAXO       | `redaxo-addon`
 | ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
