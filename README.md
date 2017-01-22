@@ -6,11 +6,11 @@ This is for PHP package authors to require in their `composer.json`. It will
 install their package to the correct location based on the specified package
 type.
 
-The goal of `installers` is to be a simple package type to install path map.
+The goal of Installers is to be a simple package type to install path map.
 Users can also customize the install path per package and package authors can
 modify the package name upon installing.
 
-`installers` isn't intended on replacing all custom installers. If your
+Installers isn't intended on replacing all custom installers. If your
 package requires special installation handling then by all means, create a
 custom installer to handle it.
 
@@ -25,7 +25,7 @@ is not needed to install packages with these frameworks:
 * Yii
 * Yii2
 
-**Current Supported Package Types**:
+## Current Supported Package Types
 
 > Stable types are marked as **bold**, this means that installation paths
 > for those type will not be changed. Any adjustment for those types would
@@ -193,30 +193,15 @@ will allow this:
 Please note the name entered into `installer-name` will be the final and will
 not be inflected.
 
-## Contribute!
+## Should we allow dynamic package types or paths? No.
 
-* [Fork and clone](https://help.github.com/articles/fork-a-repo).
-* Run the command `php composer.phar install` to install the dependencies.
-  This will also install the dev dependencies. See [Composer](https://getcomposer.org/doc/03-cli.md#install).
-* Use the command `phpunit` to run the tests. See [PHPUnit](http://phpunit.de).
-* Create a branch, commit, push and send us a
-  [pull request](https://help.github.com/articles/using-pull-requests).
-
-To ensure a consistent code base, you should make sure the code follows the
-[Coding Standards](http://symfony.com/doc/2.0/contributing/code/standards.html)
-which we borrowed from Symfony.
-
-If you would like to help, please take a look at the list of
-[issues](https://github.com/composer/installers/issues).
-
-### Should we allow dynamic package types or paths? No.
 What are they? The ability for a package author to determine where a package
 will be installed either through setting the path directly in their
 `composer.json` or through a dynamic package type: `"type":
 "framework-install-here"`.
 
 It has been proposed many times. Even implemented once early on and then
-removed. `installers` won't do this because it would allow a single package
+removed. Installers won't do this because it would allow a single package
 author to wipe out entire folders without the user's consent. That user would
 then come here to yell at us.
 
