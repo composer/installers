@@ -66,7 +66,7 @@ is not needed to install packages with these frameworks:
 | Kohana       | **`kohana-module`**
 | Laravel      | `laravel-library`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
-| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme` <br> `magento-base`
 | Mako         | `mako-package`
 | Mautic       | `mautic-plugin`<br>`mautic-theme`
 | Maya         | `maya-module`
