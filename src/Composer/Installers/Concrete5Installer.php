@@ -8,5 +8,6 @@ class Concrete5Installer extends BaseInstaller
         'block'      => 'application/blocks/{$name}/',
         'package'    => 'packages/{$name}/',
         'theme'      => 'application/themes/{$name}/',
+        'update'     => 'updates/{$name}/',
     );
 }
