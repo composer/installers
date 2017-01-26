@@ -83,6 +83,7 @@ is not needed to install packages with these frameworks:
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
 | Porto        | `porto-container`
+| Quicksilver  | `quicksilver-script`
 | RadPHP       | `radphp-bundle`
 | REDAXO       | `redaxo-addon`
 | ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**

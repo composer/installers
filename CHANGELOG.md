@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* Installer for Pantheon Quicksilver scripts
 
 ## v1.2.0 - 2016-08-13
 ### Added
