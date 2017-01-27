@@ -9,9 +9,6 @@ If you would like to help, please take a look at the list of
 * Run the command `php composer.phar install` to install the dependencies.
   This will also install the dev dependencies. See [Composer](https://getcomposer.org/doc/03-cli.md#install).
 * Use the command `phpunit` to run the tests. See [PHPUnit](http://phpunit.de).
-* Add information about your changes into `CHANGELOG.md` in section "[Unreleased]". 
-  The format this file is based on [Keep a Changelog](http://keepachangelog.com/) 
-  and this project adheres to [Semantic Versioning](http://semver.org/).
 * Create a branch, commit, push and send us a
   [pull request](https://help.github.com/articles/using-pull-requests).
 
