@@ -45,6 +45,7 @@ class MoodleInstaller extends BaseInstaller
         'report'             => 'report/{$name}/',
         'repository'         => 'repository/{$name}/',
         'scormreport'        => 'mod/scorm/report/{$name}/',
+        'search'             => 'search/engine/{$name}/',
         'theme'              => 'theme/{$name}/',
         'tinymce'            => 'lib/editor/tinymce/plugins/{$name}/',
         'profilefield'       => 'user/profile/field/{$name}/',
