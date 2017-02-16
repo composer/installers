@@ -50,6 +50,7 @@ class Installer extends LibraryInstaller
         'lithium'      => 'LithiumInstaller',
         'magento'      => 'MagentoInstaller',
         'mako'         => 'MakoInstaller',
+        'maya'         => 'MayaInstaller',
         'mautic'       => 'MauticInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
         'microweber'   => 'MicroweberInstaller',
