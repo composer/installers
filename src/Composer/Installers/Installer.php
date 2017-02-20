@@ -41,6 +41,7 @@ class Installer extends LibraryInstaller
         'grav'         => 'GravInstaller',
         'hurad'        => 'HuradInstaller',
         'imagecms'     => 'ImageCMSInstaller',
+        'itop'         => 'ItopInstaller',
         'joomla'       => 'JoomlaInstaller',
         'kanboard'     => 'KanboardInstaller',
         'kirby'        => 'KirbyInstaller',
