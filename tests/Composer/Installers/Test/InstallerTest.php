@@ -177,6 +177,8 @@ class InstallerTest extends TestCase
             array('silverstripe-theme', true),
             array('smf-module', true),
             array('smf-theme', true),
+            array('sydes-module', true),
+            array('sydes-theme', true),
             array('symfony1-plugin', true),
             array('thelia-module', true),
             array('thelia-frontoffice-template', true),
