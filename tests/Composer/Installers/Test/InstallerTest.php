@@ -138,6 +138,8 @@ class InstallerTest extends TestCase
             array('kirby-plugin', true),
             array('kohana-module', true),
             array('laravel-library', true),
+            array('lavalite-theme', true),
+            array('lavalite-package', true),
             array('lithium-library', true),
             array('magento-library', true),
             array('mako-package', true),

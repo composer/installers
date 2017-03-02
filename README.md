@@ -66,6 +66,7 @@ is not needed to install packages with these frameworks:
 | KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
 | Kohana       | **`kohana-module`**
 | Laravel      | `laravel-library`
+| Lavalite     | `lavalite-theme`<br>`lavalite-package`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
 | Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
 | Mako         | `mako-package`
