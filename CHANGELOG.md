@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* Installer for Lavalite.
 
 ## v1.2.0 - 2016-08-13
 ### Added
