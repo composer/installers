@@ -111,7 +111,26 @@ abstract class BaseInstaller
             }
         }
 
+        if ($this->isAbsolutePath($path) === false) {
+            $path = getcwd() . '/' . $path;
+        }
+
         return $path;
+    }
+
+    /**
+     * Return true if $path provided is absolute
+     *
+     * @param  string $path
+     * @return boolean 
+     */
+    protected function isAbsolutePath($path)
+    {
+        if ($path === null || $path === '') {
+            return false;
+        }
+
+        return $path[0] === DIRECTORY_SEPARATOR || preg_match('~\A[A-Z]:(?![^/\\\\])~i',$path) > 0;
     }
 
     /**
