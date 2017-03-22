@@ -53,6 +53,7 @@ is not needed to install packages with these frameworks:
 | Dolibarr     | `dolibarr-module`
 | Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
 | Elgg         | `elgg-plugin`
+| Eliasis      | `eliasis-module`
 | ExpressionEngine 3         | `ee3-addon`<br>`ee3-theme`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
 | FuelPHP v2.x | `fuelphp-component`
