@@ -288,7 +288,7 @@ class InstallerTest extends TestCase
             array('kohana-module', 'modules/my_package/', 'shama/my_package'),
             array('laravel-library', 'libraries/my_package/', 'shama/my_package'),
             array('lavalite-theme', 'public/themes/my_theme/', 'shama/my_theme'),
-            array('lavalite-package', 'packages/my_package/', 'shama/my_package'),
+            array('lavalite-package', 'packages/my_group/my_package/', 'shama/my_group/my_package'),
             array('lithium-library', 'libraries/li3_test/', 'user/li3_test'),
             array('magento-library', 'lib/foo/', 'test/foo'),
             array('modxevo-snippet', 'assets/snippets/my_snippet/', 'shama/my_snippet'),
