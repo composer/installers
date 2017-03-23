@@ -55,6 +55,7 @@ is not needed to install packages with these frameworks:
 | Elgg         | `elgg-plugin`
 | Eliasis      | `eliasis-module`
 | ExpressionEngine 3         | `ee3-addon`<br>`ee3-theme`
+| eZ Platform  | `ezplatform-assets`<br>`ezplatform-meta-assets`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
 | FuelPHP v2.x | `fuelphp-component`
 | Grav         | `grav-plugin`<br>`grav-theme`

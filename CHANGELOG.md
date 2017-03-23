@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Added
+* Installer for eZ Platform
+
 ## v1.3.0 - 2017-04-24
 ### Added
 * Kanboard plugins installer.
@@ -13,9 +17,6 @@
 * Vgmcp installer.
 * OntoWiki installer.
 * The requirements for contributing (CONTRIBUTING.md).
-
-### Changed
-* Concrete5: block & theme install location updates.
 
 ## v1.2.0 - 2016-08-13
 ### Added
