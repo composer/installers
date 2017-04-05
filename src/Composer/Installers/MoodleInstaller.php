@@ -44,6 +44,7 @@ class MoodleInstaller extends BaseInstaller
         'quiz'               => 'mod/quiz/report/{$name}/',
         'report'             => 'report/{$name}/',
         'repository'         => 'repository/{$name}/',
+        'root'               => '{$name}/',
         'scormreport'        => 'mod/scorm/report/{$name}/',
         'search'             => 'search/engine/{$name}/',
         'theme'              => 'theme/{$name}/',
