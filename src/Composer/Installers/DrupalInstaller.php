@@ -4,6 +4,7 @@ namespace Composer\Installers;
 class DrupalInstaller extends BaseInstaller
 {
     protected $locations = array(
+        'root'      => './',
         'core'      => 'core/',
         'module'    => 'modules/{$name}/',
         'theme'     => 'themes/{$name}/',
