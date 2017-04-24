@@ -45,7 +45,7 @@ is not needed to install packages with these frameworks:
 | CCFramework  | `ccframework-ship`<br>`ccframework-theme`
 | Cockpit      | `cockpit-module`
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
-| concrete5    | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-update`
+| concrete5    | `concrete5-core`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-block`<br>`concrete5-update`
 | Craft        | `craft-plugin`
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
 | Decibel      | `decibel-app`
