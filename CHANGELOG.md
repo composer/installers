@@ -1,7 +1,21 @@
 # Change Log
 
-## [Unreleased]
-* Installer for Lavalite.
+## v1.3.0 - 2017-04-24
+### Added
+* Kanboard plugins installer.
+* Porto-SAP installer.
+* Add `core` to concrete5 installer.
+* Support Moodle "search" plugin type.
+* SyDES installer.
+* iTop installer.
+* Lavalite installer.
+* Module type for Eliasis.
+* Vgmcp installer.
+* OntoWiki installer.
+* The requirements for contributing (CONTRIBUTING.md).
+
+### Changed
+* Concrete5: block & theme install location updates.
 
 ## v1.2.0 - 2016-08-13
 ### Added
