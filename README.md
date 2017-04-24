@@ -99,6 +99,7 @@ is not needed to install packages with these frameworks:
 | TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
 | TYPO3 CMS    | `typo3-cms-extension` (Deprecated in this package, use the [TYPO3 CMS Installers](https://packagist.org/packages/typo3/cms-composer-installers) instead)
 | Vanilla      | `vanilla-plugin`<br>`vanilla-theme`
+| Vgmcp        | `vgmcp-bundle`<br>`vgmcp-theme`
 | Wolf CMS     | `wolfcms-plugin`
 | WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
 | YAWIK        | `yawik-module`
