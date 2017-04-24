@@ -61,6 +61,7 @@ class Installer extends LibraryInstaller
         'modxevo'      => 'MODXEvoInstaller',
         'moodle'       => 'MoodleInstaller',
         'october'      => 'OctoberInstaller',
+        'ontowiki'     => 'OntoWikiInstaller',
         'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'pimcore'      => 'PimcoreInstaller',
