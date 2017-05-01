@@ -64,6 +64,7 @@ class Installer extends LibraryInstaller
         'ontowiki'     => 'OntoWikiInstaller',
         'oxid'         => 'OxidInstaller',
         'phpbb'        => 'PhpBBInstaller',
+        'pico'         => 'PicoInstaller',
         'pimcore'      => 'PimcoreInstaller',
         'piwik'        => 'PiwikInstaller',
         'plentymarkets'=> 'PlentymarketsInstaller',
