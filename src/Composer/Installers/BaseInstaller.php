@@ -53,7 +53,6 @@ abstract class BaseInstaller
         }
 
         if ($this->composer->getPackage()) {
-            $extra = $this->composer->getPackage()->getExtra();
             if (!empty($extra['installer-paths'])) {
                 $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName, $type, $vendor);
                 if ($customPath !== false) {
