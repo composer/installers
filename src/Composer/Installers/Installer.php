@@ -63,6 +63,7 @@ class Installer extends LibraryInstaller
         'october'      => 'OctoberInstaller',
         'ontowiki'     => 'OntoWikiInstaller',
         'oxid'         => 'OxidInstaller',
+        'osclass'         => 'OsclassInstaller',
         'phpbb'        => 'PhpBBInstaller',
         'pimcore'      => 'PimcoreInstaller',
         'piwik'        => 'PiwikInstaller',
