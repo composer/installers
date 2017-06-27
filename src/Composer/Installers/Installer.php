@@ -48,6 +48,7 @@ class Installer extends LibraryInstaller
         'kirby'        => 'KirbyInstaller',
         'kodicms'      => 'KodiCMSInstaller',
         'kohana'       => 'KohanaInstaller',
+        'lms'      => 'LanManagementSystemInstaller',
         'laravel'      => 'LaravelInstaller',
         'lavalite'     => 'LavaLiteInstaller',
         'lithium'      => 'LithiumInstaller',
