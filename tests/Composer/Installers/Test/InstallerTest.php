@@ -208,6 +208,9 @@ class InstallerTest extends TestCase
             array('phifty-bundle', true),
             array('phifty-library', true),
             array('phifty-framework', true),
+            array('osclass-plugin', true),
+            array('osclass-theme', true),
+            array('osclass-language', true),
         );
     }
 
@@ -368,6 +371,9 @@ class InstallerTest extends TestCase
             array('phifty-library', 'libraries/my-lib/', 'shama/my-lib'),
             array('phifty-framework', 'frameworks/my-framework/', 'shama/my-framework'),
             array('yawik-module', 'module/MyModule/', 'shama/my_module'),
+            array('osclass-plugin', 'oc-content/plugins/sample_plugin/', 'test/sample_plugin'),
+            array('osclass-theme', 'oc-content/themes/sample_theme/', 'test/sample_theme'),
+            array('osclass-language', 'oc-content/languages/sample_lang/', 'test/sample_lang'),
         );
     }
 
