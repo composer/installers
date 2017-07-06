@@ -66,6 +66,7 @@ is not needed to install packages with these frameworks:
 | Kirby        | **`kirby-plugin`**<br>`kirby-field`<br>`kirby-tag`
 | KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
 | Kohana       | **`kohana-module`**
+| Lan Management System | `lms-plugin`<br>`lms-template`<br>`lms-document-template`<br>`lms-userpanel-module`
 | Laravel      | `laravel-library`
 | Lavalite     | `lavalite-theme`<br>`lavalite-package`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
