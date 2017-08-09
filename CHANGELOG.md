@@ -1,8 +1,16 @@
 # Change Log
 
 ## [Unreleased]
+
+## v1.4.0 - 2017-08-09
 ### Added
-* Installer for eZ Platform
+* Installer for eZ Platform.
+* Installer for UserFrosting.
+* Installer for Osclass.
+* Installer for Lan Management System.
+
+### Changed
+* Added vendor name to package path for Lavalite.
 
 ## v1.3.0 - 2017-04-24
 ### Added
