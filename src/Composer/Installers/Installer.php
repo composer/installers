@@ -37,6 +37,7 @@ class Installer extends LibraryInstaller
         'eliasis'      => 'EliasisInstaller',
         'ee3'          => 'ExpressionEngineInstaller',
         'ee2'          => 'ExpressionEngineInstaller',
+        'ezplatform'   => 'EzPlatformInstaller',
         'fuel'         => 'FuelInstaller',
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
