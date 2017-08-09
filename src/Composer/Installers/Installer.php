@@ -67,6 +67,7 @@ class Installer extends LibraryInstaller
         'oxid'         => 'OxidInstaller',
         'osclass'         => 'OsclassInstaller',
         'phpbb'        => 'PhpBBInstaller',
+        'pico'         => 'PicoInstaller',
         'pimcore'      => 'PimcoreInstaller',
         'piwik'        => 'PiwikInstaller',
         'plentymarkets'=> 'PlentymarketsInstaller',

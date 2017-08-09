@@ -83,6 +83,7 @@ is not needed to install packages with these frameworks:
 | Osclass      | `osclass-plugin`<br>`osclass-theme`<br>`osclass-language`
 | MODULEWork   | `modulework-module`
 | Moodle       | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)
+| Pico         | `pico-plugin`<br>`pico-theme`
 | Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | Pimcore      | `pimcore-plugin`
