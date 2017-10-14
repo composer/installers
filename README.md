@@ -75,6 +75,7 @@ is not needed to install packages with these frameworks:
 | Mako         | `mako-package`
 | Mautic       | `mautic-plugin`<br>`mautic-theme`
 | Maya         | `maya-module`
+| MODX         | `modx-extra`
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
 | MediaWiki    | `mediawiki-extension`
 | October      | **`october-module`<br>`october-plugin`<br>`october-theme`**
