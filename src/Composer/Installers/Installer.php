@@ -55,6 +55,7 @@ class Installer extends LibraryInstaller
         'lavalite'     => 'LavaLiteInstaller',
         'lithium'      => 'LithiumInstaller',
         'magento'      => 'MagentoInstaller',
+        'majima'       => 'MajimaInstaller',
         'mako'         => 'MakoInstaller',
         'maya'         => 'MayaInstaller',
         'mautic'       => 'MauticInstaller',

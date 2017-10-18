@@ -72,6 +72,7 @@ is not needed to install packages with these frameworks:
 | Lavalite     | `lavalite-theme`<br>`lavalite-package`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
 | Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| majima       | `majima-plugin`
 | Mako         | `mako-package`
 | Mautic       | `mautic-plugin`<br>`mautic-theme`
 | Maya         | `maya-module`
