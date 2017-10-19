@@ -108,7 +108,7 @@ is not needed to install packages with these frameworks:
 | Vanilla      | `vanilla-plugin`<br>`vanilla-theme`
 | Vgmcp        | `vgmcp-bundle`<br>`vgmcp-theme`
 | Wolf CMS     | `wolfcms-plugin`
-| WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
+| WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`<br>`wordpress-dropin`
 | YAWIK        | `yawik-module`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
