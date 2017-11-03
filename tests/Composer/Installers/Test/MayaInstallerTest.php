@@ -2,10 +2,11 @@
 namespace Composer\Installers\Test;
 
 use Composer\Installers\MayaInstaller;
+use PHPUnit\Framework\TestCase;
 use Composer\Package\Package;
 use Composer\Composer;
 
-class MayaInstallerTest extends \PHPUnit_Framework_TestCase
+class MayaInstallerTest extends TestCase
 {
     /**
      * @var MayaInstaller

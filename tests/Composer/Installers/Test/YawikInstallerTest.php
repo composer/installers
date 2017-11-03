@@ -36,7 +36,7 @@ class YawikInstallerTest extends TestCase
     public function setUp()
     {
         $this->package = new Package('YawikCompanyRegistration', '1.0', '1.0');
-        $this->io = $this->getMock('Composer\IO\PackageInterface');
+        $this->io = $this->getMockBuilder('Composer\IO\PackageInterface');
         $this->composer = new Composer();
     }
 

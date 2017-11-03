@@ -2,6 +2,7 @@
 namespace Composer\Installers\Test;
 
 use Composer\Installers\OntoWikiInstaller;
+use PHPUnit\Framework\TestCase;
 use Composer\Package\Package;
 use Composer\Composer;
 
@@ -9,7 +10,7 @@ use Composer\Composer;
  * Test for the OntoWikiInstaller
  * code was taken from DokuWikiInstaller
  */
-class OntoWikiInstallerTest extends \PHPUnit_Framework_TestCase
+class OntoWikiInstallerTest extends TestCase
 {
     /**
      * @var OntoWikiInstaller
