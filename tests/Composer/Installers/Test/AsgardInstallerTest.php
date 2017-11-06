@@ -2,10 +2,11 @@
 namespace Composer\Installers\Test;
 
 use Composer\Installers\AsgardInstaller;
+use PHPUnit\Framework\TestCase;
 use Composer\Package\Package;
 use Composer\Composer;
 
-class AsgardInstallerTest extends \PHPUnit_Framework_TestCase
+class AsgardInstallerTest extends TestCase
 {
     /**
      * @var AsgardInstaller

@@ -2,10 +2,11 @@
 namespace Composer\Installers\Test;
 
 use Composer\Installers\MediaWikiInstaller;
+use PHPUnit\Framework\TestCase;
 use Composer\Package\Package;
 use Composer\Composer;
 
-class MediaWikiInstallerTest extends \PHPUnit_Framework_TestCase
+class MediaWikiInstallerTest extends TestCase
 {
     /**
      * @var MediaWikiInstaller

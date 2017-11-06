@@ -14,11 +14,12 @@ namespace Composer\Installers\Test;
 
 use Composer\Package\Version\VersionParser;
 use Composer\Package\Package;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 use Composer\Package\AliasPackage;
 use Composer\Package\LinkConstraint\VersionConstraint;
 use Composer\Util\Filesystem;
 
-abstract class TestCase extends \PHPUnit_Framework_TestCase
+abstract class TestCase extends BaseTestCase
 {
     private static $parser;
 

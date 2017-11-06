@@ -2,10 +2,11 @@
 namespace Composer\Installers\Test;
 
 use Composer\Installers\VgmcpInstaller;
+use PHPUnit\Framework\TestCase;
 use Composer\Package\Package;
 use Composer\Composer;
 
-class VgmcpInstallerTest extends \PHPUnit_Framework_TestCase
+class VgmcpInstallerTest extends TestCase
 {
     /**
      * @var VgmcpInstaller

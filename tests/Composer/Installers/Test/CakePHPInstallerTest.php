@@ -24,7 +24,7 @@ class CakePHPInstallerTest extends TestCase
     public function setUp()
     {
         $this->package = new Package('CamelCased', '1.0', '1.0');
-        $this->io = $this->getMock('Composer\IO\PackageInterface');
+        $this->io = $this->getMockBuilder('Composer\IO\PackageInterface');
         $this->composer = new Composer();
         $this->composer->setConfig(new Config(false));
     }
@@ -65,8 +65,8 @@ class CakePHPInstallerTest extends TestCase
         $package = new RootPackage('CamelCased', '1.0', '1.0');
         $composer = $this->composer;
         $rm = new RepositoryManager(
-            $this->getMock('Composer\IO\IOInterface'),
-            $this->getMock('Composer\Config')
+            $this->createMock('Composer\IO\IOInterface'),
+            $this->createMock('Composer\Config')
         );
         $composer->setRepositoryManager($rm);
         $installer = new CakePHPInstaller($package, $composer);
