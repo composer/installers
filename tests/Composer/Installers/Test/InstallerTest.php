@@ -1,12 +1,12 @@
 <?php
 namespace Composer\Installers\Test;
 
-use Composer\Installers\Installer;
-use Composer\Util\Filesystem;
-use Composer\Package\Package;
-use Composer\Package\RootPackage;
 use Composer\Composer;
 use Composer\Config;
+use Composer\Installers\Installer;
+use Composer\Package\Package;
+use Composer\Package\RootPackage;
+use Composer\Util\Filesystem;
 
 class InstallerTest extends TestCase
 {
@@ -52,6 +52,10 @@ class InstallerTest extends TestCase
 
         $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
         $this->io = $this->getMock('Composer\IO\IOInterface');
+
+        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+
     }
 
     /**
@@ -116,7 +120,14 @@ class InstallerTest extends TestCase
             array('decibel-app', true),
             array('dokuwiki-plugin', true),
             array('dokuwiki-template', true),
+            array('drupal-core', true),
             array('drupal-module', true),
+            array('drupal-theme', true),
+            array('drupal-library', true),
+            array('drupal-profile', true),
+            array('drupal-drush', true),
+            array('drupal-custom-theme', true),
+            array('drupal-custom-module', true),
             array('dolibarr-module', true),
             array('ee3-theme', true),
             array('ee3-addon', true),
@@ -279,10 +290,14 @@ class InstallerTest extends TestCase
             array('dokuwiki-plugin', 'lib/plugins/someplugin/', 'author/someplugin'),
             array('dokuwiki-template', 'lib/tpl/sometemplate/', 'author/sometemplate'),
             array('dolibarr-module', 'htdocs/custom/my_module/', 'shama/my_module'),
+            array('drupal-core', 'core/', 'drupal/core'),
             array('drupal-module', 'modules/my_module/', 'shama/my_module'),
-            array('drupal-theme', 'themes/my_module/', 'shama/my_module'),
-            array('drupal-profile', 'profiles/my_module/', 'shama/my_module'),
-            array('drupal-drush', 'drush/my_module/', 'shama/my_module'),
+            array('drupal-theme', 'themes/my_theme/', 'shama/my_theme'),
+            array('drupal-library', 'libraries/my_library/', 'shama/my_library'),
+            array('drupal-profile', 'profiles/my_profile/', 'shama/my_profile'),
+            array('drupal-drush', 'drush/my_command/', 'shama/my_command'),
+            array('drupal-custom-theme', 'themes/custom/my_theme/', 'shama/my_theme'),
+            array('drupal-custom-module', 'modules/custom/my_module/', 'shama/my_module'),
             array('elgg-plugin', 'mod/sample_plugin/', 'test/sample_plugin'),
             array('eliasis-component', 'components/my_component/', 'shama/my_component'),
             array('eliasis-module', 'modules/my_module/', 'shama/my_module'),
@@ -433,9 +448,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/ftp', '1.0.0', '1.0.0');
         $package->setType('cakephp-plugin');
-        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
             'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'shama/ftp',
@@ -470,9 +483,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
         $package->setType('wordpress-plugin');
-        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
             'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'type:wordpress-plugin'
@@ -491,9 +502,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
         $package->setType('drupal-module');
-        $consumerPackage = new RootPackage('drupal/drupal', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
           'installer-paths' => array(
             'modules/custom/{$name}/' => array(
               'vendor:penyaskito'
@@ -548,5 +557,45 @@ class InstallerTest extends TestCase
         $repo->expects($this->once())->method('removePackage')->with($package);
 
         $installer->uninstall($repo, $package);
+    }
+
+    /**
+     * testDisabledInstallers
+     *
+     * @dataProvider dataForTestDisabledInstallers
+     */
+    public function testDisabledInstallers($disabled, $type, $expected)
+    {
+        $this->composer->getPackage()->setExtra(array(
+            'installer-disable' => $disabled,
+        ));
+        $this->testSupports($type, $expected);
+    }
+
+    /**
+     * dataForTestDisabledInstallers
+     *
+     * @return array
+     */
+    public function dataForTestDisabledInstallers()
+    {
+        return array(
+            array(false, "drupal-module", true),
+            array(true, "drupal-module", false),
+            array("true", "drupal-module", true),
+            array("all", "drupal-module", false),
+            array("*", "drupal-module", false),
+            array("cakephp", "drupal-module", true),
+            array("drupal", "cakephp-plugin", true),
+            array("cakephp", "cakephp-plugin", false),
+            array("drupal", "drupal-module", false),
+            array(array("drupal", "cakephp"), "cakephp-plugin", false),
+            array(array("drupal", "cakephp"), "drupal-module", false),
+            array(array("cakephp", true), "drupal-module", false),
+            array(array("cakephp", "all"), "drupal-module", false),
+            array(array("cakephp", "*"), "drupal-module", false),
+            array(array("cakephp", "true"), "drupal-module", true),
+            array(array("drupal", "true"), "cakephp-plugin", true),
+        );
     }
 }
