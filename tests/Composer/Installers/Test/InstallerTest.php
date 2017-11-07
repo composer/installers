@@ -1,12 +1,12 @@
 <?php
 namespace Composer\Installers\Test;
 
-use Composer\Installers\Installer;
-use Composer\Util\Filesystem;
-use Composer\Package\Package;
-use Composer\Package\RootPackage;
 use Composer\Composer;
 use Composer\Config;
+use Composer\Installers\Installer;
+use Composer\Package\Package;
+use Composer\Package\RootPackage;
+use Composer\Util\Filesystem;
 
 class InstallerTest extends TestCase
 {
@@ -52,6 +52,10 @@ class InstallerTest extends TestCase
 
         $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
         $this->io = $this->getMock('Composer\IO\IOInterface');
+
+        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+
     }
 
     /**
@@ -444,9 +448,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/ftp', '1.0.0', '1.0.0');
         $package->setType('cakephp-plugin');
-        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
             'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'shama/ftp',
@@ -481,9 +483,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
         $package->setType('wordpress-plugin');
-        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
             'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'type:wordpress-plugin'
@@ -502,9 +502,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
         $package->setType('drupal-module');
-        $consumerPackage = new RootPackage('drupal/drupal', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
           'installer-paths' => array(
             'modules/custom/{$name}/' => array(
               'vendor:penyaskito'
