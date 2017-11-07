@@ -558,4 +558,44 @@ class InstallerTest extends TestCase
 
         $installer->uninstall($repo, $package);
     }
+
+    /**
+     * testDisabledInstallers
+     *
+     * @dataProvider dataForTestDisabledInstallers
+     */
+    public function testDisabledInstallers($disabled, $type, $expected)
+    {
+        $this->composer->getPackage()->setExtra(array(
+            'installer-disable' => $disabled,
+        ));
+        $this->testSupports($type, $expected);
+    }
+
+    /**
+     * dataForTestDisabledInstallers
+     *
+     * @return array
+     */
+    public function dataForTestDisabledInstallers()
+    {
+        return array(
+            array(false, "drupal-module", true),
+            array(true, "drupal-module", false),
+            array("true", "drupal-module", true),
+            array("all", "drupal-module", false),
+            array("*", "drupal-module", false),
+            array("cakephp", "drupal-module", true),
+            array("drupal", "cakephp-plugin", true),
+            array("cakephp", "cakephp-plugin", false),
+            array("drupal", "drupal-module", false),
+            array(array("drupal", "cakephp"), "cakephp-plugin", false),
+            array(array("drupal", "cakephp"), "drupal-module", false),
+            array(array("cakephp", true), "drupal-module", false),
+            array(array("cakephp", "all"), "drupal-module", false),
+            array(array("cakephp", "*"), "drupal-module", false),
+            array(array("cakephp", "true"), "drupal-module", true),
+            array(array("drupal", "true"), "cakephp-plugin", true),
+        );
+    }
 }
