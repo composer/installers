@@ -264,7 +264,7 @@ class Installer extends LibraryInstaller
         } else {
             // Disable specified installers
             foreach ($disable as $key => $installer) {
-                if (key_exists($installer, $this->supportedTypes)) {
+                if (is_string($installer) && key_exists($installer, $this->supportedTypes)) {
                     unset($this->supportedTypes[$installer]);
                 }
             }
