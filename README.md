@@ -98,6 +98,7 @@ is not needed to install packages with these frameworks:
 | Roundcube    | `roundcube-plugin`
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
+| SiteDirect   | `sitedirect-module`<br>`sitedirect-plugin`
 | SMF          | `smf-module`<br>`smf-theme`
 | SyDES        | `sydes-module`<br>`sydes-theme`
 | symfony1     | **`symfony1-plugin`**

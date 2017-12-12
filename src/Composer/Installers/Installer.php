@@ -2,8 +2,8 @@
 
 namespace Composer\Installers;
 
-use Composer\Installer\LibraryInstaller;
 use Composer\IO\IOInterface;
+use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 
@@ -84,6 +84,7 @@ class Installer extends LibraryInstaller
         'reindex'       => 'ReIndexInstaller',
         'roundcube'     => 'RoundcubeInstaller',
         'shopware'      => 'ShopwareInstaller',
+        'sitedirect'   => 'SiteDirectInstaller',
         'silverstripe'  => 'SilverStripeInstaller',
         'smf'           => 'SMFInstaller',
         'sydes'         => 'SyDESInstaller',
@@ -147,14 +148,11 @@ class Installer extends LibraryInstaller
         return $installer->getInstallPath($package, $frameworkType);
     }
 
-    public function uninstall(
-        InstalledRepositoryInterface $repo,
-        PackageInterface $package
-    ) {
+    public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
+    {
         parent::uninstall($repo, $package);
         $installPath = $this->getPackageBasePath($package);
-        $this->io->write(sprintf('Deleting %s - %s', $installPath,
-            !file_exists($installPath) ? '<comment>deleted</comment>' : '<error>not deleted</error>'));
+        $this->io->write(sprintf('Deleting %s - %s', $installPath, !file_exists($installPath) ? '<comment>deleted</comment>' : '<error>not deleted</error>'));
     }
 
     /**
@@ -170,15 +168,13 @@ class Installer extends LibraryInstaller
 
         $locationPattern = $this->getLocationPattern($frameworkType);
 
-        return preg_match('#' . $frameworkType . '-' . $locationPattern . '#',
-                $packageType, $matches) === 1;
+        return preg_match('#' . $frameworkType . '-' . $locationPattern . '#', $packageType, $matches) === 1;
     }
 
     /**
      * Finds a supported framework type if it exists and returns it
      *
      * @param  string $type
-     *
      * @return string
      */
     protected function findFrameworkType($type)
@@ -202,7 +198,6 @@ class Installer extends LibraryInstaller
      * package type
      *
      * @param  string $frameworkType
-     *
      * @return string
      */
     protected function getLocationPattern($frameworkType)
@@ -211,14 +206,12 @@ class Installer extends LibraryInstaller
         if (!empty($this->supportedTypes[$frameworkType])) {
             $frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
             /** @var BaseInstaller $framework */
-            $framework = new $frameworkClass(null, $this->composer,
-                $this->getIO());
+            $framework = new $frameworkClass(null, $this->composer, $this->getIO());
             $locations = array_keys($framework->getLocations());
-            $pattern = $locations ? '(' . implode('|',
-                    $locations) . ')' : false;
+            $pattern = $locations ? '(' . implode('|', $locations) . ')' : false;
         }
 
-        return $pattern ?: '(\w+)';
+        return $pattern ? : '(\w+)';
     }
 
     /**
