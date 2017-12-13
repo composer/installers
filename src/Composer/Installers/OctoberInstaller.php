@@ -39,7 +39,7 @@ class OctoberInstaller extends BaseInstaller
 
     protected function inflectThemeVars($vars)
     {
-        $vars['name'] = preg_replace('/^oc-|-theme/', '', $vars['name']);
+        $vars['name'] = preg_replace('/^oc-|-theme$/', '', $vars['name']);
 
         return $vars;
     }
