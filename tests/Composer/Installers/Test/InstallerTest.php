@@ -50,8 +50,8 @@ class InstallerTest extends TestCase
             ->getMock();
         $this->composer->setDownloadManager($this->dm);
 
-        $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->repository = $this->getMockBuilder('Composer\Repository\InstalledRepositoryInterface')->getMock();
+        $this->io = $this->getMockBuilder('Composer\IO\IOInterface')->getMock();
     }
 
     /**
@@ -540,10 +540,13 @@ class InstallerTest extends TestCase
     {
         $package = new Package('foo', '1.0.0', '1.0.0');
 
-        $installer = $this->getMock('Composer\Installers\Installer', array('getInstallPath'), array($this->io, $this->composer));
+        $installer = $this->getMockBuilder('Composer\Installers\Installer')
+                        ->setMethods(array('getInstallPath'))
+                        ->setConstructorArgs(array($this->io, $this->composer))
+                        ->getMock();
         $installer->expects($this->atLeastOnce())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
 
-        $repo = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
+        $repo = $this->getMockBuilder('Composer\Repository\InstalledRepositoryInterface')->getMock();
         $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));
         $repo->expects($this->once())->method('removePackage')->with($package);
 
