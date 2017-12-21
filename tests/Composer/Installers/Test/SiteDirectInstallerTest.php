@@ -23,6 +23,7 @@ class SiteDirectInstallerTest extends TestCase
         );
 
     }
+
     /**
      * @dataProvider dataProvider
      */
@@ -65,55 +66,55 @@ class SiteDirectInstallerTest extends TestCase
 
     public function dataProvider()
     {
-        return [
-            [
-                'data' => [
+        return array(
+            array(
+                'data' => array(
                     'name' => 'kernel',
                     'vendor' => 'sitedirect',
-                    'type'   => 'sitedirect-module',
-                ],
-                'expected' => [
+                    'type' => 'sitedirect-module',
+                ),
+                'expected' => array(
                     'name' => 'Kernel',
                     'vendor' => 'SiteDirect',
                     'type' => 'sitedirect-module',
-                ]
-            ],
-            [
-                'data' => [
+                )
+            ),
+            array(
+                'data' => array(
                     'name' => 'that_guy',
                     'vendor' => 'whatGuy',
                     'type' => 'sitedirect-module',
-                ],
-                'expected' => [
+                ),
+                'expected' => array(
                     'name' => 'ThatGuy',
                     'vendor' => 'whatGuy',
                     'type' => 'sitedirect-module',
-                ]
-            ],
-            [
-                'data' => [
+                )
+            ),
+            array(
+                'data' => array(
                     'name' => 'checkout',
                     'vendor' => 'someVendor',
                     'type' => 'sitedirect-plugin',
-                ],
-                'expected' => [
+                ),
+                'expected' => array(
                     'name' => 'Checkout',
                     'vendor' => 'someVendor',
                     'type' => 'sitedirect-plugin',
-                ]
-            ],
-            [
-                'data' => [
+                )
+            ),
+            array(
+                'data' => array(
                     'name' => 'checkout',
                     'vendor' => 'siteDirect',
                     'type' => 'sitedirect-plugin',
-                ],
-                'expected' => [
+                ),
+                'expected' => array(
                     'name' => 'Checkout',
                     'vendor' => 'SiteDirect',
                     'type' => 'sitedirect-plugin',
-                ]
-            ],
-        ];
+                )
+            ),
+        );
     }
 }
