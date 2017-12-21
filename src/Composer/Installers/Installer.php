@@ -4,7 +4,6 @@ namespace Composer\Installers;
 use Composer\IO\IOInterface;
 use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
-use Composer\Downloader\DownloadManager;
 use Composer\Repository\InstalledRepositoryInterface;
 
 class Installer extends LibraryInstaller

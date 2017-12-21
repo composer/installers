@@ -3,7 +3,6 @@
 namespace Composer\Installers\Test;
 
 use Composer\Installers\BitrixInstaller;
-use Composer\Package\PackageInterface;
 use Composer\Package\Package;
 use Composer\Composer;
 
