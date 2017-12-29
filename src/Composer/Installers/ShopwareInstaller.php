@@ -25,9 +25,9 @@ class ShopwareInstaller extends BaseInstaller
     {
         if ($vars['type'] === 'shopware-theme') {
             return $this->correctThemeName($vars);
-        } else {
-            return $this->correctPluginName($vars);
         }
+
+        return $this->correctPluginName($vars);        
     }
 
     /**
