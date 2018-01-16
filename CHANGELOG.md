@@ -2,6 +2,23 @@
 
 ## [Unreleased]
 
+## v1.5.0 - 2017-12-29
+### Added
+* Added WordPress dropin support.
+* Added new types supported for Eliasis.
+* Added support for Phoenix CMS.
+* Added MODX installer.
+* Added Majima instaler.
+* Added SiteDirect installer.
+* Added support optional prefix in OctoberCMS installers.
+* Added PHP 7.2 support.
+
+### Changed
+* Changed remove packages, see [#348](https://github.com/composer/installers/pull/348).
+
+### Fixed
+* Fixed code style, removed unused imports.
+
 ## v1.4.0 - 2017-08-09
 ### Added
 * Installer for eZ Platform.
