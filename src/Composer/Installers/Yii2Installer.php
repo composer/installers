@@ -4,6 +4,8 @@ namespace Composer\Installers;
 class Yii2Installer extends BaseInstaller
 {
     protected $locations = array(
-        'theme'     => 'web/{$name}/',
+      'extensions' => 'extensions/{$name}',
+      'modules'    => 'modules/{$name}',
+      'theme'      => 'web/{$name}/',
     );
 }
