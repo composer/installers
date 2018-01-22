@@ -23,7 +23,6 @@ is not needed to install packages with these frameworks:
 * Aura
 * Symfony2
 * Yii
-* Yii2
 
 ## Current Supported Package Types
 
@@ -112,6 +111,7 @@ is not needed to install packages with these frameworks:
 | Wolf CMS     | `wolfcms-plugin`
 | WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`<br>`wordpress-dropin`
 | YAWIK        | `yawik-module`
+| Yii2         | `yii2-extensions`<br>`yii2-modules`</b><br>`yii2-theme`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
 | Prestashop   | `prestashop-module`<br>`prestashop-theme`
