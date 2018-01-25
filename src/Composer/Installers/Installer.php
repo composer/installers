@@ -23,6 +23,7 @@ class Installer extends LibraryInstaller
         'bonefish'     => 'BonefishInstaller',
         'cakephp'      => 'CakePHPInstaller',
         'chef'         => 'ChefInstaller',
+        'civicrm'      => 'CiviCrmInstaller',
         'ccframework'  => 'ClanCatsFrameworkInstaller',
         'cockpit'      => 'CockpitInstaller',
         'codeigniter'  => 'CodeIgniterInstaller',
