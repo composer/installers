@@ -1,13 +1,15 @@
 <?php
+
 namespace Composer\Installers;
 
-use Composer\IO\IOInterface;
 use Composer\Installer\LibraryInstaller;
+use Composer\IO\IOInterface;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 
 class Installer extends LibraryInstaller
 {
+
     /**
      * Package types to installer class map
      *
@@ -226,7 +228,11 @@ class Installer extends LibraryInstaller
     /**
      * Look for installers set to be disabled in composer's extra config and
      * remove them from the list of supported installers.
-     * Uses true, "all", and "*" as global values to disable all installers.
+     *
+     * Globals:
+     *  - true, "all", and "*" - disable all installers.
+     *  - false - enable all installers (useful with
+     *     wikimedia/composer-merge-plugin or similar)
      *
      * @return void
      */
