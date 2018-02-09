@@ -240,7 +240,7 @@ class Installer extends LibraryInstaller
     {
         $extra = $this->composer->getPackage()->getExtra();
 
-        if (!isset($extra['installer-disable'])) {
+        if (!isset($extra['installer-disable']) || $extra['installer-disable'] === false) {
             // No installers are disabled
             return;
         }
