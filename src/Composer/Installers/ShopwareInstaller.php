@@ -13,6 +13,7 @@ class ShopwareInstaller extends BaseInstaller
         'frontend-plugin'   => 'engine/Shopware/Plugins/Local/Frontend/{$name}/',
         'theme'             => 'templates/{$name}/',
         'plugin'            => 'custom/plugins/{$name}/',
+        'project-plugin'    => 'custom/project/{$name}/',
         'frontend-theme'    => 'themes/Frontend/{$name}/',
     );
 
