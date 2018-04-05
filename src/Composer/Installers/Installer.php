@@ -2,10 +2,13 @@
 
 namespace Composer\Installers;
 
+use Composer\Composer;
+use Composer\Installer\BinaryInstaller;
 use Composer\Installer\LibraryInstaller;
 use Composer\IO\IOInterface;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
+use Composer\Util\Filesystem;
 
 class Installer extends LibraryInstaller
 {
@@ -111,18 +114,18 @@ class Installer extends LibraryInstaller
      * Disables installers specified in main composer extra installer-disable
      * list
      *
-     * @param IOInterface                              $io
-     * @param \Composer\Composer                       $composer
-     * @param string                                   $type
-     * @param \Composer\Util\Filesystem|null           $filesystem
-     * @param \Composer\Installer\BinaryInstaller|null $binaryInstaller
+     * @param IOInterface          $io
+     * @param Composer             $composer
+     * @param string               $type
+     * @param Filesystem|null      $filesystem
+     * @param BinaryInstaller|null $binaryInstaller
      */
     public function __construct(
-        \Composer\IO\IOInterface $io,
-        \Composer\Composer $composer,
+        IOInterface $io,
+        Composer $composer,
         $type = 'library',
-        \Composer\Util\Filesystem $filesystem = null,
-        \Composer\Installer\BinaryInstaller $binaryInstaller = null
+        Filesystem $filesystem = null,
+        BinaryInstaller $binaryInstaller = null
     ) {
         parent::__construct($io, $composer, $type, $filesystem,
             $binaryInstaller);
