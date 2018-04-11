@@ -6,7 +6,6 @@ namespace Composer\Installers;
  * Myty is a closed source CMF/CMS developed by tyclipso.net since 2003
  * @see https://myty.readme.io
  * @see https://tyclipso.net
- * @author Mike Reiche <mike.reiche@tyclipso.net>
  */
 class MytyInstaller extends BaseInstaller
 {
