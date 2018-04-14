@@ -11,7 +11,8 @@ class MytyInstaller extends BaseInstaller
 {
     // Myty composer components are located in DocRoot/3rdParty
     protected $locations = array(
-        'project' => '../projects/{$name}/',
-        'module'   => '../tycon/modules/{$name}/'
+        'base' => 'tycon/',
+        'project' => 'projects/{$name}/',
+        'module'   => 'tycon/modules/{$name}/'
     );
 }
