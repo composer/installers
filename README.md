@@ -80,6 +80,7 @@ is not needed to install packages with these frameworks:
 | MODX         | `modx-extra`
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
 | MediaWiki    | `mediawiki-extension`
+| Myty         | `myty-module`<br>`myty-project`
 | October      | **`october-module`<br>`october-plugin`<br>`october-theme`**
 | OntoWiki     | `ontowiki-extension`<br>`ontowiki-theme`<br>`ontowiki-translation`
 | OXID         | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
