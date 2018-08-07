@@ -436,7 +436,7 @@ class InstallerTest extends TestCase
             array('whmcs-api', 'includes/api/', 'vendor/api_name'),
             array('whmcs-lang', 'lang/overrides/', 'vendor/lang_name'),
             array('whmcs-feeds', 'feeds/', 'vendor/feed_name'),
-            array('whmcs-templates', 'modules/templates/template_name/', 'vendor/template_name'),
+            array('whmcs-templates', 'templates/template_name/', 'vendor/template_name'),
             array('whmcs-includes', 'includes/include_name/', 'vendor/include_name'),
             array('wolfcms-plugin', 'wolf/plugins/my_plugin/', 'shama/my_plugin'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
