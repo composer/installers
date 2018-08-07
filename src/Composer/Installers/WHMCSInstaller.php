@@ -15,7 +15,7 @@ class WHMCSInstaller extends BaseInstaller
         'servers' => 'modules/servers/{$name}/',
         'social' => 'modules/social/{$name}/',
         'support' => 'modules/support/{$name}/',
-        'widgets' => 'modules/widgets/{$name}/',
+        'widgets' => 'modules/widgets/',
         'hooks' => 'includes/hooks/',
         'api' => 'includes/api/',
         'lang' => 'lang/overrides/',
