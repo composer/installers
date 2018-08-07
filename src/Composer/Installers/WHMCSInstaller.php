@@ -5,22 +5,17 @@ namespace Composer\Installers;
 class WHMCSInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'addons' => 'modules/addons/{$name}/',
-        'fraud' => 'modules/fraud/{$name}/',
-        'gateways' => 'modules/gateways/{$name}/',
-        'notifications' => 'modules/notifications/{$name}/',
-        'registrars' => 'modules/registrars/{$name}/',
-        'reports' => 'modules/reports/{$name}/',
-        'security' => 'modules/security/{$name}/',
-        'servers' => 'modules/servers/{$name}/',
-        'social' => 'modules/social/{$name}/',
-        'support' => 'modules/support/{$name}/',
-        'widgets' => 'modules/widgets/',
-        'hooks' => 'includes/hooks/',
-        'api' => 'includes/api/',
-        'lang' => 'lang/overrides/',
-        'feeds' => 'feeds/',
-        'templates' => 'templates/{$name}/',
-        'includes' => 'includes/{$name}/'
+        'addons' => 'modules/addons/{$vendor}_{$name}/',
+        'fraud' => 'modules/fraud/{$vendor}_{$name}/',
+        'gateways' => 'modules/gateways/{$vendor}_{$name}/',
+        'notifications' => 'modules/notifications/{$vendor}_{$name}/',
+        'registrars' => 'modules/registrars/{$vendor}_{$name}/',
+        'reports' => 'modules/reports/{$vendor}_{$name}/',
+        'security' => 'modules/security/{$vendor}_{$name}/',
+        'servers' => 'modules/servers/{$vendor}_{$name}/',
+        'social' => 'modules/social/{$vendor}_{$name}/',
+        'support' => 'modules/support/{$vendor}_{$name}/',
+        'templates' => 'templates/{$vendor}_{$name}/',
+        'includes' => 'includes/{$vendor}_{$name}/'
     );
 }
