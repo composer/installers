@@ -62,6 +62,7 @@ is not needed to install packages with these frameworks:
 | Grav         | `grav-plugin`<br>`grav-theme`
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
 | ImageCMS     | `imagecms-template`<br>`imagecms-module`<br>`imagecms-library`
+| Interna Core | `interna-module`
 | iTop         | `itop-extension`
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
 | Kanboard     | `kanboard-plugin`
