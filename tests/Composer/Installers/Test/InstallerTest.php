@@ -288,7 +288,7 @@ class InstallerTest extends TestCase
             array('croogo-plugin', 'Plugin/Sitemaps/', 'fahad19/sitemaps'),
             array('croogo-theme', 'View/Themed/Readable/', 'rchavik/readable'),
             array('decibel-app', 'app/someapp/', 'author/someapp'),
-            array('dframe-module', 'modules/', 'author/my_module'),
+            array('dframe-module', 'modules/author/mymodule', 'author/mymodule'),
             array('dokuwiki-plugin', 'lib/plugins/someplugin/', 'author/someplugin'),
             array('dokuwiki-template', 'lib/tpl/sometemplate/', 'author/sometemplate'),
             array('dolibarr-module', 'htdocs/custom/my_module/', 'shama/my_module'),
