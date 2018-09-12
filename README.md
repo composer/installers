@@ -50,6 +50,7 @@ is not needed to install packages with these frameworks:
 | Craft        | `craft-plugin`
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
 | Decibel      | `decibel-app`
+| Dframe       | `dframe-module`
 | DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
 | Dolibarr     | `dolibarr-module`
 | Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`<br>`drupal-custom-theme`<br>`drupal-custom-module`

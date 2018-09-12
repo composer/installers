@@ -35,6 +35,7 @@ class Installer extends LibraryInstaller
         'concrete5'    => 'Concrete5Installer',
         'craft'        => 'CraftInstaller',
         'croogo'       => 'CroogoInstaller',
+        'dframe'       => 'DframeInstaller',
         'dokuwiki'     => 'DokuWikiInstaller',
         'dolibarr'     => 'DolibarrInstaller',
         'decibel'      => 'DecibelInstaller',
