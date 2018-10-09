@@ -96,6 +96,7 @@ is not needed to install packages with these frameworks:
 | Porto        | `porto-container`
 | RadPHP       | `radphp-bundle`
 | REDAXO       | `redaxo-addon`
+| REDAXO V5.*  | `redaxo5-addon`
 | ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
 | Roundcube    | `roundcube-plugin`
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`
