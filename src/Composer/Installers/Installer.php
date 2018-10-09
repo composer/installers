@@ -86,6 +86,7 @@ class Installer extends LibraryInstaller
         'phifty'       => 'PhiftyInstaller',
         'porto'        => 'PortoInstaller',
         'redaxo'       => 'RedaxoInstaller',
+        'redaxo5'      => 'Redaxo5Installer',
         'reindex'      => 'ReIndexInstaller',
         'roundcube'    => 'RoundcubeInstaller',
         'shopware'     => 'ShopwareInstaller',

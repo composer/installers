@@ -1,7 +1,7 @@
 <?php
 namespace Composer\Installers;
 
-class RedaxoInstaller extends BaseInstaller
+class Redaxo5Installer extends BaseInstaller
 {
     protected $locations = array(
         'addon'          => 'redaxo/src/addons/{$name}/',
