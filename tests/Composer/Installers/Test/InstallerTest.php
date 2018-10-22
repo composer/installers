@@ -32,6 +32,9 @@ class InstallerTest extends TestCase
         $this->config = new Config();
         $this->composer->setConfig($this->config);
 
+        $this->rootDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-root-package';
+        $this->ensureDirectoryExistsAndClear($this->rootDir);
+
         $this->vendorDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-vendor';
         $this->ensureDirectoryExistsAndClear($this->vendorDir);
 
@@ -65,6 +68,7 @@ class InstallerTest extends TestCase
      */
     public function tearDown()
     {
+        $this->fs->removeDirectory($this->rootDir);
         $this->fs->removeDirectory($this->vendorDir);
         $this->fs->removeDirectory($this->binDir);
     }
@@ -257,12 +261,17 @@ class InstallerTest extends TestCase
      */
     public function testInstallPath($type, $path, $name, $version = '1.0.0')
     {
+        $currentWorkDir = getcwd();
+        chdir($this->rootDir);
+
         $installer = new Installer($this->io, $this->composer);
         $package = new Package($name, $version, $version);
 
         $package->setType($type);
         $result = $installer->getInstallPath($package);
-        $this->assertEquals($path, $result);
+        $this->assertEquals($this->rootDir.'/'.$path, $result);
+
+        chdir($currentWorkDir);
     }
 
     /**
@@ -469,6 +478,9 @@ class InstallerTest extends TestCase
      */
     public function testCustomInstallPath()
     {
+        $currentWorkDir = getcwd();
+        chdir($this->rootDir);
+
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/ftp', '1.0.0', '1.0.0');
         $package->setType('cakephp-plugin');
@@ -481,7 +493,9 @@ class InstallerTest extends TestCase
             ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('my/custom/path/Ftp/', $result);
+        $this->assertEquals($this->rootDir.'/my/custom/path/Ftp/', $result);
+
+        chdir($currentWorkDir);
     }
 
     /**
@@ -489,6 +503,9 @@ class InstallerTest extends TestCase
      */
     public function testCustomInstallerName()
     {
+        $currentWorkDir = getcwd();
+        chdir($this->rootDir);
+
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/cakephp-ftp-plugin', '1.0.0', '1.0.0');
         $package->setType('cakephp-plugin');
@@ -496,7 +513,9 @@ class InstallerTest extends TestCase
             'installer-name' => 'FTP',
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('Plugin/FTP/', $result);
+        $this->assertEquals($this->rootDir.'/Plugin/FTP/', $result);
+
+        chdir($currentWorkDir);
     }
 
     /**
@@ -504,6 +523,9 @@ class InstallerTest extends TestCase
      */
     public function testCustomTypePath()
     {
+        $currentWorkDir = getcwd();
+        chdir($this->rootDir);
+
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
         $package->setType('wordpress-plugin');
@@ -515,7 +537,9 @@ class InstallerTest extends TestCase
             ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('my/custom/path/my_plugin/', $result);
+        $this->assertEquals($this->rootDir.'/my/custom/path/my_plugin/', $result);
+
+        chdir($currentWorkDir);
     }
 
     /**
@@ -523,6 +547,9 @@ class InstallerTest extends TestCase
      */
     public function testVendorPath()
     {
+        $currentWorkDir = getcwd();
+        chdir($this->rootDir);
+
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
         $package->setType('drupal-module');
@@ -534,7 +561,9 @@ class InstallerTest extends TestCase
           ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('modules/custom/my_module/', $result);
+        $this->assertEquals($this->rootDir.'/modules/custom/my_module/', $result);
+
+        chdir($currentWorkDir);
     }
 
     /**
@@ -542,12 +571,17 @@ class InstallerTest extends TestCase
      */
     public function testNoVendorName()
     {
+        $currentWorkDir = getcwd();
+        chdir($this->rootDir);
+
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('sfPhpunitPlugin', '1.0.0', '1.0.0');
 
         $package->setType('symfony1-plugin');
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('plugins/sfPhpunitPlugin/', $result);
+        $this->assertEquals($this->rootDir.'/plugins/sfPhpunitPlugin/', $result);
+
+        chdir($currentWorkDir);
     }
 
     /**
@@ -555,6 +589,9 @@ class InstallerTest extends TestCase
      */
     public function testTypo3Inflection()
     {
+        $currentWorkDir = getcwd();
+        chdir($this->rootDir);
+
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('typo3/fluid', '1.0.0', '1.0.0');
 
@@ -566,7 +603,9 @@ class InstallerTest extends TestCase
 
         $package->setType('typo3-flow-package');
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('Packages/Application/TYPO3.Fluid/', $result);
+        $this->assertEquals($this->rootDir.'/Packages/Application/TYPO3.Fluid/', $result);
+
+        chdir($currentWorkDir);
     }
 
     public function testUninstallAndDeletePackageFromLocalRepo()
