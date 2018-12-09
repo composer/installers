@@ -12,5 +12,6 @@ class DrupalInstaller extends BaseInstaller
         'drush'     => 'drush/{$name}/',
 	    'custom-theme' => 'themes/custom/{$name}/',
 	    'custom-module' => 'modules/custom/{$name}/',
+        'drupal-multisite' => 'sites/{$name}/',
     );
 }
