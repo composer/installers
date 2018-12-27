@@ -118,6 +118,7 @@ is not needed to install packages with these frameworks:
 | Zikula       | `zikula-module`<br>`zikula-theme`
 | Prestashop   | `prestashop-module`<br>`prestashop-theme`
 | Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
+| -            | `bower-asset`<br>`npm-asset`
 
 ## Example `composer.json` File
 
