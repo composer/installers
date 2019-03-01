@@ -68,7 +68,7 @@ class Installer extends LibraryInstaller
         'mediawiki'    => 'MediaWikiInstaller',
         'microweber'   => 'MicroweberInstaller',
         'modulework'   => 'MODULEWorkInstaller',
-        'modx'         => 'ModxInstaller',
+        'modx'         => 'MODXInstaller',
         'modxevo'      => 'MODXEvoInstaller',
         'moodle'       => 'MoodleInstaller',
         'october'      => 'OctoberInstaller',
