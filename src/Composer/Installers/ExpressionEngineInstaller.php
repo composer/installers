@@ -9,8 +9,8 @@ class ExpressionEngineInstaller extends BaseInstaller
     protected $locations = array();
 
     private $ee2Locations = array(
-        'addon'   => 'system/expressionengine/third-party/{$name}/',
-        'theme'   => 'themes/third-party/{$name}/',
+        'addon'   => 'system/expressionengine/third_party/{$name}/',
+        'theme'   => 'themes/third_party/{$name}/',
     );
 
     private $ee3Locations = array(

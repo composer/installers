@@ -1,28 +1,28 @@
 <?php
 namespace Composer\Installers;
 
-class AsgardInstaller extends BaseInstaller
+class VgmcpInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module' => 'Modules/{$name}/',
-        'theme' => 'Themes/{$name}/'
+        'bundle' => 'src/{$vendor}/{$name}/',
+        'theme' => 'themes/{$name}/'
     );
 
     /**
      * Format package name.
      *
-     * For package type asgard-module, cut off a trailing '-plugin' if present.
+     * For package type vgmcp-bundle, cut off a trailing '-bundle' if present.
      *
-     * For package type asgard-theme, cut off a trailing '-theme' if present.
+     * For package type vgmcp-theme, cut off a trailing '-theme' if present.
      *
      */
     public function inflectPackageVars($vars)
     {
-        if ($vars['type'] === 'asgard-module') {
+        if ($vars['type'] === 'vgmcp-bundle') {
             return $this->inflectPluginVars($vars);
         }
 
-        if ($vars['type'] === 'asgard-theme') {
+        if ($vars['type'] === 'vgmcp-theme') {
             return $this->inflectThemeVars($vars);
         }
 
@@ -31,7 +31,7 @@ class AsgardInstaller extends BaseInstaller
 
     protected function inflectPluginVars($vars)
     {
-        $vars['name'] = preg_replace('/-module$/', '', $vars['name']);
+        $vars['name'] = preg_replace('/-bundle$/', '', $vars['name']);
         $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
 
