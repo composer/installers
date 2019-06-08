@@ -18,11 +18,11 @@ class AsgardInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-        if ($vars['type'] === 'asgard-module') {
+        if (in_array($vars['type'] , ["asgard-module" , "laravel-module"])) {
             return $this->inflectPluginVars($vars);
         }
 
-        if ($vars['type'] === 'asgard-theme') {
+        if (in_array($vars['type'] , ["asgard-theme" , "laravel-module"])) {
             return $this->inflectThemeVars($vars);
         }
 
