@@ -23,6 +23,9 @@ class MicroweberInstaller extends BaseInstaller
     public function inflectPackageVars($vars)
     {
         $vars['install_item_dir'] = $vars['name'];
+        if (isset($vars['target-dir'])) {
+            $vars['install_item_dir'] = $vars['target-dir'];
+        }
         if ($this->composer->getPackage()) {
             $extra = $this->composer->getPackage()->getExtra();
             if (isset($extra['target-dir'])) {
