@@ -10,7 +10,7 @@ class CraftInstaller extends BaseInstaller
     const NAME_SUFFIX = 'plugin';
 
     protected $locations = array(
-        'plugin' => 'craft/plugins/{$name}/',
+        'plugin' => 'vendor/{$name}/',
     );
 
     /**
