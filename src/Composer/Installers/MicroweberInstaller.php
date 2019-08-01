@@ -4,12 +4,12 @@ namespace Composer\Installers;
 class MicroweberInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module'      => 'userfiles/modules/{$name}/',
-        'module-skin' => 'userfiles/modules/{$name}/templates/',
-        'template'    => 'userfiles/templates/{$name}/',
-        'element'     => 'userfiles/elements/{$name}/',
-        'vendor'      => 'vendor/{$name}/',
-        'components'  => 'components/{$name}/'
+        'module' => 'userfiles/modules/{$install_item_dir}/',
+        'module-skin' => 'userfiles/modules/{$install_item_dir}/templates/',
+        'template' => 'userfiles/templates/{$install_item_dir}/',
+        'element' => 'userfiles/elements/{$install_item_dir}/',
+        'vendor' => 'vendor/{$install_item_dir}/',
+        'components' => 'components/{$install_item_dir}/'
     );
 
     /**
@@ -22,89 +22,97 @@ class MicroweberInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-        if ($vars['type'] === 'microweber-template') {
-            return $this->inflectTemplateVars($vars);
+
+
+        if ($this->package->getTargetDir()) {
+            $vars['install_item_dir'] = $this->package->getTargetDir();
+        } else {
+            $vars['install_item_dir'] = $vars['name'];
+            if ($vars['type'] === 'microweber-template') {
+                return $this->inflectTemplateVars($vars);
+            }
+            if ($vars['type'] === 'microweber-templates') {
+                return $this->inflectTemplatesVars($vars);
+            }
+            if ($vars['type'] === 'microweber-core') {
+                return $this->inflectCoreVars($vars);
+            }
+            if ($vars['type'] === 'microweber-adapter') {
+                return $this->inflectCoreVars($vars);
+            }
+            if ($vars['type'] === 'microweber-module') {
+                return $this->inflectModuleVars($vars);
+            }
+            if ($vars['type'] === 'microweber-modules') {
+                return $this->inflectModulesVars($vars);
+            }
+            if ($vars['type'] === 'microweber-skin') {
+                return $this->inflectSkinVars($vars);
+            }
+            if ($vars['type'] === 'microweber-element' or $vars['type'] === 'microweber-elements') {
+                return $this->inflectElementVars($vars);
+            }
         }
-        if ($vars['type'] === 'microweber-templates') {
-            return $this->inflectTemplatesVars($vars);
-        }
-        if ($vars['type'] === 'microweber-core') {
-            return $this->inflectCoreVars($vars);
-        }
-        if ($vars['type'] === 'microweber-adapter') {
-            return $this->inflectCoreVars($vars);
-        }
-        if ($vars['type'] === 'microweber-module') {
-            return $this->inflectModuleVars($vars);
-        }
-        if ($vars['type'] === 'microweber-modules') {
-            return $this->inflectModulesVars($vars);
-        }
-        if ($vars['type'] === 'microweber-skin') {
-            return $this->inflectSkinVars($vars);
-        }
-        if ($vars['type'] === 'microweber-element' or $vars['type'] === 'microweber-elements') {
-            return $this->inflectElementVars($vars);
-        }
+
 
         return $vars;
     }
 
     protected function inflectTemplateVars($vars)
     {
-        $vars['name'] = preg_replace('/-template$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/template-$/', '', $vars['name']);
+        $vars['install_item_dir'] = preg_replace('/-template$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/template-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
 
     protected function inflectTemplatesVars($vars)
     {
-        $vars['name'] = preg_replace('/-templates$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/templates-$/', '', $vars['name']);
+        $vars['install_item_dir'] = preg_replace('/-templates$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/templates-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
 
     protected function inflectCoreVars($vars)
     {
-        $vars['name'] = preg_replace('/-providers$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/-provider$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/-adapter$/', '', $vars['name']);
+        $vars['install_item_dir'] = preg_replace('/-providers$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/-provider$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/-adapter$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
 
     protected function inflectModuleVars($vars)
     {
-        $vars['name'] = preg_replace('/-module$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/module-$/', '', $vars['name']);
+        $vars['install_item_dir'] = preg_replace('/-module$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/module-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
 
     protected function inflectModulesVars($vars)
     {
-        $vars['name'] = preg_replace('/-modules$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/modules-$/', '', $vars['name']);
+        $vars['install_item_dir'] = preg_replace('/-modules$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/modules-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
 
     protected function inflectSkinVars($vars)
     {
-        $vars['name'] = preg_replace('/-skin$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/skin-$/', '', $vars['name']);
+        $vars['install_item_dir'] = preg_replace('/-skin$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/skin-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
 
     protected function inflectElementVars($vars)
     {
-        $vars['name'] = preg_replace('/-elements$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/elements-$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/-element$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/element-$/', '', $vars['name']);
+        $vars['install_item_dir'] = preg_replace('/-elements$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/elements-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/-element$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = preg_replace('/element-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
