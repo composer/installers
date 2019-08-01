@@ -67,6 +67,7 @@ is not needed to install packages with these frameworks:
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
 | Kanboard     | `kanboard-plugin`
 | Kirby        | **`kirby-plugin`**<br>`kirby-field`<br>`kirby-tag`
+| Known        | `known-plugin`<br>`known-theme`<br>`known-console`
 | KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
 | Kohana       | **`kohana-module`**
 | Lan Management System | `lms-plugin`<br>`lms-template`<br>`lms-document-template`<br>`lms-userpanel-module`

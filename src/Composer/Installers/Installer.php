@@ -54,6 +54,7 @@ class Installer extends LibraryInstaller
         'joomla'       => 'JoomlaInstaller',
         'kanboard'     => 'KanboardInstaller',
         'kirby'        => 'KirbyInstaller',
+        'known'	       => 'KnownInstaller',
         'kodicms'      => 'KodiCMSInstaller',
         'kohana'       => 'KohanaInstaller',
         'lms'      => 'LanManagementSystemInstaller',
