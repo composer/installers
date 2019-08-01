@@ -95,6 +95,7 @@ class Installer extends LibraryInstaller
         'smf'          => 'SMFInstaller',
         'sydes'        => 'SyDESInstaller',
         'symfony1'     => 'Symfony1Installer',
+        'tao'          => 'TaoInstaller',
         'thelia'       => 'TheliaInstaller',
         'tusk'         => 'TuskInstaller',
         'typo3-cms'    => 'TYPO3CmsInstaller',
