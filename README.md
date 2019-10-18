@@ -31,98 +31,98 @@ is not needed to install packages with these frameworks:
 > for those type will not be changed. Any adjustment for those types would
 > require creation of brand new type that will cover required changes.
 
-| Framework    | Types
-| ---------    | -----
-| Aimeos       | `aimeos-extension`
-| Asgard       | `asgard-module`<br>`asgard-theme`
-| Attogram     | `attogram-module`
-| AGL          | `agl-module`
-| Bonefish     | `bonefish-package`
-| AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
-| Bitrix       | `bitrix-module` (deprecated) <br>`bitrix-component` (deprecated) <br>`bitrix-theme` (deprecated) <br><br> `bitrix-d7-module` <br> `bitrix-d7-component` <br> `bitrix-d7-template`
-| CakePHP 2+   | **`cakephp-plugin`**
-| Chef         | `chef-cookbook`<br>`chef-role`
-| CiviCrm      | `civicrm-ext`
-| CCFramework  | `ccframework-ship`<br>`ccframework-theme`
-| Cockpit      | `cockpit-module`
-| CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
-| concrete5    | `concrete5-core`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-block`<br>`concrete5-update`
-| Craft        | `craft-plugin`
-| Croogo       | `croogo-plugin`<br>`croogo-theme`
-| Decibel      | `decibel-app`
-| Dframe       | `dframe-module`
-| DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
-| Dolibarr     | `dolibarr-module`
-| Drupal       | **`drupal-core`<br>`drupal-module`<br>`drupal-theme`**<br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`<br>`drupal-custom-theme`<br>`drupal-custom-module`<br>`drupal-custom-profile`<br>`drupal-console`<br>`drupal-console-language`<br>`drupal-multisite`
-| Elgg         | `elgg-plugin`
-| Eliasis      | `eliasis-component`<br>`eliasis-module`<br>`eliasis-plugin`<br>`eliasis-template`
-| ExpressionEngine 3         | `ee3-addon`<br>`ee3-theme`
-| eZ Platform  | `ezplatform-assets`<br>`ezplatform-meta-assets`
-| FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
-| FuelPHP v2.x | `fuelphp-component`
-| Grav         | `grav-plugin`<br>`grav-theme`
-| Hurad        | `hurad-plugin`<br>`hurad-theme`
-| ImageCMS     | `imagecms-template`<br>`imagecms-module`<br>`imagecms-library`
-| iTop         | `itop-extension`
-| Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
-| Kanboard     | `kanboard-plugin`
-| Kirby        | **`kirby-plugin`**<br>`kirby-field`<br>`kirby-tag`
-| Known        | `known-plugin`<br>`known-theme`<br>`known-console`
-| KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
-| Kohana       | **`kohana-module`**
-| Lan Management System | `lms-plugin`<br>`lms-template`<br>`lms-document-template`<br>`lms-userpanel-module`
-| Laravel      | `laravel-library`
-| Lavalite     | `lavalite-theme`<br>`lavalite-package`
-| Lithium      | **`lithium-library`<br>`lithium-source`**
-| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
-| majima       | `majima-plugin`
-| Mako         | `mako-package`
-| Mautic       | `mautic-plugin`<br>`mautic-theme`
-| Maya         | `maya-module`
-| MODX         | `modx-extra`
-| MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
-| MediaWiki    | `mediawiki-extension`
-| October      | **`october-module`<br>`october-plugin`<br>`october-theme`**
-| OntoWiki     | `ontowiki-extension`<br>`ontowiki-theme`<br>`ontowiki-translation`
-| OXID         | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
-| Osclass      | `osclass-plugin`<br>`osclass-theme`<br>`osclass-language`
-| MODULEWork   | `modulework-module`
-| Moodle       | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)
-| Piwik        | `piwik-plugin`
-| phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
-| Pimcore      | `pimcore-plugin`(deprecated, only used for versions <= 4)
-| Plentymarkets      | `plentymarkets-plugin`
-| PPI          | **`ppi-module`**
-| Puppet       | `puppet-module`
-| Porto        | `porto-container`
-| RadPHP       | `radphp-bundle`
-| REDAXO       | `redaxo-addon`
-| REDAXO bestyle-plugin | `redaxo-bestyle-plugin`
-| REDAXO V5.*  | `redaxo5-addon`
-| REDAXO V5.*  bestyle-plugin  | `redaxo5-bestyle-plugin`
-| ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
-| Roundcube    | `roundcube-plugin`
-| shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`
-| SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
-| SiteDirect   | `sitedirect-module`<br>`sitedirect-plugin`
-| SMF          | `smf-module`<br>`smf-theme`
-| SyDES        | `sydes-module`<br>`sydes-theme`
-| symfony1     | **`symfony1-plugin`**
-| TAO          | `tao-extension`
-| Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
-| TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
-| TYPO3 CMS    | `typo3-cms-extension` (Deprecated in this package, use the [TYPO3 CMS Installers](https://packagist.org/packages/typo3/cms-composer-installers) instead)
-| UserFrosting | `userfrosting-sprinkle`
-| Vanilla      | `vanilla-plugin`<br>`vanilla-theme`
-| Vgmcp        | `vgmcp-bundle`<br>`vgmcp-theme`
-| WHMCS        | `whmcs-addons`<br>`whmcs-fraud`<br>`whmcs-gateways`<br>`whmcs-notifications`<br>`whmcs-registrars`<br>`whmcs-reports`<br>`whmcs-security`<br>`whmcs-servers`<br>`whmcs-social`<br>`whmcs-support`<br>`whmcs-templates`<br>`whmcs-includes`
-| Wolf CMS     | `wolfcms-plugin`
-| WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`<br>`wordpress-dropin`
-| YAWIK        | `yawik-module`
-| Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
-| Zikula       | `zikula-module`<br>`zikula-theme`
-| Prestashop   | `prestashop-module`<br>`prestashop-theme`
-| Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
+| Framework                   | Types
+| ---------                   | -----
+| Aimeos                      | `aimeos-extension`
+| Asgard                      | `asgard-module`<br>`asgard-theme`
+| Attogram                    | `attogram-module`
+| AGL                         | `agl-module`
+| Bonefish                    | `bonefish-package`
+| AnnotateCms                 | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
+| Bitrix                      | `bitrix-module` (deprecated) <br>`bitrix-component` (deprecated) <br>`bitrix-theme` (deprecated) <br><br> `bitrix-d7-module` <br> `bitrix-d7-component` <br> `bitrix-d7-template`
+| CakePHP 2+                  | **`cakephp-plugin`**
+| Chef                        | `chef-cookbook`<br>`chef-role`
+| CiviCrm                     | `civicrm-ext`
+| CCFramework                 | `ccframework-ship`<br>`ccframework-theme`
+| Cockpit                     | `cockpit-module`
+| CodeIgniter                 | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
+| concrete5                   | `concrete5-core`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-block`<br>`concrete5-update`
+| Craft                       | `craft-plugin`
+| Croogo                      | `croogo-plugin`<br>`croogo-theme`
+| Decibel                     | `decibel-app`
+| Dframe                      | `dframe-module`
+| DokuWiki                    | `dokuwiki-plugin`<br>`dokuwiki-template`
+| Dolibarr                    | `dolibarr-module`
+| Drupal                      | **`drupal-core`<br>`drupal-module`<br>`drupal-theme`<br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`<br>`drupal-custom-theme`<br>`drupal-custom-module`<br>`drupal-custom-profile`<br>`drupal-console`<br>`drupal-console-language`<br>`drupal-multisite`**
+| Elgg                        | `elgg-plugin`
+| Eliasis                     | `eliasis-component`<br>`eliasis-module`<br>`eliasis-plugin`<br>`eliasis-template`
+| ExpressionEngine 3          | `ee3-addon`<br>`ee3-theme`
+| eZ Platform                 | `ezplatform-assets`<br>`ezplatform-meta-assets`
+| FuelPHP v1.x                | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
+| FuelPHP v2.x                | `fuelphp-component`
+| Grav                        | `grav-plugin`<br>`grav-theme`
+| Hurad                       | `hurad-plugin`<br>`hurad-theme`
+| ImageCMS                    | `imagecms-template`<br>`imagecms-module`<br>`imagecms-library`
+| iTop                        | `itop-extension`
+| Joomla                      | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
+| Kanboard                    | `kanboard-plugin`
+| Kirby                       | **`kirby-plugin`**<br>`kirby-field`<br>`kirby-tag`
+| Known                       | `known-plugin`<br>`known-theme`<br>`known-console`
+| KodiCMS                     | `kodicms-plugin`<br>`kodicms-media`
+| Kohana                      | **`kohana-module`**
+| Lan Management System       | `lms-plugin`<br>`lms-template`<br>`lms-document-template`<br>`lms-userpanel-module`
+| Laravel                     | `laravel-library`
+| Lavalite                    | `lavalite-theme`<br>`lavalite-package`
+| Lithium                     | **`lithium-library`<br>`lithium-source`**
+| Magento                     | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| majima                      | `majima-plugin`
+| Mako                        | `mako-package`
+| Mautic                      | `mautic-plugin`<br>`mautic-theme`
+| Maya                        | `maya-module`
+| MODX                        | `modx-extra`
+| MODX Evo                    | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
+| MediaWiki                   | `mediawiki-extension`
+| October                     | **`october-module`<br>`october-plugin`<br>`october-theme`**
+| OntoWiki                    | `ontowiki-extension`<br>`ontowiki-theme`<br>`ontowiki-translation`
+| OXID                        | `oxid-module`<br>`oxid-theme`<br>`oxid-out`
+| Osclass                     | `osclass-plugin`<br>`osclass-theme`<br>`osclass-language`
+| MODULEWork                  | `modulework-module`
+| Moodle                      | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)
+| Piwik                       | `piwik-plugin`
+| phpBB                       | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
+| Pimcore                     | `pimcore-plugin`(deprecated, only used for versions <= 4)
+| Plentymarkets               | `plentymarkets-plugin`
+| PPI                         | **`ppi-module`**
+| Puppet                      | `puppet-module`
+| Porto                       | `porto-container`
+| RadPHP                      | `radphp-bundle`
+| REDAXO                      | `redaxo-addon`
+| REDAXO bestyle-plugin       | `redaxo-bestyle-plugin`
+| REDAXO V5.*                 | `redaxo5-addon`
+| REDAXO V5.*  bestyle-plugin | `redaxo5-bestyle-plugin`
+| ReIndex                     | **`reindex-plugin`** <br> **`reindex-theme`**
+| Roundcube                   | `roundcube-plugin`
+| shopware                    | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`
+| SilverStripe                | `silverstripe-module`<br>`silverstripe-theme`
+| SiteDirect                  | `sitedirect-module`<br>`sitedirect-plugin`
+| SMF                         | `smf-module`<br>`smf-theme`
+| SyDES                       | `sydes-module`<br>`sydes-theme`
+| symfony1                    | **`symfony1-plugin`**
+| TAO                         | `tao-extension`
+| Tusk                        | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
+| TYPO3 Flow                  | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
+| TYPO3 CMS                   | `typo3-cms-extension` (Deprecated in this package, use the [TYPO3 CMS Installers](https://packagist.org/packages/typo3/cms-composer-installers) instead)
+| UserFrosting                | `userfrosting-sprinkle`
+| Vanilla                     | `vanilla-plugin`<br>`vanilla-theme`
+| Vgmcp                       | `vgmcp-bundle`<br>`vgmcp-theme`
+| WHMCS                       | `whmcs-addons`<br>`whmcs-fraud`<br>`whmcs-gateways`<br>`whmcs-notifications`<br>`whmcs-registrars`<br>`whmcs-reports`<br>`whmcs-security`<br>`whmcs-servers`<br>`whmcs-social`<br>`whmcs-support`<br>`whmcs-templates`<br>`whmcs-includes`
+| Wolf CMS                    | `wolfcms-plugin`
+| WordPress                   | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`<br>`wordpress-dropin`
+| YAWIK                       | `yawik-module`
+| Zend                        | `zend-library`<br>`zend-extra`<br>`zend-module`
+| Zikula                      | `zikula-module`<br>`zikula-theme`
+| Prestashop                  | `prestashop-module`<br>`prestashop-theme`
+| Phifty                      | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 
 ## Example `composer.json` File
 
