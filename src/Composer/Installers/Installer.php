@@ -24,6 +24,7 @@ class Installer extends LibraryInstaller
         'attogram'     => 'AttogramInstaller',
         'agl'          => 'AglInstaller',
         'annotatecms'  => 'AnnotateCmsInstaller',
+        'bagisto'      => 'BagistoInstaller',
         'bitrix'       => 'BitrixInstaller',
         'bonefish'     => 'BonefishInstaller',
         'cakephp'      => 'CakePHPInstaller',
