@@ -1,5 +1,8 @@
 # Change Log
 
+## v1.7.1 - 2019-11-08
+* Added config type for Drupal installer, [#440](https://github.com/composer/installers/pull/440).
+
 ## v1.7.0 - 2019-08-12
 ## Added
 * Added support for Redaxo v5, [#410](https://github.com/composer/installers/pull/410).
