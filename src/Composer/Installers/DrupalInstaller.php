@@ -14,7 +14,8 @@ class DrupalInstaller extends BaseInstaller
         'custom-module'    => 'modules/custom/{$name}/',
         'custom-profile'   => 'profiles/custom/{$name}/',
         'drupal-multisite' => 'sites/{$name}/',
-        'console' => 'console/{$name}/',
+        'console'          => 'console/{$name}/',
         'console-language' => 'console/language/{$name}/',
+        'config'           => 'config/sync/',
     );
 }
