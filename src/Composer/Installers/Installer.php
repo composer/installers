@@ -63,6 +63,7 @@ class Installer extends LibraryInstaller
         'lithium'      => 'LithiumInstaller',
         'magento'      => 'MagentoInstaller',
         'majima'       => 'MajimaInstaller',
+        'mantisbt'     => 'MantisBTInstaller',
         'mako'         => 'MakoInstaller',
         'maya'         => 'MayaInstaller',
         'mautic'       => 'MauticInstaller',
