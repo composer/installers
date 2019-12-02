@@ -11,8 +11,8 @@ Users can also customize the install path per package and package authors can
 modify the package name upon installing.
 
 Installers isn't intended on replacing all custom installers. If your
-package requires special installation handling then by all means, create a
-custom installer to handle it.
+package requires special installation handling then by all means, [create a
+custom installer to handle it](https://getcomposer.org/doc/articles/custom-installers.md).
 
 **Natively Supported Frameworks**:
 
