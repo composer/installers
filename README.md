@@ -77,6 +77,7 @@ is not needed to install packages with these frameworks:
 | Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
 | majima       | `majima-plugin`
 | Mako         | `mako-package`
+| MantisBT     | `mantisbt-plugin`
 | Mautic       | `mautic-plugin`<br>`mautic-theme`
 | Maya         | `maya-module`
 | MODX         | `modx-extra`
