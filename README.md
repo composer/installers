@@ -53,7 +53,7 @@ is not needed to install packages with these frameworks:
 | Dframe       | `dframe-module`
 | DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
 | Dolibarr     | `dolibarr-module`
-| Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`<br>`drupal-custom-theme`<br>`drupal-custom-module`
+| Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`<br>`drupal-custom-theme`<br>`drupal-custom-module`<br>`drupal-config`
 | Elgg         | `elgg-plugin`
 | Eliasis      | `eliasis-component`<br>`eliasis-module`<br>`eliasis-plugin`<br>`eliasis-template`
 | ExpressionEngine 3         | `ee3-addon`<br>`ee3-theme`
