@@ -96,6 +96,7 @@ class Installer extends LibraryInstaller
         'silverstripe' => 'SilverStripeInstaller',
         'smf'          => 'SMFInstaller',
         'sydes'        => 'SyDESInstaller',
+        'sylius'       => 'SyliusInstaller',
         'symfony1'     => 'Symfony1Installer',
         'tao'          => 'TaoInstaller',
         'thelia'       => 'TheliaInstaller',
