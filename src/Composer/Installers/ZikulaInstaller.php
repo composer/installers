@@ -4,7 +4,7 @@ namespace Composer\Installers;
 class ZikulaInstaller extends BaseInstaller
 {
     protected $locations = array(
-        'module' => 'modules/{$vendor}-{$name}/',
-        'theme'  => 'themes/{$vendor}-{$name}/'
+        'module' => 'extensions/{$vendor}-{$name}/',
+        'theme'  => 'extensions/{$vendor}-{$name}/'
     );
 }
