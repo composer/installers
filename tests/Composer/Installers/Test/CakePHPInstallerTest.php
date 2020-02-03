@@ -69,7 +69,8 @@ class CakePHPInstallerTest extends TestCase
 
         // Simultaneous support for Composer 1 and 2
         $constructorArg3 = null;
-        if ((new \ReflectionClass( '\Composer\Repository\RepositoryManager'))->getConstructor()->getNumberOfRequiredParameters() == 3) {
+        $reflectorClass = new \ReflectionClass( '\Composer\Repository\RepositoryManager');
+        if ($reflectorClass->getConstructor()->getNumberOfRequiredParameters() == 3) {
             $constructorArg3 = $this->getMockBuilder('Composer\Util\HttpDownloader')->disableOriginalConstructor()->getMock();
         }
         $rm = new RepositoryManager(
