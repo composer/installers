@@ -58,25 +58,15 @@ class CakePHPInstaller extends BaseInstaller
         }
 
         $repositoryManager = $this->composer->getRepositoryManager();
-        if ($repositoryManager) {
-            $repos = $repositoryManager->getLocalRepository();
-            if (!$repos) {
-                return false;
-            }
-            $cake3 = new $multiClass(array(
-                new $constraintClass($matcher, $version),
-                new $constraintClass('!=', '9999999-dev'),
-            ));
-            $pool = new Pool('dev');
-            $pool->addRepository($repos);
-            $packages = $pool->whatProvides('cakephp/cakephp');
-            foreach ($packages as $package) {
-                $installed = new $constraintClass('=', $package->getVersion());
-                if ($cake3->matches($installed)) {
-                    return true;
-                }
-            }
+        if (! $repositoryManager) {
+            return false;
         }
-        return false;
+
+        $repos = $repositoryManager->getLocalRepository();
+        if (!$repos) {
+            return false;
+        }
+
+        return $repos->findPackage('cakephp/cakephp', new $constraintClass($matcher, $version)) !== null;
     }
 }

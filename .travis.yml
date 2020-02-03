@@ -17,7 +17,11 @@ php:
   - 7.3
   - nightly
 
-matrix:
+env:
+  - DEPS=latest
+  - DEPS=lowest
+
+jobs:
   include:
     - dist: precise
       php: 5.3
@@ -27,7 +31,7 @@ matrix:
 
 before_script:
   - composer self-update
-  - composer install
+  - composer update --prefer-$DEPS
 
 script:
-  - composer test
+  - vendor/bin/composer test
