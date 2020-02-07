@@ -108,6 +108,7 @@ is not needed to install packages with these frameworks:
 | SiteDirect   | `sitedirect-module`<br>`sitedirect-plugin`
 | SMF          | `smf-module`<br>`smf-theme`
 | SyDES        | `sydes-module`<br>`sydes-theme`
+| Sylius       | `sylius-theme`
 | symfony1     | **`symfony1-plugin`**
 | TAO          | `tao-extension`
 | Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
