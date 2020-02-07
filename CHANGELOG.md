@@ -1,5 +1,11 @@
 # Change Log
 
+## v1.8.0 - 2020-02-07
+## Added
+* Added support for MantisBT plugins, [#442](https://github.com/composer/installers/pull/442).
+* Added drupal-config type to Drupal Framework, [#440](https://github.com/composer/installers/pull/440).
+* Added support for Sylius themes, [#445](https://github.com/composer/installers/pull/445).
+
 ## v1.7.0 - 2019-08-12
 ## Added
 * Added support for Redaxo v5, [#410](https://github.com/composer/installers/pull/410).
