@@ -126,6 +126,7 @@ abstract class BaseInstaller
     protected function mapCustomInstallPaths(array $paths, $name, $type, $vendor = NULL)
     {
         foreach ($paths as $path => $names) {
+            $names = (array) $names;
             if (in_array($name, $names) || in_array('type:' . $type, $names) || in_array('vendor:' . $vendor, $names)) {
                 return $path;
             }
