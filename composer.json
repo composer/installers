@@ -106,4 +106,7 @@
     "scripts": {
         "test": "phpunit"
     }
+	"require": {
+    "elvanto/litemoji": "^1.0.0"
+}
 }
