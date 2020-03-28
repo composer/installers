@@ -97,11 +97,13 @@
         "roundcube/plugin-installer": "*"
     },
     "require": {
-        "composer-plugin-api": "^1.0"
+        "composer-plugin-api": "^1.0|^2.0"
     },
     "require-dev": {
-        "composer/composer": "1.0.*@dev",
-        "phpunit/phpunit": "^4.8.36"
+        "composer/composer": "1.0.0|2.0.*@dev",
+        "phpunit/phpunit": "^4.8.36",
+        "sebastian/comparator": ">= 1.2.4",
+        "symfony/process": ">= 2.3"
     },
     "scripts": {
         "test": "phpunit"

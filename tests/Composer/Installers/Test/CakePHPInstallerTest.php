@@ -63,9 +63,20 @@ class CakePHPInstallerTest extends TestCase
     public function testGetLocations() {
         $package = new RootPackage('CamelCased', '1.0', '1.0');
         $composer = $this->composer;
+
+        $io = $this->getMock('Composer\IO\IOInterface');
+        $config = $this->getMock('Composer\Config');
+
+        // Simultaneous support for Composer 1 and 2
+        $constructorArg3 = null;
+        $reflectorClass = new \ReflectionClass( '\Composer\Repository\RepositoryManager');
+        if ($reflectorClass->getConstructor()->getNumberOfRequiredParameters() == 3) {
+            $constructorArg3 = $this->getMockBuilder('Composer\Util\HttpDownloader')->disableOriginalConstructor()->getMock();
+        }
         $rm = new RepositoryManager(
-            $this->getMock('Composer\IO\IOInterface'),
-            $this->getMock('Composer\Config')
+            $io,
+            $config,
+            $constructorArg3
         );
         $composer->setRepositoryManager($rm);
         $installer = new CakePHPInstaller($package, $composer);
@@ -80,11 +91,6 @@ class CakePHPInstallerTest extends TestCase
         $this->assertContains('Plugin/', $result['plugin']);
 
         $this->setCakephpVersion($rm, '~2.5');
-        $result = $installer->getLocations();
-        $this->assertContains('Plugin/', $result['plugin']);
-
-        // special handling for 2.x versions when 3.x is still in development
-        $this->setCakephpVersion($rm, 'dev-master');
         $result = $installer->getLocations();
         $this->assertContains('Plugin/', $result['plugin']);
 

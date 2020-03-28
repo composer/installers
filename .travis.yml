@@ -1,7 +1,5 @@
 language: php
 
-sudo: false
-
 dist: trusty
 
 git:
@@ -17,17 +15,25 @@ php:
   - 7.3
   - nightly
 
-matrix:
+env:
+  - DEPS=--prefer-lowest
+  - DEPS=
+
+jobs:
   include:
     - dist: precise
       php: 5.3
+      env: DEPS=
+    - dist: precise
+      php: 5.3
+      env: DEPS=--prefer-lowest
   fast_finish: true
   allow_failures:
     - php: nightly
 
 before_script:
   - composer self-update
-  - composer install
+  - composer update $DEPS
 
 script:
-  - composer test
+  - vendor/bin/composer test
