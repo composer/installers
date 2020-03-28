@@ -100,7 +100,7 @@
         "composer-plugin-api": "^1.0 || ^2.0"
     },
     "require-dev": {
-        "composer/composer": "1.0.* || 2.0.*@dev",
+        "composer/composer": "1.6.* || 2.0.*@dev",
         "composer/semver": "1.0.* || 2.0.*@dev",
         "phpunit/phpunit": "^4.8.36",
         "sebastian/comparator": "^1.2.4",
