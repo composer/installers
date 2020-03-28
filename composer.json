@@ -31,7 +31,7 @@
         "iTop",
         "Joomla",
         "Kanboard",
-	"Known",
+        "Known",
         "Kohana",
         "Lan Management System",
         "Laravel",
@@ -97,13 +97,14 @@
         "roundcube/plugin-installer": "*"
     },
     "require": {
-        "composer-plugin-api": "^1.0|^2.0"
+        "composer-plugin-api": "^1.0 || ^2.0"
     },
     "require-dev": {
-        "composer/composer": "1.0.0|2.0.*@dev",
+        "composer/composer": "1.0.* || 2.0.*@dev",
+        "composer/semver": "1.0.* || 2.0.*@dev",
         "phpunit/phpunit": "^4.8.36",
-        "sebastian/comparator": ">= 1.2.4",
-        "symfony/process": ">= 2.3"
+        "sebastian/comparator": "^1.2.4",
+        "symfony/process": "^2.3"
     },
     "scripts": {
         "test": "phpunit"

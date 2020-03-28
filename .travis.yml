@@ -13,11 +13,8 @@ php:
   - 7.1
   - 7.2
   - 7.3
+  - 7.4
   - nightly
-
-env:
-  - DEPS=--prefer-lowest
-  - DEPS=
 
 jobs:
   include:
