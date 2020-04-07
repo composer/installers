@@ -9,6 +9,7 @@ class DrupalInstaller extends BaseInstaller
         'theme'            => 'themes/{$name}/',
         'library'          => 'libraries/{$name}/',
         'profile'          => 'profiles/{$name}/',
+        'database-driver'  => 'drivers/lib/Drupal/Driver/Database/{$name}/',
         'drush'            => 'drush/{$name}/',
         'custom-theme'     => 'themes/custom/{$name}/',
         'custom-module'    => 'modules/custom/{$name}/',
