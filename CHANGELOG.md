@@ -1,5 +1,11 @@
 # Change Log
 
+## v1.9.0 - 2020-04-07
+## Added
+* Added support for Composer 2.0
+* Added drupal-database-driver type to Drupal Framework, [#452](https://github.com/composer/installers/pull/452)
+* Added support for declaring installer-paths values as strings [#449](https://github.com/composer/installers/pull/449)
+
 ## v1.8.0 - 2020-02-07
 ## Added
 * Added support for MantisBT plugins, [#442](https://github.com/composer/installers/pull/442).
