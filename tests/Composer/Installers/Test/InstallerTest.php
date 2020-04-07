@@ -554,6 +554,23 @@ class InstallerTest extends TestCase
     }
 
     /**
+     * testStringPath
+     */
+    public function testStringPath()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
+        $package->setType('drupal-module');
+        $this->composer->getPackage()->setExtra(array(
+          'installer-paths' => array(
+            'modules/custom/{$name}/' => 'vendor:penyaskito',
+          ),
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('modules/custom/my_module/', $result);
+    }
+
+    /**
      * testNoVendorName
      */
     public function testNoVendorName()
