@@ -4,6 +4,7 @@ namespace Composer\Installers;
 class MauticInstaller extends BaseInstaller
 {
     protected $locations = array(
+        'core'   => 'public/',
         'plugin' => 'plugins/{$name}/',
         'theme' => 'themes/{$name}/',
     );
