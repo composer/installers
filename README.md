@@ -103,6 +103,7 @@ is not needed to install packages with these frameworks:
 | REDAXO V5.*  bestyle-plugin  | `redaxo5-bestyle-plugin`
 | ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
 | Roundcube    | `roundcube-plugin`
+| Royalcms     | <b>`royalcms-app`<br>`royalcms-plugin`<br>`royalcms-theme`</b>
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
 | SiteDirect   | `sitedirect-module`<br>`sitedirect-plugin`
