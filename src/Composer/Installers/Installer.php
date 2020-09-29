@@ -19,7 +19,7 @@ class Installer extends LibraryInstaller
      *
      * @var array
      */
-    private $supportedTypes = array(
+    protected $supportedTypes = array(
         'aimeos'       => 'AimeosInstaller',
         'asgard'       => 'AsgardInstaller',
         'attogram'     => 'AttogramInstaller',
