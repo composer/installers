@@ -150,7 +150,7 @@ So submit your packages to [packagist.org](http://packagist.org)!
 
 ## Custom Install Paths
 
-If you are consuming a package that uses the `composer/installers` you can
+If you are requiring a package which has one of the supported types you can
 override the install path with the following extra in your `composer.json`:
 
 ```json
@@ -163,7 +163,9 @@ override the install path with the following extra in your `composer.json`:
 }
 ```
 
-A package type can have a custom installation path with a `type:` prefix.
+You can determine a non-standard installation path for all packages of a
+particular type with the `type:` prefix. The type must be one of types
+listed on the supported list above.
 
 ``` json
 {
@@ -175,8 +177,9 @@ A package type can have a custom installation path with a `type:` prefix.
 }
 ```
 
-You can also have the same vendor packages with a custom installation path by
-using the `vendor:` prefix.
+You can also install all packages by a particular vendor to a custom
+installation path by using the `vendor:` prefix. The path will still
+only apply to packages by the vendor with a type in the supported list.
 
 ``` json
 {
@@ -188,8 +191,8 @@ using the `vendor:` prefix.
 }
 ```
 
-These would use your custom path for each of the listed packages. The available
-variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
+These would use your custom path for each of the matching packages. The
+available variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
 
 ## Custom Install Names
 
