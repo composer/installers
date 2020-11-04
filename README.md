@@ -194,6 +194,9 @@ only apply to packages by the vendor with a type in the supported list.
 These would use your custom path for each of the matching packages. The
 available variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
 
+**Note:** If multiple custom installer-paths match for the same package, the first
+one which matches will be used.
+
 ## Custom Install Names
 
 If you're a package author and need your package to be named differently when
