@@ -260,6 +260,13 @@ class Installer extends LibraryInstaller
      */
     protected function removeDisabledInstallers()
     {
+        // Let plugins change the package's extra section before processing
+        $event = new PreRemoveDisabledInstallersEvent(
+            InstallerEvents::PRE_REMOVE_DISABLED_INSTALLERS,
+            $this->composer->getPackage()
+        );
+        $this->composer->getEventDispatcher()->dispatch($event->getName(), $event);
+
         $extra = $this->composer->getPackage()->getExtra();
 
         if (!isset($extra['installer-disable']) || $extra['installer-disable'] === false) {
