@@ -32,6 +32,9 @@ class InstallerTest extends TestCase
         $this->config = new Config();
         $this->composer->setConfig($this->config);
 
+        $eventDispatcher = $this->getMockBuilder('Composer\EventDispatcher\EventDispatcher')->disableOriginalConstructor()->getMock();
+        $this->composer->setEventDispatcher($eventDispatcher);
+
         $this->vendorDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-vendor';
         $this->ensureDirectoryExistsAndClear($this->vendorDir);
 
