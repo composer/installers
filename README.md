@@ -91,7 +91,7 @@ is not needed to install packages with these frameworks:
 | Moodle       | `moodle-*` (Please [check source](https://raw.githubusercontent.com/composer/installers/master/src/Composer/Installers/MoodleInstaller.php) for all supported types)
 | Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
-| Pimcore      | `pimcore-plugin`(deprecated, only used for versions <= 4) 
+| Pimcore      | `pimcore-plugin`(deprecated, only used for versions <= 4)
 | Plentymarkets      | `plentymarkets-plugin`
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
@@ -113,7 +113,6 @@ is not needed to install packages with these frameworks:
 | TAO          | `tao-extension`
 | Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
 | TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
-| TYPO3 CMS    | `typo3-cms-extension` (Deprecated in this package, use the [TYPO3 CMS Installers](https://packagist.org/packages/typo3/cms-composer-installers) instead)
 | UserFrosting | `userfrosting-sprinkle`
 | Vanilla      | `vanilla-plugin`<br>`vanilla-theme`
 | Vgmcp        | `vgmcp-bundle`<br>`vgmcp-theme`
@@ -230,7 +229,7 @@ conflicts with `composer/installers` but also have a dependency on a package tha
 
 Installers can be disabled for your project by specifying the extra
 `installer-disable` property. If set to `true`, `"all"`, or `"*"` all installers
-will be disabled. 
+will be disabled.
 
 ```json
 {
@@ -267,7 +266,7 @@ installer names if used in an array. The example below will disable all installe
 }
 ```
 
-## Should we allow dynamic package types or paths? No.
+## Should we allow dynamic package types or paths? No
 
 What are they? The ability for a package author to determine where a package
 will be installed either through setting the path directly in their
@@ -279,4 +278,4 @@ removed. Installers won't do this because it would allow a single package
 author to wipe out entire folders without the user's consent. That user would
 then come here to yell at us.
 
-Anyone still wanting this capability should consider requiring https://github.com/oomphinc/composer-installers-extender.
+Anyone still wanting this capability should consider requiring <https://github.com/oomphinc/composer-installers-extender>.
