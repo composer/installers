@@ -101,7 +101,6 @@ class Installer extends LibraryInstaller
         'tao'          => 'TaoInstaller',
         'thelia'       => 'TheliaInstaller',
         'tusk'         => 'TuskInstaller',
-        'typo3-cms'    => 'TYPO3CmsInstaller',
         'typo3-flow'   => 'TYPO3FlowInstaller',
         'userfrosting' => 'UserFrostingInstaller',
         'vanilla'      => 'VanillaInstaller',
