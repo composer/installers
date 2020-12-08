@@ -63,7 +63,7 @@ jobs:
       - name: "Install latest dependencies"
         run: |
           # Remove PHPStan as it requires a newer PHP
-          composer remove phpstan/phpstan --dev --no-update
+          composer remove phpstan/phpstan phpstan/phpstan-phpunit --dev --no-update
           composer update ${{ env.COMPOSER_FLAGS }}
 
       - name: "Run tests"
