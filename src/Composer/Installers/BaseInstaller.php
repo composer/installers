@@ -74,8 +74,8 @@ abstract class BaseInstaller
     /**
      * For an installer to override to modify the vars per installer.
      *
-     * @param  array{name: string, vendor: string, type: string} $vars
-     * @return array{name: string, vendor: string, type: string}
+     * @param  array<string, string> $vars This will normally receive array{name: string, vendor: string, type: string}
+     * @return array<string, string>
      */
     public function inflectPackageVars($vars)
     {

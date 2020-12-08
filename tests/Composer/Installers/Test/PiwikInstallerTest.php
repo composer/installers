@@ -19,11 +19,6 @@ class PiwikInstallerTest extends TestCase
     private $composer;
 
     /**
-     * @var PackageInterface
-     */
-    private $io;
-
-    /**
      * @var Package
      */
     private $package;
@@ -36,7 +31,6 @@ class PiwikInstallerTest extends TestCase
     public function setUp()
     {
         $this->package = new Package('VisitSummary', '1.0', '1.0');
-        $this->io = $this->getMockBuilder('Composer\IO\PackageInterface')->getMock();
         $this->composer = new Composer();
     }
 

@@ -49,7 +49,7 @@ class SiteDirectInstallerTest extends TestCase
     }
 
     /**
-     * @param $data
+     * @param string[] $data
      * @return string
      */
     private function createPackage($data)

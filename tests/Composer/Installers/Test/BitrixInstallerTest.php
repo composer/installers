@@ -31,8 +31,8 @@ class BitrixInstallerTest extends TestCase
     }
 
     /**
-     * @param string $vars
-     * @param string $expectedVars
+     * @param string[] $vars
+     * @param string[] $expectedVars
      *
      * @covers ::inflectPackageVars
      *

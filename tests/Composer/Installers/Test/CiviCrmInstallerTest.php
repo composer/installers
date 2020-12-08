@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 class CiviCrmInstallerTest extends BaseTestCase
 {
     /**
-     * @var VgmcpInstaller
+     * @var CiviCrmInstaller
      */
     private $installer;
 

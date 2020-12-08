@@ -44,7 +44,7 @@ class GravInstallerTest extends TestCase
     }
 
     /**
-     * @param $package  \Composer\Package\PackageInterface
+     * @param \Composer\Package\PackageInterface $package
      */
     public function getPackageVars($package)
     {

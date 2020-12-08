@@ -12,8 +12,14 @@ use Composer\Config;
 
 class CakePHPInstallerTest extends TestCase
 {
+    /**
+     * @var Composer
+     */
     private $composer;
-    private $io;
+    /**
+     * @var Package
+     */
+    private $package;
 
     /**
      * setUp
@@ -23,7 +29,6 @@ class CakePHPInstallerTest extends TestCase
     public function setUp()
     {
         $this->package = new Package('CamelCased', '1.0', '1.0');
-        $this->io = $this->getMockBuilder('Composer\IO\PackageInterface')->getMock();
         $this->composer = new Composer();
         $this->composer->setConfig(new Config(false));
     }

@@ -660,26 +660,4 @@ class InstallerTest extends TestCase
             array(array("drupal", "true"), "cakephp-plugin", true),
         );
     }
-
-    /**
-     * @param string      $exception
-     * @param string|null $message
-     * @param int|null    $code
-     * @return void
-     */
-    public function setExpectedException($exception, $message = null, $code = null)
-    {
-        if (!class_exists('PHPUnit\Framework\Error\Notice')) {
-            $exception = str_replace('PHPUnit\\Framework\\Error\\', 'PHPUnit_Framework_Error_', $exception);
-        }
-        if (method_exists($this, 'expectException')) {
-            $this->expectException($exception);
-            if (null !== $message) {
-                $this->expectExceptionMessage($message);
-            }
-        } else {
-            /** @phpstan-ignore-next-line */
-            parent::setExpectedException($exception, $message, $code);
-        }
-    }
 }

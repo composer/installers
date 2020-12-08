@@ -15,7 +15,7 @@ namespace Composer\Installers\Test;
 use Composer\Package\Version\VersionParser;
 use Composer\Package\Package;
 use Composer\Package\AliasPackage;
-use Composer\Package\LinkConstraint\VersionConstraint;
+use Composer\Semver\Constraint\Constraint;
 use Composer\Util\Filesystem;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
@@ -34,7 +34,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function getVersionConstraint($operator, $version)
     {
-        return new VersionConstraint(
+        return new Constraint(
             $operator,
             self::getVersionParser()->normalize($version)
         );
@@ -61,5 +61,27 @@ abstract class TestCase extends BaseTestCase
             $fs->removeDirectory($directory);
         }
         mkdir($directory, 0777, true);
+    }
+
+    /**
+     * @param string      $exception
+     * @param string|null $message
+     * @param int|null    $code
+     * @return void
+     */
+    public function setExpectedException($exception, $message = null, $code = null)
+    {
+        if (!class_exists('PHPUnit\Framework\Error\Notice')) {
+            $exception = str_replace('PHPUnit\\Framework\\Error\\', 'PHPUnit_Framework_Error_', $exception);
+        }
+        if (method_exists($this, 'expectException')) {
+            $this->expectException($exception);
+            if (null !== $message) {
+                $this->expectExceptionMessage($message);
+            }
+        } else {
+            /** @phpstan-ignore-next-line */
+            parent::setExpectedException($exception, $message, $code);
+        }
     }
 }

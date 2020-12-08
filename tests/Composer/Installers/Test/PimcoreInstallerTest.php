@@ -9,6 +9,7 @@ class PimcoreInstallerTest extends TestCase
 {
     private $composer;
     private $io;
+    private $package;
 
     /**
      * setUp
@@ -18,7 +19,6 @@ class PimcoreInstallerTest extends TestCase
     public function setUp()
     {
         $this->package = new Package('CamelCased', '1.0', '1.0');
-        $this->io = $this->getMockBuilder('Composer\IO\PackageInterface')->getMock();
         $this->composer = new Composer();
     }
 
