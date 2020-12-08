@@ -100,13 +100,14 @@
         "composer-plugin-api": "^1.0 || ^2.0"
     },
     "require-dev": {
-        "composer/composer": "1.6.* || 2.0.*@dev",
+        "composer/composer": "1.6.* || ^2.0",
         "composer/semver": "^1 || ^3",
-        "phpunit/phpunit": "^4.8.36",
-        "sebastian/comparator": "^1.2.4",
+        "symfony/phpunit-bridge": "^4.2 || ^5",
+        "phpstan/phpstan": "^0.12.55",
         "symfony/process": "^2.3"
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "SYMFONY_PHPUNIT_REMOVE_RETURN_TYPEHINT=1 vendor/bin/simple-phpunit",
+        "phpstan": "vendor/bin/phpstan analyse"
     }
 }

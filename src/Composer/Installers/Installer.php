@@ -176,6 +176,8 @@ class Installer extends LibraryInstaller
 
         // If not, execute the code right away as parent::uninstall executed synchronously (composer v1, or v2 without async)
         $outputStatus();
+
+        return null;
     }
 
     /**
@@ -197,23 +199,20 @@ class Installer extends LibraryInstaller
     /**
      * Finds a supported framework type if it exists and returns it
      *
-     * @param  string $type
-     * @return string
+     * @param  string       $type
+     * @return string|false
      */
     protected function findFrameworkType($type)
     {
-        $frameworkType = false;
-
         krsort($this->supportedTypes);
 
         foreach ($this->supportedTypes as $key => $val) {
             if ($key === substr($type, 0, strlen($key))) {
-                $frameworkType = substr($type, 0, strlen($key));
-                break;
+                return substr($type, 0, strlen($key));
             }
         }
 
-        return $frameworkType;
+        return false;
     }
 
     /**
