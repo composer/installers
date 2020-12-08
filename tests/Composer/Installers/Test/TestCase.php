@@ -63,6 +63,8 @@ abstract class TestCase extends BaseTestCase
         mkdir($directory, 0777, true);
     }
 
+    // polyfills for old phpunit for 5.3 support
+
     /**
      * @param string      $exception
      * @param string|null $message
@@ -83,5 +85,18 @@ abstract class TestCase extends BaseTestCase
             /** @phpstan-ignore-next-line */
             parent::setExpectedException($exception, $message, $code);
         }
+    }
+
+    /**
+     * @param string $needle
+     * @param string $haystack
+     * @param string $message
+     *
+     * @return void
+     */
+    public static function assertStringContainsString($needle, $haystack, $message = '')
+    {
+        $constraint = new StringContains($needle, false);
+        static::assertThat($haystack, $constraint, $message);
     }
 }
