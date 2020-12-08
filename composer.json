@@ -86,6 +86,9 @@
     "autoload": {
         "psr-4": { "Composer\\Installers\\": "src/Composer/Installers" }
     },
+    "autoload-dev": {
+        "psr-4": { "Composer\\Installers\\Test\\": "tests/Composer/Installers/Test" }
+    },
     "extra": {
         "class": "Composer\\Installers\\Plugin",
         "branch-alias": {
