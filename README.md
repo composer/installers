@@ -96,6 +96,7 @@ is not needed to install packages with these frameworks:
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
 | Porto        | `porto-container`
+| ProcessWire  | `processwire-module`
 | RadPHP       | `radphp-bundle`
 | REDAXO       | `redaxo-addon`
 | REDAXO bestyle-plugin | `redaxo-bestyle-plugin`
