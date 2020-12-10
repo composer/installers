@@ -35,56 +35,56 @@ class IgniterInstallerTest extends BaseTestCase
     public function testInflectPackageVars($type, $vendor, $name, $expectedVendor, $expectedName)
     {
         $this->assertEquals(
-            $this->installer->inflectPackageVars([
+            $this->installer->inflectPackageVars(array(
                 'vendor' => $vendor,
                 'name' => $name,
                 'type' => $type,
-            ]),
-            ['vendor' => $expectedVendor, 'name' => $expectedName, 'type' => $type]
+            )),
+            array('vendor' => $expectedVendor, 'name' => $expectedName, 'type' => $type)
         );
     }
 
     public function packageNameInflectionProvider(): array
     {
-        return [
-            [
+        return array(
+            array(
                 'igniter-extension',
                 'acme',
                 'pages',
                 'acme',
                 'pages',
-            ],
-            [
+            ),
+            array(
                 'igniter-extension',
                 'acme',
                 'pages-extension',
                 'acme',
                 'pages',
-            ],
+            ),
             // tests vendor name containing a hyphen
-            [
+            array(
                 'igniter-extension',
                 'foo-bar-co',
                 'blog',
                 'foobarco',
                 'blog',
-            ],
+            ),
             // tests that exactly one '-theme' is cut off
-            [
+            array(
                 'igniter-theme',
                 'acme',
                 'my-theme-theme',
                 'acme',
                 'my-theme',
-            ],
+            ),
             // tests that names without '-theme' suffix stay valid
-            [
+            array(
                 'igniter-theme',
                 'acme',
                 'someothertheme',
                 'acme',
                 'someothertheme',
-            ],
-        ];
+            ),
+        );
     }
 }
