@@ -12,8 +12,7 @@ class IgniterInstaller extends BaseInstaller
     /**
      * Format package name.
      *
-     * Cut off leading 'ti-' if present.
-     * Cut off trailing '-extension' or '-theme' if present.
+     * Cut off leading 'ti-ext-' or 'ti-theme-' if present.
      * Strip vendor name of characters that is not alphanumeric or an underscore
      *
      */
@@ -21,11 +20,11 @@ class IgniterInstaller extends BaseInstaller
     {
         if ($vars['type'] === 'igniter-extension') {
             $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
-            $vars['name'] = preg_replace('/^ti-|-extension$/', '', $vars['name']);
+            $vars['name'] = preg_replace('/^ti-ext-$/', '', $vars['name']);
         }
 
         if ($vars['type'] === 'igniter-theme') {
-            $vars['name'] = preg_replace('/^ti-|-theme$/', '', $vars['name']);
+            $vars['name'] = preg_replace('/^ti-theme-$/', '', $vars['name']);
         }
 
         return $vars;

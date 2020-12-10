@@ -57,7 +57,7 @@ class IgniterInstallerTest extends BaseTestCase
             array(
                 'igniter-extension',
                 'acme',
-                'pages-extension',
+                'ti-ext-pages',
                 'acme',
                 'pages',
             ),
@@ -73,9 +73,9 @@ class IgniterInstallerTest extends BaseTestCase
             array(
                 'igniter-theme',
                 'acme',
-                'my-theme-theme',
+                'ti-theme-theme',
                 'acme',
-                'my-theme',
+                'theme',
             ),
             // tests that names without '-theme' suffix stay valid
             array(
