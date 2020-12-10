@@ -14,7 +14,12 @@ class IgniterInstallerTest extends BaseTestCase
      */
     private $installer;
 
-    public function setUp(): void
+    /**
+     * setUp
+     *
+     * @return void
+     */
+    public function setUp()
     {
         $this->installer = new IgniterInstaller(
             new Package('NyanCat', '4.2', '4.2'),
@@ -24,11 +29,8 @@ class IgniterInstallerTest extends BaseTestCase
 
     /**
      * @dataProvider packageNameInflectionProvider
-     * @param $type
-     * @param $vendor
-     * @param $name
-     * @param $expectedVendor
-     * @param $expectedName
+     * 
+     * @return void
      */
     public function testInflectPackageVars($type, $vendor, $name, $expectedVendor, $expectedName)
     {
@@ -55,7 +57,7 @@ class IgniterInstallerTest extends BaseTestCase
             [
                 'igniter-extension',
                 'acme',
-                'pages-plugin',
+                'pages-extension',
                 'acme',
                 'pages',
             ],

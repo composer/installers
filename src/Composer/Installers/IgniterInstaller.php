@@ -4,10 +4,10 @@ namespace Composer\Installers;
 
 class IgniterInstaller extends BaseInstaller
 {
-    protected $locations = [
+    protected $locations = array(
         'extension' => 'extensions/{$vendor}/{$name}/',
         'theme' => 'themes/{$name}/',
-    ];
+    );
 
     /**
      * Format package name.
