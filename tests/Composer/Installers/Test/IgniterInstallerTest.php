@@ -44,7 +44,7 @@ class IgniterInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider(): array
+    public function packageNameInflectionProvider()
     {
         return array(
             array(
