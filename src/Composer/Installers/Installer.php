@@ -96,6 +96,7 @@ class Installer extends LibraryInstaller
         'sitedirect'   => 'SiteDirectInstaller',
         'silverstripe' => 'SilverStripeInstaller',
         'smf'          => 'SMFInstaller',
+        'starbug'      => 'StarbugInstaller',
         'sydes'        => 'SyDESInstaller',
         'sylius'       => 'SyliusInstaller',
         'symfony1'     => 'Symfony1Installer',

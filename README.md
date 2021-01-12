@@ -107,6 +107,7 @@ is not needed to install packages with these frameworks:
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
 | SiteDirect   | `sitedirect-module`<br>`sitedirect-plugin`
 | SMF          | `smf-module`<br>`smf-theme`
+| Starbug      | `starbug-module`<br>`starbug-theme`<br>`starbug-custom-module`<br>`starbug-custom-theme`
 | SyDES        | `sydes-module`<br>`sydes-theme`
 | Sylius       | `sylius-theme`
 | symfony1     | **`symfony1-plugin`**
