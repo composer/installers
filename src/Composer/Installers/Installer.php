@@ -88,6 +88,7 @@ class Installer extends LibraryInstaller
         'radphp'       => 'RadPHPInstaller',
         'phifty'       => 'PhiftyInstaller',
         'porto'        => 'PortoInstaller',
+        'processwire'  => 'ProcessWireInstaller',
         'redaxo'       => 'RedaxoInstaller',
         'redaxo5'      => 'Redaxo5Installer',
         'reindex'      => 'ReIndexInstaller',
