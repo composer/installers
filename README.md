@@ -90,12 +90,15 @@ is not needed to install packages with these frameworks:
 | MODULEWork   | `modulework-module`
 | Moodle       | `moodle-*` (Please [check source](https://github.com/composer/installers/blob/main/src/Composer/Installers/MoodleInstaller.php) for all supported types)
 | Piwik        | `piwik-plugin`
+| Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | Pimcore      | `pimcore-plugin`(deprecated, only used for versions <= 4)
 | Plentymarkets      | `plentymarkets-plugin`
 | PPI          | **`ppi-module`**
+| Prestashop   | `prestashop-module`<br>`prestashop-theme`
 | Puppet       | `puppet-module`
 | Porto        | `porto-container`
+| ProcessWire  | `processwire-module`
 | RadPHP       | `radphp-bundle`
 | REDAXO       | `redaxo-addon`
 | REDAXO bestyle-plugin | `redaxo-bestyle-plugin`
@@ -107,6 +110,7 @@ is not needed to install packages with these frameworks:
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
 | SiteDirect   | `sitedirect-module`<br>`sitedirect-plugin`
 | SMF          | `smf-module`<br>`smf-theme`
+| Starbug      | `starbug-module`<br>`starbug-theme`<br>`starbug-custom-module`<br>`starbug-custom-theme`
 | SyDES        | `sydes-module`<br>`sydes-theme`
 | Sylius       | `sylius-theme`
 | symfony1     | **`symfony1-plugin`**
@@ -124,8 +128,6 @@ is not needed to install packages with these frameworks:
 | YAWIK        | `yawik-module`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
-| Prestashop   | `prestashop-module`<br>`prestashop-theme`
-| Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 
 ## Example `composer.json` File
 
