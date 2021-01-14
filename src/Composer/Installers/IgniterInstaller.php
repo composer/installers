@@ -20,11 +20,11 @@ class IgniterInstaller extends BaseInstaller
     {
         if ($vars['type'] === 'igniter-extension') {
             $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
-            $vars['name'] = preg_replace('/^ti-ext-$/', '', $vars['name']);
+            $vars['name'] = preg_replace('/^ti-ext-/', '', $vars['name']);
         }
 
         if ($vars['type'] === 'igniter-theme') {
-            $vars['name'] = preg_replace('/^ti-theme-$/', '', $vars['name']);
+            $vars['name'] = preg_replace('/^ti-theme-/', '', $vars['name']);
         }
 
         return $vars;
