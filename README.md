@@ -90,10 +90,12 @@ is not needed to install packages with these frameworks:
 | MODULEWork   | `modulework-module`
 | Moodle       | `moodle-*` (Please [check source](https://github.com/composer/installers/blob/main/src/Composer/Installers/MoodleInstaller.php) for all supported types)
 | Piwik        | `piwik-plugin`
+| Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | Pimcore      | `pimcore-plugin`(deprecated, only used for versions <= 4)
 | Plentymarkets      | `plentymarkets-plugin`
 | PPI          | **`ppi-module`**
+| Prestashop   | `prestashop-module`<br>`prestashop-theme`
 | Puppet       | `puppet-module`
 | Porto        | `porto-container`
 | ProcessWire  | `processwire-module`
@@ -125,8 +127,6 @@ is not needed to install packages with these frameworks:
 | YAWIK        | `yawik-module`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
-| Prestashop   | `prestashop-module`<br>`prestashop-theme`
-| Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 
 ## Example `composer.json` File
 
