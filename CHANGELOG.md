@@ -1,10 +1,20 @@
 # Change Log
 
+## v1.10.0 - 2021-01-14
+### Added
+* Added handling for `LibraryInstaller` returning `PromiseInterface`.
+* Added Moodle document converter, [#464](https://github.com/composer/installers/pull/464).
+* Added installer for Starbug packages, [#475](https://github.com/composer/installers/pull/475).
+* Added installer for Processwire module, [#472](https://github.com/composer/installers/pull/472).
+
+### Fixed
+* Fixed TAO Installer for proper work, [#437](https://github.com/composer/installers/pull/437).
+
 ## v1.9.0 - 2020-04-07
 ## Added
-* Added support for Composer 2.0
-* Added drupal-database-driver type to Drupal Framework, [#452](https://github.com/composer/installers/pull/452)
-* Added support for declaring installer-paths values as strings [#449](https://github.com/composer/installers/pull/449)
+* Added support for Composer 2.0.
+* Added drupal-database-driver type to Drupal Framework, [#452](https://github.com/composer/installers/pull/452).
+* Added support for declaring installer-paths values as strings [#449](https://github.com/composer/installers/pull/449).
 
 ## v1.8.0 - 2020-02-07
 ## Added
