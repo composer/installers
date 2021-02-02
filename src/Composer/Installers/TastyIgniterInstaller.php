@@ -2,7 +2,7 @@
 
 namespace Composer\Installers;
 
-class IgniterInstaller extends BaseInstaller
+class TastyIgniterInstaller extends BaseInstaller
 {
     protected $locations = array(
         'extension' => 'extensions/{$vendor}/{$name}/',
@@ -18,12 +18,12 @@ class IgniterInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
-        if ($vars['type'] === 'igniter-extension') {
+        if ($vars['type'] === 'tastyigniter-extension') {
             $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
             $vars['name'] = preg_replace('/^ti-ext-/', '', $vars['name']);
         }
 
-        if ($vars['type'] === 'igniter-theme') {
+        if ($vars['type'] === 'tastyigniter-theme') {
             $vars['name'] = preg_replace('/^ti-theme-/', '', $vars['name']);
         }
 

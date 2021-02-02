@@ -3,14 +3,14 @@
 namespace Composer\Installers\Test;
 
 use Composer\Composer;
-use Composer\Installers\IgniterInstaller;
+use Composer\Installers\TastyIgniterInstaller;
 use Composer\Package\Package;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class IgniterInstallerTest extends BaseTestCase
+class TastyIgniterInstallerTest extends BaseTestCase
 {
     /**
-     * @var IgniterInstaller
+     * @var TastyIgniterInstaller
      */
     private $installer;
 
@@ -21,7 +21,7 @@ class IgniterInstallerTest extends BaseTestCase
      */
     public function setUp()
     {
-        $this->installer = new IgniterInstaller(
+        $this->installer = new TastyIgniterInstaller(
             new Package('NyanCat', '4.2', '4.2'),
             new Composer()
         );
@@ -29,7 +29,7 @@ class IgniterInstallerTest extends BaseTestCase
 
     /**
      * @dataProvider packageNameInflectionProvider
-     * 
+     *
      * @return void
      */
     public function testInflectPackageVars($type, $vendor, $name, $expectedVendor, $expectedName)
@@ -40,7 +40,11 @@ class IgniterInstallerTest extends BaseTestCase
                 'name' => $name,
                 'type' => $type,
             )),
-            array('vendor' => $expectedVendor, 'name' => $expectedName, 'type' => $type)
+            array(
+                'vendor' => $expectedVendor,
+                'name' => $expectedName,
+                'type' => $type
+            )
         );
     }
 
@@ -48,14 +52,14 @@ class IgniterInstallerTest extends BaseTestCase
     {
         return array(
             array(
-                'igniter-extension',
+                'tastyigniter-extension',
                 'acme',
                 'pages',
                 'acme',
                 'pages',
             ),
             array(
-                'igniter-extension',
+                'tastyigniter-extension',
                 'acme',
                 'ti-ext-pages',
                 'acme',
@@ -63,7 +67,7 @@ class IgniterInstallerTest extends BaseTestCase
             ),
             // tests vendor name containing a hyphen
             array(
-                'igniter-extension',
+                'tastyigniter-extension',
                 'foo-bar-co',
                 'blog',
                 'foobarco',
@@ -71,7 +75,7 @@ class IgniterInstallerTest extends BaseTestCase
             ),
             // tests that exactly one '-theme' is cut off
             array(
-                'igniter-theme',
+                'tastyigniter-theme',
                 'acme',
                 'ti-theme-theme',
                 'acme',
@@ -79,7 +83,7 @@ class IgniterInstallerTest extends BaseTestCase
             ),
             // tests that names without '-theme' suffix stay valid
             array(
-                'igniter-theme',
+                'tastyigniter-theme',
                 'acme',
                 'someothertheme',
                 'acme',
