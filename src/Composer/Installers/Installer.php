@@ -50,7 +50,7 @@ class Installer extends LibraryInstaller
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
         'hurad'        => 'HuradInstaller',
-        'igniter'      => 'IgniterInstaller',
+        'tastyigniter' => 'TastyIgniterInstaller',
         'imagecms'     => 'ImageCMSInstaller',
         'itop'         => 'ItopInstaller',
         'joomla'       => 'JoomlaInstaller',
