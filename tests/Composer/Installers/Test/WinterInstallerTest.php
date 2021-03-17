@@ -84,6 +84,14 @@ class WinterInstallerTest extends BaseTestCase
                 'acme',
                 'someothertheme',
             ),
+            // tests modules
+            array(
+                'winter-module',
+                'winter',
+                'wn-system-module',
+                'winter',
+                'system',
+            ),
         );
     }
 }
