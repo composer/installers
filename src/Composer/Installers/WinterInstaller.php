@@ -19,6 +19,10 @@ class WinterInstaller extends BaseInstaller
      */
     public function inflectPackageVars($vars)
     {
+        if ($vars['type'] === 'winter-module') {
+            return $this->inflectModuleVars($vars);
+        }
+        
         if ($vars['type'] === 'winter-plugin') {
             return $this->inflectPluginVars($vars);
         }
@@ -29,10 +33,17 @@ class WinterInstaller extends BaseInstaller
 
         return $vars;
     }
+    
+    protected function inflectModuleVars($vars)
+    {
+        $vars['name'] = preg_replace('/^wn-|-module$/', '', $vars['name']);
+
+        return $vars;
+    }
 
     protected function inflectPluginVars($vars)
     {
-        $vars['name'] = preg_replace('/^oc-|-plugin$/', '', $vars['name']);
+        $vars['name'] = preg_replace('/^wn-|-plugin$/', '', $vars['name']);
         $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
 
         return $vars;
@@ -40,7 +51,7 @@ class WinterInstaller extends BaseInstaller
 
     protected function inflectThemeVars($vars)
     {
-        $vars['name'] = preg_replace('/^oc-|-theme$/', '', $vars['name']);
+        $vars['name'] = preg_replace('/^wn-|-theme$/', '', $vars['name']);
 
         return $vars;
     }
