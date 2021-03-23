@@ -70,6 +70,7 @@ class Installer extends LibraryInstaller
         'maya'         => 'MayaInstaller',
         'mautic'       => 'MauticInstaller',
         'mediawiki'    => 'MediaWikiInstaller',
+        'miaoxing'     => 'MiaoxingInstaller',
         'microweber'   => 'MicroweberInstaller',
         'modulework'   => 'MODULEWorkInstaller',
         'modx'         => 'ModxInstaller',
