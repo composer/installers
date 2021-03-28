@@ -38,7 +38,7 @@ class MauticInstaller extends BaseInstaller
     {
 
         if ($vars['type'] == 'mautic-plugin') {
-            $directoryName = $this->getDirectoryName($vars['name']);
+            $directoryName = $this->getDirectoryName();
             $vars['name'] = $directoryName;
         }
 
