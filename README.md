@@ -78,7 +78,7 @@ is not needed to install packages with these frameworks:
 | majima       | `majima-plugin`
 | Mako         | `mako-package`
 | MantisBT     | `mantisbt-plugin`
-| Mautic       | `mautic-plugin`<br>`mautic-theme`
+| Mautic       | `mautic-core`<br>`mautic-plugin`<br>`mautic-theme`
 | Maya         | `maya-module`
 | MODX         | `modx-extra`
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
