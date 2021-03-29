@@ -37,7 +37,7 @@ class MauticInstaller extends BaseInstaller
     public function inflectPackageVars($vars)
     {
 
-        if ($vars['type'] == 'mautic-plugin') {
+        if ($vars['type'] == 'mautic-plugin' || $vars['type'] == 'mautic-theme') {
             $directoryName = $this->getDirectoryName();
             $vars['name'] = $directoryName;
         }
