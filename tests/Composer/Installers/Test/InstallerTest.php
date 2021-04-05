@@ -395,7 +395,7 @@ class InstallerTest extends TestCase
             array('moodle-mod', 'mod/my_package/', 'shama/my_package'),
             array('october-module', 'modules/my_plugin/', 'shama/my_plugin'),
             array('october-plugin', 'plugins/shama/my_plugin/', 'shama/my_plugin'),
-            array('october-theme', 'themes/my_theme/', 'shama/my_theme'),
+            array('october-theme', 'themes/shama-my_theme/', 'shama/my_theme'),
             array('piwik-plugin', 'plugins/VisitSummary/', 'shama/visit-summary'),
             array('prestashop-module', 'modules/a-module/', 'vendor/a-module'),
             array('prestashop-theme', 'themes/a-theme/', 'vendor/a-theme'),
