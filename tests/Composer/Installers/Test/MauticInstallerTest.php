@@ -4,14 +4,18 @@ namespace Composer\Installers\Test;
 use Composer\Installers\MauticInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class MauticInstallerTest extends BaseTestCase
+class MauticInstallerTest extends TestCase
 {
     /**
      * @var MauticInstaller
      */
     private $installer;
+
+    /**
+     * @var \Composer\Composer
+     */
+    protected $composer;
 
     public function setUp()
     {
@@ -31,7 +35,7 @@ class MauticInstallerTest extends BaseTestCase
         $package = new Package($vars['name'], '1.0.0', '1.0.0');
         $package->setType($vars['type']);
         if (isset($vars['extra'])) {
-            $package->setExtra($vars['extra']);
+            $package->setExtra((array) $vars['extra']);
         }
 
         $installer = new MauticInstaller(
@@ -69,16 +73,16 @@ class MauticInstallerTest extends BaseTestCase
                 array(
                     'name' => 'mautic/grapes-js-builder-bundle', 
                     'type' => 'mautic-plugin', 
-                    'extra' => [
+                    'extra' => array(
                         'install-directory-name' => 'GrapesJsBuilderPlugin'
-                    ]
+                    )
                 ),
                 array(
                     'name' => 'GrapesJsBuilderPlugin', 
                     'type' => 'mautic-plugin', 
-                    'extra' => [
+                    'extra' => array(
                         'install-directory-name' => 'GrapesJsBuilderPlugin'
-                    ]
+                    )
                 )                
             ),
             array(
@@ -95,16 +99,16 @@ class MauticInstallerTest extends BaseTestCase
                 array(
                     'name' => 'mautic/theme-blank-grapejs', 
                     'type' => 'mautic-theme', 
-                    'extra' => [
+                    'extra' => array(
                         'install-directory-name' => 'blank-grapejs'
-                    ]
+                    )
                 ),
                 array(
                     'name' => 'blank-grapejs', 
                     'type' => 'mautic-theme', 
-                    'extra' => [
+                    'extra' => array(
                         'install-directory-name' => 'blank-grapejs'
-                    ]
+                    )
                 )                
             )
         );
