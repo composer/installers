@@ -1,5 +1,15 @@
 # Change Log
 
+## v1.11.0 - 2021-04-28
+### Added
+* Added installer for TastyIgniter extensions and themes [#478](https://github.com/composer/installers/pull/478).
+* Added installers for Winter CMS [#480](https://github.com/composer/installers/pull/480), [#481](https://github.com/composer/installers/pull/481).
+* Added installer for Miaoxing plugin [#482](https://github.com/composer/installers/pull/482).
+
+## Changed
+* Now using fully qualified theme names in the October CMS [#486](https://github.com/composer/installers/pull/486).
+* Updated MauticInstaller to allow plugins & themes [#484](https://github.com/composer/installers/pull/484).
+
 ## v1.10.0 - 2021-01-14
 ### Added
 * Added handling for `LibraryInstaller` returning `PromiseInterface`.
