@@ -16,7 +16,7 @@ class CodeIgniterInstaller extends BaseInstaller
 
     public function inflectPackageVars($vars)
     {
-        if ($this->matchesVersion('>=', '3.11.1')) {
+        if ($this->matchesVersion('>=', '3.11')) {
             return $vars;
         }
 
@@ -27,7 +27,6 @@ class CodeIgniterInstaller extends BaseInstaller
             $value = str_replace(' ', '', ucwords($value));
         }
         $vars['name'] = implode('/', $nameParts);
-
         return $vars;
     }
 
@@ -59,7 +58,7 @@ class CodeIgniterInstaller extends BaseInstaller
      */
     public function getLocations()
     {
-      if ($this->matchesVersion('>=', '3.11.1')) {
+      if ($this->matchesVersion('>=', '3.11')) {
         foreach ($this->locations as $key => $value) {
           $this->locations[$key] =
             $this->composer->getConfig()->get('vendor-dir') . '/{$vendor}/{$name}/';
