@@ -5,7 +5,6 @@ use Composer\Semver\Constraint\Constraint;
 
 class CodeIgniterInstaller extends BaseInstaller
 {
-
     protected $locations = array(
       'library'     => 'application/libraries/{$name}/',
       'helper' => 'application/helpers/{$name}/',
