@@ -96,12 +96,8 @@
     "extra": {
         "class": "Composer\\Installers\\Plugin",
         "branch-alias": {
-            "dev-main": "1.x-dev"
+            "dev-main": "2.x-dev"
         }
-    },
-    "replace": {
-        "shama/baton": "*",
-        "roundcube/plugin-installer": "*"
     },
     "require": {
         "composer-plugin-api": "^1.0 || ^2.0"
