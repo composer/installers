@@ -273,7 +273,7 @@ class InstallerTest extends TestCase
 
         $package->setType($type);
         $result = $installer->getInstallPath($package);
-        $this->assertEquals($path, $result);
+        $this->assertEquals(getcwd() . '/' . $path, $result);
     }
 
     /**
@@ -505,7 +505,7 @@ class InstallerTest extends TestCase
             ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('my/custom/path/Ftp/', $result);
+        $this->assertEquals(getcwd() . '/my/custom/path/Ftp/', $result);
     }
 
     /**
@@ -520,7 +520,7 @@ class InstallerTest extends TestCase
             'installer-name' => 'FTP',
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('Plugin/FTP/', $result);
+        $this->assertEquals(getcwd() . '/Plugin/FTP/', $result);
     }
 
     /**
@@ -539,7 +539,7 @@ class InstallerTest extends TestCase
             ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('my/custom/path/my_plugin/', $result);
+        $this->assertEquals(getcwd() . '/my/custom/path/my_plugin/', $result);
     }
 
     /**
@@ -558,7 +558,7 @@ class InstallerTest extends TestCase
           ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('modules/custom/my_module/', $result);
+        $this->assertEquals(getcwd() . '/modules/custom/my_module/', $result);
     }
 
     /**
@@ -575,7 +575,7 @@ class InstallerTest extends TestCase
           ),
         ));
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('modules/custom/my_module/', $result);
+        $this->assertEquals(getcwd() . '/modules/custom/my_module/', $result);
     }
 
     /**
@@ -588,7 +588,7 @@ class InstallerTest extends TestCase
 
         $package->setType('vanilla-plugin');
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('plugins/vanillaPlugin/', $result);
+        $this->assertEquals(getcwd() . '/plugins/vanillaPlugin/', $result);
     }
 
     /**
@@ -607,7 +607,7 @@ class InstallerTest extends TestCase
 
         $package->setType('typo3-flow-package');
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('Packages/Application/TYPO3.Fluid/', $result);
+        $this->assertEquals(getcwd() . '/Packages/Application/TYPO3.Fluid/', $result);
     }
 
     public function testUninstallAndDeletePackageFromLocalRepo()
