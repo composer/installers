@@ -79,7 +79,6 @@ class Installer extends LibraryInstaller
         'osclass'      => 'OsclassInstaller',
         'pxcms'        => 'PxcmsInstaller',
         'phpbb'        => 'PhpBBInstaller',
-        'pimcore'      => 'PimcoreInstaller',
         'piwik'        => 'PiwikInstaller',
         'plentymarkets'=> 'PlentymarketsInstaller',
         'ppi'          => 'PPIInstaller',

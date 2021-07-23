@@ -90,7 +90,6 @@ is not needed to install packages with these frameworks:
 | Piwik        | `piwik-plugin`
 | Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
-| Pimcore      | `pimcore-plugin`(deprecated, only used for versions <= 4)
 | Plentymarkets      | `plentymarkets-plugin`
 | PPI          | **`ppi-module`**
 | Prestashop   | `prestashop-module`<br>`prestashop-theme`
