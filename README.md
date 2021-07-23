@@ -64,7 +64,6 @@ is not needed to install packages with these frameworks:
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
 | ImageCMS     | `imagecms-template`<br>`imagecms-module`<br>`imagecms-library`
 | iTop         | `itop-extension`
-| Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
 | Kanboard     | `kanboard-plugin`
 | Known        | `known-plugin`<br>`known-theme`<br>`known-console`
 | KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
