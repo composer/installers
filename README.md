@@ -16,14 +16,9 @@ custom installer to handle it](https://getcomposer.org/doc/articles/custom-insta
 
 **Natively Supported Frameworks**:
 
-The following frameworks natively work with Composer and will be
+Most frameworks these days natively work with Composer and will be
 installed to the default `vendor` directory. `composer/installers`
-is not needed to install packages with these frameworks:
-
-* Aura
-* Symfony2
-* Yii
-* Yii2
+is **not needed** to install packages with these frameworks.
 
 ## Current Supported Package Types
 

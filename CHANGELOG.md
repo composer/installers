@@ -1,5 +1,21 @@
 # Change Log
 
+## v2.0.0-alpha1 - 2021-07-23
+### Added
+* Type declarations have been added everywhere to support PHPStan level 8
+
+### Changed
+* Minimum supported PHP version is now 7.2
+* Installer::getInstallPath() now returns absolute paths instead of relative ones previously (#307)
+
+### Removed
+* Removed support for Kirby
+* Removed support for Symfony1
+* Removed support for Joomla
+* Removed support for TYPO3 CMS
+* Removed support for Craft
+* Removed support for Pimcore
+
 ## v1.11.0 - 2021-04-28
 ### Added
 * Added installer for TastyIgniter extensions and themes [#478](https://github.com/composer/installers/pull/478).
