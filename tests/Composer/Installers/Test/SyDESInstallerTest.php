@@ -1,30 +1,31 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\SyDESInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class SyDESInstallerTest extends BaseTestCase
+class SyDESInstallerTest extends TestCase
 {
     /**
      * @var SyDESInstaller
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new SyDESInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $name, $expected)
+    public function testInflectPackageVars(string $type, string $name, string $expected): void
     {
         $this->assertEquals(
             array('name' => $expected, 'type' => $type),
@@ -32,11 +33,11 @@ class SyDESInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             // modules
-			array(
+            array(
                 'sydes-module',
                 'name',
                 'Name'
@@ -61,7 +62,7 @@ class SyDESInstallerTest extends BaseTestCase
                 'sydes-sample-name-module',
                 'SampleName'
             ),
-			// themes
+            // themes
             array(
                 'sydes-theme',
                 'some-theme-theme',

@@ -8,26 +8,28 @@ use Composer\Package\Package;
 
 class SiteDirectInstallerTest extends TestCase
 {
-    /** @var SiteDirectInstaller $installer */
+    /** @var SiteDirectInstaller */
     protected $installer;
 
     /** @var Package */
     private $package;
 
-    public function SetUp()
+    public function setUp(): void
     {
         $this->package = new Package('sitedirect/some_name', '1.0.9', '1.0');
         $this->installer = new SiteDirectInstaller(
             $this->package,
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
-
     }
 
     /**
      * @dataProvider dataProvider
+     * @param array{name: string, vendor: string, type: string} $data
+     * @param array{name: string, vendor: string, type: string} $expected
      */
-    public function testInflectPackageVars($data, $expected)
+    public function testInflectPackageVars(array $data, array $expected): void
     {
         $result = $this->installer->inflectPackageVars($data);
         $this->assertEquals($result, $expected);
@@ -35,8 +37,10 @@ class SiteDirectInstallerTest extends TestCase
 
     /**
      * @dataProvider dataProvider
+     * @param array{name: string, vendor: string, type: string} $data
+     * @param array{name: string, vendor: string, type: string} $expected
      */
-    public function testInstallPath($data, $expected)
+    public function testInstallPath(array $data, array $expected): void
     {
         $result = $this->installer->inflectPackageVars($data);
         $path = $this->createPackage($data);
@@ -52,19 +56,18 @@ class SiteDirectInstallerTest extends TestCase
      * @param string[] $data
      * @return string
      */
-    private function createPackage($data)
+    private function createPackage(array $data): string
     {
         $fullName = "{$data['vendor']}/{$data['name']}";
 
         $package = new Package($fullName, '1.0', '1.0');
         $package->setType('sitedirect-module');
-        $installer = new SiteDirectInstaller($package, new Composer());
+        $installer = new SiteDirectInstaller($package, $this->getComposer(), $this->getMockIO());
 
-        $path = $installer->getInstallPath($package, 'sitedirect');
-        return $path;
+        return $installer->getInstallPath($package, 'sitedirect');
     }
 
-    public function dataProvider()
+    public function dataProvider(): array
     {
         return array(
             array(

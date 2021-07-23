@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Composer;
@@ -6,24 +7,24 @@ use Composer\Installers\GravInstaller;
 
 class GravInstallerTest extends TestCase
 {
-    /* @var \Composer\Composer */
+    /** @var Composer */
     protected $composer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->composer = new Composer();
     }
 
-    public function testInflectPackageVars()
+    public function testInflectPackageVars(): void
     {
         $package     = $this->getPackage('vendor/name', '0.0.0');
-        $installer   = new GravInstaller($package, $this->composer);
+        $installer   = new GravInstaller($package, $this->composer, $this->getMockIO());
         $packageVars = $this->getPackageVars($package);
 
         $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => 'test')));
         $this->assertEquals('test', $result['name']);
 
-        foreach ($installer->getLocations() as $name => $location) {
+        foreach ($installer->getLocations('grav') as $name => $location) {
             $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "$name-test")));
             $this->assertEquals('test', $result['name']);
             $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "test-$name")));
@@ -45,8 +46,9 @@ class GravInstallerTest extends TestCase
 
     /**
      * @param \Composer\Package\PackageInterface $package
+     * @return string[]
      */
-    public function getPackageVars($package)
+    public function getPackageVars($package): array
     {
         $type = $package->getType();
 

@@ -6,6 +6,7 @@ use Composer\Composer;
 use Composer\Installer\BinaryInstaller;
 use Composer\Installer\LibraryInstaller;
 use Composer\IO\IOInterface;
+use Composer\Package\Package;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 use Composer\Util\Filesystem;
@@ -13,11 +14,10 @@ use React\Promise\PromiseInterface;
 
 class Installer extends LibraryInstaller
 {
-
     /**
      * Package types to installer class map
      *
-     * @var array
+     * @var array<string, string>
      */
     private $supportedTypes = array(
         'aimeos'       => 'AimeosInstaller',
@@ -115,26 +115,17 @@ class Installer extends LibraryInstaller
     );
 
     /**
-     * Installer constructor.
-     *
      * Disables installers specified in main composer extra installer-disable
      * list
-     *
-     * @param IOInterface          $io
-     * @param Composer             $composer
-     * @param string               $type
-     * @param Filesystem|null      $filesystem
-     * @param BinaryInstaller|null $binaryInstaller
      */
     public function __construct(
         IOInterface $io,
         Composer $composer,
-        $type = 'library',
-        Filesystem $filesystem = null,
-        BinaryInstaller $binaryInstaller = null
+        string $type = 'library',
+        ?Filesystem $filesystem = null,
+        ?BinaryInstaller $binaryInstaller = null
     ) {
-        parent::__construct($io, $composer, $type, $filesystem,
-            $binaryInstaller);
+        parent::__construct($io, $composer, $type, $filesystem, $binaryInstaller);
         $this->removeDisabledInstallers();
     }
 
@@ -203,10 +194,9 @@ class Installer extends LibraryInstaller
     /**
      * Finds a supported framework type if it exists and returns it
      *
-     * @param  string       $type
      * @return string|false
      */
-    protected function findFrameworkType($type)
+    protected function findFrameworkType(string $type)
     {
         krsort($this->supportedTypes);
 
@@ -222,30 +212,24 @@ class Installer extends LibraryInstaller
     /**
      * Get the second part of the regular expression to check for support of a
      * package type
-     *
-     * @param  string $frameworkType
-     * @return string
      */
-    protected function getLocationPattern($frameworkType)
+    protected function getLocationPattern(string $frameworkType): string
     {
-        $pattern = false;
+        $pattern = null;
         if (!empty($this->supportedTypes[$frameworkType])) {
             $frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
             /** @var BaseInstaller $framework */
-            $framework = new $frameworkClass(null, $this->composer, $this->getIO());
-            $locations = array_keys($framework->getLocations());
-            $pattern = $locations ? '(' . implode('|', $locations) . ')' : false;
+            $framework = new $frameworkClass(new Package('dummy/pkg', '1.0.0.0', '1.0.0'), $this->composer, $this->getIO());
+            $locations = array_keys($framework->getLocations($frameworkType));
+            if ($locations) {
+                $pattern = '(' . implode('|', $locations) . ')';
+            }
         }
 
-        return $pattern ? : '(\w+)';
+        return $pattern ?: '(\w+)';
     }
 
-    /**
-     * Get I/O object
-     *
-     * @return IOInterface
-     */
-    private function getIO()
+    private function getIO(): IOInterface
     {
         return $this->io;
     }
@@ -258,10 +242,8 @@ class Installer extends LibraryInstaller
      *  - true, "all", and "*" - disable all installers.
      *  - false - enable all installers (useful with
      *     wikimedia/composer-merge-plugin or similar)
-     *
-     * @return void
      */
-    protected function removeDisabledInstallers()
+    protected function removeDisabledInstallers(): void
     {
         $extra = $this->composer->getPackage()->getExtra();
 
@@ -284,12 +266,13 @@ class Installer extends LibraryInstaller
         if (!empty($intersect)) {
             // Disable all installers
             $this->supportedTypes = array();
-        } else {
-            // Disable specified installers
-            foreach ($disable as $key => $installer) {
-                if (is_string($installer) && key_exists($installer, $this->supportedTypes)) {
-                    unset($this->supportedTypes[$installer]);
-                }
+            return;
+        }
+
+        // Disable specified installers
+        foreach ($disable as $key => $installer) {
+            if (is_string($installer) && key_exists($installer, $this->supportedTypes)) {
+                unset($this->supportedTypes[$installer]);
             }
         }
     }

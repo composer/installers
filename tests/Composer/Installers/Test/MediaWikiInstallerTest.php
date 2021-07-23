@@ -1,30 +1,31 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\MediaWikiInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class MediaWikiInstallerTest extends BaseTestCase
+class MediaWikiInstallerTest extends TestCase
 {
     /**
      * @var MediaWikiInstaller
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new MediaWikiInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $name, $expected)
+    public function testInflectPackageVars(string $type, string $name, string $expected): void
     {
         $this->assertEquals(
             $this->installer->inflectPackageVars(array('name' => $name, 'type'=>$type)),
@@ -32,7 +33,7 @@ class MediaWikiInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             array(

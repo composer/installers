@@ -12,17 +12,22 @@
 
 namespace Composer\Installers\Test;
 
+use Composer\Composer;
+use Composer\IO\IOInterface;
+use Composer\IO\NullIO;
 use Composer\Package\Version\VersionParser;
 use Composer\Package\Package;
 use Composer\Package\AliasPackage;
+use Composer\Package\RootPackage;
 use Composer\Semver\Constraint\Constraint;
 use Composer\Util\Filesystem;
 
-abstract class TestCase extends PolyfillTestCase
+abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
-    private static $parser;
+    /** @var ?VersionParser */
+    private static $parser = null;
 
-    protected static function getVersionParser()
+    protected static function getVersionParser(): VersionParser
     {
         if (!self::$parser) {
             self::$parser = new VersionParser();
@@ -31,7 +36,10 @@ abstract class TestCase extends PolyfillTestCase
         return self::$parser;
     }
 
-    protected function getVersionConstraint($operator, $version)
+    /**
+     * @param Constraint::STR_OP_* $operator
+     */
+    protected function getVersionConstraint(string $operator, string $version): Constraint
     {
         return new Constraint(
             $operator,
@@ -39,21 +47,21 @@ abstract class TestCase extends PolyfillTestCase
         );
     }
 
-    protected function getPackage($name, $version)
+    protected function getPackage(string $name, string $version): Package
     {
         $normVersion = self::getVersionParser()->normalize($version);
 
         return new Package($name, $normVersion, $version);
     }
 
-    protected function getAliasPackage($package, $version)
+    protected function getAliasPackage(Package $package, string $version): AliasPackage
     {
         $normVersion = self::getVersionParser()->normalize($version);
 
         return new AliasPackage($package, $normVersion, $version);
     }
 
-    protected function ensureDirectoryExistsAndClear($directory)
+    protected function ensureDirectoryExistsAndClear(string $directory): void
     {
         $fs = new Filesystem();
         if (is_dir($directory)) {
@@ -62,25 +70,16 @@ abstract class TestCase extends PolyfillTestCase
         mkdir($directory, 0777, true);
     }
 
-    /**
-     * @param string      $exception
-     * @param string|null $message
-     * @param int|null    $code
-     * @return void
-     */
-    public function setExpectedException($exception, $message = null, $code = null)
+    protected function getComposer(): Composer
     {
-        if (!class_exists('PHPUnit\Framework\Error\Notice')) {
-            $exception = str_replace('PHPUnit\\Framework\\Error\\', 'PHPUnit_Framework_Error_', $exception);
-        }
-        if (method_exists($this, 'expectException')) {
-            $this->expectException($exception);
-            if (null !== $message) {
-                $this->expectExceptionMessage($message);
-            }
-        } else {
-            /** @phpstan-ignore-next-line */
-            parent::setExpectedException($exception, $message, $code);
-        }
+        $composer = new Composer;
+        $composer->setPackage($pkg = new RootPackage('root/pkg', '1.0.0.0', '1.0.0'));
+
+        return $composer;
+    }
+
+    protected function getMockIO(): IOInterface
+    {
+        return $this->getMockBuilder(IOInterface::class)->getMock();
     }
 }

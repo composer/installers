@@ -1,10 +1,10 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\AsgardInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase;
 
 class AsgardInstallerTest extends TestCase
 {
@@ -13,18 +13,19 @@ class AsgardInstallerTest extends TestCase
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new AsgardInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $name, $expected)
+    public function testInflectPackageVars(string $type, string $name, string $expected): void
     {
         $this->assertEquals(
             array('name' => $expected, 'type' => $type),
@@ -32,7 +33,7 @@ class AsgardInstallerTest extends TestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             // Should keep module name StudlyCase

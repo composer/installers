@@ -1,30 +1,31 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\OctoberInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class OctoberInstallerTest extends BaseTestCase
+class OctoberInstallerTest extends TestCase
 {
     /**
      * @var OctoberInstaller
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new OctoberInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $vendor, $name, $expectedVendor, $expectedName)
+    public function testInflectPackageVars(string $type, string $vendor, string $name, string $expectedVendor, string $expectedName): void
     {
         $this->assertEquals(
             $this->installer->inflectPackageVars(array(
@@ -36,7 +37,7 @@ class OctoberInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             array(

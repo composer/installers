@@ -1,8 +1,10 @@
 <?php
+
 namespace Composer\Installers;
 
 class WinterInstaller extends BaseInstaller
 {
+    /** @var array<string, string> */
     protected $locations = array(
         'module'    => 'modules/{$name}/',
         'plugin'    => 'plugins/{$vendor}/{$name}/',
@@ -15,9 +17,8 @@ class WinterInstaller extends BaseInstaller
      * For package type winter-plugin, cut off a trailing '-plugin' if present.
      *
      * For package type winter-theme, cut off a trailing '-theme' if present.
-     *
      */
-    public function inflectPackageVars($vars)
+    public function inflectPackageVars(array $vars): array
     {
         if ($vars['type'] === 'winter-module') {
             return $this->inflectModuleVars($vars);
@@ -34,24 +35,36 @@ class WinterInstaller extends BaseInstaller
         return $vars;
     }
     
-    protected function inflectModuleVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectModuleVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/^wn-|-module$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/^wn-|-module$/', '', $vars['name']);
 
         return $vars;
     }
 
-    protected function inflectPluginVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectPluginVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/^wn-|-plugin$/', '', $vars['name']);
-        $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
+        $vars['name'] = $this->pregReplace('/^wn-|-plugin$/', '', $vars['name']);
+        $vars['vendor'] = $this->pregReplace('/[^a-z0-9_]/i', '', $vars['vendor']);
 
         return $vars;
     }
 
-    protected function inflectThemeVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectThemeVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/^wn-|-theme$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/^wn-|-theme$/', '', $vars['name']);
 
         return $vars;
     }

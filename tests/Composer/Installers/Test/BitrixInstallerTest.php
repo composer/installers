@@ -19,13 +19,7 @@ class BitrixInstallerTest extends TestCase
     /** @var Composer */
     private $composer;
 
-
-    /**
-     * Sets up the fixture, for example, instantiate the class-under-test.
-     *
-     * This method is called before a test is executed.
-     */
-    final function setUp()
+    public function setUp(): void
     {
         $this->composer = new Composer();
     }
@@ -36,14 +30,14 @@ class BitrixInstallerTest extends TestCase
      *
      * @covers ::inflectPackageVars
      *
-     * @dataProvider provideExpectedInflectionResults
+     * @dataProvider expectedInflectionResultsProvider
      */
-    final public function testInflectPackageVars($vars, $expectedVars)
+    public function testInflectPackageVars(array $vars, array $expectedVars): void
     {
-
         $this->installer = new BitrixInstaller(
             new Package($vars['name'], '4.2', '4.2'),
-            $this->composer
+            $this->composer,
+            $this->getMockIO()
         );
         $actual = $this->installer->inflectPackageVars($vars);
         $this->assertEquals($actual, $expectedVars);
@@ -51,10 +45,8 @@ class BitrixInstallerTest extends TestCase
 
     /**
      * Provides various parameters for packages and the expected result after inflection
-     *
-     * @return array
      */
-    final public function provideExpectedInflectionResults()
+    public function expectedInflectionResultsProvider(): array
     {
         return array(
             //check bitrix-dir is correct

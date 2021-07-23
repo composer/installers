@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\MauticInstaller;
@@ -13,11 +14,11 @@ class MauticInstallerTest extends TestCase
     private $installer;
 
     /**
-     * @var \Composer\Composer
+     * @var Composer
      */
     protected $composer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->composer = new Composer();
     }
@@ -28,9 +29,9 @@ class MauticInstallerTest extends TestCase
      *
      * @covers ::inflectPackageVars
      *
-     * @dataProvider provideExpectedInflectionResults
+     * @dataProvider expectedInflectionResultsProvider
      */
-    final public function testInflectPackageVars($vars, $expectedVars)
+    public function testInflectPackageVars(array $vars, array $expectedVars): void
     {
         $package = new Package($vars['name'], '1.0.0', '1.0.0');
         $package->setType($vars['type']);
@@ -40,7 +41,8 @@ class MauticInstallerTest extends TestCase
 
         $installer = new MauticInstaller(
             $package,
-            $this->composer
+            $this->composer,
+            $this->getMockIO()
         );
 
         $actual = $installer->inflectPackageVars($vars);
@@ -53,13 +55,13 @@ class MauticInstallerTest extends TestCase
      *
      * @return array
      */
-    final public function provideExpectedInflectionResults()
+    public function expectedInflectionResultsProvider(): array
     {
         return array(
             //check bitrix-dir is correct
             array(
                 array(
-                    'name' => 'mautic/grapes-js-builder-bundle', 
+                    'name' => 'mautic/grapes-js-builder-bundle',
                     'type' => 'mautic-plugin'
                 ),
                 array(
@@ -71,45 +73,45 @@ class MauticInstallerTest extends TestCase
             // installation directory
             array(
                 array(
-                    'name' => 'mautic/grapes-js-builder-bundle', 
-                    'type' => 'mautic-plugin', 
+                    'name' => 'mautic/grapes-js-builder-bundle',
+                    'type' => 'mautic-plugin',
                     'extra' => array(
                         'install-directory-name' => 'GrapesJsBuilderPlugin'
                     )
                 ),
                 array(
-                    'name' => 'GrapesJsBuilderPlugin', 
-                    'type' => 'mautic-plugin', 
+                    'name' => 'GrapesJsBuilderPlugin',
+                    'type' => 'mautic-plugin',
                     'extra' => array(
                         'install-directory-name' => 'GrapesJsBuilderPlugin'
                     )
-                )                
+                )
             ),
             array(
                 array(
-                    'name' => 'mautic/theme-blank-grapejs', 
+                    'name' => 'mautic/theme-blank-grapejs',
                     'type' => 'mautic-theme'
                 ),
                 array(
-                    'name' => 'ThemeBlankGrapejs', 
+                    'name' => 'ThemeBlankGrapejs',
                     'type' => 'mautic-theme'
                 )
             ),
             array(
                 array(
-                    'name' => 'mautic/theme-blank-grapejs', 
-                    'type' => 'mautic-theme', 
+                    'name' => 'mautic/theme-blank-grapejs',
+                    'type' => 'mautic-theme',
                     'extra' => array(
                         'install-directory-name' => 'blank-grapejs'
                     )
                 ),
                 array(
-                    'name' => 'blank-grapejs', 
-                    'type' => 'mautic-theme', 
+                    'name' => 'blank-grapejs',
+                    'type' => 'mautic-theme',
                     'extra' => array(
                         'install-directory-name' => 'blank-grapejs'
                     )
-                )                
+                )
             )
         );
     }

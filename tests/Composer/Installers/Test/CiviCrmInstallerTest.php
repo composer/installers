@@ -1,30 +1,31 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\CiviCrmInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class CiviCrmInstallerTest extends BaseTestCase
+class CiviCrmInstallerTest extends TestCase
 {
     /**
      * @var CiviCrmInstaller
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new CiviCrmInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $name, $expected)
+    public function testInflectPackageVars(string $type, string $name, string $expected): void
     {
         $this->assertEquals(
             array('name' => $expected, 'type' => $type),
@@ -32,7 +33,7 @@ class CiviCrmInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             array(

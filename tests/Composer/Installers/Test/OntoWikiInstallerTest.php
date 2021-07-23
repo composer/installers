@@ -1,29 +1,36 @@
 <?php
+
 namespace Composer\Installers\Test;
 
+use Composer\Composer;
 use Composer\Installers\OntoWikiInstaller;
-use PHPUnit\Framework\TestCase as BaseTestCase;
+use Composer\Package\Package;
 
 /**
  * Test for the OntoWikiInstaller
  * code was taken from DokuWikiInstaller
  */
-class OntoWikiInstallerTest extends BaseTestCase
+class OntoWikiInstallerTest extends TestCase
 {
     /**
      * @var OntoWikiInstaller
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
-        $this->installer = new OntoWikiInstaller();
+        $package = new Package('ontowiki/some_name', '1.0.9', '1.0');
+        $this->installer = new OntoWikiInstaller(
+            $package,
+            $this->getComposer(),
+            $this->getMockIO()
+        );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $name, $expected)
+    public function testInflectPackageVars(string $type, string $name, string $expected): void
     {
         $this->assertEquals(
             $this->installer->inflectPackageVars(array('name' => $name, 'type'=>$type)),
@@ -31,7 +38,7 @@ class OntoWikiInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             array(

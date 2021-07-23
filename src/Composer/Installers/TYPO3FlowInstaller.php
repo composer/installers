@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers;
 
 /**
@@ -6,6 +7,7 @@ namespace Composer\Installers;
  */
 class TYPO3FlowInstaller extends BaseInstaller
 {
+    /** @var array<string, string> */
     protected $locations = array(
         'package'       => 'Packages/Application/{$name}/',
         'framework'     => 'Packages/Framework/{$name}/',
@@ -18,17 +20,17 @@ class TYPO3FlowInstaller extends BaseInstaller
     /**
      * Modify the package name to be a TYPO3 Flow style key.
      *
-     * @param  array $vars
-     * @return array
+     * @param array<string, string> $vars
+     * @return array<string, string>
      */
-    public function inflectPackageVars($vars)
+    public function inflectPackageVars(array $vars): array
     {
         $autoload = $this->package->getAutoload();
-        if (isset($autoload['psr-0']) && is_array($autoload['psr-0'])) {
+        if (isset($autoload['psr-0']) && is_array($autoload['psr-0']) && count($autoload['psr-0']) > 0) {
             $namespace = key($autoload['psr-0']);
             $vars['name'] = str_replace('\\', '.', $namespace);
         }
-        if (isset($autoload['psr-4']) && is_array($autoload['psr-4'])) {
+        if (isset($autoload['psr-4']) && is_array($autoload['psr-4']) && count($autoload['psr-4']) > 0) {
             $namespace = key($autoload['psr-4']);
             $vars['name'] = rtrim(str_replace('\\', '.', $namespace), '.');
         }

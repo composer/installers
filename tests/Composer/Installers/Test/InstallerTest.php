@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Composer;
@@ -7,24 +8,30 @@ use Composer\Installers\Installer;
 use Composer\Package\Package;
 use Composer\Package\RootPackage;
 use Composer\Util\Filesystem;
+use Composer\Downloader\DownloadManager;
+use Composer\Repository\InstalledRepositoryInterface;
+use Composer\IO\IOInterface;
 
 class InstallerTest extends TestCase
 {
+    /** @var Composer */
     private $composer;
+    /** @var Config */
     private $config;
+    /** @var string */
     private $vendorDir;
+    /** @var string */
     private $binDir;
+    /** @var DownloadManager */
     private $dm;
+    /** @var InstalledRepositoryInterface */
     private $repository;
+    /** @var IOInterface */
     private $io;
+    /** @var Filesystem */
     private $fs;
 
-    /**
-     * setUp
-     *
-     * @return void
-     */
-    public function setUp()
+    public function setUp(): void
     {
         $this->fs = new Filesystem;
 
@@ -45,47 +52,34 @@ class InstallerTest extends TestCase
             ),
         ));
 
-        $this->dm = $this->getMockBuilder('Composer\Downloader\DownloadManager')
+        $this->dm = $this->getMockBuilder(DownloadManager::class)
             ->disableOriginalConstructor()
             ->getMock();
         $this->composer->setDownloadManager($this->dm);
 
-        $this->repository = $this->getMockBuilder('Composer\Repository\InstalledRepositoryInterface')->getMock();
-        $this->io = $this->getMockBuilder('Composer\IO\IOInterface')->getMock();
+        $this->repository = $this->getMockBuilder(InstalledRepositoryInterface::class)->getMock();
+        $this->io = $this->getMockIO();
 
         $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
         $this->composer->setPackage($consumerPackage);
-
     }
 
-    /**
-     * tearDown
-     *
-     * @return void
-     */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->fs->removeDirectory($this->vendorDir);
         $this->fs->removeDirectory($this->binDir);
     }
 
     /**
-     * testSupports
-     *
-     * @return void
-     *
-     * @dataProvider dataForTestSupport
+     * @dataProvider supportsProvider
      */
-    public function testSupports($type, $expected)
+    public function testSupports(string $type, bool $expected): void
     {
         $installer = new Installer($this->io, $this->composer);
         $this->assertSame($expected, $installer->supports($type), sprintf('Failed to show support for %s', $type));
     }
 
-    /**
-     * dataForTestSupport
-     */
-    public function dataForTestSupport()
+    public function supportsProvider(): array
     {
         return array(
             array('agl-module', true),
@@ -262,11 +256,9 @@ class InstallerTest extends TestCase
     }
 
     /**
-     * testInstallPath
-     *
-     * @dataProvider dataForTestInstallPath
+     * @dataProvider installPathProvider
      */
-    public function testInstallPath($type, $path, $name, $version = '1.0.0')
+    public function testInstallPath(string $type, string $path, string $name, string $version = '1.0.0'): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package($name, $version, $version);
@@ -276,10 +268,7 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/' . $path, $result);
     }
 
-    /**
-     * dataFormTestInstallPath
-     */
-    public function dataForTestInstallPath()
+    public function installPathProvider(): array
     {
         return array(
             array('agl-module', 'More/MyTestPackage/', 'agl/my_test-package'),
@@ -472,15 +461,9 @@ class InstallerTest extends TestCase
         );
     }
 
-    /**
-     * testGetCakePHPInstallPathException
-     *
-     * @return void
-     *
-     */
-    public function testGetCakePHPInstallPathException()
+    public function testGetCakePHPInstallPathException(): void
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/ftp', '1.0.0', '1.0.0');
 
@@ -488,10 +471,7 @@ class InstallerTest extends TestCase
         $result = $installer->getInstallPath($package);
     }
 
-    /**
-     * testCustomInstallPath
-     */
-    public function testCustomInstallPath()
+    public function testCustomInstallPath(): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/ftp', '1.0.0', '1.0.0');
@@ -508,10 +488,7 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/my/custom/path/Ftp/', $result);
     }
 
-    /**
-     * testCustomInstallerName
-     */
-    public function testCustomInstallerName()
+    public function testCustomInstallerName(): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/cakephp-ftp-plugin', '1.0.0', '1.0.0');
@@ -523,10 +500,7 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/Plugin/FTP/', $result);
     }
 
-    /**
-     * testCustomTypePath
-     */
-    public function testCustomTypePath()
+    public function testCustomTypePath(): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
@@ -542,10 +516,7 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/my/custom/path/my_plugin/', $result);
     }
 
-    /**
-     * testVendorPath
-     */
-    public function testVendorPath()
+    public function testVendorPath(): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
@@ -561,10 +532,7 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/modules/custom/my_module/', $result);
     }
 
-    /**
-     * testStringPath
-     */
-    public function testStringPath()
+    public function testStringPath(): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
@@ -578,10 +546,7 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/modules/custom/my_module/', $result);
     }
 
-    /**
-     * testNoVendorName
-     */
-    public function testNoVendorName()
+    public function testNoVendorName(): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('vanillaPlugin', '1.0.0', '1.0.0');
@@ -591,10 +556,7 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/plugins/vanillaPlugin/', $result);
     }
 
-    /**
-     * testTypo3Inflection
-     */
-    public function testTypo3Inflection()
+    public function testTypo3Inflection(): void
     {
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('typo3/fluid', '1.0.0', '1.0.0');
@@ -610,17 +572,17 @@ class InstallerTest extends TestCase
         $this->assertEquals(getcwd() . '/Packages/Application/TYPO3.Fluid/', $result);
     }
 
-    public function testUninstallAndDeletePackageFromLocalRepo()
+    public function testUninstallAndDeletePackageFromLocalRepo(): void
     {
         $package = new Package('foo', '1.0.0', '1.0.0');
 
-        $installer = $this->getMockBuilder('Composer\Installers\Installer')
+        $installer = $this->getMockBuilder(Installer::class)
             ->setMethods(array('getInstallPath'))
             ->setConstructorArgs(array($this->io, $this->composer))
             ->getMock();
         $installer->expects($this->atLeastOnce())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
 
-        $repo = $this->getMockBuilder('Composer\Repository\InstalledRepositoryInterface')->getMock();
+        $repo = $this->getMockBuilder(InstalledRepositoryInterface::class)->getMock();
         $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));
         $repo->expects($this->once())->method('removePackage')->with($package);
 
@@ -628,11 +590,10 @@ class InstallerTest extends TestCase
     }
 
     /**
-     * testDisabledInstallers
-     *
-     * @dataProvider dataForTestDisabledInstallers
+     * @dataProvider disabledInstallersProvider
+     * @param mixed $disabled
      */
-    public function testDisabledInstallers($disabled, $type, $expected)
+    public function testDisabledInstallers($disabled, string $type, bool $expected): void
     {
         $this->composer->getPackage()->setExtra(array(
             'installer-disable' => $disabled,
@@ -640,12 +601,7 @@ class InstallerTest extends TestCase
         $this->testSupports($type, $expected);
     }
 
-    /**
-     * dataForTestDisabledInstallers
-     *
-     * @return array
-     */
-    public function dataForTestDisabledInstallers()
+    public function disabledInstallersProvider(): array
     {
         return array(
             array(false, "drupal-module", true),
