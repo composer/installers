@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\CakePHPInstaller;
@@ -21,11 +22,6 @@ class CakePHPInstallerTest extends TestCase
      */
     private $package;
 
-    /**
-     * setUp
-     *
-     * @return void
-     */
     public function setUp(): void
     {
         $this->package = new Package('CamelCased', '1.0', '1.0');
@@ -33,39 +29,34 @@ class CakePHPInstallerTest extends TestCase
         $this->composer->setConfig(new Config(false));
     }
 
-    /**
-     * testInflectPackageVars
-     *
-     * @return void
-     */
-    public function testInflectPackageVars()
+    public function testInflectPackageVars(): void
     {
-        $installer = new CakePHPInstaller($this->package, $this->composer);
+        $installer = new CakePHPInstaller($this->package, $this->composer, $this->getMockIO());
         $result = $installer->inflectPackageVars(array('name' => 'CamelCased'));
         $this->assertEquals($result, array('name' => 'CamelCased'));
 
-        $installer = new CakePHPInstaller($this->package, $this->composer);
+        $installer = new CakePHPInstaller($this->package, $this->composer, $this->getMockIO());
         $result = $installer->inflectPackageVars(array('name' => 'with-dash'));
         $this->assertEquals($result, array('name' => 'WithDash'));
 
-        $installer = new CakePHPInstaller($this->package, $this->composer);
+        $installer = new CakePHPInstaller($this->package, $this->composer, $this->getMockIO());
         $result = $installer->inflectPackageVars(array('name' => 'with_underscore'));
         $this->assertEquals($result, array('name' => 'WithUnderscore'));
 
-        $installer = new CakePHPInstaller($this->package, $this->composer);
+        $installer = new CakePHPInstaller($this->package, $this->composer, $this->getMockIO());
         $result = $installer->inflectPackageVars(array('name' => 'cake/acl'));
         $this->assertEquals($result, array('name' => 'Cake/Acl'));
 
-        $installer = new CakePHPInstaller($this->package, $this->composer);
+        $installer = new CakePHPInstaller($this->package, $this->composer, $this->getMockIO());
         $result = $installer->inflectPackageVars(array('name' => 'cake/debug-kit'));
         $this->assertEquals($result, array('name' => 'Cake/DebugKit'));
     }
 
     /**
      * Test getLocations returning appropriate values based on CakePHP version
-     *
      */
-    public function testGetLocations() {
+    public function testGetLocations(): void
+    {
         $package = new RootPackage('CamelCased', '1.0', '1.0');
         $composer = $this->composer;
 
@@ -84,7 +75,7 @@ class CakePHPInstallerTest extends TestCase
             $constructorArg3
         );
         $composer->setRepositoryManager($rm);
-        $installer = new CakePHPInstaller($package, $composer);
+        $installer = new CakePHPInstaller($package, $composer, $this->getMockIO());
 
         // 2.0 < cakephp < 3.0
         $this->setCakephpVersion($rm, '2.0.0');
@@ -113,7 +104,8 @@ class CakePHPInstallerTest extends TestCase
         $this->assertStringContainsString('vendor/{$vendor}/{$name}/', $result['plugin']);
     }
 
-    protected function setCakephpVersion($rm, $version) {
+    protected function setCakephpVersion(RepositoryManager $rm, string $version): void
+    {
         $parser = new VersionParser();
         list(, $version) = explode(' ', $parser->parseConstraints($version));
         $installed = new InstalledArrayRepository();

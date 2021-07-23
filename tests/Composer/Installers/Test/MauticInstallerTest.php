@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\MauticInstaller;
@@ -13,7 +14,7 @@ class MauticInstallerTest extends TestCase
     private $installer;
 
     /**
-     * @var \Composer\Composer
+     * @var Composer
      */
     protected $composer;
 
@@ -28,9 +29,9 @@ class MauticInstallerTest extends TestCase
      *
      * @covers ::inflectPackageVars
      *
-     * @dataProvider provideExpectedInflectionResults
+     * @dataProvider expectedInflectionResultsProvider
      */
-    final public function testInflectPackageVars($vars, $expectedVars)
+    public function testInflectPackageVars(array $vars, array $expectedVars): void
     {
         $package = new Package($vars['name'], '1.0.0', '1.0.0');
         $package->setType($vars['type']);
@@ -40,7 +41,8 @@ class MauticInstallerTest extends TestCase
 
         $installer = new MauticInstaller(
             $package,
-            $this->composer
+            $this->composer,
+            $this->getMockIO()
         );
 
         $actual = $installer->inflectPackageVars($vars);
@@ -53,7 +55,7 @@ class MauticInstallerTest extends TestCase
      *
      * @return array
      */
-    final public function provideExpectedInflectionResults()
+    public function expectedInflectionResultsProvider(): array
     {
         return array(
             //check bitrix-dir is correct

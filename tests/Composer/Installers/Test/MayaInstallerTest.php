@@ -1,12 +1,12 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\MayaInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class MayaInstallerTest extends BaseTestCase
+class MayaInstallerTest extends TestCase
 {
     /**
      * @var MayaInstaller
@@ -17,14 +17,15 @@ class MayaInstallerTest extends BaseTestCase
     {
         $this->installer = new MayaInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $name, $expected)
+    public function testInflectPackageVars(string $type, string $name, string $expected): void
     {
         $this->assertEquals(
             array('name' => $expected, 'type' => $type),
@@ -32,7 +33,7 @@ class MayaInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             // Should keep module name StudlyCase

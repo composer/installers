@@ -5,34 +5,27 @@ namespace Composer\Installers\Test;
 use Composer\Composer;
 use Composer\Installers\TastyIgniterInstaller;
 use Composer\Package\Package;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class TastyIgniterInstallerTest extends BaseTestCase
+class TastyIgniterInstallerTest extends TestCase
 {
     /**
      * @var TastyIgniterInstaller
      */
     private $installer;
 
-    /**
-     * setUp
-     *
-     * @return void
-     */
     public function setUp(): void
     {
         $this->installer = new TastyIgniterInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
-     *
-     * @return void
      */
-    public function testInflectPackageVars($type, $vendor, $name, $expectedVendor, $expectedName)
+    public function testInflectPackageVars(string $type, string $vendor, string $name, string $expectedVendor, string $expectedName): void
     {
         $this->assertEquals(
             $this->installer->inflectPackageVars(array(
@@ -48,7 +41,7 @@ class TastyIgniterInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             array(

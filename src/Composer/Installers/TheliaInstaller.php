@@ -1,8 +1,10 @@
 <?php
+
 namespace Composer\Installers;
 
 class TheliaInstaller extends BaseInstaller
 {
+    /** @var array<string, string> */
     protected $locations = array(
         'module'                => 'local/modules/{$name}/',
         'frontoffice-template'  => 'templates/frontOffice/{$name}/',

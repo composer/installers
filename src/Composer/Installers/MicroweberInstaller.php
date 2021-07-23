@@ -1,8 +1,10 @@
 <?php
+
 namespace Composer\Installers;
 
 class MicroweberInstaller extends BaseInstaller
 {
+    /** @var array<string, string> */
     protected $locations = array(
         'module' => 'userfiles/modules/{$install_item_dir}/',
         'module-skin' => 'userfiles/modules/{$install_item_dir}/templates/',
@@ -18,12 +20,9 @@ class MicroweberInstaller extends BaseInstaller
      * For package type microweber-module, cut off a trailing '-module' if present
      *
      * For package type microweber-template, cut off a trailing '-template' if present.
-     *
      */
-    public function inflectPackageVars($vars)
+    public function inflectPackageVars(array $vars): array
     {
-
-
         if ($this->package->getTargetDir()) {
             $vars['install_item_dir'] = $this->package->getTargetDir();
         } else {
@@ -58,7 +57,11 @@ class MicroweberInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectTemplateVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectTemplateVars(array $vars): array
     {
         $vars['install_item_dir'] = preg_replace('/-template$/', '', $vars['install_item_dir']);
         $vars['install_item_dir'] = preg_replace('/template-$/', '', $vars['install_item_dir']);
@@ -66,7 +69,11 @@ class MicroweberInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectTemplatesVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectTemplatesVars(array $vars): array
     {
         $vars['install_item_dir'] = preg_replace('/-templates$/', '', $vars['install_item_dir']);
         $vars['install_item_dir'] = preg_replace('/templates-$/', '', $vars['install_item_dir']);
@@ -74,7 +81,11 @@ class MicroweberInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectCoreVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectCoreVars(array $vars): array
     {
         $vars['install_item_dir'] = preg_replace('/-providers$/', '', $vars['install_item_dir']);
         $vars['install_item_dir'] = preg_replace('/-provider$/', '', $vars['install_item_dir']);
@@ -83,7 +94,11 @@ class MicroweberInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectModuleVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectModuleVars(array $vars): array
     {
         $vars['install_item_dir'] = preg_replace('/-module$/', '', $vars['install_item_dir']);
         $vars['install_item_dir'] = preg_replace('/module-$/', '', $vars['install_item_dir']);
@@ -91,7 +106,11 @@ class MicroweberInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectModulesVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectModulesVars(array $vars): array
     {
         $vars['install_item_dir'] = preg_replace('/-modules$/', '', $vars['install_item_dir']);
         $vars['install_item_dir'] = preg_replace('/modules-$/', '', $vars['install_item_dir']);
@@ -99,7 +118,11 @@ class MicroweberInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectSkinVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectSkinVars(array $vars): array
     {
         $vars['install_item_dir'] = preg_replace('/-skin$/', '', $vars['install_item_dir']);
         $vars['install_item_dir'] = preg_replace('/skin-$/', '', $vars['install_item_dir']);
@@ -107,7 +130,11 @@ class MicroweberInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectElementVars($vars)
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectElementVars(array $vars): array
     {
         $vars['install_item_dir'] = preg_replace('/-elements$/', '', $vars['install_item_dir']);
         $vars['install_item_dir'] = preg_replace('/elements-$/', '', $vars['install_item_dir']);

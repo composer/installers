@@ -1,8 +1,10 @@
 <?php
+
 namespace Composer\Installers;
 
 class HuradInstaller extends BaseInstaller
 {
+    /** @var array<string, string> */
     protected $locations = array(
         'plugin' => 'plugins/{$name}/',
         'theme' => 'plugins/{$name}/',
@@ -11,7 +13,7 @@ class HuradInstaller extends BaseInstaller
     /**
      * Format package name to CamelCase
      */
-    public function inflectPackageVars($vars)
+    public function inflectPackageVars(array $vars): array
     {
         $nameParts = explode('/', $vars['name']);
         foreach ($nameParts as &$value) {

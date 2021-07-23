@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers;
 
 /**
@@ -8,11 +9,12 @@ class TaoInstaller extends BaseInstaller
 {
     const EXTRA_TAO_EXTENSION_NAME = 'tao-extension-name';
 
+    /** @var array<string, string> */
     protected $locations = array(
         'extension' => '{$name}'
     );
     
-    public function inflectPackageVars($vars)
+    public function inflectPackageVars(array $vars): array
     {
         $extra = $this->package->getExtra();
 

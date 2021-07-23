@@ -1,8 +1,10 @@
 <?php
+
 namespace Composer\Installers;
 
 class RadPHPInstaller extends BaseInstaller
 {
+    /** @var array<string, string> */
     protected $locations = array(
         'bundle' => 'src/{$name}/'
     );
@@ -10,7 +12,7 @@ class RadPHPInstaller extends BaseInstaller
     /**
      * Format package name to CamelCase
      */
-    public function inflectPackageVars($vars)
+    public function inflectPackageVars(array $vars): array
     {
         $nameParts = explode('/', $vars['name']);
         foreach ($nameParts as &$value) {

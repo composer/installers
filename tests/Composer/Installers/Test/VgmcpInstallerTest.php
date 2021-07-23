@@ -1,12 +1,12 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Installers\VgmcpInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
-use PHPUnit\Framework\TestCase as BaseTestCase;
 
-class VgmcpInstallerTest extends BaseTestCase
+class VgmcpInstallerTest extends TestCase
 {
     /**
      * @var VgmcpInstaller
@@ -17,14 +17,15 @@ class VgmcpInstallerTest extends BaseTestCase
     {
         $this->installer = new VgmcpInstaller(
             new Package('NyanCat', '4.2', '4.2'),
-            new Composer()
+            $this->getComposer(),
+            $this->getMockIO()
         );
     }
 
     /**
      * @dataProvider packageNameInflectionProvider
      */
-    public function testInflectPackageVars($type, $name, $expected)
+    public function testInflectPackageVars(string $type, string $name, string $expected): void
     {
         $this->assertEquals(
             array('name' => $expected, 'type' => $type),
@@ -32,7 +33,7 @@ class VgmcpInstallerTest extends BaseTestCase
         );
     }
 
-    public function packageNameInflectionProvider()
+    public function packageNameInflectionProvider(): array
     {
         return array(
             // Should keep bundle name StudlyCase

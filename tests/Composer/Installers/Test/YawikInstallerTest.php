@@ -1,4 +1,5 @@
 <?php
+
 namespace Composer\Installers\Test;
 
 use Composer\Composer;
@@ -14,7 +15,7 @@ use Composer\Package\PackageInterface;
 class YawikInstallerTest extends TestCase
 {
     /**
-     * @varComposer
+     * @var Composer
      */
     private $composer;
 
@@ -35,19 +36,16 @@ class YawikInstallerTest extends TestCase
     }
 
     /**
-     * testInflectPackageVars
-     *
      * @dataProvider packageNameProvider
-     * @return void
      */
-    public function testInflectPackageVars($input)
+    public function testInflectPackageVars(string $input): void
     {
-        $installer = new YawikInstaller($this->package, $this->composer);
+        $installer = new YawikInstaller($this->package, $this->composer, $this->getMockIO());
         $result = $installer->inflectPackageVars(array('name' => $input));
         $this->assertEquals($result, array('name' => 'YawikCompanyRegistration'));
     }
 
-    public function packageNameProvider()
+    public function packageNameProvider(): array
     {
         return array(
             array('yawik-company-registration'),

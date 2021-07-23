@@ -4,6 +4,7 @@ namespace Composer\Installers;
 
 class TastyIgniterInstaller extends BaseInstaller
 {
+    /** @var array<string, string> */
     protected $locations = array(
         'extension' => 'extensions/{$vendor}/{$name}/',
         'theme' => 'themes/{$name}/',
@@ -16,7 +17,7 @@ class TastyIgniterInstaller extends BaseInstaller
      * Strip vendor name of characters that is not alphanumeric or an underscore
      *
      */
-    public function inflectPackageVars($vars)
+    public function inflectPackageVars(array $vars): array
     {
         if ($vars['type'] === 'tastyigniter-extension') {
             $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
