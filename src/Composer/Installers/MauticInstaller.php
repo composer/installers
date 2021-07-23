@@ -40,5 +40,4 @@ class MauticInstaller extends BaseInstaller
 
         return $vars;
     }
-
 }

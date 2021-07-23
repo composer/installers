@@ -19,7 +19,7 @@ class BitrixInstallerTest extends TestCase
     /** @var Composer */
     private $composer;
 
-    function setUp(): void
+    public function setUp(): void
     {
         $this->composer = new Composer();
     }
@@ -34,7 +34,6 @@ class BitrixInstallerTest extends TestCase
      */
     public function testInflectPackageVars(array $vars, array $expectedVars): void
     {
-
         $this->installer = new BitrixInstaller(
             new Package($vars['name'], '4.2', '4.2'),
             $this->composer,

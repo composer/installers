@@ -21,7 +21,6 @@ class MediaWikiInstaller extends BaseInstaller
      */
     public function inflectPackageVars(array $vars): array
     {
-
         if ($vars['type'] === 'mediawiki-extension') {
             return $this->inflectExtensionVars($vars);
         }
@@ -56,5 +55,4 @@ class MediaWikiInstaller extends BaseInstaller
 
         return $vars;
     }
-
 }

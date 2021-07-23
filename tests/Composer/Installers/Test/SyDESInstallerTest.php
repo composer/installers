@@ -37,7 +37,7 @@ class SyDESInstallerTest extends TestCase
     {
         return array(
             // modules
-			array(
+            array(
                 'sydes-module',
                 'name',
                 'Name'
@@ -62,7 +62,7 @@ class SyDESInstallerTest extends TestCase
                 'sydes-sample-name-module',
                 'SampleName'
             ),
-			// themes
+            // themes
             array(
                 'sydes-theme',
                 'some-theme-theme',

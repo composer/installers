@@ -44,5 +44,4 @@ class PiwikInstallerTest extends TestCase
         $result = $installer->inflectPackageVars(array('name' => 'visit_summary'));
         $this->assertEquals($result, array('name' => 'VisitSummary'));
     }
-
 }

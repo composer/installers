@@ -61,7 +61,7 @@ class MauticInstallerTest extends TestCase
             //check bitrix-dir is correct
             array(
                 array(
-                    'name' => 'mautic/grapes-js-builder-bundle', 
+                    'name' => 'mautic/grapes-js-builder-bundle',
                     'type' => 'mautic-plugin'
                 ),
                 array(
@@ -73,45 +73,45 @@ class MauticInstallerTest extends TestCase
             // installation directory
             array(
                 array(
-                    'name' => 'mautic/grapes-js-builder-bundle', 
-                    'type' => 'mautic-plugin', 
+                    'name' => 'mautic/grapes-js-builder-bundle',
+                    'type' => 'mautic-plugin',
                     'extra' => array(
                         'install-directory-name' => 'GrapesJsBuilderPlugin'
                     )
                 ),
                 array(
-                    'name' => 'GrapesJsBuilderPlugin', 
-                    'type' => 'mautic-plugin', 
+                    'name' => 'GrapesJsBuilderPlugin',
+                    'type' => 'mautic-plugin',
                     'extra' => array(
                         'install-directory-name' => 'GrapesJsBuilderPlugin'
                     )
-                )                
+                )
             ),
             array(
                 array(
-                    'name' => 'mautic/theme-blank-grapejs', 
+                    'name' => 'mautic/theme-blank-grapejs',
                     'type' => 'mautic-theme'
                 ),
                 array(
-                    'name' => 'ThemeBlankGrapejs', 
+                    'name' => 'ThemeBlankGrapejs',
                     'type' => 'mautic-theme'
                 )
             ),
             array(
                 array(
-                    'name' => 'mautic/theme-blank-grapejs', 
-                    'type' => 'mautic-theme', 
+                    'name' => 'mautic/theme-blank-grapejs',
+                    'type' => 'mautic-theme',
                     'extra' => array(
                         'install-directory-name' => 'blank-grapejs'
                     )
                 ),
                 array(
-                    'name' => 'blank-grapejs', 
-                    'type' => 'mautic-theme', 
+                    'name' => 'blank-grapejs',
+                    'type' => 'mautic-theme',
                     'extra' => array(
                         'install-directory-name' => 'blank-grapejs'
                     )
-                )                
+                )
             )
         );
     }

@@ -62,7 +62,6 @@ class InstallerTest extends TestCase
 
         $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
         $this->composer->setPackage($consumerPackage);
-
     }
 
     public function tearDown(): void
@@ -577,13 +576,13 @@ class InstallerTest extends TestCase
     {
         $package = new Package('foo', '1.0.0', '1.0.0');
 
-        $installer = $this->getMockBuilder('Composer\Installers\Installer')
+        $installer = $this->getMockBuilder(Installer::class)
             ->setMethods(array('getInstallPath'))
             ->setConstructorArgs(array($this->io, $this->composer))
             ->getMock();
         $installer->expects($this->atLeastOnce())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
 
-        $repo = $this->getMockBuilder('Composer\Repository\InstalledRepositoryInterface')->getMock();
+        $repo = $this->getMockBuilder(InstalledRepositoryInterface::class)->getMock();
         $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));
         $repo->expects($this->once())->method('removePackage')->with($package);
 

@@ -2,8 +2,7 @@
 
 namespace Composer\Installers;
 
-
-class OsclassInstaller extends BaseInstaller 
+class OsclassInstaller extends BaseInstaller
 {
     
     /** @var array<string, string> */
@@ -12,5 +11,4 @@ class OsclassInstaller extends BaseInstaller
         'theme' => 'oc-content/themes/{$name}/',
         'language' => 'oc-content/languages/{$name}/',
     );
-    
 }

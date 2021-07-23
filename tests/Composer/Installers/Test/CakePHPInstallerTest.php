@@ -10,6 +10,8 @@ use Composer\Package\RootPackage;
 use Composer\Package\Version\VersionParser;
 use Composer\Composer;
 use Composer\Config;
+use Composer\IO\IOInterface;
+use Composer\Util\HttpDownloader;
 
 class CakePHPInstallerTest extends TestCase
 {
@@ -60,15 +62,15 @@ class CakePHPInstallerTest extends TestCase
         $package = new RootPackage('CamelCased', '1.0', '1.0');
         $composer = $this->composer;
 
-        $io = $this->getMockBuilder('Composer\IO\IOInterface')->getMock();
-        $config = $this->getMockBuilder('Composer\Config')->getMock();
+        $io = $this->getMockBuilder(IOInterface::class)->getMock();
+        $config = $this->getMockBuilder(Config::class)->getMock();
 
         // Simultaneous support for Composer 1 and 2
         $constructorArg3 = null;
-        $reflectorClass = new \ReflectionClass( '\Composer\Repository\RepositoryManager');
+        $reflectorClass = new \ReflectionClass(RepositoryManager::class);
         $reflMethod = $reflectorClass->getConstructor();
         if ($reflMethod && $reflMethod->getNumberOfRequiredParameters() == 3) {
-            $constructorArg3 = $this->getMockBuilder('Composer\Util\HttpDownloader')->disableOriginalConstructor()->getMock();
+            $constructorArg3 = $this->getMockBuilder(HttpDownloader::class)->disableOriginalConstructor()->getMock();
         }
         $rm = new RepositoryManager(
             $io,
@@ -115,5 +117,4 @@ class CakePHPInstallerTest extends TestCase
         $installed->addPackage($package);
         $rm->setLocalRepository($installed);
     }
-
 }
