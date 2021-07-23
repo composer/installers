@@ -44,6 +44,7 @@ jobs:
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
+          tools: composer:snapshot
 
       - name: Get composer cache directory
         id: composercache
