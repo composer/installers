@@ -101,7 +101,6 @@ class Installer extends LibraryInstaller
         'starbug'      => 'StarbugInstaller',
         'sydes'        => 'SyDESInstaller',
         'sylius'       => 'SyliusInstaller',
-        'symfony1'     => 'Symfony1Installer',
         'tao'          => 'TaoInstaller',
         'thelia'       => 'TheliaInstaller',
         'tusk'         => 'TuskInstaller',

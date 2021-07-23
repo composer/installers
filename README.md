@@ -113,7 +113,6 @@ is not needed to install packages with these frameworks:
 | Starbug      | `starbug-module`<br>`starbug-theme`<br>`starbug-custom-module`<br>`starbug-custom-theme`
 | SyDES        | `sydes-module`<br>`sydes-theme`
 | Sylius       | `sylius-theme`
-| symfony1     | **`symfony1-plugin`**
 | TAO          | `tao-extension`
 | TastyIgniter | **`tastyigniter-extension`<br>`tastyigniter-theme`**
 | Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`

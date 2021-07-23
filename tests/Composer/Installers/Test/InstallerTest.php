@@ -222,7 +222,6 @@ class InstallerTest extends TestCase
             array('sydes-module', true),
             array('sydes-theme', true),
             array('sylius-theme', true),
-            array('symfony1-plugin', true),
             array('tastyigniter-extension', true),
             array('tastyigniter-theme', true),
             array('thelia-module', true),
@@ -438,8 +437,6 @@ class InstallerTest extends TestCase
             array('starbug-custom-module', 'app/modules/my_module/', 'shama/my_module'),
             array('starbug-custom-theme', 'app/themes/my_theme/', 'shama/my_theme'),
             array('sylius-theme', 'themes/my_theme/', 'shama/my_theme'),
-            array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
-            array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
             array('tastyigniter-extension', 'extensions/shama/my_extension/', 'shama/my_extension'),
             array('tastyigniter-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('thelia-module', 'local/modules/my_module/', 'shama/my_module'),
@@ -595,11 +592,11 @@ class InstallerTest extends TestCase
     public function testNoVendorName()
     {
         $installer = new Installer($this->io, $this->composer);
-        $package = new Package('sfPhpunitPlugin', '1.0.0', '1.0.0');
+        $package = new Package('vanillaPlugin', '1.0.0', '1.0.0');
 
-        $package->setType('symfony1-plugin');
+        $package->setType('vanilla-plugin');
         $result = $installer->getInstallPath($package);
-        $this->assertEquals('plugins/sfPhpunitPlugin/', $result);
+        $this->assertEquals('plugins/vanillaPlugin/', $result);
     }
 
     /**
