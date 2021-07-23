@@ -14,14 +14,14 @@ class PlentymarketsInstaller extends BaseInstaller
      */
     public function inflectPackageVars(array $vars): array
     {
-        $vars['name'] = explode("-", $vars['name']);
-        foreach ($vars['name'] as $key => $name) {
-            $vars['name'][$key] = ucfirst($vars['name'][$key]);
+        $nameBits = explode("-", $vars['name']);
+        foreach ($nameBits as $key => $name) {
+            $nameBits[$key] = ucfirst($name);
             if (strcasecmp($name, "Plugin") == 0) {
-                unset($vars['name'][$key]);
+                unset($nameBits[$key]);
             }
         }
-        $vars['name'] = implode("",$vars['name']);
+        $vars['name'] = implode('', $nameBits);
 
         return $vars;
     }

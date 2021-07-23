@@ -39,7 +39,7 @@ class MediaWikiInstaller extends BaseInstaller
      */
     protected function inflectExtensionVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/-extension$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/-extension$/', '', $vars['name']);
         $vars['name'] = str_replace('-', ' ', $vars['name']);
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
 
@@ -52,7 +52,7 @@ class MediaWikiInstaller extends BaseInstaller
      */
     protected function inflectSkinVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/-skin$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/-skin$/', '', $vars['name']);
 
         return $vars;
     }

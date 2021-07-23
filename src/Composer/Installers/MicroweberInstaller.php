@@ -23,7 +23,7 @@ class MicroweberInstaller extends BaseInstaller
      */
     public function inflectPackageVars(array $vars): array
     {
-        if ($this->package->getTargetDir()) {
+        if ($this->package->getTargetDir() !== null && $this->package->getTargetDir() !== '') {
             $vars['install_item_dir'] = $this->package->getTargetDir();
         } else {
             $vars['install_item_dir'] = $vars['name'];
@@ -53,7 +53,6 @@ class MicroweberInstaller extends BaseInstaller
             }
         }
 
-
         return $vars;
     }
 
@@ -63,8 +62,8 @@ class MicroweberInstaller extends BaseInstaller
      */
     protected function inflectTemplateVars(array $vars): array
     {
-        $vars['install_item_dir'] = preg_replace('/-template$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/template-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-template$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/template-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
@@ -75,8 +74,8 @@ class MicroweberInstaller extends BaseInstaller
      */
     protected function inflectTemplatesVars(array $vars): array
     {
-        $vars['install_item_dir'] = preg_replace('/-templates$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/templates-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-templates$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/templates-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
@@ -87,9 +86,9 @@ class MicroweberInstaller extends BaseInstaller
      */
     protected function inflectCoreVars(array $vars): array
     {
-        $vars['install_item_dir'] = preg_replace('/-providers$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/-provider$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/-adapter$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-providers$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-provider$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-adapter$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
@@ -100,8 +99,8 @@ class MicroweberInstaller extends BaseInstaller
      */
     protected function inflectModuleVars(array $vars): array
     {
-        $vars['install_item_dir'] = preg_replace('/-module$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/module-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-module$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/module-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
@@ -112,8 +111,8 @@ class MicroweberInstaller extends BaseInstaller
      */
     protected function inflectModulesVars(array $vars): array
     {
-        $vars['install_item_dir'] = preg_replace('/-modules$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/modules-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-modules$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/modules-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
@@ -124,8 +123,8 @@ class MicroweberInstaller extends BaseInstaller
      */
     protected function inflectSkinVars(array $vars): array
     {
-        $vars['install_item_dir'] = preg_replace('/-skin$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/skin-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-skin$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/skin-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }
@@ -136,10 +135,10 @@ class MicroweberInstaller extends BaseInstaller
      */
     protected function inflectElementVars(array $vars): array
     {
-        $vars['install_item_dir'] = preg_replace('/-elements$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/elements-$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/-element$/', '', $vars['install_item_dir']);
-        $vars['install_item_dir'] = preg_replace('/element-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-elements$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/elements-$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/-element$/', '', $vars['install_item_dir']);
+        $vars['install_item_dir'] = $this->pregReplace('/element-$/', '', $vars['install_item_dir']);
 
         return $vars;
     }

@@ -17,7 +17,7 @@ class HuradInstaller extends BaseInstaller
     {
         $nameParts = explode('/', $vars['name']);
         foreach ($nameParts as &$value) {
-            $value = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $value));
+            $value = strtolower($this->pregReplace('/(?<=\\w)([A-Z])/', '_\\1', $value));
             $value = str_replace(array('-', '_'), ' ', $value);
             $value = str_replace(' ', '', ucwords($value));
         }

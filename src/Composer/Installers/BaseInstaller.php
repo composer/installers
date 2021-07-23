@@ -12,7 +12,7 @@ abstract class BaseInstaller
     protected $locations = array();
     /** @var Composer */
     protected $composer;
-    /** @var ?PackageInterface */
+    /** @var PackageInterface */
     protected $package;
     /** @var IOInterface */
     protected $io;
@@ -20,7 +20,7 @@ abstract class BaseInstaller
     /**
      * Initializes base installer.
      */
-    public function __construct(?PackageInterface $package, Composer $composer, IOInterface $io)
+    public function __construct(PackageInterface $package, Composer $composer, IOInterface $io)
     {
         $this->composer = $composer;
         $this->package = $package;
@@ -58,7 +58,7 @@ abstract class BaseInstaller
         }
 
         $packageType = substr($type, strlen($frameworkType) + 1);
-        $locations = $this->getLocations();
+        $locations = $this->getLocations($frameworkType);
         if (!isset($locations[$packageType])) {
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
@@ -82,7 +82,7 @@ abstract class BaseInstaller
      *
      * @return array<string, string> map of package types => install path
      */
-    public function getLocations()
+    public function getLocations(string $frameworkType)
     {
         return $this->locations;
     }
@@ -123,5 +123,15 @@ abstract class BaseInstaller
         }
 
         return false;
+    }
+
+    protected function pregReplace(string $pattern, string $replacement, string $subject): string
+    {
+        $result = preg_replace($pattern, $replacement, $subject);
+        if (null === $result) {
+            throw new \RuntimeException('Failed to run preg_replace with '.$pattern.': '.preg_last_error());
+        }
+
+        return $result;
     }
 }

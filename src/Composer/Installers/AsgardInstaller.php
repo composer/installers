@@ -36,7 +36,7 @@ class AsgardInstaller extends BaseInstaller
      */
     protected function inflectPluginVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/-module$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/-module$/', '', $vars['name']);
         $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
 
@@ -49,7 +49,7 @@ class AsgardInstaller extends BaseInstaller
      */
     protected function inflectThemeVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/-theme$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/-theme$/', '', $vars['name']);
         $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
 

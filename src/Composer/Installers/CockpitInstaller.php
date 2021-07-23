@@ -29,7 +29,7 @@ class CockpitInstaller extends BaseInstaller
      */
     public function inflectModuleVars(array $vars): array
     {
-        $vars['name'] = ucfirst(preg_replace('/cockpit-/i', '', $vars['name']));
+        $vars['name'] = ucfirst($this->pregReplace('/cockpit-/i', '', $vars['name']));
 
         return $vars;
     }

@@ -34,7 +34,7 @@ class SyDESInstaller extends BaseInstaller
      */
     public function inflectModuleVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/(^sydes-|-module$)/i', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/(^sydes-|-module$)/i', '', $vars['name']);
         $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
 
@@ -47,7 +47,7 @@ class SyDESInstaller extends BaseInstaller
      */
     protected function inflectThemeVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/(^sydes-|-theme$)/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/(^sydes-|-theme$)/', '', $vars['name']);
         $vars['name'] = strtolower($vars['name']);
 
         return $vars;

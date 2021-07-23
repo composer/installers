@@ -23,7 +23,7 @@ class CakePHPInstaller extends BaseInstaller
 
         $nameParts = explode('/', $vars['name']);
         foreach ($nameParts as &$value) {
-            $value = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $value));
+            $value = strtolower($this->pregReplace('/(?<=\\w)([A-Z])/', '_\\1', $value));
             $value = str_replace(array('-', '_'), ' ', $value);
             $value = str_replace(' ', '', ucwords($value));
         }
@@ -35,7 +35,7 @@ class CakePHPInstaller extends BaseInstaller
     /**
      * Change the default plugin location when cakephp >= 3.0
      */
-    public function getLocations(): array
+    public function getLocations(string $frameworkType): array
     {
         if ($this->matchesCakeVersion('>=', '3.0.0')) {
             $this->locations['plugin'] =  $this->composer->getConfig()->get('vendor-dir') . '/{$vendor}/{$name}/';

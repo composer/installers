@@ -29,7 +29,7 @@ class MayaInstaller extends BaseInstaller
      */
     protected function inflectModuleVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/-module$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/-module$/', '', $vars['name']);
         $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
         $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
 

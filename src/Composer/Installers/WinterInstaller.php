@@ -41,7 +41,7 @@ class WinterInstaller extends BaseInstaller
      */
     protected function inflectModuleVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/^wn-|-module$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/^wn-|-module$/', '', $vars['name']);
 
         return $vars;
     }
@@ -52,8 +52,8 @@ class WinterInstaller extends BaseInstaller
      */
     protected function inflectPluginVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/^wn-|-plugin$/', '', $vars['name']);
-        $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
+        $vars['name'] = $this->pregReplace('/^wn-|-plugin$/', '', $vars['name']);
+        $vars['vendor'] = $this->pregReplace('/[^a-z0-9_]/i', '', $vars['vendor']);
 
         return $vars;
     }
@@ -64,7 +64,7 @@ class WinterInstaller extends BaseInstaller
      */
     protected function inflectThemeVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/^wn-|-theme$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/^wn-|-theme$/', '', $vars['name']);
 
         return $vars;
     }

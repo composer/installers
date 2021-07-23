@@ -14,9 +14,15 @@ class AglInstaller extends BaseInstaller
      */
     public function inflectPackageVars(array $vars): array
     {
-        $vars['name'] = preg_replace_callback('/(?:^|_|-)(.?)/', function ($matches) {
+        $name = preg_replace_callback('/(?:^|_|-)(.?)/', function ($matches) {
             return strtoupper($matches[1]);
         }, $vars['name']);
+
+        if (null === $name) {
+            throw new \RuntimeException('Failed to run preg_replace_callback: '.preg_last_error());
+        }
+
+        $vars['name'] = $name;
 
         return $vars;
     }

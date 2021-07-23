@@ -37,8 +37,8 @@ class DokuWikiInstaller extends BaseInstaller
      */
     protected function inflectPluginVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/-plugin$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/^dokuwiki_?-?/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/-plugin$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/^dokuwiki_?-?/', '', $vars['name']);
 
         return $vars;
     }
@@ -49,8 +49,8 @@ class DokuWikiInstaller extends BaseInstaller
      */
     protected function inflectTemplateVars(array $vars): array
     {
-        $vars['name'] = preg_replace('/-template$/', '', $vars['name']);
-        $vars['name'] = preg_replace('/^dokuwiki_?-?/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/-template$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/^dokuwiki_?-?/', '', $vars['name']);
 
         return $vars;
     }

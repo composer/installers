@@ -18,14 +18,14 @@ class ExpressionEngineInstaller extends BaseInstaller
         'theme'   => 'themes/user/{$name}/',
     );
 
-    public function getInstallPath(PackageInterface $package, string $frameworkType = ''): string
+    public function getLocations(string $frameworkType): array
     {
         if ($frameworkType === 'ee2') {
             $this->locations = $this->ee2Locations;
-        } elseif ($frameworkType === 'ee3') {
+        } else {
             $this->locations = $this->ee3Locations;
         }
 
-        return parent::getInstallPath($package, $frameworkType);
+        return $this->locations;
     }
 }

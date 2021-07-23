@@ -66,12 +66,14 @@ class CakePHPInstallerTest extends TestCase
         // Simultaneous support for Composer 1 and 2
         $constructorArg3 = null;
         $reflectorClass = new \ReflectionClass( '\Composer\Repository\RepositoryManager');
-        if ($reflectorClass->getConstructor()->getNumberOfRequiredParameters() == 3) {
+        $reflMethod = $reflectorClass->getConstructor();
+        if ($reflMethod && $reflMethod->getNumberOfRequiredParameters() == 3) {
             $constructorArg3 = $this->getMockBuilder('Composer\Util\HttpDownloader')->disableOriginalConstructor()->getMock();
         }
         $rm = new RepositoryManager(
             $io,
             $config,
+            /** @phpstan-ignore-next-line */
             $constructorArg3
         );
         $composer->setRepositoryManager($rm);
@@ -79,28 +81,28 @@ class CakePHPInstallerTest extends TestCase
 
         // 2.0 < cakephp < 3.0
         $this->setCakephpVersion($rm, '2.0.0');
-        $result = $installer->getLocations();
+        $result = $installer->getLocations('cakephp');
         $this->assertStringContainsString('Plugin/', $result['plugin']);
 
         $this->setCakephpVersion($rm, '2.5.9');
-        $result = $installer->getLocations();
+        $result = $installer->getLocations('cakephp');
         $this->assertStringContainsString('Plugin/', $result['plugin']);
 
         $this->setCakephpVersion($rm, '~2.5');
-        $result = $installer->getLocations();
+        $result = $installer->getLocations('cakephp');
         $this->assertStringContainsString('Plugin/', $result['plugin']);
 
         $this->setCakephpVersion($rm, '>=2.5');
-        $result = $installer->getLocations();
+        $result = $installer->getLocations('cakephp');
         $this->assertStringContainsString('Plugin/', $result['plugin']);
 
         // cakephp >= 3.0
         $this->setCakephpVersion($rm, '3.0.*-dev');
-        $result = $installer->getLocations();
+        $result = $installer->getLocations('cakephp');
         $this->assertStringContainsString('vendor/{$vendor}/{$name}/', $result['plugin']);
 
         $this->setCakephpVersion($rm, '~8.8');
-        $result = $installer->getLocations();
+        $result = $installer->getLocations('cakephp');
         $this->assertStringContainsString('vendor/{$vendor}/{$name}/', $result['plugin']);
     }
 

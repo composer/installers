@@ -42,6 +42,10 @@ class ShopwareInstaller extends BaseInstaller
             return strtoupper($matches[0][1]);
         }, $vars['name']);
 
+        if (null === $camelCasedName) {
+            throw new \RuntimeException('Failed to run preg_replace_callback: '.preg_last_error());
+        }
+
         $vars['name'] = ucfirst($vars['vendor']) . ucfirst($camelCasedName);
 
         return $vars;

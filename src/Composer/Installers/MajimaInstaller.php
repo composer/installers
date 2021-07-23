@@ -35,6 +35,11 @@ class MajimaInstaller extends BaseInstaller
         $camelCasedName = preg_replace_callback('/(-[a-z])/', function ($matches) {
             return strtoupper($matches[0][1]);
         }, $vars['name']);
+
+        if (null === $camelCasedName) {
+            throw new \RuntimeException('Failed to run preg_replace_callback: '.preg_last_error());
+        }
+
         $vars['name'] = ucfirst($camelCasedName);
         return $vars;
     }

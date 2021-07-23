@@ -6,6 +6,7 @@ use Composer\Composer;
 use Composer\Installer\BinaryInstaller;
 use Composer\Installer\LibraryInstaller;
 use Composer\IO\IOInterface;
+use Composer\Package\Package;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 use Composer\Util\Filesystem;
@@ -214,13 +215,15 @@ class Installer extends LibraryInstaller
      */
     protected function getLocationPattern(string $frameworkType): string
     {
-        $pattern = false;
+        $pattern = null;
         if (!empty($this->supportedTypes[$frameworkType])) {
             $frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
             /** @var BaseInstaller $framework */
-            $framework = new $frameworkClass(null, $this->composer, $this->getIO());
-            $locations = array_keys($framework->getLocations());
-            $pattern = $locations ? '(' . implode('|', $locations) . ')' : false;
+            $framework = new $frameworkClass(new Package('dummy/pkg', '1.0.0.0', '1.0.0'), $this->composer, $this->getIO());
+            $locations = array_keys($framework->getLocations($frameworkType));
+            if ($locations) {
+                $pattern = '(' . implode('|', $locations) . ')';
+            }
         }
 
         return $pattern ?: '(\w+)';

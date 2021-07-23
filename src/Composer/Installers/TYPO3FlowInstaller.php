@@ -26,11 +26,11 @@ class TYPO3FlowInstaller extends BaseInstaller
     public function inflectPackageVars(array $vars): array
     {
         $autoload = $this->package->getAutoload();
-        if (isset($autoload['psr-0']) && is_array($autoload['psr-0'])) {
+        if (isset($autoload['psr-0']) && is_array($autoload['psr-0']) && count($autoload['psr-0']) > 0) {
             $namespace = key($autoload['psr-0']);
             $vars['name'] = str_replace('\\', '.', $namespace);
         }
-        if (isset($autoload['psr-4']) && is_array($autoload['psr-4'])) {
+        if (isset($autoload['psr-4']) && is_array($autoload['psr-4']) && count($autoload['psr-4']) > 0) {
             $namespace = key($autoload['psr-4']);
             $vars['name'] = rtrim(str_replace('\\', '.', $namespace), '.');
         }

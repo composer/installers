@@ -24,7 +24,7 @@ class GravInstallerTest extends TestCase
         $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => 'test')));
         $this->assertEquals('test', $result['name']);
 
-        foreach ($installer->getLocations() as $name => $location) {
+        foreach ($installer->getLocations('grav') as $name => $location) {
             $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "$name-test")));
             $this->assertEquals('test', $result['name']);
             $result = $installer->inflectPackageVars(array_merge($packageVars, array('name' => "test-$name")));
