@@ -61,6 +61,11 @@ jobs:
         if: "contains(matrix.dependencies, 'lowest')"
         run: "echo \"COMPOSER_FLAGS=$COMPOSER_FLAGS --prefer-lowest\" >> $GITHUB_ENV"
 
+      - name: "Upgrade phpunit-bridge if needed for php 8 lowest build"
+        if: "contains(matrix.php-version, '8.')"
+        run: |
+          composer require symfony/phpunit-bridge:^5.3.3 --dev --no-update
+
       - name: "Install latest dependencies"
         run: |
           # Remove PHPStan as it requires a newer PHP
