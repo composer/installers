@@ -26,7 +26,7 @@ class CakePHPInstallerTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->package = new Package('CamelCased', '1.0', '1.0');
         $this->composer = new Composer();

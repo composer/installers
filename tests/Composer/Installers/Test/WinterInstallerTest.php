@@ -13,7 +13,7 @@ class WinterInstallerTest extends BaseTestCase
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new WinterInstaller(
             new Package('NyanCat', '4.2', '4.2'),

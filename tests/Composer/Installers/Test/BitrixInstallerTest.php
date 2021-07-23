@@ -25,7 +25,7 @@ class BitrixInstallerTest extends TestCase
      *
      * This method is called before a test is executed.
      */
-    final function setUp()
+    final function setUp(): void
     {
         $this->composer = new Composer();
     }

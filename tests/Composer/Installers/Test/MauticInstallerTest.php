@@ -17,7 +17,7 @@ class MauticInstallerTest extends TestCase
      */
     protected $composer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->composer = new Composer();
     }

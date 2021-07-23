@@ -28,7 +28,7 @@ class PiwikInstallerTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->package = new Package('VisitSummary', '1.0', '1.0');
         $this->composer = new Composer();

@@ -19,7 +19,7 @@ class TastyIgniterInstallerTest extends BaseTestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new TastyIgniterInstaller(
             new Package('NyanCat', '4.2', '4.2'),

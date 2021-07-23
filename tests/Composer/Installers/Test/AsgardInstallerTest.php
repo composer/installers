@@ -13,7 +13,7 @@ class AsgardInstallerTest extends TestCase
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new AsgardInstaller(
             new Package('NyanCat', '4.2', '4.2'),

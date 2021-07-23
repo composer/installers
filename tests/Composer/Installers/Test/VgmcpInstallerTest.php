@@ -13,7 +13,7 @@ class VgmcpInstallerTest extends BaseTestCase
      */
     private $installer;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->installer = new VgmcpInstaller(
             new Package('NyanCat', '4.2', '4.2'),

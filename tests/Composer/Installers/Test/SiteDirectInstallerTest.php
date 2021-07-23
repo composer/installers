@@ -14,7 +14,7 @@ class SiteDirectInstallerTest extends TestCase
     /** @var Package */
     private $package;
 
-    public function SetUp()
+    public function SetUp(): void
     {
         $this->package = new Package('sitedirect/some_name', '1.0.9', '1.0');
         $this->installer = new SiteDirectInstaller(
