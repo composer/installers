@@ -20,7 +20,6 @@ class Installer extends LibraryInstaller
      * @var array<string, string>
      */
     private $supportedTypes = array(
-        'aimeos'       => 'AimeosInstaller',
         'asgard'       => 'AsgardInstaller',
         'attogram'     => 'AttogramInstaller',
         'agl'          => 'AglInstaller',

@@ -28,7 +28,6 @@ is **not needed** to install packages with these frameworks.
 
 | Framework    | Types
 | ---------    | -----
-| Aimeos       | `aimeos-extension`
 | Asgard       | `asgard-module`<br>`asgard-theme`
 | Attogram     | `attogram-module`
 | AGL          | `agl-module`
