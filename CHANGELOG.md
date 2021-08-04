@@ -1,5 +1,9 @@
 # Change Log
 
+## v2.0.0 - 2021-08-04
+### Removed
+* Removed support for TYPO3 Flow
+
 ## v2.0.0-alpha1 - 2021-07-23
 ### Added
 * Type declarations have been added everywhere to support PHPStan level 8

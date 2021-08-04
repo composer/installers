@@ -220,7 +220,6 @@ class InstallerTest extends TestCase
             array('thelia-email-template', true),
             array('tusk-task', true),
             array('tusk-asset', true),
-            array('typo3-flow-plugin', true),
             array('userfrosting-sprinkle', true),
             array('vanilla-plugin', true),
             array('vanilla-theme', true),
@@ -424,8 +423,6 @@ class InstallerTest extends TestCase
             array('thelia-backoffice-template', 'templates/backOffice/my_template_bo/', 'shama/my_template_bo'),
             array('thelia-email-template', 'templates/email/my_template_email/', 'shama/my_template_email'),
             array('tusk-task', '.tusk/tasks/my_task/', 'shama/my_task'),
-            array('typo3-flow-package', 'Packages/Application/my_package/', 'shama/my_package'),
-            array('typo3-flow-build', 'Build/my_package/', 'shama/my_package'),
             array('userfrosting-sprinkle', 'app/sprinkles/my_sprinkle/', 'shama/my_sprinkle'),
             array('vanilla-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
             array('vanilla-theme', 'themes/my_theme/', 'shama/my_theme'),
@@ -552,22 +549,6 @@ class InstallerTest extends TestCase
         $package->setType('vanilla-plugin');
         $result = $installer->getInstallPath($package);
         $this->assertEquals(getcwd() . '/plugins/vanillaPlugin/', $result);
-    }
-
-    public function testTypo3Inflection(): void
-    {
-        $installer = new Installer($this->io, $this->composer);
-        $package = new Package('typo3/fluid', '1.0.0', '1.0.0');
-
-        $package->setAutoload(array(
-            'psr-0' => array(
-                'TYPO3\\Fluid' => 'Classes',
-            ),
-        ));
-
-        $package->setType('typo3-flow-package');
-        $result = $installer->getInstallPath($package);
-        $this->assertEquals(getcwd() . '/Packages/Application/TYPO3.Fluid/', $result);
     }
 
     public function testUninstallAndDeletePackageFromLocalRepo(): void

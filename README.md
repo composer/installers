@@ -107,7 +107,6 @@ is **not needed** to install packages with these frameworks.
 | TAO          | `tao-extension`
 | TastyIgniter | **`tastyigniter-extension`<br>`tastyigniter-theme`**
 | Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
-| TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
 | UserFrosting | `userfrosting-sprinkle`
 | Vanilla      | `vanilla-plugin`<br>`vanilla-theme`
 | Vgmcp        | `vgmcp-bundle`<br>`vgmcp-theme`
