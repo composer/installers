@@ -1,6 +1,10 @@
 # Change Log
 
 ## v2.0.0 - 2021-08-04
+### Added
+* Added installer for Pantheon Quicksilver modules/scripts [#492](https://github.com/composer/installers/pull/492).
+* Added installer for Akaunting modules [#489](https://github.com/composer/installers/pull/489).
+
 ### Removed
 * Removed support for TYPO3 Flow
 

@@ -20,6 +20,16 @@ Most frameworks these days natively work with Composer and will be
 installed to the default `vendor` directory. `composer/installers`
 is **not needed** to install packages with these frameworks.
 
+## Alternative to custom installers with Composer 2.1+
+
+As of Composer 2.1, the `Composer\InstalledVersions` class has a
+[`getInstalledPackagesByType`](https://getcomposer.org/doc/07-runtime.md#knowing-which-packages-of-a-given-type-are-installed)
+method which can let you figure out at runtime which plugins/modules/extensions are installed.
+
+It is highly recommended to use that instead of building new custom
+installers if you are building a new application. This has the advantage of leaving
+all vendor code in the vendor directory, and not requiring custom installer code.
+
 ## Current Supported Package Types
 
 > Stable types are marked as **bold**, this means that installation paths
