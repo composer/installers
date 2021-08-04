@@ -28,6 +28,7 @@ is **not needed** to install packages with these frameworks.
 
 | Framework    | Types
 | ---------    | -----
+| Akaunting    | `akaunting-module`
 | Asgard       | `asgard-module`<br>`asgard-theme`
 | Attogram     | `attogram-module`
 | AGL          | `agl-module`

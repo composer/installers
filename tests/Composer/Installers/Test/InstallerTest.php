@@ -83,6 +83,7 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', true),
+            array('akaunting-module', true),
             array('annotatecms-module', true),
             array('annotatecms-component', true),
             array('annotatecms-service', true),
@@ -270,6 +271,7 @@ class InstallerTest extends TestCase
     {
         return array(
             array('agl-module', 'More/MyTestPackage/', 'agl/my_test-package'),
+            array('akaunting-module', 'modules/MyPackage', 'shama/MyPackage'),
             array('annotatecms-module', 'addons/modules/my_module/', 'vysinsky/my_module'),
             array('annotatecms-component', 'addons/components/my_component/', 'vysinsky/my_component'),
             array('annotatecms-service', 'addons/services/my_service/', 'vysinsky/my_service'),
