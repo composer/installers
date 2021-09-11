@@ -90,6 +90,7 @@ is not needed to install packages with these frameworks:
 | Osclass      | `osclass-plugin`<br>`osclass-theme`<br>`osclass-language`
 | MODULEWork   | `modulework-module`
 | Moodle       | `moodle-*` (Please [check source](https://github.com/composer/installers/blob/main/src/Composer/Installers/MoodleInstaller.php) for all supported types)
+| Pantheon     | `quicksilver-script`<br>`quicksilver-module`
 | Piwik        | `piwik-plugin`
 | Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
