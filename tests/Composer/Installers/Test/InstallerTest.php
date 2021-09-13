@@ -177,6 +177,8 @@ class InstallerTest extends TestCase
             array('moodle-mod', true),
             array('october-module', true),
             array('october-plugin', true),
+            array('quicksilver-script', true),
+            array('quicksilver-module', true),
             array('piwik-plugin', true),
             array('pxcms-module', true),
             array('pxcms-theme', true),
