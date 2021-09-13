@@ -1,5 +1,9 @@
 # Change Log
 
+## v2.0.1 - 2021-09-13
+### Fixed
+* Fixed installer for Pantheon Quicksilver modules/scripts [#494](https://github.com/composer/installers/pull/494).
+
 ## v2.0.0 - 2021-08-04
 ### Added
 * Added installer for Pantheon Quicksilver modules/scripts [#492](https://github.com/composer/installers/pull/492).
