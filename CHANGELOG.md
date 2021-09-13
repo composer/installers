@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.12.0 - 2021-09-13
+### Added
+* Added installer for Pantheon Quicksilver modules/scripts #495.
+
 ## v1.11.0 - 2021-04-28
 ### Added
 * Added installer for TastyIgniter extensions and themes [#478](https://github.com/composer/installers/pull/478).
