@@ -109,7 +109,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | REDAXO V5.*  bestyle-plugin  | `redaxo5-bestyle-plugin`
 | ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
 | Roundcube    | `roundcube-plugin`
-| shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`
+| shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`<br/>`shopware-platform-plugin`
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
 | SiteDirect   | `sitedirect-module`<br>`sitedirect-plugin`
 | SMF          | `smf-module`<br>`smf-theme`
