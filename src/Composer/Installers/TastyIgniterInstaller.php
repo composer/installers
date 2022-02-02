@@ -35,6 +35,10 @@ class TastyIgniterInstaller extends BaseInstaller
         return $vars;
     }
 
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
     protected function inflectExtensionVars(array $vars, array $extra): array
     {
         if (isset($extra['tastyigniter-extension']['code'])) {
@@ -49,6 +53,10 @@ class TastyIgniterInstaller extends BaseInstaller
         return $vars;
     }
 
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
     protected function inflectThemeVars(array $vars, array $extra): array
     {
         if (isset($extra['tastyigniter-theme']['code'])) {
