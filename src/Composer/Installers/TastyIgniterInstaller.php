@@ -17,16 +17,45 @@ class TastyIgniterInstaller extends BaseInstaller
      * Strip vendor name of characters that is not alphanumeric or an underscore
      *
      */
-    public function inflectPackageVars(array $vars): array
+    public function inflectPackageVars($vars): array
     {
+        $extra = [];
+        if ($this->composer->getPackage()) {
+            $extra = $this->composer->getPackage()->getExtra();
+        }
+
         if ($vars['type'] === 'tastyigniter-extension') {
-            $vars['vendor'] = $this->pregReplace('/[^a-z0-9_]/i', '', $vars['vendor']);
-            $vars['name'] = $this->pregReplace('/^ti-ext-/', '', $vars['name']);
+            return $this->inflectExtensionVars($vars, $extra);
         }
 
         if ($vars['type'] === 'tastyigniter-theme') {
-            $vars['name'] = $this->pregReplace('/^ti-theme-/', '', $vars['name']);
+            return $this->inflectThemeVars($vars, $extra);
         }
+
+        return $vars;
+    }
+
+    protected function inflectExtensionVars($vars, $extra)
+    {
+        if (isset($extra['tastyigniter-extension']['code'])) {
+            $parts = explode('.', $extra['tastyigniter-extension']['code']);
+            $vars['vendor'] = $parts[0];
+            $vars['name'] = $parts[1];
+        }
+
+        $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
+        $vars['name'] = preg_replace('/^ti-ext-/', '', $vars['name']);
+
+        return $vars;
+    }
+
+    protected function inflectThemeVars($vars, $extra)
+    {
+        if (isset($extra['tastyigniter-theme']['code'])) {
+            $vars['name'] = $extra['tastyigniter-theme']['code'];
+        }
+
+        $vars['name'] = preg_replace('/^ti-theme-/', '', $vars['name']);
 
         return $vars;
     }
