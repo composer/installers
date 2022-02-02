@@ -37,6 +37,7 @@ class TastyIgniterInstaller extends BaseInstaller
 
     /**
      * @param array<string, string> $vars
+     * @param array<string, string> $extra
      * @return array<string, string>
      */
     protected function inflectExtensionVars(array $vars, array $extra): array
@@ -55,6 +56,7 @@ class TastyIgniterInstaller extends BaseInstaller
 
     /**
      * @param array<string, string> $vars
+     * @param array<string, string> $extra
      * @return array<string, string>
      */
     protected function inflectThemeVars(array $vars, array $extra): array
