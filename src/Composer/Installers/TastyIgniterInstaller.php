@@ -19,10 +19,7 @@ class TastyIgniterInstaller extends BaseInstaller
      */
     public function inflectPackageVars(array $vars): array
     {
-        $extra = [];
-        if ($this->composer->getPackage()) {
-            $extra = $this->composer->getPackage()->getExtra();
-        }
+        $extra = $this->composer->getPackage()->getExtra();
 
         if ($vars['type'] === 'tastyigniter-extension') {
             return $this->inflectExtensionVars($vars, $extra);
@@ -37,7 +34,7 @@ class TastyIgniterInstaller extends BaseInstaller
 
     /**
      * @param array<string, string> $vars
-     * @param array<string, string> $extra
+     * @param array<string, mixed> $extra
      * @return array<string, string>
      */
     protected function inflectExtensionVars(array $vars, array $extra): array
@@ -56,7 +53,7 @@ class TastyIgniterInstaller extends BaseInstaller
 
     /**
      * @param array<string, string> $vars
-     * @param array<string, string> $extra
+     * @param array<string, mixed> $extra
      * @return array<string, string>
      */
     protected function inflectThemeVars(array $vars, array $extra): array
