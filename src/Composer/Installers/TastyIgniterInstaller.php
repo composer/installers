@@ -17,7 +17,7 @@ class TastyIgniterInstaller extends BaseInstaller
      * Strip vendor name of characters that is not alphanumeric or an underscore
      *
      */
-    public function inflectPackageVars($vars): array
+    public function inflectPackageVars(array $vars): array
     {
         $extra = [];
         if ($this->composer->getPackage()) {
@@ -35,7 +35,7 @@ class TastyIgniterInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectExtensionVars($vars, $extra)
+    protected function inflectExtensionVars(array $vars, array $extra): array
     {
         if (isset($extra['tastyigniter-extension']['code'])) {
             $parts = explode('.', $extra['tastyigniter-extension']['code']);
@@ -49,7 +49,7 @@ class TastyIgniterInstaller extends BaseInstaller
         return $vars;
     }
 
-    protected function inflectThemeVars($vars, $extra)
+    protected function inflectThemeVars(array $vars, array $extra): array
     {
         if (isset($extra['tastyigniter-theme']['code'])) {
             $vars['name'] = $extra['tastyigniter-theme']['code'];
