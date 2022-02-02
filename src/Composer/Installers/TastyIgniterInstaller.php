@@ -42,7 +42,7 @@ class TastyIgniterInstaller extends BaseInstaller
         if (!empty($extra['tastyigniter-extension']['code'])) {
             $parts = explode('.', $extra['tastyigniter-extension']['code']);
             $vars['vendor'] = $parts[0];
-            $vars['name'] = $parts[1];
+            $vars['name'] = $parts[1] ?? '';
         }
 
         $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
