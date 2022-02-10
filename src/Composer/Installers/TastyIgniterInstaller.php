@@ -22,47 +22,22 @@ class TastyIgniterInstaller extends BaseInstaller
         $extra = $this->composer->getPackage()->getExtra();
 
         if ($vars['type'] === 'tastyigniter-extension') {
-            return $this->inflectExtensionVars($vars, $extra);
+            if (!empty($extra['tastyigniter-extension']['code'])) {
+                $parts = explode('.', $extra['tastyigniter-extension']['code']);
+                $vars['vendor'] = $parts[0];
+                $vars['name'] = $parts[1] ?? '';
+            }
+
+            $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
+            $vars['name'] = preg_replace('/^ti-ext-/', '', $vars['name']);
         }
+        elseif ($vars['type'] === 'tastyigniter-theme') {
+            if (!empty($extra['tastyigniter-theme']['code'])) {
+                $vars['name'] = $extra['tastyigniter-theme']['code'];
+            }
 
-        if ($vars['type'] === 'tastyigniter-theme') {
-            return $this->inflectThemeVars($vars, $extra);
+            $vars['name'] = preg_replace('/^ti-theme-/', '', $vars['name']);
         }
-
-        return $vars;
-    }
-
-    /**
-     * @param array<string, string|array> $vars
-     * @param array<string, mixed> $extra
-     * @return array<string, string|null>
-     */
-    protected function inflectExtensionVars(array $vars, array $extra): array
-    {
-        if (!empty($extra['tastyigniter-extension']['code'])) {
-            $parts = explode('.', $extra['tastyigniter-extension']['code']);
-            $vars['vendor'] = $parts[0];
-            $vars['name'] = $parts[1] ?? '';
-        }
-
-        $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
-        $vars['name'] = preg_replace('/^ti-ext-/', '', $vars['name']);
-
-        return $vars;
-    }
-
-    /**
-     * @param array<string, string> $vars
-     * @param array<string, mixed> $extra
-     * @return array<string, string>
-     */
-    protected function inflectThemeVars(array $vars, array $extra): array
-    {
-        if (!empty($extra['tastyigniter-theme']['code'])) {
-            $vars['name'] = $extra['tastyigniter-theme']['code'];
-        }
-
-        $vars['name'] = preg_replace('/^ti-theme-/', '', $vars['name']);
 
         return $vars;
     }
