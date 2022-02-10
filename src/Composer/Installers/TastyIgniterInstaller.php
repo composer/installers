@@ -29,9 +29,10 @@ class TastyIgniterInstaller extends BaseInstaller
             }
 
             $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
-            $vars['name'] = preg_replace('/^ti-ext-/', '', $vars['name']);
+            $vars['name'] = preg_replace('/^ti-ext-/', '', (string)$vars['name']);
         }
-        elseif ($vars['type'] === 'tastyigniter-theme') {
+
+        if ($vars['type'] === 'tastyigniter-theme') {
             if (!empty($extra['tastyigniter-theme']['code'])) {
                 $vars['name'] = $extra['tastyigniter-theme']['code'];
             }
