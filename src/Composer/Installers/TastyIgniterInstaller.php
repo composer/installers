@@ -33,7 +33,7 @@ class TastyIgniterInstaller extends BaseInstaller
     }
 
     /**
-     * @param array<string, string> $vars
+     * @param array<string, string|array> $vars
      * @param array<string, mixed> $extra
      * @return array<string, string|null>
      */
