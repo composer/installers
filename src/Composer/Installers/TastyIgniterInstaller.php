@@ -19,13 +19,25 @@ class TastyIgniterInstaller extends BaseInstaller
      */
     public function inflectPackageVars(array $vars): array
     {
+        $extra = $this->composer->getPackage()->getExtra();
+
         if ($vars['type'] === 'tastyigniter-extension') {
-            $vars['vendor'] = $this->pregReplace('/[^a-z0-9_]/i', '', $vars['vendor']);
-            $vars['name'] = $this->pregReplace('/^ti-ext-/', '', $vars['name']);
+            if (!empty($extra['tastyigniter-extension']['code'])) {
+                $parts = explode('.', $extra['tastyigniter-extension']['code']);
+                $vars['vendor'] = $parts[0];
+                $vars['name'] = $parts[1] ?? '';
+            }
+
+            $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
+            $vars['name'] = preg_replace('/^ti-ext-/', '', (string)$vars['name']);
         }
 
         if ($vars['type'] === 'tastyigniter-theme') {
-            $vars['name'] = $this->pregReplace('/^ti-theme-/', '', $vars['name']);
+            if (!empty($extra['tastyigniter-theme']['code'])) {
+                $vars['name'] = $extra['tastyigniter-theme']['code'];
+            }
+
+            $vars['name'] = preg_replace('/^ti-theme-/', '', $vars['name']);
         }
 
         return $vars;
