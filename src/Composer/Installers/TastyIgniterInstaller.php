@@ -43,7 +43,7 @@ class TastyIgniterInstaller extends BaseInstaller
      */
     protected function inflectModuleVars(array $vars): array
     {
-        $vars['name'] = $this->pregReplace('/^wn-|-module$/', '', $vars['name']);
+        $vars['name'] = $this->pregReplace('/^ti-module-/', '', $vars['name']);
 
         return $vars;
     }
