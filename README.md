@@ -117,7 +117,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | SyDES        | `sydes-module`<br>`sydes-theme`
 | Sylius       | `sylius-theme`
 | TAO          | `tao-extension`
-| TastyIgniter | **`tastyigniter-extension`<br>`tastyigniter-theme`**
+| TastyIgniter | **`tastyigniter-module`<br>`tastyigniter-extension`<br>`tastyigniter-theme`**
 | Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
 | UserFrosting | `userfrosting-sprinkle`
 | Vanilla      | `vanilla-plugin`<br>`vanilla-theme`

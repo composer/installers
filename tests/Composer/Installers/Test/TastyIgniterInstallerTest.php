@@ -2,7 +2,6 @@
 
 namespace Composer\Installers\Test;
 
-use Composer\Composer;
 use Composer\Installers\TastyIgniterInstaller;
 use Composer\Package\Package;
 
@@ -81,6 +80,13 @@ class TastyIgniterInstallerTest extends TestCase
                 'someothertheme',
                 'acme',
                 'someothertheme',
+            ),
+            array(
+                'tastyigniter-module',
+                'tastyigniter',
+                'ti-module-system',
+                'tastyigniter',
+                'system',
             ),
         );
     }

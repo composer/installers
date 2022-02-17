@@ -5,10 +5,11 @@ namespace Composer\Installers;
 class TastyIgniterInstaller extends BaseInstaller
 {
     /** @var array<string, string> */
-    protected $locations = array(
+    protected $locations = [
+        'module' => 'app/{$name}/',
         'extension' => 'extensions/{$vendor}/{$name}/',
         'theme' => 'themes/{$name}/',
-    );
+    ];
 
     /**
      * Format package name.
@@ -21,24 +22,63 @@ class TastyIgniterInstaller extends BaseInstaller
     {
         $extra = $this->composer->getPackage()->getExtra();
 
-        if ($vars['type'] === 'tastyigniter-extension') {
-            if (!empty($extra['tastyigniter-extension']['code'])) {
-                $parts = explode('.', $extra['tastyigniter-extension']['code']);
-                $vars['vendor'] = $parts[0];
-                $vars['name'] = $parts[1] ?? '';
-            }
+        if ($vars['type'] === 'tastyigniter-module') {
+            return $this->inflectModuleVars($vars);
+        }
 
-            $vars['vendor'] = preg_replace('/[^a-z0-9_]/i', '', $vars['vendor']);
-            $vars['name'] = preg_replace('/^ti-ext-/', '', (string)$vars['name']);
+        if ($vars['type'] === 'tastyigniter-extension') {
+            return $this->inflectExtensionVars($vars, $extra);
         }
 
         if ($vars['type'] === 'tastyigniter-theme') {
-            if (!empty($extra['tastyigniter-theme']['code'])) {
-                $vars['name'] = $extra['tastyigniter-theme']['code'];
-            }
-
-            $vars['name'] = preg_replace('/^ti-theme-/', '', $vars['name']);
+            return $this->inflectThemeVars($vars, $extra);
         }
+
+        return $vars;
+    }
+
+    /**
+     * @param array<string, string> $vars
+     * @return array<string, string>
+     */
+    protected function inflectModuleVars(array $vars): array
+    {
+        $vars['name'] = $this->pregReplace('/^ti-module-/', '', $vars['name']);
+
+        return $vars;
+    }
+
+    /**
+     * @param array<string, string> $vars
+     * @param array<string, mixed> $extra
+     * @return array<string, string>
+     */
+    protected function inflectExtensionVars(array $vars, array $extra): array
+    {
+        if (!empty($extra['tastyigniter-extension']['code'])) {
+            $parts = explode('.', $extra['tastyigniter-extension']['code']);
+            $vars['vendor'] = (string)$parts[0];
+            $vars['name'] = (string)($parts[1] ?? '');
+        }
+
+        $vars['vendor'] = $this->pregReplace('/[^a-z0-9_]/i', '', $vars['vendor']);
+        $vars['name'] = $this->pregReplace('/^ti-ext-/', '', $vars['name']);
+
+        return $vars;
+    }
+
+    /**
+     * @param array<string, string> $vars
+     * @param array<string, mixed> $extra
+     * @return array<string, string>
+     */
+    protected function inflectThemeVars(array $vars, array $extra): array
+    {
+        if (!empty($extra['tastyigniter-theme']['code'])) {
+            $vars['name'] = $extra['tastyigniter-theme']['code'];
+        }
+
+        $vars['name'] = $this->pregReplace('/^ti-theme-/', '', $vars['name']);
 
         return $vars;
     }
