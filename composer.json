@@ -98,7 +98,8 @@
         "class": "Composer\\Installers\\Plugin",
         "branch-alias": {
             "dev-main": "1.x-dev"
-        }
+        },
+        "plugin-modifies-install-path": true
     },
     "replace": {
         "shama/baton": "*",
