@@ -1,5 +1,11 @@
 # Change Log
 
+## v2.1.0 - 2022-03-18
+### Added
+* Added new types (antivirus, customfield, contenttype, dataformat, media, paygw) for Moodle (#497)
+* Added new `tastyigniter-module` type to TastyIgniter (#503)
+* Added new `extra.plugin-modifies-install-path` to composer/installers for Composer 2.3 support, see [docs](https://getcomposer.org/doc/articles/plugins.md#plugin-modifies-install-path) if you are writing your own custom installer plugin.
+
 ## v2.0.1 - 2021-09-13
 ### Fixed
 * Fixed installer for Pantheon Quicksilver modules/scripts [#494](https://github.com/composer/installers/pull/494).
