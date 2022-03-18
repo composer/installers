@@ -93,7 +93,8 @@
         "class": "Composer\\Installers\\Plugin",
         "branch-alias": {
             "dev-main": "2.x-dev"
-        }
+        },
+        "plugin-modifies-install-path": true
     },
     "require": {
         "php": "^7.2 || ^8.0",
