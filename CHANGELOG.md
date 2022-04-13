@@ -1,5 +1,9 @@
 # Change Log
 
+## v2.1.1 - 2022-04-13
+### Fixed
+* Fixed TastyIgniter parsing of extra data to use the package being installed instead of the root package (#507)
+
 ## v2.1.0 - 2022-03-18
 ### Added
 * Added new types (antivirus, customfield, contenttype, dataformat, media, paygw) for Moodle (#497)
