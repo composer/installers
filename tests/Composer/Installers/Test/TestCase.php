@@ -13,6 +13,7 @@
 namespace Composer\Installers\Test;
 
 use Composer\Composer;
+use Composer\Config;
 use Composer\IO\IOInterface;
 use Composer\IO\NullIO;
 use Composer\Package\Version\VersionParser;
@@ -21,6 +22,9 @@ use Composer\Package\AliasPackage;
 use Composer\Package\RootPackage;
 use Composer\Semver\Constraint\Constraint;
 use Composer\Util\Filesystem;
+use Composer\Installer\InstallationManager;
+use Composer\Repository\RepositoryManager;
+use Composer\Downloader\DownloadManager;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
@@ -74,6 +78,23 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         $composer = new Composer;
         $composer->setPackage($pkg = new RootPackage('root/pkg', '1.0.0.0', '1.0.0'));
+
+        $composer->setConfig(new Config(false));
+
+        $dm = $this->getMockBuilder(DownloadManager::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $composer->setDownloadManager($dm);
+
+        $im = $this->getMockBuilder(InstallationManager::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $composer->setInstallationManager($im);
+
+        $rm = $this->getMockBuilder(RepositoryManager::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $composer->setRepositoryManager($rm);
 
         return $composer;
     }

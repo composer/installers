@@ -5,6 +5,7 @@ namespace Composer\Installers\Test;
 use Composer\Installers\BitrixInstaller;
 use Composer\Package\Package;
 use Composer\Composer;
+use Composer\Package\RootPackage;
 
 /**
  * Tests for the BitrixInstaller Class
@@ -22,6 +23,7 @@ class BitrixInstallerTest extends TestCase
     public function setUp(): void
     {
         $this->composer = new Composer();
+        $this->composer->setPackage(new RootPackage('foo/bar', '1.0.0', '1.0.0'));
     }
 
     /**

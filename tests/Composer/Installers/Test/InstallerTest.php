@@ -8,7 +8,6 @@ use Composer\Installers\Installer;
 use Composer\Package\Package;
 use Composer\Package\RootPackage;
 use Composer\Util\Filesystem;
-use Composer\Downloader\DownloadManager;
 use Composer\Repository\InstalledRepositoryInterface;
 use Composer\IO\IOInterface;
 
@@ -22,8 +21,6 @@ class InstallerTest extends TestCase
     private $vendorDir;
     /** @var string */
     private $binDir;
-    /** @var DownloadManager */
-    private $dm;
     /** @var InstalledRepositoryInterface */
     private $repository;
     /** @var IOInterface */
@@ -35,9 +32,8 @@ class InstallerTest extends TestCase
     {
         $this->fs = new Filesystem;
 
-        $this->composer = new Composer();
-        $this->config = new Config();
-        $this->composer->setConfig($this->config);
+        $this->composer = $this->getComposer();
+        $this->config = $this->composer->getConfig();
 
         $this->vendorDir = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'baton-test-vendor';
         $this->ensureDirectoryExistsAndClear($this->vendorDir);
@@ -52,16 +48,8 @@ class InstallerTest extends TestCase
             ),
         ));
 
-        $this->dm = $this->getMockBuilder(DownloadManager::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->composer->setDownloadManager($this->dm);
-
         $this->repository = $this->getMockBuilder(InstalledRepositoryInterface::class)->getMock();
         $this->io = $this->getMockIO();
-
-        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
     }
 
     public function tearDown(): void
@@ -564,10 +552,11 @@ class InstallerTest extends TestCase
         $package = new Package('foo', '1.0.0', '1.0.0');
 
         $installer = $this->getMockBuilder(Installer::class)
-            ->setMethods(array('getInstallPath'))
+            ->setMethods(array('getInstallPath', 'removeCode'))
             ->setConstructorArgs(array($this->io, $this->composer))
             ->getMock();
         $installer->expects($this->atLeastOnce())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
+        $installer->expects($this->atLeastOnce())->method('removeCode')->with($package)->will($this->returnValue(null));
 
         $repo = $this->getMockBuilder(InstalledRepositoryInterface::class)->getMock();
         $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));
