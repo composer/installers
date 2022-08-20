@@ -64,6 +64,7 @@ class Installer extends LibraryInstaller
         'majima'       => 'MajimaInstaller',
         'mantisbt'     => 'MantisBTInstaller',
         'mako'         => 'MakoInstaller',
+        'matomo'       => 'MatomoInstaller',
         'maya'         => 'MayaInstaller',
         'mautic'       => 'MauticInstaller',
         'mediawiki'    => 'MediaWikiInstaller',

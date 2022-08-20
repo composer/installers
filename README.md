@@ -80,6 +80,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | majima       | `majima-plugin`
 | Mako         | `mako-package`
 | MantisBT     | `mantisbt-plugin`
+| Matomo       | `matomo-plugin`
 | Mautic       | `mautic-core`<br>`mautic-plugin`<br>`mautic-theme`
 | Maya         | `maya-module`
 | MODX         | `modx-extra`
