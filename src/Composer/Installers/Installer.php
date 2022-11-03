@@ -57,6 +57,7 @@ class Installer extends LibraryInstaller
         'kodicms'      => 'KodiCMSInstaller',
         'kohana'       => 'KohanaInstaller',
         'lms'          => 'LanManagementSystemInstaller',
+        'laminas'      => 'LaminasInstaller',
         'laravel'      => 'LaravelInstaller',
         'lavalite'     => 'LavaLiteInstaller',
         'lithium'      => 'LithiumInstaller',
