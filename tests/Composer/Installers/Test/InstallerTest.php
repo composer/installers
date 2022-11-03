@@ -143,6 +143,7 @@ class InstallerTest extends TestCase
             array('lms-template', true),
             array('lms-document-template', true),
             array('lms-userpanel-module', true),
+            array('laminas-module', true),
             array('laravel-library', true),
             array('lavalite-theme', true),
             array('lavalite-package', true),
@@ -330,6 +331,7 @@ class InstallerTest extends TestCase
             array('known-theme', 'Themes/SampleTheme/', 'known/SampleTheme'),
             array('known-console', 'ConsolePlugins/SampleConsolePlugin/', 'known/SampleConsolePlugin'),
             array('kohana-module', 'modules/my_package/', 'shama/my_package'),
+            array('laminas-module', 'module/MyLaminasModule/', 'shama/MyLaminasModule'),
             array('lms-plugin', 'plugins/MyPackage/', 'shama/MyPackage'),
             array('lms-plugin', 'plugins/MyPackage/', 'shama/my_package'),
             array('lms-template', 'templates/MyPackage/', 'shama/MyPackage'),
@@ -502,6 +504,22 @@ class InstallerTest extends TestCase
             'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'type:wordpress-plugin'
+                ),
+            ),
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals(getcwd() . '/my/custom/path/my_plugin/', $result);
+    }
+
+    public function testCustomLaminasPath(): void
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
+        $package->setType('laminas-module');
+        $this->composer->getPackage()->setExtra(array(
+            'installer-paths' => array(
+                'my/custom/path/{$name}/' => array(
+                    'type:laminas-module'
                 ),
             ),
         ));
