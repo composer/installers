@@ -10,12 +10,13 @@ class ShopwareInstaller extends BaseInstaller
 {
     /** @var array<string, string> */
     protected $locations = array(
-        'backend-plugin'    => 'engine/Shopware/Plugins/Local/Backend/{$name}/',
-        'core-plugin'       => 'engine/Shopware/Plugins/Local/Core/{$name}/',
-        'frontend-plugin'   => 'engine/Shopware/Plugins/Local/Frontend/{$name}/',
-        'theme'             => 'templates/{$name}/',
-        'plugin'            => 'custom/plugins/{$name}/',
-        'frontend-theme'    => 'themes/Frontend/{$name}/',
+        'backend-plugin'            => 'engine/Shopware/Plugins/Local/Backend/{$name}/',
+        'core-plugin'               => 'engine/Shopware/Plugins/Local/Core/{$name}/',
+        'frontend-plugin'           => 'engine/Shopware/Plugins/Local/Frontend/{$name}/',
+        'theme'                     => 'templates/{$name}/',
+        'plugin'                    => 'custom/plugins/{$name}/',
+        'frontend-theme'            => 'themes/Frontend/{$name}/',
+        'shopware-platform-plugin'  => 'custom/plugins/{$name}/',
     );
 
     /**
