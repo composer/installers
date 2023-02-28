@@ -98,8 +98,8 @@
         "plugin-modifies-install-path": true
     },
     "require": {
-        "php": "^7.2 || ^8.0",
-        "composer-plugin-api": "^1.0 || ^2.0"
+        "php": "^7.2 || ^8.0 || ^8.1",
+        "composer-plugin-api": "^1.0 || ^2.3"
     },
     "require-dev": {
         "composer/composer": "1.6.* || ^2.0",
