@@ -62,6 +62,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | Eliasis      | `eliasis-component`<br>`eliasis-module`<br>`eliasis-plugin`<br>`eliasis-template`
 | ExpressionEngine 3         | `ee3-addon`<br>`ee3-theme`
 | eZ Platform  | `ezplatform-assets`<br>`ezplatform-meta-assets`
+| ForkCMS ^v6.x| `fork-cms-module`<br>`fork-cms-theme`
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
 | FuelPHP v2.x | `fuelphp-component`
 | Grav         | `grav-plugin`<br>`grav-theme`

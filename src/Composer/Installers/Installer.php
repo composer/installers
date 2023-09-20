@@ -45,6 +45,7 @@ class Installer extends LibraryInstaller
         'ee3'          => 'ExpressionEngineInstaller',
         'ee2'          => 'ExpressionEngineInstaller',
         'ezplatform'   => 'EzPlatformInstaller',
+        'fork'         => 'ForkCMSInstaller',
         'fuel'         => 'FuelInstaller',
         'fuelphp'      => 'FuelphpInstaller',
         'grav'         => 'GravInstaller',
