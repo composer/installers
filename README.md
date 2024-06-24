@@ -43,6 +43,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | Attogram     | `attogram-module`
 | AGL          | `agl-module`
 | Bonefish     | `bonefish-package`
+| Botble       | `botble-plugin`<br>`botble-theme`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
 | Bitrix       | `bitrix-module` (deprecated) <br>`bitrix-component` (deprecated) <br>`bitrix-theme` (deprecated) <br><br> `bitrix-d7-module` <br> `bitrix-d7-component` <br> `bitrix-d7-template`
 | CakePHP 2+   | **`cakephp-plugin`**
