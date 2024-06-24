@@ -53,6 +53,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | Cockpit      | `cockpit-module`
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
 | concrete5    | `concrete5-core`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-block`<br>`concrete5-update`
+| ConcreteCMS  | `concretecms-core`<br>`concretecms-package`<br>`concretecms-theme`<br>`concretecms-block`<br>`concretecms-update`
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
 | Decibel      | `decibel-app`
 | Dframe       | `dframe-module`
