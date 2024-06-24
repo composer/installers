@@ -20,5 +20,6 @@ class DrupalInstaller extends BaseInstaller
         'console'          => 'console/{$name}/',
         'console-language' => 'console/language/{$name}/',
         'config'           => 'config/sync/',
+        'recipe'           => 'recipes/{$name}',
     );
 }

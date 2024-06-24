@@ -57,7 +57,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | Dframe       | `dframe-module`
 | DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
 | Dolibarr     | `dolibarr-module`
-| Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-database-driver`<br>`drupal-drush`<br>`drupal-custom-theme`<br>`drupal-custom-module`<br>`drupal-custom-profile`<br>`drupal-drupal-multisite`<br>`drupal-console`<br>`drupal-console-language`<br>`drupal-config`
+| Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-database-driver`<br>`drupal-drush`<br>`drupal-custom-theme`<br>`drupal-custom-module`<br>`drupal-custom-profile`<br>`drupal-drupal-multisite`<br>`drupal-console`<br>`drupal-console-language`<br>`drupal-config`<br>`drupal-recipe`
 | Elgg         | `elgg-plugin`
 | Eliasis      | `eliasis-component`<br>`eliasis-module`<br>`eliasis-plugin`<br>`eliasis-template`
 | ExpressionEngine 3         | `ee3-addon`<br>`ee3-theme`
