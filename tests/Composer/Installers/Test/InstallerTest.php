@@ -10,6 +10,7 @@ use Composer\Package\RootPackage;
 use Composer\Util\Filesystem;
 use Composer\Repository\InstalledRepositoryInterface;
 use Composer\IO\IOInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class InstallerTest extends TestCase
 {
@@ -21,7 +22,7 @@ class InstallerTest extends TestCase
     private $vendorDir;
     /** @var string */
     private $binDir;
-    /** @var InstalledRepositoryInterface */
+    /** @var InstalledRepositoryInterface&MockObject */
     private $repository;
     /** @var IOInterface */
     private $io;
@@ -564,7 +565,7 @@ class InstallerTest extends TestCase
         $installer->expects($this->atLeastOnce())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
         $installer->expects($this->atLeastOnce())->method('removeCode')->with($package)->will($this->returnValue(null));
 
-        $repo = $this->getMockBuilder(InstalledRepositoryInterface::class)->getMock();
+        $repo = $this->repository;
         $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));
         $repo->expects($this->once())->method('removePackage')->with($package);
 

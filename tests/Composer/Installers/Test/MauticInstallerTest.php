@@ -9,11 +9,6 @@ use Composer\Composer;
 class MauticInstallerTest extends TestCase
 {
     /**
-     * @var MauticInstaller
-     */
-    private $installer;
-
-    /**
      * @var Composer
      */
     protected $composer;

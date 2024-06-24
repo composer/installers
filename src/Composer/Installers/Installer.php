@@ -146,6 +146,9 @@ class Installer extends LibraryInstaller
         }
 
         $class = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
+        /**
+         * @var BaseInstaller
+         */
         $installer = new $class($package, $this->composer, $this->getIO());
 
         $path = $installer->getInstallPath($package, $frameworkType);
@@ -179,6 +182,8 @@ class Installer extends LibraryInstaller
 
     /**
      * {@inheritDoc}
+     *
+     * @param string $packageType
      */
     public function supports($packageType)
     {

@@ -41,7 +41,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @param Constraint::STR_OP_* $operator
+     * @phpstan-param '='|'=='|'<'|'<='|'>'|'>='|'<>'|'!=' $operator
      */
     protected function getVersionConstraint(string $operator, string $version): Constraint
     {
