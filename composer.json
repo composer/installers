@@ -105,13 +105,13 @@
     "require-dev": {
         "composer/composer": "^1.10.27 || ^2.7",
         "composer/semver": "^1.7.2 || ^3.4.0",
-        "symfony/phpunit-bridge": "^5.3",
+        "symfony/phpunit-bridge": "^7.1.1",
         "phpstan/phpstan": "^1.11",
         "symfony/process": "^5 || ^6 || ^7",
         "phpstan/phpstan-phpunit": "^1"
     },
     "scripts": {
-        "test": "vendor/bin/simple-phpunit",
-        "phpstan": "vendor/bin/phpstan analyse"
+        "test": "@php vendor/bin/simple-phpunit",
+        "phpstan": "@php vendor/bin/phpstan analyse"
     }
 }
