@@ -4,10 +4,6 @@ on:
   - push
   - pull_request
 
-env:
-  COMPOSER_FLAGS: "--ansi --no-interaction --no-progress --prefer-dist"
-  SYMFONY_PHPUNIT_VERSION: ""
-
 permissions:
   contents: read
 
@@ -20,33 +16,20 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.0"
+          - "7.2"
+          - "8.3"
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v4"
+      - uses: actions/checkout@v4
 
-      - name: "Install PHP"
-        uses: "shivammathur/setup-php@v2"
+      - uses: shivammathur/setup-php@v2
         with:
-          coverage: "none"
           php-version: "${{ matrix.php-version }}"
+          coverage: none
 
-      - name: Get composer cache directory
-        id: composercache
-        run: "echo \"dir=$(composer config cache-files-dir)\" >> $GITHUB_OUTPUT"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
+      - uses: ramsey/composer-install@v3
         with:
-          path: ${{ steps.composercache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys: ${{ runner.os }}-composer-
-
-      - name: "Install latest dependencies"
-        run: "composer update ${{ env.COMPOSER_FLAGS }}"
+          dependency-versions: highest
 
       - name: Run PHPStan
-        run: |
-          composer require --dev phpunit/phpunit:^8.5.18 --with-all-dependencies ${{ env.COMPOSER_FLAGS }}
-          vendor/bin/phpstan analyse
+        run: composer phpstan
