@@ -1,5 +1,18 @@
 # Change Log
 
+## v2.3.0 - 2024-06-24
+
+### Added
+* Added recipes for Drupal 10.3+ to DrupalInstaller #534
+* Added BotbleInstaller #533
+* Added new Moodle types (communication, forumreport, h5plib, mlbackend, qbank, tiny) #535
+* Added support for Fork CMS ^6 #529
+* Added ConcreteCMS installers and types mimicking concrete5 ones #522
+
+## v2.2.0 - 2022-08-20
+### Added
+* Added matomo-plugin by @codemorgan (#514)
+
 ## v2.1.1 - 2022-04-13
 ### Fixed
 * Fixed TastyIgniter parsing of extra data to use the package being installed instead of the root package (#507)
