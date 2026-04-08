@@ -8,6 +8,8 @@ class MoodleInstaller extends BaseInstaller
     protected $locations = array(
         'mod'                => 'mod/{$name}/',
         'admin_report'       => 'admin/report/{$name}/',
+        'aiplacement'        => 'ai/placement/{$name}/',
+        'aiprovider'         => 'ai/provider/{$name}/',
         'atto'               => 'lib/editor/atto/plugins/{$name}/',
         'tool'               => 'admin/tool/{$name}/',
         'assignment'         => 'mod/assignment/type/{$name}/',
@@ -60,6 +62,7 @@ class MoodleInstaller extends BaseInstaller
         'report'             => 'report/{$name}/',
         'repository'         => 'repository/{$name}/',
         'scormreport'        => 'mod/scorm/report/{$name}/',
+        'smsgateway'         => 'sms/gateway/{$name}/',
         'search'             => 'search/engine/{$name}/',
         'theme'              => 'theme/{$name}/',
         'tiny'               => 'lib/editor/tiny/plugins/{$name}/',
