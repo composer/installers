@@ -107,10 +107,6 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | Porto        | `porto-container`
 | ProcessWire  | `processwire-module`
 | RadPHP       | `radphp-bundle`
-| REDAXO       | `redaxo-addon`
-| REDAXO bestyle-plugin | `redaxo-bestyle-plugin`
-| REDAXO V5.*  | `redaxo5-addon`
-| REDAXO V5.*  bestyle-plugin  | `redaxo5-bestyle-plugin`
 | ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
 | Roundcube    | `roundcube-plugin`
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`

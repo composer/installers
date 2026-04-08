@@ -92,8 +92,6 @@ class Installer extends LibraryInstaller
         'porto'        => 'PortoInstaller',
         'processwire'  => 'ProcessWireInstaller',
         'quicksilver'  => 'PantheonInstaller',
-        'redaxo'       => 'RedaxoInstaller',
-        'redaxo5'      => 'Redaxo5Installer',
         'reindex'      => 'ReIndexInstaller',
         'roundcube'    => 'RoundcubeInstaller',
         'shopware'     => 'ShopwareInstaller',
