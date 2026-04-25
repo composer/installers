@@ -378,7 +378,7 @@ class InstallerTest extends TestCase
             array('miaoxing-plugin', 'plugins/my-plugin/', 'shama/my-plugin'),
             array('miaoxing-plugin', 'plugins/MyPlugin/', 'shama/MyPlugin'),
             array('miaoxing-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
-            array('microweber-module', 'userfiles/modules/my-thing/', 'author/my-thing-module'),
+            array('microweber-module', 'Modules/MyThing/', 'author/my-thing-module'),
             array('modulework-module', 'modules/my_package/', 'shama/my_package'),
             array('moodle-mod', 'mod/my_package/', 'shama/my_package'),
             array('october-module', 'modules/my_plugin/', 'shama/my_plugin'),
