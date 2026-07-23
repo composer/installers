@@ -79,7 +79,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | Laravel      | `laravel-library`
 | Lavalite     | `lavalite-theme`<br>`lavalite-package`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
-| Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
+| Magento      | `magento-i18n`<br>`magento-library`<br>`magento-skin`<br>`magento-theme`
 | majima       | `majima-plugin`
 | Mako         | `mako-package`
 | MantisBT     | `mantisbt-plugin`
