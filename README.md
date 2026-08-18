@@ -42,6 +42,7 @@ all vendor code in the vendor directory, and not requiring custom installer code
 | Asgard       | `asgard-module`<br>`asgard-theme`
 | Attogram     | `attogram-module`
 | AGL          | `agl-module`
+| Backdrop     | <b>`backdrop-core`<br>`backdrop-module`<br>`backdrop-theme`</b><br>`backdrop-layout`<br>`backdrop-profile`<br>`backdrop-drush`
 | Bonefish     | `bonefish-package`
 | Botble       | `botble-plugin`<br>`botble-theme`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
