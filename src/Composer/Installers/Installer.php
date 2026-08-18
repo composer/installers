@@ -25,6 +25,7 @@ class Installer extends LibraryInstaller
         'attogram'     => 'AttogramInstaller',
         'agl'          => 'AglInstaller',
         'annotatecms'  => 'AnnotateCmsInstaller',
+        'backdrop'     => 'BackdropInstaller',
         'bitrix'       => 'BitrixInstaller',
         'botble'       => 'BotbleInstaller',
         'bonefish'     => 'BonefishInstaller',
