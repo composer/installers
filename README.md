@@ -287,4 +287,4 @@ removed. Installers won't do this because it would allow a single package
 author to wipe out entire folders without the user's consent. That user would
 then come here to yell at us.
 
-Anyone still wanting this capability should consider requiring <https://github.com/oomphinc/composer-installers-extender>.
+Anyone still wanting this capability should consider requiring <https://github.com/mnsami/composer-custom-directory-installer>; <https://github.com/oomphinc/composer-installers-extender>, previously linked here, was archived in May 2026.
